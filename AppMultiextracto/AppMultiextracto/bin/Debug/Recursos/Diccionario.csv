@@ -1,0 +1,1217 @@
+CODEMP;CLASIFICACIÓN;GRUPO;CODCON;NOMCON;CATCON;CATRET;INDSAL;INDCOS;INDMOR;IND001;IND002;IND003;ESTCON;CODMON;CODSIS;CODPRO;CODTRN;GRUSER
+12345;F;;RESTUVR;Reestructuracion Vivienda UVR;185;746;;;;;;;;0;3;33;50;0
+12345;NA;;devo/exc;Devolucion de Excesos;128;8691;C;C;I;D;F;C;A;0;330;3;500;0
+12345;;Estatutarios;ABOAPO;Aportes (ABONO EXTRA);4002;8699;C;C;N;D;S;F;A;0;14;41;10;0
+12345;NA;;ADMPRT;Administracion Portafolio;19;8699;S;K;N;D;;C;A;0;30;170;500;0
+12345;;Otros;ADM.ASOC;Cuota de Admision Asociado;4179;8699;C;C;N;D;S;F;A;0;14;53;1;0
+12345;;Otros;ADM-ASOC;Cuota de Admision Asociado;4181;8699;C;C;N;D;S;F;A;0;30;211;500;0
+12345;F;;ADMONTD;Tarjeta Debito;4060;8699;C;C;I;D;;C;A;0;50;1;10;0
+12345;;Planes Adicionales Solidaridad;AJU.AUXI;Auxilio Funerario Ajuste;4082;9984;C;Z;N;D;;C;A;0;12;81;510;0
+12345;;Planes Adicionales Solidaridad;AJU.SOLI;Ajuste Solidaridad;4085;9984;C;Z;N;D;;C;A;0;12;81;509;0
+12345;;Planes Adicionales Solidaridad;AJUAUXI.;Auxilio Funerario Ajuste;4087;9984;C;Z;N;D;;C;A;0;12;181;510;0
+12345;;Planes Adicionales Solidaridad;AJUEXEAD;Exequial Adicional;4079;9984;C;Z;N;D;;C;A;0;12;208;510;0
+12345;;Planes Adicionales Solidaridad;AJUEXEQA;Exequial Asociado;4077;9984;C;Z;N;D;;C;A;0;12;206;510;0
+12345;;Planes Adicionales Solidaridad;AJUEXEQF;Exequial F.Directo;4078;9984;C;Z;N;D;;C;A;0;12;207;510;0
+12345;;Planes Adicionales Solidaridad;AJUHOSP;Hospitalizacion;4075;9984;C;Z;N;D;;C;A;0;12;204;510;0
+12345;;Planes Adicionales Solidaridad;AJURECM;Recuperacion Mej.;4074;9984;C;Z;N;D;;C;A;0;12;203;510;0
+12345;;Planes Adicionales Solidaridad;AJUREC11;Recuperacion 11;4072;9984;C;Z;N;D;;C;A;0;12;201;510;0
+12345;;Planes Adicionales Solidaridad;AJUREC5;Recuperacion 5;4073;9984;C;Z;N;D;;C;A;0;12;202;510;0
+12345;;Planes Adicionales Solidaridad;AJUSOLI.;Ajuste Solidaridad;4088;9984;C;Z;N;D;;C;A;0;12;181;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL02;Solvencia 2 Años;4115;9984;C;Z;N;D;;C;A;0;12;187;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL03;Solvencia 3 Años;4116;9984;C;Z;N;D;;C;A;0;12;188;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL04;Solvencia 4 Años;4117;9984;C;Z;N;D;;C;A;0;12;189;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL05;Solvencia 5 Años;4118;9984;C;Z;N;D;;C;A;0;12;190;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL06;Solvencia 6 Años;4061;9984;C;Z;N;D;;C;A;0;12;191;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL07;Solvencia 7 Años;4062;9984;C;Z;N;D;;C;A;0;12;192;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL08;Solvencia 8 Años;4063;9984;C;Z;N;D;;C;A;0;12;193;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL09;Solvencia 9 Años;4064;9984;C;Z;N;D;;C;A;0;12;194;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL10;Solvencia 10 Años;4065;9984;C;Z;N;D;;C;A;0;12;195;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL11;Solvencia 11 Años;4066;9984;C;Z;N;D;;C;A;0;12;196;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL12;Solvencia 12 Años;4067;9984;C;Z;N;D;;C;A;0;12;197;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL13;Solvencia 13 Años;4068;9984;C;Z;N;D;;C;A;0;12;198;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL14;Solvencia 14 Años;4069;9984;C;Z;N;D;;C;A;0;12;199;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOL15;Solvencia 15 Años;4071;9984;C;Z;N;D;;C;A;0;12;200;509;0
+12345;;Planes Adicionales Solidaridad;AJUSOM.;Ajuste Aux.Adi.X.Muerte;4059;9984;C;Z;N;D;;C;A;0;12;185;509;0
+12345;;Planes Adicionales Solidaridad;AJUTRANQ;Tranquilidad;4076;9984;C;Z;N;D;;C;A;0;12;205;510;0
+12345;;Planes Adicionales Solidaridad;AJUVIDA.;Ajuste Vida Hoy y Mañana;4136;8699;C;C;N;D;;C;A;0;12;216;508;0
+12345;;Otros;ANDES;Andes Club;4031;8699;C;C;N;D;;C;A;0;14;44;1;0
+12345;;Otros;ANDES1;Club Anades;4029;8699;C;C;N;D;;C;A;0;14;48;1;0
+12345;;Estatutarios;APORTES;Aportes;4001;8699;C;C;N;D;S;F;A;0;14;41;1;0
+12345;;Seguros;ASISTAFA;Seguro Asista Familiar;527;8699;S;K;N;D;;C;A;0;30;150;500;0
+12345;;Seguros;AUTPESA;Seguro Autos Pesados;566;9436;S;K;N;D;;C;A;0;30;179;500;0
+12345;;Seguros;AUTOAMPB;Seguro Automoviles Amparos Basicos;680;9990;S;K;N;D;;C;A;0;30;186;500;0
+12345;;Estatutarios;AUX.FUN.;Auxilio Funerario;4089;8699;C;C;N;D;;C;A;0;12;181;508;0
+12345;;Estatutarios;AUXFUN;Auxilio Funerario;1300;8700;S;P;N;D;;C;A;0;30;200;500;0
+12345;;Estatutarios;AUXIFUN;Auxilio Funerario;4081;8699;C;C;N;D;;C;A;0;12;81;508;0
+12345;F;Seguros;BANCASEG;Banca Seguros TMK;348;9990;S;K;N;D;;C;A;0;30;239;500;0
+12345;F;;BCODXESP;Credito Bancoldex Linea Especial;1856;7990;S;P;N;D;;C;A;0;30;38;500;0
+12345;F;;BCODXMLT;Credito Bancoldex Multiproducto;1855;7990;S;P;N;D;;C;A;0;30;37;500;0
+12345;F;;BCODXPRG;Credito Bancoldex Progresar;1857;7990;S;P;N;D;;C;A;0;30;39;500;0
+12345;;Otros;C.AVANCE;Comisión Avance con Tarjeta Integradora;4687;8691;S;P;N;D;;C;A;0;20;678;458;0
+12345;NA;;Che-Dev;Cheque Devuelto;48;9984;C;C;I;D;F;C;A;0;330;9;350;0
+12345;F;;ConM.Apl;Concepto Mal Aplicado;1075;8930;S;P;N;D;;C;A;0;30;5;500;0
+12345;;Estatutarios;CALAMID;Calamidad;4021;8699;C;C;N;D;S;C;A;0;14;43;1;0
+12345;F;;CASTIGAD;Castigados;1301;8699;S;P;N;D;;C;A;0;30;500;500;0
+12345;NA;;CED-APO;Cesion Aportes;21;8699;F;k;N;D;F;F;A;0;980;1;210;0
+12345;;Medicina Prepagada;CEMR;CEM Registraduria;4205;8699;C;C;N;D;;C;A;0;16;9;5;0
+12345;NA;;CHQEXCL;Cheque Excluido;9;8699;C;K;I;D;F;F;A;0;980;1;207;0
+12345;;Seguros;CLINIMAS;Seguro Clinimas;503;9970;S;K;N;D;;C;A;0;30;145;500;0
+12345;F;;COEFNG;COE Rotativo FNG;2012;7995;S;P;N;D;;C;A;0;30;42;500;0
+12345;F;;COE.;CREDITOS COE;1033;3213;S;P;N;D;;C;A;0;30;34;500;0
+12345;NA;;COFINOCA;Condonacion Financiacion No Causada;20;8701;F;K;I;D;F;F;A;0;980;1;209;0
+12345;F;;COM.ATM;Comisión ATM Multiservicios;4672;8694;S;P;N;D;;C;A;0;20;678;124;0
+12345;F;;COMTARDE;Cobro cuota tarjeta Visa;7368;7367;C;;N;D;;C;A;0;25;4;119;0
+12345;;Otros;COMTARJE;Cuota Administración Tarjeta Integradora;4674;8691;S;P;N;D;;C;A;0;20;678;123;0
+12345;NA;;CONDONA;Condonacion Intereses de Mora;8;8699;F;K;I;D;F;F;A;0;980;1;203;0
+12345;NA;;CONDOPYG;Condonacion desde PYG;11;8699;F;K;I;D;F;F;A;0;980;1;208;0
+12345;F;;CRORIGI;COMPRA CARTERA ORIGINADOR;1035;9000;S;P;N;D;;C;A;0;30;45;500;0
+12345;F;Financiamiento;CR.EDUC;Credito Educacion;1070;8930;S;P;N;D;;C;A;0;30;50;500;0
+12345;F;Creditos Cooperativos;CR.EMP.;Credito Creacion Empresas;2020;7980;S;P;N;D;;C;A;0;30;30;500;0
+12345;F;;CR.EMPR;COMPRA CARTERA EMPRESARIAL;1034;9000;S;P;N;D;;C;A;0;30;35;500;0
+12345;F;;CR.IPS;Credito Capital Trabajo IPS;2050;7950;S;P;N;D;;C;A;0;30;100;500;0
+12345;F;Financiamiento;CR.PROP;Credito Propiedad Raiz;3020;6980;S;P;N;D;;C;A;0;30;81;500;0
+12345;F;;CR.R.EM;Credito Recuperacion Empresas;2030;7970;S;P;N;D;;C;A;0;30;31;500;0
+12345;F;;CR.SAL.;Credito Salarios Atrasados;1060;8940;S;P;N;D;S;F;A;0;30;41;500;0
+12345;F;Financiamiento;CR.UVR;Credito UVR;3040;6960;S;P;N;D;;C;A;1;30;82;500;0
+12345;F;Financiamiento;CR.VEH.;Credito Vehiculo;1100;8900;S;P;N;D;;C;A;0;30;70;500;0
+12345;F;;CR.APOYO;Credito Apoyo Entidades Solidarias;2040;7960;S;P;N;D;;C;A;0;30;90;500;0
+12345;F;Financiamiento;CR.CALD;Credito Calamidad Domestica;1040;8960;S;P;N;D;;C;A;0;30;40;500;0
+12345;F;Financiamiento;CR.COE;Cartera Ordinaria Empresarial;2005;7995;S;P;N;D;;C;A;0;30;32;500;0
+12345;F;Financiamiento;CR.CONSU;Credito Consumo Personal Natural;1004;9000;S;P;N;D;;C;A;0;30;17;500;0
+12345;F;Financiamiento;CR.CPOSD;Credito Educacion CPOSDE;1080;8920;S;P;N;D;;C;A;0;30;51;500;0
+12345;F;Financiamiento;CR.CUPO;Cupo Activo;1200;8800;S;P;N;D;;C;A;0;30;110;500;0
+12345;F;Financiamiento;CR.Devol;Credito Devolucion Cheque;1072;8930;S;P;N;D;;C;A;0;30;9;500;0
+12345;F;;CR.EDU.M;Educadores en Mora;1237;9876;S;P;N;D;;C;A;0;30;12;500;0
+12345;;Creditos Cooperativos;CR.EMP.M;Credito Creacion Empresas M;2021;7980;S;P;N;D;;C;A;0;30;930;500;0
+12345;F;;CR.INCXC;Credito  Interes-CxC Reestructuraciones;1008;9000;S;P;N;D;;C;A;0;30;18;500;0
+12345;F;Financiamiento;CR.L.INV;Libre Inversion;1000;9000;S;P;N;D;;C;A;0;30;10;500;1
+12345;;Creditos Cooperativos;CR.LI.M;Libre Inversion M;1006;9000;S;P;N;D;;C;A;0;30;910;500;0
+12345;F;Financiamiento;CR.P.OBL;Credito Pago Obligaciones;1020;8980;S;P;N;D;;C;A;0;30;11;500;0
+12345;F;Financiamiento;CR.PROD;Credito Productivo;2001;7999;S;P;N;D;;C;A;0;30;20;500;0
+12345;F;Financiamiento;CR.TES;Credito de Tesoreria;2010;7990;S;P;N;D;;C;A;0;30;33;500;0
+12345;F;Financiamiento;CR.TURIS;Credito Turismo;1090;8910;S;P;N;D;;C;A;0;30;60;500;0
+12345;;Financiamiento;CR.VEH.M;Credito Vehiculo M;1101;8900;S;P;N;D;;C;A;0;30;970;500;0
+12345;;Financiamiento;CR.VI.M;Credito Vivienda M.;3002;9000;S;P;N;D;;C;A;0;30;980;500;0
+12345;F;Financiamiento;CR.VIVCT;Credito Vivienda construccion en pesos;3000;6999;S;P;N;D;;C;A;0;30;85;500;0
+12345;F;Financiamiento;CR.VIVIE;Credito Vivienda;3001;6999;S;P;N;D;;C;A;0;30;80;500;0
+12345;F;;CREDEMVI;Credito Empresas Vinculadas;1854;7461;S;P;N;D;;C;A;0;30;105;500;0
+12345;;Creditos Cooperativos;CRESOLID;Credisolidario;1005;9001;S;P;N;D;;C;A;0;30;410;500;0
+12345;F;Financiamiento;CRVEHCM;Credito Vehículo Comercial;1102;8900;S;P;N;D;;C;A;0;30;71;500;0
+12345;F;;CUOMANTE;Cuota MANTENIMIENTO;4697;8691;S;P;N;D;;C;A;0;25;1;219;0
+12345;F;Financiamiento;CUPCCTE;Cupo Facil Cuenta Corriente;1199;8800;S;P;N;D;;C;A;0;30;102;500;0
+12345;F;Financiamiento;CUPCTEJ;Cupo cuenta corriente P.J.;1201;8800;S;P;N;D;;C;A;0;30;115;500;0
+12345;F;Financiamiento;CUPCTEN;Cupo cuenta corriente P.N.;1204;8881;S;;;;;C;;0;30;114;500;0
+12345;F;;CUPNOMI;Cupo Nomina Facil;1198;8800;S;P;N;D;;C;A;0;30;101;500;0
+12345;F;Financiamiento;CUPOMUL;Cupo Multiservicios;1202;8881;S;P;N;D;;C;A;0;30;112;500;0
+12345;F;Financiamiento;CUPO.ACT;Cupo Activo;1207;8802;;;;;;;;0;20;110;500;0
+12345;F;;C13;Cuota Admon Tarjeta;2632;7367;C;;N;D;;C;A;0;25;1;119;0
+12345;F;;Defecto;Defecto x Reversion de Cheques;1076;8930;S;P;N;D;;C;A;0;30;6;500;0
+12345;NA;;DA.NO.VI;Dacion Inmueble Diferente Vivienda;6;8699;C;K;I;D;F;F;A;0;980;1;205;0
+12345;NA;;DAINMUEB;Dacion Vivienda;50;8699;C;K;I;D;F;F;A;0;980;1;204;0
+12345;NA;;DAMUEBLE;Dacion Bien Mueble;7;8699;C;K;I;D;F;F;A;0;980;1;206;0
+12345;NA;;DEFECTO;Defecto x Reversion de Cheques;2;8699;C;C;I;D;;C;A;0;999;998;997;0
+12345;NA;;DEV.PAGO;Devolucion de Pago. Autoprestamo;1069;8930;S;P;N;D;;C;A;0;330;8;500;0
+12345;F;;DEVEXC;Cheque Devuelto Exceso;30;9999;S;P;N;D;;C;A;0;99;998;1;0
+12345;F;;DEVEXC.;Devolucion de Excesos;2222;1111;S;P;N;D;;C;A;0;30;3;500;0
+12345;NA;;DFONDOSO;Donacion Fondo Solidaridad;14;8700;F;K;I;D;F;F;A;0;980;1;202;0
+12345;NA;;EXCCAP;Exceso x Cobertura Depositos;8990;1010;C;C;I;D;F;F;A;0;999;992;1;0
+12345;NA;;EXCCOL;Exceso x Cobertura Colocaciones;8980;1020;C;C;I;D;F;F;A;0;999;993;1;0
+12345;F;;EXCESO;Saldo a favor Asociado;0;9999;C;C;I;D;F;F;A;0;999;998;1;0
+12345;NA;;EXCEST;Exceso x Cobertura Estatutarias;8970;1030;C;C;I;D;F;F;A;0;999;994;1;0
+12345;NA;;EXCLIQ;Saldo a Favor Asociado;12;9999;C;C;I;D;F;F;A;0;999;997;1;0
+12345;NA;;EXCMUL;Exceso de Multiactiva;1;9999;C;C;I;D;F;F;A;0;999;5;300;0
+12345;NA;;EXCSEG;Exceso de Seguro;9000;1000;C;C;I;D;F;F;A;0;999;995;1;0
+12345;;Planes Adicionales Solidaridad;EXEQUIAA;Exequial Asociado;4112;8699;C;C;N;D;;C;A;0;12;206;508;0
+12345;;Planes Adicionales Solidaridad;EXEQUIFA;Exequial Fam adic;4114;8699;C;C;N;D;;C;A;0;12;208;508;0
+12345;;Planes Adicionales Solidaridad;EXEQUIFD;Exequial Fam Directo;4113;8699;C;C;N;D;;C;A;0;12;207;508;0
+12345;F;Financiamiento;FINDETER;Credito FINDETER;2011;7991;S;P;N;D;;C;A;0;30;36;500;0
+12345;;Otros;FIZEBAD;Afiliacion FIZEBAD;4027;8699;C;C;N;D;;C;A;0;14;46;1;0
+12345;;Seguros;FLE.HOG+;Seguro Flexi Hogar Mas;331;9701;S;K;N;D;;C;A;0;30;169;500;0
+12345;NA;;FONDOSOL;Contribucion Solidaridad;4084;8699;C;K;I;D;F;F;A;0;980;1;996;0
+12345;NA;;FONSOCF;Contribucion Solidaridad Financiera;10;8699;C;K;I;D;F;F;A;0;980;1;305;0
+12345;;Otros;HAITI;Donacion Damnificados Haiti;4000;8699;C;C;N;D;;C;A;0;14;51;1;0
+12345;;Seguros;HOMEEJEC;Home Ejecutivos;529;8899;S;K;N;D;;C;A;0;30;194;500;0
+12345;;Planes Adicionales Solidaridad;HOSPIT;Renta hospitalizac.;4110;8699;C;C;N;D;;C;A;0;12;204;508;0
+12345;F;;IN.OTRO;Intereses Otros;1073;8930;N;P;N;D;;C;A;0;30;183;500;0
+12345;F;;INT.DIAS;Intereses Dias;522;9500;S;F;N;D;;C;A;0;30;180;500;0
+12345;;Otros;IVA-ASOC;IVA CUOTA DE ADMISION ASOCIADO;4182;8699;S;C;N;D;S;F;A;0;30;212;500;0
+12345;;Otros;IVAADM;Iva Cuota Admision Asociados;4180;8699;C;C;N;D;S;F;A;0;14;54;1;0
+12345;F;;KOMTARDE;Cuota Admon Tarjeta Integradora;4450;8691;S;P;N;D;;C;A;0;25;876;123;0
+12345;F;;K13;Cuota Admon Tarjeta;4451;7367;C;;N;D;;C;A;0;25;876;122;0
+12345;F;;L.I.CUCT;Libre Inv. Estrategia Cucuta;1009;9000;S;P;N;D;;C;A;0;30;13;500;0
+12345;F;Financiamiento;L.INV.BS;Libre Inversion Banca Seguros;2900;9000;S;P;N;D;;C;A;0;30;19;500;1
+12345;F;Financiamiento;Linv.Hip;Libre Inversion Garantia Hipotecaria;1002;8998;S;P;N;D;;C;A;0;30;15;500;0
+12345;F;Financiamiento;LIB.IN;Libre Inversion Garantia Prendaria;1003;8997;S;P;N;D;;C;A;0;30;16;500;0
+12345;;Otros;LIB.VIRT;Libreria Virtual;4178;9701;S;K;N;D;;C;A;0;30;210;500;0
+12345;F;Financiamiento;LIBRANZA;Credito Libranza;1001;8999;S;P;N;D;;C;A;0;30;14;500;1
+12345;NA;;LIBREASG;Libre Asignacion;560;7461;S;F;N;D;;C;A;0;30;310;500;0
+12345;;Otros;MACARENA;Afiliacion Macarena;4033;8699;C;C;N;D;;C;A;0;14;45;1;0
+12345;;Otros;MERCADO;Mercados para Asociados;4170;9701;S;K;N;D;;C;A;0;30;199;500;0
+12345;F;;MULTISER;T.MULTISERVICIOS;900;9000;S;P;N;D;;C;A;0;20;678;500;0
+12345;F;;N.D-DEPO;Nota Debito vs Depositos;2300;9700;S;P;N;D;;C;A;0;30;8;500;0
+12345;NA;;ND1;Cruce Mal Aplicado;46;8699;C;C;I;D;F;C;A;0;330;5;350;0
+12345;NA;;NOTADEB;Debitos x Correccion;3;8699;C;K;I;D;F;C;A;0;980;1;200;0
+12345;;Medicina Prepagada;OOOBPU;IVA Med. Prepagada Programa OBPU;5036;8840;C;C;N;D;;C;A;0;16;16;5;0
+12345;NA;;ORDPAGMU;Orden Pago de Cta Mult;7777;7777;C;C;N;D;S;F;A;0;165;1;2;0
+12345;NA;;ORDPAGM2;Orden de Pago Mul 2;7778;7777;C;C;N;D;S;F;A;0;165;2;2;0
+12345;;Medicina Prepagada;ORO4;Convenio Club Eje Cafetero;4699;8699;C;C;N;D;;C;A;0;16;6;4;0
+12345;;Medicina Prepagada;ORUM;Oro Unisys (Medellin);4206;8699;C;C;N;D;;C;A;0;16;9;6;0
+12345;F;;OTROS;Otras Obligaciones;521;9700;S;P;N;D;;C;A;0;30;120;500;0
+12345;F;;PagoMal;Pago Mal Aplicado;1074;8930;S;P;N;D;;C;A;0;30;4;500;0
+12345;NA;;PAG.ENT;Saldo a Favor de una Entidad;8100;8100;C;C;I;D;F;F;A;0;999;920;1;0
+12345;;Seguros;PAGOSEG;Pago Seguro;627;8799;S;K;N;D;;C;A;0;30;163;500;0
+12345;;Otros;PAGOINTM;PAGOS ESPECIALES MUL;1077;8930;C;C;N;D;S;F;A;0;14;55;1;0
+12345;F;;PAPDESTI;Ahorro Programado Destinos;4125;8699;C;C;N;D;S;F;A;0;14;65;1;0
+12345;F;;PAPESP;Plan Ahorro Programado;4129;8699;C;C;N;D;S;F;A;0;14;64;1;0
+12345;F;Financiamiento;PAP05;Ahorro Programado P05;4119;8699;C;C;N;D;S;F;A;0;14;60;1;0
+12345;F;Financiamiento;PAP06;Ahorro Programado P06;4121;8699;C;C;N;D;S;F;A;0;14;61;1;0
+12345;F;Financiamiento;PAP07;Ahorro Programado P07;4127;8699;C;C;N;D;S;F;A;0;14;62;1;0
+12345;F;Financiamiento;PAP08;Ahorro Programado P08;4123;8699;C;C;N;D;S;F;A;0;14;63;1;0
+12345;F;;PAP66;Ahorro Programado P66;4130;8699;C;C;N;D;S;F;A;0;14;66;1;0
+12345;F;;PAP67;Ahorro Programado P67;4131;8699;C;C;N;D;S;F;A;0;14;67;1;0
+12345;F;Financiamiento;PAP68;Plan PAP68 Persona Juridica;5100;8899;C;C;N;D;S;F;A;0;14;68;1;0
+12345;F;Financiamiento;PAP69;Plan PAP69 Jovenes Asociados;5108;8891;C;C;N;D;S;F;A;0;14;69;1;0
+12345;F;Financiamiento;PAP70;Plan PAP Vacaciones;4133;8799;C;C;N;D;S;F;A;0;14;70;1;0
+12345;F;Financiamiento;PAP71;Plan PAP Vehiculo;4139;8899;C;C;N;D;S;F;A;0;14;71;1;0
+12345;F;Financiamiento;PAP72;Plan PAP Educacion;4229;8999;C;C;N;D;S;F;A;0;14;72;1;0
+12345;F;Financiamiento;PAP73;Plan PAP Vivienda;4429;8999;C;C;N;D;S;F;A;0;14;73;1;0
+12345;F;Financiamiento;PAP74;Plan PAP Empresarial;4430;8999;C;C;N;D;S;F;A;0;14;74;1;0
+12345;F;;PAP75;Plan PAP Jovenes Asociados;4443;8799;C;C;N;D;S;F;A;0;14;75;1;0
+12345;F;Financiamiento;PAP77;Plan PAP Vivienda;4444;8999;C;C;N;D;S;F;A;0;14;77;1;0
+12345;F;Financiamiento;PAP78;Plan PAP Vivienda;4445;8999;C;C;N;D;S;F;A;0;14;78;1;0
+12345;F;Financiamiento;PAP79;PAP 2-ANIVERSARIO;4446;8999;C;C;N;D;S;F;A;0;14;79;1;0
+12345;;Seguros;PLAN100L;Plan 100L Compania Liberty Seguros;676;9324;S;K;N;D;;C;A;0;30;175;500;0
+12345;;Otros;POBLADO;Corporacion Poblado;4035;8699;C;C;N;D;;C;A;0;14;47;1;0
+12345;;Seguros;POCUMPTO;POLIZA CUMPLIMIENTO;682;9980;S;K;N;D;;C;A;0;30;189;500;0
+12345;;Seguros;PRO.EDUC;Seguro Protección Educativa;4083;7461;C;Z;N;D;;C;A;0;12;83;514;0
+12345;;Seguros;PROEDUC.;Seguro Protección Educativa;4090;7461;C;Z;N;D;;C;A;0;12;183;514;0
+12345;;Seguros;PROT.EDU;Seguros Proteccion Educativa;504;8699;S;K;N;D;;C;A;0;30;134;500;0
+12345;;Seguros;RCMED;RC MEDICA;678;9703;S;K;N;D;;C;A;0;30;177;500;0
+12345;;Seguros;RCCOBEXT;Responsabilidad Médica Dos;677;9703;S;K;N;D;;C;A;0;30;176;500;0
+12345;;Seguros;RCCUMPTO;POL RC CUMPLIMIENTO;681;9980;S;K;N;D;;C;A;0;30;188;500;0
+12345;NA;;RE.FI.PR;Retiro Financiacion Proporcional;28;8701;F;K;I;D;F;F;A;0;980;1;215;0
+12345;;Estatutarios;RECREA;Fondo Recreacion;4011;8699;C;C;N;D;;C;A;0;14;42;1;0
+12345;;Planes Adicionales Solidaridad;RECUPM5;Mejora incap Temp 5;4108;8699;C;C;N;D;;C;A;0;12;202;508;0
+12345;;Planes Adicionales Solidaridad;RECUP11;Mejora incap Temp 11;4107;8699;C;C;N;D;;C;A;0;12;201;508;0
+12345;;Planes Adicionales Solidaridad;RECUP5;Mejora incap Temp 5;4109;8699;C;C;N;D;;C;A;0;12;203;508;0
+12345;;Creditos Cooperativos;REESTCO;REESTRUCTURACION COMERCIAL;1858;9000;S;P;N;D;;C;A;0;30;960;500;0
+12345;;Creditos Cooperativos;REESTCRS;Reestructuracion credisolidario;1007;9000;S;P;N;D;;C;A;0;30;450;500;0
+12345;;Seguros;RENTAHG;Seguro Renta Hogar;671;9886;S;K;N;D;;C;A;0;30;167;500;0
+12345;F;;RES.COM.;Reestructuración Credito Comercial;564;7461;S;F;N;D;;C;A;0;30;350;500;0
+12345;F;;RES.VIS;Reestructuracion VIS;3022;6978;S;P;N;D;;C;A;0;30;325;500;0
+12345;F;;RESTMICR;Reestructuracion Microcredito;1853;7461;S;P;N;D;;C;A;0;30;340;500;0
+12345;F;;RESTPESO;Reestructuracion Pesos;1850;7461;S;P;N;D;;C;A;0;30;300;500;0
+12345;F;;RESTUVR;Reestructuracion Vivienda UVR;1852;7461;S;P;N;D;;C;A;0;30;330;500;0
+12345;F;;RESTVIV;Reestructuracion Vivienda Pesos;1851;7461;S;P;N;D;;C;A;0;30;320;500;0
+12345;NA;;REV-ESTA;Reversion Cuota Estatutaria;16;9986;C;K;I;D;F;F;A;0;999;998;100;0
+12345;NA;;REXCESO;Aplicacion de Exceso;4;8699;C;C;I;D;;C;A;0;999;998;2;0
+12345;F;;RE1TUVR;Reestructuracion Vivienda UVR;1111;7461;S;P;N;D;;C;A;1;30;330;500;0
+12345;;Seguros;RUNT;RUNT;679;9703;S;K;N;D;;C;A;0;30;178;500;0
+12345;;Seguros;S.RC.CLI;Seguros RC Clinicas y Hospitales;565;9435;S;K;N;D;;C;A;0;30;181;500;0
+12345;;Seguros;S.RC.Exc;Seguro RC. en Exceso;524;8699;S;K;N;D;;C;A;0;30;157;500;0
+12345;;Seguros;Seg+Prot;Seguro Mas Proteccion;523;8699;S;K;N;D;;C;A;0;30;158;500;0
+12345;F;;Sobregir;Sobregiro;4070;920;S;P;N;D;;C;A;0;30;190;500;0
+12345;;Seguros;SEGACCI;Seguro Accidentes;514;8699;S;K;N;D;;C;A;0;30;147;500;0
+12345;;Seguros;SEGAUTO;Autoclub Cali;517;8699;S;K;N;D;;C;A;0;30;149;500;0
+12345;;Seguros;SEGCAST;Seguros Castigados;530;7461;N;K;N;D;;C;A;0;30;600;500;0
+12345;;Seguros;SEGCIVI;Seguro Responsabilidad Civil;518;8699;S;K;N;D;;C;A;0;30;132;500;0
+12345;;Seguros;SEGCUBR;Seguro Cubremas;520;8699;S;K;N;D;;C;A;0;30;146;500;0
+12345;;Seguros;SEGCUMP;Seguro Poliza Cumplimiento;519;8699;S;K;N;D;;C;A;0;30;133;500;0
+12345;;Seguros;SEGELEC;Seguro Equipo Electrico;516;8699;S;K;N;D;;C;A;0;30;131;500;0
+12345;;Seguros;SEGEMBA;Seguro Embarcacion;510;8699;S;K;N;D;;C;A;0;30;141;500;0
+12345;;Seguros;SEGEQUI;Seguro Equipo Maquinaria;511;8699;S;K;N;D;;C;A;0;30;142;500;0
+12345;;Seguros;SEGGAP;Seguros Plan 100 %;526;7461;S;K;N;D;;C;A;0;30;152;500;0
+12345;;Seguros;SEGHOGA;Seguro Hogarmas;505;8699;S;K;N;D;;C;A;0;30;136;500;0
+12345;;Seguros;SEGINCE;Seguro Incendio;507;8699;S;K;N;D;;C;A;0;30;138;500;0
+12345;;Seguros;SEGMOTO;Seguro Poliza de Motos;563;9701;S;K;N;D;;C;A;0;30;165;500;0
+12345;;Seguros;SEGPAGP;Seguro Pago Protegido;672;9702;S;K;N;D;;C;A;0;30;171;500;0
+12345;;Seguros;SEGPHOG;Seguro Poliza Hogar;515;8699;S;K;N;D;;C;A;0;30;148;500;0
+12345;;Seguros;SEGPLAN;Seguros Plan Seguros;506;8699;S;K;N;D;;C;A;0;30;137;500;0
+12345;;Seguros;SEGPYMA;Seguro Pymemas;673;9703;S;K;N;D;;C;A;0;30;172;500;0
+12345;;Seguros;SEGPYME;Seguros Pyme;513;8699;S;K;N;D;;C;A;0;30;135;500;0
+12345;;Seguros;SEGRENT;Seguro Renta Hospitalaria;512;8699;S;K;N;D;;C;A;0;30;143;500;0
+12345;;Seguros;SEGRESC;Seguro Resp Civil Contractual;525;7461;S;K;N;D;;C;A;0;30;151;500;0
+12345;;Seguros;SEGROTU;Seguros Rotura Maquinaria;509;8699;S;K;N;D;;C;A;0;30;140;500;0
+12345;;Seguros;SEGSUST;Seguros Sustraccion;508;8699;S;K;N;D;;C;A;0;30;139;500;0
+12345;;Seguros;SEGTAMP;Seg. Tarjeta Protegida;528;8899;S;K;N;D;;C;A;0;30;164;500;0
+12345;;Seguros;SEGVIDA;Seguro Vida Deudores;561;8713;S;K;N;D;;C;A;0;30;121;500;0
+12345;;Seguros;SEGVIDM;Seguro Vida Deudores Credisolidario;562;8713;S;K;N;D;;C;A;0;30;421;500;0
+12345;;Seguros;SEG.A.EJ;Seguro Auto Ejecutivo;332;9701;S;K;N;D;;C;A;0;30;168;500;0
+12345;;Seguros;SEG.DEPO;Seguro de Deposito;32;8700;N;K;I;D;F;F;A;0;980;1;222;0
+12345;;Seguros;SEG.SOAT;Seguro Obligatorio;502;9980;S;K;N;D;;C;A;0;30;144;500;0
+12345;;Seguros;SEG.TAXI;Seguros Taxis;670;9887;S;K;N;D;;C;A;0;30;166;500;0
+12345;;Seguros;SEG.VEH.;Seguros Vehiculos;501;9990;S;K;N;D;;C;A;0;30;130;500;0
+12345;;Seguros;SEG.VEHI;Seguro de Vehiculo;31;8700;N;K;I;D;F;F;A;0;980;1;221;0
+12345;;Seguros;SEG.VIDA;Seguro de Vida;29;8700;N;K;I;D;F;F;A;0;980;1;220;0
+12345;;Seguros;SEGAUTBO;Auto Club Bogota;617;8699;S;K;N;D;;C;A;0;30;154;500;0
+12345;;Seguros;SEGAUTMD;Auto Club Medellin;619;8711;S;K;N;D;;C;A;0;30;153;500;0
+12345;;Seguros;SEGAUTOS;Poliza Autos Modular;675;9703;S;K;N;D;;C;A;0;30;174;500;0
+12345;F;;SEGCF;Seguros Vehiculos Clientes CF;334;9991;S;K;N;D;;C;A;0;30;234;500;0
+12345;F;;SEGEQECF;Seguro Equipo Electronico;339;9990;S;K;N;D;;C;A;0;30;222;500;0
+12345;F;Seguros;SEGHOGCF;Seguros Hogarmas CF;335;9990;S;K;N;D;;C;A;0;30;214;500;0
+12345;F;;SEGICLCF;Seguro Incendio Clientes CF;347;9991;S;K;N;D;;C;A;0;30;238;500;0
+12345;F;Seguros;SEGINCCF;Seguro Incendios CF;336;9990;S;K;N;D;;C;A;0;30;216;500;0
+12345;F;Seguros;SEGMOTCF;Seguro Motos CF;337;9990;S;K;N;D;;C;A;0;30;218;500;0
+12345;F;;SEGMTCCF;Seguro Moto Cliente CF;343;9991;S;K;N;D;;C;A;0;30;235;500;0
+12345;;Seguros;SEGMYCAR;Poliza MY CAR;674;9703;S;K;N;D;;C;A;0;30;173;500;0
+12345;F;;SEGPYMCF;Seguro Pyme CF;340;9990;S;K;N;D;;C;A;0;30;223;500;0
+12345;F;;SEGSUSCF;Seguro Sustraccion CF;338;9990;S;K;N;D;;C;A;0;30;221;500;0
+12345;F;;SEGTAXCF;Seguro Taxis CF;341;9990;S;K;N;D;;C;A;0;30;224;500;0
+12345;F;;SEGTXCCF;Seguros Taxi Cliente Coomeva Financiera;344;9991;S;K;N;D;;C;A;0;30;236;500;0
+12345;F;Seguros;SEGVEHCF;Seguros Vehiculos CF;333;9990;S;K;N;D;;C;A;0;30;215;500;0
+12345;F;;SEGVEHCG;Seguros Vehiculos Pesados Clientes CF;342;9991;S;K;N;D;;C;A;0;30;237;500;0
+12345;;Otros;SERCOOME;SERCOFUN SERCOOME;4049;8699;C;C;N;D;;C;A;0;14;49;1;0
+12345;;Otros;SERCOOMF;SERCOFUN SERCOOMF FAMILIAR;4050;8699;C;C;N;D;;C;A;0;14;50;1;0
+12345;F;Seguros;SG.VIDAM;Seguro Vida Deudores Mult;567;9701;S;K;N;D;;C;A;0;30;251;500;0
+12345;NA;;SINIESTR;Pago Siniestros;27;8699;F;K;I;D;F;F;A;0;980;1;211;0
+12345;NA;;SOBREGIR;Sobregiro;1071;8930;S;P;N;D;;C;A;0;330;190;500;0
+12345;;Planes Adicionales Solidaridad;SOLIDAM.;Aux.Adi.x Muerte;4092;8699;S;C;N;D;S;F;A;0;12;185;517;0
+12345;;Estatutarios;SOLIDAR.;Fondo Solidaridad;4091;8699;S;C;N;D;S;F;A;0;12;181;507;0
+12345;;Estatutarios;SOLIDARE;FONDO SOLIDARIDAD ESPECIAL;4120;8880;S;C;N;D;S;F;A;0;12;210;517;0
+12345;;Estatutarios;SOLIDARI;Fondo Solidaridad;4080;8699;S;C;N;D;S;F;A;0;12;81;507;0
+12345;;Planes Adicionales Solidaridad;SOLIDARM;Aux.Adi.x Muerte;4086;8699;S;C;N;D;S;F;A;0;12;85;517;0
+12345;;Planes Adicionales Solidaridad;SOLVEN02;Solvencia 2 Años;4093;8699;S;C;N;D;S;F;A;0;12;187;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN03;Solvencia 3 Años;4094;8699;S;C;N;D;S;F;A;0;12;188;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN04;Solvencia 4 Años;4095;8699;S;C;N;D;S;F;A;0;12;189;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN05;Solvencia 5 Años;4096;8699;S;C;N;D;S;F;A;0;12;190;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN06;Solvencia 6 Años;4097;8699;S;C;N;D;S;F;A;0;12;191;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN07;Solvencia 7 Años;4098;8699;S;C;N;D;S;F;A;0;12;192;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN08;Solvencia 8 Años;4099;8699;S;C;N;D;S;F;A;0;12;193;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN09;Solvencia 9 Años;4100;8699;S;C;N;D;S;F;A;0;12;194;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN10;Solvencia 10 Años;4101;8699;S;C;N;D;S;F;A;0;12;195;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN11;Solvencia 11 Años;4102;8699;S;C;N;D;S;F;A;0;12;196;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN12;Solvencia 12 Años;4103;8699;S;C;N;D;S;F;A;0;12;197;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN13;Solvencia 13 Años;4104;8699;S;C;N;D;S;F;A;0;12;198;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN14;Solvencia 14 Años;4105;8699;S;C;N;D;S;F;A;0;12;199;507;0
+12345;;Planes Adicionales Solidaridad;SOLVEN15;Solvencia 15 Años;4106;8699;S;C;N;D;S;F;A;0;12;200;507;0
+12345;;Planes Adicionales Solidaridad;SOLVE02E;Solvencia 2 Años Especial;4122;8881;S;C;N;D;S;F;A;0;12;211;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE03E;Solvencia 3 años Especial;4124;8881;S;C;N;D;S;F;A;0;12;212;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE04E;Solvencia 4 años Especial;4126;8882;S;C;N;D;S;F;A;0;12;213;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE05E;Solvencia 5 años Especial;4128;8883;S;C;N;D;S;F;A;0;12;214;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE06E;Solvencia 6 años Especial;4132;8886;S;C;N;D;S;F;A;0;12;216;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE07E;Solvencia 7 años Especial;4134;8881;S;C;N;D;S;F;A;0;12;217;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE08E;Solvencia 8 años Especial;4137;8889;S;C;N;D;S;F;A;0;12;218;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE09E;Solvencia 9 años Especial;4138;8891;S;C;N;D;S;F;A;0;12;219;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE10E;Solvencia 10 años Especial;4140;8892;S;C;N;D;S;F;A;0;12;220;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE11E;Solvencia 11 años Especial;4141;8897;S;C;N;D;S;F;A;0;12;221;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE12E;Solvencia 12 años Especial;4142;8893;S;C;N;D;S;F;A;0;12;222;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE13E;Solvencia 13 años Especial;4143;8893;S;C;N;D;S;F;A;0;12;223;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE14E;Solvencia 14 años Especial;4144;8894;S;C;N;D;S;F;A;0;12;224;517;0
+12345;;Planes Adicionales Solidaridad;SOLVE15E;Solvencia 15 años Especial;4145;8896;S;C;N;D;S;F;A;0;12;225;517;0
+12345;F;;Tar.Emp.;Tarjeta Empresarial;903;9000;S;P;N;D;;C;A;0;20;4;500;0
+12345;NA;;Tras/Cre;Abonos para Correccion;5;9994;C;K;I;D;F;F;A;0;980;1;201;0
+12345;NA;;Tras/Deb;Pago Mal Aplicado;26;8699;C;C;I;D;F;C;A;0;330;4;350;0
+12345;F;;TCCONV.;Cupo Tacre Conv. Pers. Juridica;905;9000;S;P;N;D;;C;A;0;20;6;500;0
+12345;F;;TC.CLAS;Pago Minimo TC.Clasi;904;9000;S;P;N;D;;C;A;0;20;5;500;0
+12345;F;;TC.ORO;Pago Minimo TC.Oro;902;9000;S;P;N;D;;C;A;0;20;3;500;0
+12345;F;;TC.PLAT;Pago Minimo TC.Plati;901;9000;S;P;N;D;;C;A;0;20;2;500;0
+12345;;Otros;TELEFONI;Plan Telefonica;4171;9701;S;K;N;D;;C;A;0;30;198;500;0
+12345;;Otros;TELEFON2;Plan Telefonica 2;4172;9701;S;K;N;D;;C;A;0;30;201;500;0
+12345;;Otros;TELEFON3;Plan Telefonica 3;4173;9701;S;K;N;D;;C;A;0;30;202;500;0
+12345;;Otros;TELEFON4;Plan Telefonica 4;4174;9701;S;K;N;D;;C;A;0;30;203;500;0
+12345;;Otros;TELEFON5;Plan Telefonica 5;4175;9701;S;K;N;D;;C;A;0;30;204;500;0
+12345;;Otros;TELEFON6;Plan Telefonica 6;4176;9701;S;K;N;D;;C;A;0;30;205;500;0
+12345;;Otros;TELEFON7;Plan Telefonica 7;4177;9701;S;K;N;D;;C;A;0;30;209;500;0
+12345;F;Seguros;TMKBSEG;Tmk Bancaseguros;531;9701;S;K;N;D;;C;A;0;30;182;500;0
+12345;;Planes Adicionales Solidaridad;TRANQUIL;Enfermedades graves;4111;8699;C;C;N;D;;C;A;0;12;205;508;0
+12345;F;;UCASTIG;Conceptos Castigados;550;7461;S;K;N;D;;C;A;0;30;700;500;0
+12345;F;;UVR.Cons;UVR para Construccion;3041;6959;S;P;N;D;;C;A;1;30;83;500;0
+12345;;Planes Adicionales Solidaridad;VIDACLAS;Vida Clasica;4161;8775;C;C;N;D;;C;A;0;12;235;517;0
+12345;;Planes Adicionales Solidaridad;VIDAHM;Accident. Personales;4135;8775;C;C;N;D;;C;A;0;12;215;508;0
+12345;F;;VISUVR;Vivienda Interes Social UVR;3042;6960;S;P;N;D;;C;A;1;30;86;500;0
+12345;F;;VIV.VIS;Vivienda VIS;3021;6979;S;P;N;D;;C;A;0;30;84;500;0
+12345;;Medicina Prepagada;04ADFU;IVA A¦os Dorados Oro Fundadores;4204;8699;C;C;N;D;;C;A;0;16;9;4;0
+12345;;Medicina Prepagada;04ADOP;Iva Anos Dorados Oro POS;4573;4572;C;C;N;D;;C;A;0;16;12;5;0
+12345;;Medicina Prepagada;04ADOR;Iva Anos Dorados Oro;4583;4580;C;C;N;D;;C;A;0;16;12;6;0
+12345;;Medicina Prepagada;04ADTR;Cobro Salud;4901;8840;C;C;N;D;;C;A;0;16;18;70;0
+12345;;Medicina Prepagada;04AHCM;Iva Plan Anos Dorados HMC;4591;4590;C;C;N;D;;C;A;0;16;12;7;0
+12345;;Medicina Prepagada;04ANDO;Iva Anos Dorados Clasico;4533;4532;C;C;N;D;;C;A;0;16;12;1;0
+12345;;Medicina Prepagada;04ANDP;Iva Anos Dorados Clasico con POS;4543;4542;C;C;N;D;;C;A;0;16;12;2;0
+12345;;Medicina Prepagada;04AND1;Iva Anos Dorados Plata;4553;4552;C;C;N;D;;C;A;0;16;12;3;0
+12345;;Medicina Prepagada;04AN1P;Iva Anos Dorados Plata con POS;4563;4562;C;C;N;D;;C;A;0;16;12;4;0
+12345;;Medicina Prepagada;04APRU;IVA Med. Prepagada Programa APRU;4532;4532;C;C;N;D;;C;A;0;16;12;0;0
+12345;;Medicina Prepagada;04ASOC;Iva Medicina Prepagada Programa Asociado;4818;8818;C;C;N;D;;C;A;0;16;18;57;0
+12345;;Medicina Prepagada;04BPLU;Iva M.P. Prog. Bebe Gestante Oro Plus;4823;8821;C;C;N;D;;C;A;0;16;18;62;0
+12345;;Medicina Prepagada;04CEAP;Cobro Salud;4963;8840;C;C;N;D;;C;A;0;16;18;132;0
+12345;;Medicina Prepagada;04CEAS;Cobro Salud;4966;8840;C;C;N;D;;C;A;0;16;18;135;0
+12345;;Medicina Prepagada;04CEAT;Iva Med.Prep Prog. Cem Promocion;4999;8840;C;C;N;D;;C;A;0;16;18;168;0
+12345;;Medicina Prepagada;04CEFE;Iva Med.Prepagada Programa Cem;5014;8840;C;C;N;D;;C;A;0;16;18;184;0
+12345;;Medicina Prepagada;04CEFG;Iva Med.Prep Programa Cem Grupo Familiar;5008;8840;C;C;N;D;;C;A;0;16;18;178;0
+12345;;Medicina Prepagada;04CEFO;Iva Med.Prepagada Programa Cem;5017;8840;C;C;N;D;;C;A;0;16;18;187;0
+12345;;Medicina Prepagada;04CEGF;Cobro Salud;4969;8840;C;C;N;D;;C;A;0;16;18;138;0
+12345;;Medicina Prepagada;04CEM;Iva Coomeva Emergencias Medicas;4725;4720;C;C;N;D;;C;A;0;16;18;1;0
+12345;;Medicina Prepagada;04CEMA;Cobro CEM;4902;8840;C;C;N;D;;C;A;0;16;18;71;0
+12345;;Medicina Prepagada;04CEMC;Iva Coomeva Emergencias Medicas;4750;4750;C;C;N;D;;C;A;0;16;18;19;0
+12345;;Medicina Prepagada;04CEMH;Cobro Salud;4909;8840;C;C;N;D;;C;A;0;16;18;78;0
+12345;;Medicina Prepagada;04CEMJ;Cobro Salud;4910;8840;C;C;N;D;;C;A;0;16;18;79;0
+12345;;Medicina Prepagada;04CEMO;Cobro Iva Emergencia Medicas;4768;4768;C;C;N;D;;C;A;0;16;18;32;0
+12345;;Medicina Prepagada;04CEMS;Iva Coomeva Emergencias Medicas;4835;4835;C;C;N;D;;C;A;0;16;18;37;0
+12345;;Medicina Prepagada;04CEMZ;Iva Emergencia Medicas;4841;8840;C;C;N;D;;C;A;0;16;18;42;0
+12345;;Medicina Prepagada;04CEM1;Iva Coomeva Emergencias Medicas Programa;4739;4730;C;C;N;D;;C;A;0;16;18;2;0
+12345;;Medicina Prepagada;04CEM3;Iva Emergencia Promocion Oro;4741;4734;C;C;N;D;;C;A;0;16;18;7;0
+12345;;Medicina Prepagada;04CEM4;Iva Emergencias Medicas Promocion CEM4;4744;4720;C;C;N;D;;C;A;0;16;18;11;0
+12345;;Medicina Prepagada;04CEM7;Iva Coomeva Emergencias Medicas 7;4761;4761;C;C;N;D;;C;A;0;16;18;27;0
+12345;;Medicina Prepagada;04CEM8;Iva Coomeva Emergencias Medicas;4755;4755;C;C;N;D;;C;A;0;16;18;17;0
+12345;;Medicina Prepagada;04CEPD;Iva Med.Prep Prog. Cem con Plus y Dental;4993;8840;C;C;N;D;;C;A;0;16;18;162;0
+12345;;Medicina Prepagada;04CEPO;Iva Med.Prep Prog. Cem con Plus;4996;8840;C;C;N;D;;C;A;0;16;18;165;0
+12345;;Medicina Prepagada;04CEPR;Cobro Salud;4973;8840;C;C;N;D;;C;A;0;16;18;142;0
+12345;;Medicina Prepagada;04CEPS;Cobro Salud;4903;8840;C;C;N;D;;C;A;0;16;18;72;0
+12345;;Medicina Prepagada;04CERP;Iva Med.Prepagada Programa Cem con Plus;4990;8840;C;C;N;D;;C;A;0;16;18;159;0
+12345;;Medicina Prepagada;04CLAP;Iva Clasico con POS;4641;4640;C;C;N;D;;C;A;0;16;14;2;0
+12345;;Medicina Prepagada;04CLAS;Iva Plan Clasico;4633;4630;C;C;N;D;;C;A;0;16;14;1;0
+12345;;Medicina Prepagada;04EVEM;Iva Obseq. Emergencias Medicas;4743;4738;C;C;N;D;;C;A;0;16;18;10;0
+12345;;Medicina Prepagada;04HCM;Iva Hospitalizacion,Cirugia y Maternidad;4713;4712;C;C;N;D;;C;A;0;16;17;1;0
+12345;;Medicina Prepagada;04OESP;Iva Oro Especial Dirigido;4748;4720;C;C;N;D;;C;A;0;16;18;15;0
+12345;;Medicina Prepagada;04ORFA;Iva Med.Prepagada Programa Oro;5026;8840;C;C;N;D;;C;A;0;16;18;196;0
+12345;;Medicina Prepagada;04ORFE;Iva Med.Prepagada Programa Oro;5023;8840;C;C;N;D;;C;A;0;16;18;193;0
+12345;;Medicina Prepagada;04ORFU;Iva Oro Fundadores;4201;8699;C;C;N;D;;C;A;0;16;9;2;0
+12345;;Medicina Prepagada;04ORO;Iva Plan Oro;4673;4670;C;C;N;D;;C;A;0;16;16;1;0
+12345;;Medicina Prepagada;04OROO;Iva Plan Oro Bebe Gestante;4691;4690;C;C;N;D;;C;A;0;16;16;3;0
+12345;;Medicina Prepagada;04OROP;Iva Plan Oro con POS;4681;4680;C;C;N;D;;C;A;0;16;16;2;0
+12345;;Medicina Prepagada;04OROT;Cobro Salud;4911;8840;C;C;N;D;;C;A;0;16;18;80;0
+12345;;Medicina Prepagada;04ORPU;IVA Med. Prepagada Programa ORPU;5033;8840;C;C;N;D;;C;A;0;16;16;4;0
+12345;;Medicina Prepagada;04PBPR;Iva Med.Prepagada Programa Oro Plus;4981;8840;C;C;N;D;;C;A;0;16;18;150;0
+12345;;Medicina Prepagada;04PLAP;Iva Plan Plata con POS;4661;4660;C;C;N;D;;C;A;0;16;15;2;0
+12345;;Medicina Prepagada;04PLAT;Iva Plan Plata;4651;4650;C;C;N;D;;C;A;0;16;15;1;0
+12345;;Medicina Prepagada;04PLFE;Iva Med.Prepagada Programa Oro Plus;5029;8840;C;C;N;D;;C;A;0;16;18;199;0
+12345;;Medicina Prepagada;04PLPR;Iva Med.Prepagada Programa Oro Plus;5005;8840;C;C;N;D;;C;A;0;16;18;175;0
+12345;;Medicina Prepagada;04PLUP;Cobro Salud iva cuota plus;4957;8841;C;C;N;D;;C;A;0;16;18;126;0
+12345;;Medicina Prepagada;04PLUS;Iva Med Prepagada Programa Oro Plus;4820;8820;C;C;N;D;;C;A;0;16;18;59;0
+12345;;Medicina Prepagada;04SAOJ;Cobro Salud;4978;8840;C;C;N;D;;C;A;0;16;18;147;0
+12345;;Medicina Prepagada;04SAOR;Iva Plan Salud Oral;4621;4620;C;C;N;D;;C;A;0;16;13;3;0
+12345;;Medicina Prepagada;04SAOZ;Cobro Salud;4904;8840;C;C;N;D;;C;A;0;16;18;73;0
+12345;;Medicina Prepagada;04SAO1;Iva Salud Oral Otros Programas;4611;4610;C;C;N;D;;C;A;0;16;13;2;0
+12345;;Medicina Prepagada;04SAO2;Iva Plan Salud Oral Oro;4601;4600;C;C;N;D;;C;A;0;16;13;1;0
+12345;;Medicina Prepagada;04SAPR;Iva Med.Prepagada Programa Salud Oral co;4984;8840;C;C;N;D;;C;A;0;16;18;153;0
+12345;;Medicina Prepagada;04SATC;Iva Salud SAOR;4847;8840;C;C;N;D;;C;A;0;16;18;47;0
+12345;;Medicina Prepagada;04SAT1;Iva Salud SAOR;4849;8840;C;C;N;D;;C;A;0;16;18;49;0
+12345;;Medicina Prepagada;04SAT2;Iva Salud SAOR;4851;8851;C;C;N;D;;C;A;0;16;18;51;0
+12345;;Medicina Prepagada;04SIFE;Iva Med.Prepagada Programa Plata Joven;5011;8840;C;C;N;D;;C;A;0;16;18;181;0
+12345;;Medicina Prepagada;04SILV;Iva Med.Prepagada Programa Plata Joven;4819;8819;C;C;N;D;;C;A;0;16;18;58;0
+12345;;Medicina Prepagada;04SIPR;Iva Med.Prepagada Programa Plata Joven;5020;8840;C;C;N;D;;C;A;0;16;18;190;0
+12345;;Medicina Prepagada;04SOEB;Cobro Salud;4960;8840;C;C;N;D;;C;A;0;16;18;129;0
+12345;;Medicina Prepagada;04SOEL;Cobro Salud;4912;8840;C;C;N;D;;C;A;0;16;18;81;0
+12345;;Medicina Prepagada;04SOE1;Cobro Salud;4913;8840;C;C;N;D;;C;A;0;16;18;82;0
+12345;;Medicina Prepagada;04SOE2;Cobro Salud;4914;8840;C;C;N;D;;C;A;0;16;18;83;0
+12345;;Medicina Prepagada;04SOMA;Iva Plan Salud Oral Dental Elite;4612;8699;C;C;N;D;;C;A;0;16;13;4;0
+12345;;Medicina Prepagada;04SOPR;Iva Medicina Prep Programa Dental Oro P;4987;8840;C;C;N;D;;C;A;0;16;18;156;0
+12345;;Medicina Prepagada;04SOX1;Iva Med.Prepagada Programa Dental Elite;5002;8840;C;C;N;D;;C;A;0;16;18;172;0
+12345;;Medicina Prepagada;04TRAD;Iva Plan Tradicional;4511;4510;C;C;N;D;;C;A;0;16;11;1;0
+12345;;Medicina Prepagada;04TRAE;Iva Med. Prepagada Tradicional Especial;4821;8821;C;C;N;D;;C;A;0;16;18;60;0
+12345;;Medicina Prepagada;04TRAP;Iva Plan Tradicional con POS;4523;4522;C;C;N;D;;C;A;0;16;11;2;0
+12345;;Medicina Prepagada;01ADFU;A¦os Dorados Oro Fundadores;4202;8699;C;C;N;D;;C;A;0;16;9;3;0
+12345;;Medicina Prepagada;01ADOP;Plan Anos Dorados Oro POS;4571;8699;C;C;N;D;;C;A;0;16;2;5;0
+12345;;Medicina Prepagada;01ADOR;Plan Anos Dorados Oro;4579;8699;C;C;N;D;;C;A;0;16;2;6;0
+12345;;Medicina Prepagada;01ADTR;Cobro Salud;4905;8840;C;C;N;D;;C;A;0;16;18;74;0
+12345;;Medicina Prepagada;01AHCM;Plan Anos Dorados HMC;4589;8699;C;C;N;D;;C;A;0;16;2;7;0
+12345;;Medicina Prepagada;01ANDO;Plan Anos Dorados Clasico;4531;8699;C;C;N;D;;C;A;0;16;2;1;0
+12345;;Medicina Prepagada;01ANDP;Anos Dorados Clasico con POS;4541;8699;C;C;N;D;;C;A;0;16;2;2;0
+12345;;Medicina Prepagada;01AND1;Plan Anos Dorados Plata;4551;8699;C;C;N;D;;C;A;0;16;2;3;0
+12345;;Medicina Prepagada;01AN1P;Anos Dorados Plata con POS;4561;8699;C;C;N;D;;C;A;0;16;2;4;0
+12345;;Medicina Prepagada;01APRU;Cuota Medicina Prepagada programa APRU;4534;8699;C;C;N;D;;C;A;0;16;2;9;0
+12345;;Medicina Prepagada;01ASOC;Medicina prepagada Programa Asociado;4809;8809;C;C;N;D;;C;A;0;16;18;53;0
+12345;;Medicina Prepagada;01BPLU;Med.Prep Programa Bebe Gestante Oro Plus;4822;8821;C;C;N;D;;C;A;0;16;18;61;0
+12345;;Medicina Prepagada;01CEAP;Cobro Salud;4964;8840;C;C;N;D;;C;A;0;16;18;133;0
+12345;;Medicina Prepagada;01CEAS;Cobro Salud;4967;8840;C;C;N;D;;C;A;0;16;18;136;0
+12345;;Medicina Prepagada;01CEAT;Med.Prep Prog. Cem Promocion;5000;8840;C;C;N;D;;C;A;0;16;18;170;0
+12345;;Medicina Prepagada;01CEFE;Med.Prepagada Programa Plata Cem;5015;8840;C;C;N;D;;C;A;0;16;18;185;0
+12345;;Medicina Prepagada;01CEFG;Med.Prep Programa Cem Grupo Familiar 201;5009;8840;C;C;N;D;;C;A;0;16;18;179;0
+12345;;Medicina Prepagada;01CEFO;Med.Prepagada Programa Plata Cem;5018;8840;C;C;N;D;;C;A;0;16;18;188;0
+12345;;Medicina Prepagada;01CEGF;Cobro Salud;4970;8840;C;C;N;D;;C;A;0;16;18;139;0
+12345;;Medicina Prepagada;01CEM;Coomeva Emergencias Medicas;4719;8699;C;C;N;D;;C;A;0;16;8;1;0
+12345;;Medicina Prepagada;01CEMA;Cobro Salud;4906;8840;C;C;N;D;;C;A;0;16;18;75;0
+12345;;Medicina Prepagada;01CEMC;Cuota Coomeva Emergencias Medicas;4751;4751;C;C;N;D;;C;A;0;16;18;20;0
+12345;;Medicina Prepagada;01CEMH;Cobro Salud;4915;8840;C;C;N;D;;C;A;0;16;18;84;0
+12345;;Medicina Prepagada;01CEMJ;Cobro Salud;4916;8840;C;C;N;D;;C;A;0;16;18;85;0
+12345;;Medicina Prepagada;01CEMO;Cobro Emergencia Medicas;4769;4769;C;C;N;D;;C;A;0;16;18;33;0
+12345;;Medicina Prepagada;01CEMS;Salud Emergencias Medicas;4836;4836;C;C;N;D;;C;A;0;16;18;38;0
+12345;;Medicina Prepagada;01CEMZ;Salud Emergencia Medicas;4842;8840;C;C;N;D;;C;A;0;16;18;43;0
+12345;;Medicina Prepagada;01CEM1;Coomeva Emergencias Medicas con Programa;4729;8699;C;C;N;D;;C;A;0;16;8;2;0
+12345;;Medicina Prepagada;01CEM3;Emergencia Promocion Oro;4733;8699;C;C;N;D;;C;A;0;16;8;7;0
+12345;;Medicina Prepagada;01CEM4;Emergencias Medicas Promocion CEM4;4745;4720;C;C;N;D;;C;A;0;16;18;12;0
+12345;;Medicina Prepagada;01CEM7;Salud Linea Credito;4762;4762;C;C;N;D;;C;A;0;16;18;28;0
+12345;;Medicina Prepagada;01CEM8;Cuota Coomeva Emergencias Medicas;4756;4756;C;C;N;D;;C;A;0;16;18;18;0
+12345;;Medicina Prepagada;01CEPD;Med.Prep Prog. Cem con Plus y Dental;4994;8840;C;C;N;D;;C;A;0;16;18;163;0
+12345;;Medicina Prepagada;01CEPO;Med.Prep Prog. Cem con Plus;4997;8840;C;C;N;D;;C;A;0;16;18;166;0
+12345;;Medicina Prepagada;01CEPR;Cobro Salud;4974;8840;C;C;N;D;;C;A;0;16;18;143;0
+12345;;Medicina Prepagada;01CEPS;Cobro Salud;4907;8840;C;C;N;D;;C;A;0;16;18;76;0
+12345;;Medicina Prepagada;01CERP;Medicina Prepagada Programa Cem con Plus;4991;8840;C;C;N;D;;C;A;0;16;18;160;0
+12345;;Medicina Prepagada;01CLAP;Plan Clasico con POS;4639;8699;C;C;N;D;;C;A;0;16;4;2;0
+12345;;Medicina Prepagada;01CLAS;Plan Clasico;4629;8699;C;C;N;D;;C;A;0;16;4;1;0
+12345;;Medicina Prepagada;01EVEM;Obseq. Emergencias Medicas;4737;8699;C;C;N;D;;C;A;0;16;8;10;0
+12345;;Medicina Prepagada;01HCM;Hospitalizacion, Cirugia y Maternidad;4711;8699;C;C;N;D;;C;A;0;16;7;1;0
+12345;;Medicina Prepagada;01OBPU;Cuota Medicina Prepagada programa OBPU;5035;8840;C;C;N;D;;C;A;0;16;6;7;0
+12345;;Medicina Prepagada;01OESP;Oro Especial Dirigido;4749;4720;C;C;N;D;;C;A;0;16;18;16;0
+12345;;Medicina Prepagada;01ORFA;Med.Prepagada Programa Oro;5027;8840;C;C;N;D;;C;A;0;16;18;197;0
+12345;;Medicina Prepagada;01ORFE;Med.Prepagada Programa Oro;5024;8840;C;C;N;D;;C;A;0;16;18;194;0
+12345;;Medicina Prepagada;01ORFU;ORO Fundadores;4200;8699;C;C;N;D;;C;A;0;16;9;1;0
+12345;;Medicina Prepagada;01ORO;Plan Oro;4669;8699;C;C;N;D;;C;A;0;16;6;1;0
+12345;;Medicina Prepagada;01OROO;Plan Oro Bebe Gestante;4689;8699;C;C;N;D;;C;A;0;16;6;3;0
+12345;;Medicina Prepagada;01OROP;Plan Oro con POS;4679;8699;C;C;N;D;;C;A;0;16;6;2;0
+12345;;Medicina Prepagada;01OROT;Cobro Salud;4917;8840;C;C;N;D;;C;A;0;16;18;86;0
+12345;;Medicina Prepagada;01ORPU;Cuota Medicina Prepagada programa ORPU;5032;8840;C;C;N;D;;C;A;0;16;6;6;0
+12345;;Medicina Prepagada;01PBPR;Med.Prepagada Programa Oro Plus;4982;8840;C;C;N;D;;C;A;0;16;18;151;0
+12345;;Medicina Prepagada;01PLAP;Plan Plata con POS;4659;8699;C;C;N;D;;C;A;0;16;5;2;0
+12345;;Medicina Prepagada;01PLAT;Plan Plata;4649;8699;C;C;N;D;;C;A;0;16;5;1;0
+12345;;Medicina Prepagada;01PLFE;Med.Prepagada Programa Oro Plus;5030;8840;C;C;N;D;;C;A;0;16;18;200;0
+12345;;Medicina Prepagada;01PLPR;Medicina Prepagada Programa Oro Plus;5006;8840;C;C;N;D;;C;A;0;16;18;176;0
+12345;;Medicina Prepagada;01PLUP;Cobro Salud cuota plus;4958;8842;C;C;N;D;;C;A;0;16;18;127;0
+12345;;Medicina Prepagada;01PLUS;Medicina Prepagada Programa Oro Plus;4811;8811;C;C;N;D;;C;A;0;16;18;55;0
+12345;;Medicina Prepagada;01SAOJ;Cobro Salud;4979;8840;C;C;N;D;;C;A;0;16;18;148;0
+12345;;Medicina Prepagada;01SAOR;Plan Salud Oral;4619;8699;C;C;N;D;;C;A;0;16;3;3;0
+12345;;Medicina Prepagada;01SAOZ;Cobro Salud;4908;8840;C;C;N;D;;C;A;0;16;18;77;0
+12345;;Medicina Prepagada;01SAO1;Plan Salud Oral Otros Programas;4609;8699;C;C;N;D;;C;A;0;16;3;2;0
+12345;;Medicina Prepagada;01SAO2;Plan Salud Oral Oro;4599;8699;C;C;N;D;;C;A;0;16;3;1;0
+12345;;Medicina Prepagada;01SAPR;Med.Prepagada Programa Salud Oral co;4985;8840;C;C;N;D;;C;A;0;16;18;154;0
+12345;;Medicina Prepagada;01SATC;Salud SAOR;4848;8840;C;C;N;D;;C;A;0;16;18;48;0
+12345;;Medicina Prepagada;01SAT1;Salud SAOR;4850;8840;C;C;N;D;;C;A;0;16;18;50;0
+12345;;Medicina Prepagada;01SAT2;Salud SAOR;4852;8852;C;C;N;D;;C;A;0;16;18;52;0
+12345;;Medicina Prepagada;01SIFE;Med.Prepagada Programa Plata Joven;5012;8840;C;C;N;D;;C;A;0;16;18;182;0
+12345;;Medicina Prepagada;01SILV;Medicina Prepagada Programa Plata Joven;4810;8810;C;C;N;D;;C;A;0;16;18;54;0
+12345;;Medicina Prepagada;01SIPR;Med.Prepagada Programa Plata Joven;5021;8840;C;C;N;D;;C;A;0;16;18;191;0
+12345;;Medicina Prepagada;01SOEB;Cobro Salud;4961;8840;C;C;N;D;;C;A;0;16;18;130;0
+12345;;Medicina Prepagada;01SOEL;Cobro Salud;4918;8840;C;C;N;D;;C;A;0;16;18;87;0
+12345;;Medicina Prepagada;01SOE1;Cobro Salud;4919;8840;C;C;N;D;;C;A;0;16;18;88;0
+12345;;Medicina Prepagada;01SOE2;Cobro Salud;4920;8840;C;C;N;D;;C;A;0;16;18;89;0
+12345;;Medicina Prepagada;01SOMA;Plan Salud Oral Dental Elite;4610;8699;C;C;N;D;;C;A;0;16;3;4;0
+12345;;Medicina Prepagada;01SOPR;Medicina Prep Programa Dental Oro Plus;4988;8840;C;C;N;D;;C;A;0;16;18;157;0
+12345;;Medicina Prepagada;01SOX1;Med.Prepagada Programa Dental Elite;5003;8840;C;C;N;D;;C;A;0;16;18;173;0
+12345;;Medicina Prepagada;01TRAD;Plan Tradicional;4509;8509;C;C;N;D;;C;A;0;16;1;1;0
+12345;;Medicina Prepagada;01TRAE;Med Prepagada Prog. Tradicional Especial;4812;8812;C;C;N;D;;C;A;0;16;18;56;0
+12345;;Medicina Prepagada;01TRAP;Plan Tradicional con POS;4521;8699;C;C;N;D;;C;A;0;16;1;2;0
+12345;;Medicina Prepagada;02ADOR;Plan Anos Dorados Oro;4581;8699;C;C;N;D;;C;A;0;16;2;8;0
+12345;;Medicina Prepagada;02CLAS;Plan Clasico;4631;8699;C;C;N;D;;C;A;0;16;4;3;0
+12345;;Medicina Prepagada;02ORO;Plan Oro;4671;8699;C;C;N;D;;C;A;0;16;6;5;0
+12345;;Medicina Prepagada;02TRAD;Franquicia Programa Tradicional;4508;8699;C;C;N;D;;C;A;0;16;1;3;0
+12345;;Medicina Prepagada;21;Hospit cirugia;2390;7609;C;;I;D;;C;A;0;24;2;141;0
+12345;;Medicina Prepagada;22;Franquicia HCMC;2392;7607;C;;I;D;;C;A;0;24;2;142;0
+12345;;Medicina Prepagada;32;Servicio de Salud 10;2396;7603;S;;I;D;;C;A;0;24;2;153;0
+12345;;Medicina Prepagada;07CEM;Coomeva Emergencias Medicas;4721;8699;C;C;N;D;;C;A;0;16;8;3;0
+12345;;Medicina Prepagada;07CEMC;Vehiculo Protegido Coomeva Emergencias M;4752;4752;C;C;N;D;;C;A;0;16;18;21;0
+12345;;Medicina Prepagada;07CEMO;Cobro Vehiculo Protegido CEM;4770;4770;C;C;N;D;;C;A;0;16;18;34;0
+12345;;Medicina Prepagada;07CEMS;Vehiculo Protegido Emergencias Medicas;4838;4738;C;C;N;D;;C;A;0;16;18;39;0
+12345;;Medicina Prepagada;07CEMZ;Vehiculo Protegido CEM;4843;8840;C;C;N;D;;C;A;0;16;18;44;0
+12345;;Medicina Prepagada;07CEM1;Coomeva Emergencias Medicas con Programa;4731;8699;C;C;N;D;;C;A;0;16;8;4;0
+12345;;Medicina Prepagada;07CEM3;Auto Protegido Emerg.Promo.Oro;4717;8699;C;C;N;D;;C;A;0;16;8;8;0
+12345;;Medicina Prepagada;07CEM4;Vehiculo Proteg Emerg Medicas Prm CEM4;4747;4720;C;C;N;D;;C;A;0;16;18;14;0
+12345;;Medicina Prepagada;07CEM7;Iva Vehiculo Protegido CEM;4763;4763;C;C;N;D;;C;A;0;16;18;29;0
+12345;;Medicina Prepagada;07CEM8;Vehiculo Protegido Coomeva Emergencias M;4758;4758;C;C;N;D;;C;A;0;16;18;25;0
+12345;;Medicina Prepagada;08CEM;Coomeva Emergencias Medicas;4723;8699;C;C;N;D;;C;A;0;16;8;5;0
+12345;;Medicina Prepagada;08CEMC;Cuota Inscripcion Coomeva Emergencias Me;4753;4753;C;C;N;D;;C;A;0;16;18;22;0
+12345;;Medicina Prepagada;08CEMJ;Cobro Salud;4921;8840;C;C;N;D;;C;A;0;16;18;90;0
+12345;;Medicina Prepagada;08CEMO;Cobro Cuota Inscripcion CEM;4772;4772;C;C;N;D;;C;A;0;16;18;35;0
+12345;;Medicina Prepagada;08CEMS;Cuota Inscripcion CEM;4839;4839;C;C;N;D;;C;A;0;16;18;40;0
+12345;;Medicina Prepagada;08CEMZ;Cuota Inscripción CEM;4844;8840;C;C;N;D;;C;A;0;16;18;45;0
+12345;;Medicina Prepagada;08CEM1;Coomeva Emergencias Medicas con Programa;4727;8699;C;C;N;D;;C;A;0;16;8;6;0
+12345;;Medicina Prepagada;08CEM3;Inscrip. Emerg.Promo.Oro;4735;8699;C;C;N;D;;C;A;0;16;8;9;0
+12345;;Medicina Prepagada;08CEM4;Cuota Ins. Emer Medicas Promocion CEM4;4746;4720;C;C;N;D;;C;A;0;16;18;13;0
+12345;;Medicina Prepagada;08CEM7;Cuota Inscripcion CEM;4765;4765;C;C;N;D;;C;A;0;16;18;30;0
+12345;;Medicina Prepagada;08CEM8;Cuota Inscripcion Coomeva Emergencias Me;4759;4759;C;C;N;D;;C;A;0;16;18;26;0
+12345;;Medicina Prepagada;09ADFU;Cobro Salud;4922;8840;C;C;N;D;;C;A;0;16;18;91;0
+12345;;Medicina Prepagada;09ADOP;Cobro Salud;4923;8840;C;C;N;D;;C;A;0;16;18;92;0
+12345;;Medicina Prepagada;09ADOR;Cobro Salud;4924;8840;C;C;N;D;;C;A;0;16;18;93;0
+12345;;Medicina Prepagada;09ADTR;Cobro Salud;4925;8840;C;C;N;D;;C;A;0;16;18;94;0
+12345;;Medicina Prepagada;09AHCM;Cobro Salud;4926;8840;C;C;N;D;;C;A;0;16;18;95;0
+12345;;Medicina Prepagada;09ANDO;Cobro Salud;4929;8840;C;C;N;D;;C;A;0;16;18;98;0
+12345;;Medicina Prepagada;09ANDP;Cobro Salud;4930;8840;C;C;N;D;;C;A;0;16;18;99;0
+12345;;Medicina Prepagada;09AND1;Cobro Salud;4928;8840;C;C;N;D;;C;A;0;16;18;97;0
+12345;;Medicina Prepagada;09AN1P;Cobro Salud;4927;8840;C;C;N;D;;C;A;0;16;18;96;0
+12345;;Medicina Prepagada;09APRU;Proporcionalidad Med. Prepagada Programa;5038;8840;C;C;N;D;;C;A;0;16;18;204;0
+12345;;Medicina Prepagada;09ASOC;Cobro Salud;4931;8840;C;C;N;D;;C;A;0;16;18;100;0
+12345;;Medicina Prepagada;09BPLU;Cobro Salud;4932;8840;C;C;N;D;;C;A;0;16;18;101;0
+12345;;Medicina Prepagada;09CEAP;Cobro Salud;4965;8840;C;C;N;D;;C;A;0;16;18;134;0
+12345;;Medicina Prepagada;09CEAS;Cobro Salud;4968;8840;C;C;N;D;;C;A;0;16;18;137;0
+12345;;Medicina Prepagada;09CEAT;Proporc Med.Prep Prog. Cem Promocion;5001;8840;C;C;N;D;;C;A;0;16;18;171;0
+12345;;Medicina Prepagada;09CEFE;Proporcionalidad Med.Prepagada Cem;5016;8840;C;C;N;D;;C;A;0;16;18;186;0
+12345;;Medicina Prepagada;09CEFG;Prop. Med.Prep. Cem Grupo Familiar 2012;5010;8840;C;C;N;D;;C;A;0;16;18;180;0
+12345;;Medicina Prepagada;09CEFO;Proporcionalidad Med.Prepagada Cem;5019;8840;C;C;N;D;;C;A;0;16;18;189;0
+12345;;Medicina Prepagada;09CEGF;Cobro Salud;4971;8840;C;C;N;D;;C;A;0;16;18;140;0
+12345;;Medicina Prepagada;09CEM;Cobro Proporcional CEM;4722;8699;C;C;N;D;;C;A;0;16;8;11;0
+12345;;Medicina Prepagada;09CEMC;Cobro Facturacion Coomeva Emergencias;4754;4754;C;C;N;D;;C;A;0;16;18;23;0
+12345;;Medicina Prepagada;09CEMH;Cobro Salud;4972;8840;C;C;N;D;;C;A;0;16;18;141;0
+12345;;Medicina Prepagada;09CEMO;Cobro Fraccion Emergencia Medicas;4780;4780;C;C;N;D;;C;A;0;16;18;36;0
+12345;;Medicina Prepagada;09CEMZ;Cobro Fraccion Emergencia Medicas;4846;8840;C;C;N;D;;C;A;0;16;18;46;0
+12345;;Medicina Prepagada;09CEM1;Cobro Proporcional CEM1;4718;8699;C;C;N;D;;C;A;0;16;8;12;0
+12345;;Medicina Prepagada;09CEM3;Cobro Proporcional CEM3;4716;8699;C;C;N;D;;C;A;0;16;8;14;0
+12345;;Medicina Prepagada;09CEM4;Cobro Proporcional CEM4;4720;8699;C;C;N;D;;C;A;0;16;8;15;0
+12345;;Medicina Prepagada;09CEM7;Cobro Fraccion Emergencia Medicas;4767;4767;C;C;N;D;;C;A;0;16;18;31;0
+12345;;Medicina Prepagada;09CEM8;Cobro Facturacion Coomeva Emergencias Me;4757;4757;C;C;N;D;;C;A;0;16;18;24;0
+12345;;Medicina Prepagada;09CEPD;Pro Med.Prep Prog. Cem con Plus y Dental;4995;8840;C;C;N;D;;C;A;0;16;18;164;0
+12345;;Medicina Prepagada;09CEPO;Proporc. Med.Prep Prog. Cem con Plus;4998;8840;C;C;N;D;;C;A;0;16;18;167;0
+12345;;Medicina Prepagada;09CEPR;Cobro Salud;4975;8840;C;C;N;D;;C;A;0;16;18;144;0
+12345;;Medicina Prepagada;09CEPS;Cobro Salud;4976;8840;C;C;N;D;;C;A;0;16;18;145;0
+12345;;Medicina Prepagada;09CERP;Proporcionalidad Med.Prepagada Cem con P;4992;8840;C;C;N;D;;C;A;0;16;18;161;0
+12345;;Medicina Prepagada;09CLAP;Cobro Salud;4933;8840;C;C;N;D;;C;A;0;16;18;102;0
+12345;;Medicina Prepagada;09CLAS;Cobro Salud;4934;8840;C;C;N;D;;C;A;0;16;18;103;0
+12345;;Medicina Prepagada;09HCM;Cobro Salud;4935;8840;C;C;N;D;;C;A;0;16;18;104;0
+12345;;Medicina Prepagada;09OBPU;Proporc. Med. Prepagada Programa OBPU;5037;8840;C;C;N;D;;C;A;0;16;18;203;0
+12345;;Medicina Prepagada;09OESP;Cobro Salud;4936;8840;C;C;N;D;;C;A;0;16;18;105;0
+12345;;Medicina Prepagada;09ORFA;Proporcionalidad Med.Prepagada Oro;5028;8840;C;C;N;D;;C;A;0;16;18;198;0
+12345;;Medicina Prepagada;09ORFE;Proporcionalidad Med.Prepagada Oro;5025;8840;C;C;N;D;;C;A;0;16;18;195;0
+12345;;Medicina Prepagada;09ORFU;Cobro Salud;4937;8840;C;C;N;D;;C;A;0;16;18;106;0
+12345;;Medicina Prepagada;09ORO;Cobro Salud;4938;8840;C;C;N;D;;C;A;0;16;18;107;0
+12345;;Medicina Prepagada;09OROO;Cobro Salud;4939;8840;C;C;N;D;;C;A;0;16;18;108;0
+12345;;Medicina Prepagada;09OROP;Cobro Salud;4940;8840;C;C;N;D;;C;A;0;16;18;109;0
+12345;;Medicina Prepagada;09OROT;Cobro Salud;4977;8840;C;C;N;D;;C;A;0;16;18;146;0
+12345;;Medicina Prepagada;09ORPU;Proporc. Med. Prepagada Programa ORPU;5034;8840;C;C;N;D;;C;A;0;16;18;202;0
+12345;;Medicina Prepagada;09PBPR;Proporcionalidad Med.Prepagada Oro Plus;4983;8840;C;C;N;D;;C;A;0;16;18;152;0
+12345;;Medicina Prepagada;09PLAP;Cobro Salud;4941;8840;C;C;N;D;;C;A;0;16;18;110;0
+12345;;Medicina Prepagada;09PLAT;Cobro Salud;4942;8840;C;C;N;D;;C;A;0;16;18;111;0
+12345;;Medicina Prepagada;09PLFE;Proporcionalidad Med.Prepagada Oro Plus;5031;8840;C;C;N;D;;C;A;0;16;18;201;0
+12345;;Medicina Prepagada;09PLPR;Prop. Med.Prepagada Programa Oro Plus;5007;8840;C;C;N;D;;C;A;0;16;18;177;0
+12345;;Medicina Prepagada;09PLUP;Cobro Salud proporcionalidad;4959;8844;C;C;N;D;;C;A;0;16;18;128;0
+12345;;Medicina Prepagada;09PLUS;Cobro Salud;4943;8840;C;C;N;D;;C;A;0;16;18;112;0
+12345;;Medicina Prepagada;09SAOJ;Cobro Salud;4980;8840;C;C;N;D;;C;A;0;16;18;149;0
+12345;;Medicina Prepagada;09SAOR;Cobro Salud;4946;8840;C;C;N;D;;C;A;0;16;18;115;0
+12345;;Medicina Prepagada;09SAOZ;Cobro Salud;4947;8840;C;C;N;D;;C;A;0;16;18;116;0
+12345;;Medicina Prepagada;09SAO1;Cobro Salud;4944;8840;C;C;N;D;;C;A;0;16;18;113;0
+12345;;Medicina Prepagada;09SAO2;Cobro Salud;4945;8840;C;C;N;D;;C;A;0;16;18;114;0
+12345;;Medicina Prepagada;09SAPR;Proporcionalidad Med.Prepagada Salud Ora;4986;8840;C;C;N;D;;C;A;0;16;18;155;0
+12345;;Medicina Prepagada;09SATC;Cobro Salud;4949;8840;C;C;N;D;;C;A;0;16;18;118;0
+12345;;Medicina Prepagada;09SAT2;Cobro Salud;4948;8840;C;C;N;D;;C;A;0;16;18;117;0
+12345;;Medicina Prepagada;09SIFE;Proporcionalidad Med.Prepagada Plata Jov;5013;8840;C;C;N;D;;C;A;0;16;18;183;0
+12345;;Medicina Prepagada;09SILV;Cobro Salud;4950;8840;C;C;N;D;;C;A;0;16;18;119;0
+12345;;Medicina Prepagada;09SIPR;Proporcionalidad Med.Prepagada Plata Jov;5022;8840;C;C;N;D;;C;A;0;16;18;192;0
+12345;;Medicina Prepagada;09SOEB;Cobro Salud;4962;8840;C;C;N;D;;C;A;0;16;18;131;0
+12345;;Medicina Prepagada;09SOEL;Cobro Salud;4953;8840;C;C;N;D;;C;A;0;16;18;122;0
+12345;;Medicina Prepagada;09SOE1;Cobro Salud;4951;8840;C;C;N;D;;C;A;0;16;18;120;0
+12345;;Medicina Prepagada;09SOE2;Cobro Salud;4952;8840;C;C;N;D;;C;A;0;16;18;121;0
+12345;;Medicina Prepagada;09SOPR;Proporcionalidad Med.Prepagada Dental Pl;4989;8840;C;C;N;D;;C;A;0;16;18;158;0
+12345;;Medicina Prepagada;09SOX1;Prop Med.Prepagada Programa Dental Elite;5004;8840;C;C;N;D;;C;A;0;16;18;174;0
+12345;;Medicina Prepagada;09TRAD;Cobro Salud;4954;8840;C;C;N;D;;C;A;0;16;18;123;0
+12345;;Medicina Prepagada;09TRAE;Cobro Salud;4955;8840;C;C;N;D;;C;A;0;16;18;124;0
+12345;;Medicina Prepagada;09TRAP;Cobro Salud;4956;8840;C;C;N;D;;C;A;0;16;18;125;0
+12345;;Medicina Prepagada;121;Cuota Tradicional A 10;2402;7597;C;;I;D;;C;A;0;24;2;294;0
+12345;;Medicina Prepagada;122;Franquicia Asociado 10;2404;7595;C;;I;D;;C;A;0;24;2;295;0
+12345;;Medicina Prepagada;141;Cuota Tradicional P 10;2410;7589;C;;I;D;;C;A;0;24;2;322;0
+12345;;Medicina Prepagada;142;Franq Tradicional P 10;2412;7587;C;;I;D;;C;A;0;24;2;323;0
+12345;;Medicina Prepagada;221;Cuota A.D. Asociado 10;2418;7581;C;;I;D;;C;A;0;24;2;410;0
+12345;;Medicina Prepagada;222;Franquicia A.D. Aso 10;2420;7579;C;;I;D;;C;A;0;24;2;411;0
+12345;;Medicina Prepagada;231;Cuota A.D. Empl 10;2424;7575;C;;I;D;;C;A;0;24;2;422;0
+12345;;Medicina Prepagada;232;Franquicia A.D. Emp 10;2426;7573;C;;I;D;;C;A;0;24;2;423;0
+12345;;Medicina Prepagada;311;Salud Oral Part 10;2432;7567;C;;I;D;;C;A;0;24;2;493;0
+12345;;Medicina Prepagada;312;Exc.S.Oral .Part 10;2434;7565;C;;I;D;;C;A;0;24;2;494;0
+12345;;Medicina Prepagada;313;Ortodoncia S.O.Part 10;2436;7563;C;;I;D;;C;A;0;24;2;495;0
+12345;;Medicina Prepagada;315;Ortod S.O Part 10;2438;7561;C;;I;D;;C;A;0;24;2;497;0
+12345;;Medicina Prepagada;321;Salud Oral Asoc 10;2440;7559;C;;I;D;;C;A;0;24;2;504;0
+12345;;Medicina Prepagada;322;Exced S.Oral Asoc 10;2442;7557;C;;I;D;;C;A;0;24;2;505;0
+12345;;Medicina Prepagada;411;Cuota Clasico Part 10;2462;7537;C;;I;D;;C;A;0;24;2;616;0
+12345;;Medicina Prepagada;412;Franq.Clasico Part 10;2464;7535;C;;I;D;;C;A;0;24;2;617;0
+12345;;Medicina Prepagada;421;Cuota Clasic. Asoc 10;2466;7533;C;;I;D;;C;A;0;24;2;630;0
+12345;;Medicina Prepagada;422;Franq.Clas. Asoc 10;2468;7531;C;;I;D;;C;A;0;24;2;631;0
+12345;;Medicina Prepagada;511;Cuota Salud Plata P 10;2472;7527;C;;I;D;;C;A;0;24;2;762;0
+12345;;Medicina Prepagada;512;Franq.T/Plata Part 10;2474;7525;C;;I;D;;C;A;0;24;2;763;0
+12345;;Medicina Prepagada;521;Cuota Plata Asoc 10;2476;7523;C;;I;D;;C;A;0;24;2;774;0
+12345;;Medicina Prepagada;522;Franq.Plata Asoc 10;2478;7521;C;;I;D;;C;A;0;24;2;775;0
+12345;;Medicina Prepagada;611;Cuota Oro Part 10;2488;7511;C;;I;D;;C;A;0;24;2;882;0
+12345;;Medicina Prepagada;612;FRANQ.T/ORO PART 10;2490;7509;C;;I;D;;C;A;0;24;2;883;0
+12345;;Medicina Prepagada;621;CUOTA ORO ASOC 10;2492;7507;C;;I;D;;C;A;0;24;2;892;0
+12345;;Medicina Prepagada;622;FRANQ.ORO ASOC 10;2494;7505;C;;I;D;;C;A;0;24;2;893;0
+12345;;Medicina Prepagada;631;CUOTA T/ORO EMPL 10;2496;7503;C;;I;D;;C;A;0;24;2;903;0
+12345;;Medicina Prepagada;632;FRANQ.T/ORO EMPL 10;2498;7501;C;;I;D;;C;A;0;24;2;904;0
+12345;;Medicina Prepagada;721;CUOTA A.D.100% ASOC 10;2508;7491;C;;I;D;;C;A;0;24;2;6;0
+12345;;Medicina Prepagada;722;FRANQ.A.D.100% ASOC 10;2510;7489;C;;I;D;;C;A;0;24;2;7;0
+12345;;Medicina Prepagada;731;CUOTA A.D.100% EMPL 10;2512;7487;C;;I;D;;C;A;0;24;2;14;0
+12345;;Medicina Prepagada;732;FRANQ.A.D.100% EMPL 10;2514;7485;C;;I;D;;C;A;0;24;2;15;0
+12345;;Medicina Prepagada;821;CUOTA AÑOS D.ORO AS 10;2524;7475;C;;I;D;;C;A;0;24;2;109;0
+12345;;Medicina Prepagada;822;FRANQ.AÑOS DORADOS 10;2526;7473;C;;I;D;;C;A;0;24;2;110;0
+12345;;Medicina Prepagada;831;CUOTA AÑOS D. EMPL 10;2528;7471;C;;I;D;;C;A;0;24;2;117;0
+12345;;Medicina Prepagada;832;FRANQ.AÑOS DORADOS 10;2530;7469;C;;I;D;;C;A;0;24;2;118;0
+12345;;Medicina Prepagada;921;HOSP.CIR.A.DORADO 10;2536;7463;C;;I;D;;C;A;0;24;2;190;0
+12345;;Medicina Prepagada;922;FRANQ.H.C.M;2538;7461;C;;I;D;;C;A;0;24;2;191;0
+12345;;Medicina Prepagada;04SOEO;Iva Salud Oral Dental Elite Plan Asociad;4613;8699;C;C;N;D;;C;A;0;16;13;5;0
+12345;;Medicina Prepagada;01SOEO;Salud Oral Dental Elite Plan Asociado;4614;8699;C;C;N;D;;C;A;0;16;3;5;0
+12345;F;;Cr.S.B.B;Crédito Salud, Bienestar y Belleza;1010;9000;S;P;N;D;;C;A;0;30;21;500;1
+12345;;Medicina Prepagada;04CEAG;IVA Emergencia Médica programa CEAG;4740;4720;C;C;N;D;;C;A;0;16;18;8;0
+12345;;Medicina Prepagada;01CEAG;Cuota Emergencia Médica programa CEAG;4760;8699;C;C;N;D;;C;A;0;16;18;9;0
+12345;;Medicina Prepagada;09CEAG;Proporcionalidad Emer. Médica Programa C;4781;8699;C;C;N;D;;C;A;0;16;18;63;0
+12345;;Medicina Prepagada;09SOEO;Proporcionalidad;5039;8840;C;C;N;D;;C;A;0;16;18;205;0
+12345;F;;PAP.P.NA;PAP Tasa Fija Persona Natural;4447;8999;C;C;N;D;S;F;A;0;14;80;1;0
+12345;F;;PAP.EMPR;PAP Tasa Fija Empresarial;4448;8999;C;C;N;D;S;F;A;0;14;81;1;0
+12345;;Medicina Prepagada;01ORPM;Cuota Medicina Prepagada programa ORPM;4592;4590;C;C;N;D;;C;A;0;16;6;8;0
+12345;;Medicina Prepagada;04ORPM;IVA Med. Prepagada Programa ORPM;4593;4590;C;C;N;D;;C;A;0;16;16;6;0
+12345;;Medicina Prepagada;09ORPM;Proporc. Med. Prepagada Prog. ORPM;5041;8840;C;C;N;D;;C;A;0;16;18;208;0
+12345;;Medicina Prepagada;01SOPM;Cuota Dental Elite programa SOPM;4615;8699;C;C;N;D;;C;A;0;16;3;6;0
+12345;;Medicina Prepagada;04SOPM;IVA Dental Elite Programa SOPM;4616;8699;C;C;N;D;;C;A;0;16;13;6;0
+12345;;Medicina Prepagada;09SOPM;Proporcionalidad Dental Elite Prog. SOPM;5040;8840;C;C;N;D;;C;A;0;16;18;206;0
+12345;;Medicina Prepagada;01CEPM;Cuota Emergencia Med. programa CEPM;4782;8699;C;C;N;D;;C;A;0;16;8;16;0
+12345;;Medicina Prepagada;04CEPM;IVA Emergencia Med. Programa CEPM;4783;8699;C;C;N;D;;C;A;0;16;18;3;0
+12345;;Medicina Prepagada;09CEPM;Proporcionalidad Emergencia Med. Program;4784;8699;C;C;N;D;;C;A;0;16;18;209;0
+12345;F;;CUP.CVIV;Cupo construccion Vivienda;3003;6999;S;P;N;D;;C;A;0;30;87;500;0
+12345;;Medicina Prepagada;01SOVL;Cuota Dental Elite programa SOVL;4620;8699;C;C;N;D;;C;A;0;16;3;7;0
+12345;;Medicina Prepagada;04SOVL;IVA Dental Elite Programa SOVL;4622;8699;C;C;N;D;;C;A;0;16;13;7;0
+12345;;Medicina Prepagada;09SOVL;Proporcionalidad Dental Elite Programa S;4623;8699;C;C;N;D;;C;A;0;16;18;207;0
+12345;F;Creditos Cooperativos;CUPOROTA;CUPO ROTATORIO;1210;9001;S;P;N;D;;C;A;0;30;411;500;0
+12345;;Planes Adicionales Solidaridad;EDUCAT05;Plan Educativo Superior 5 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT06;Plan Educativo Superior 6 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT07;Plan Educativo Superior 7 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT08;Plan Educativo Superior 8 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT09;Plan Educativo Superior 9 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT10;Plan Educativo Superior 10 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT11;Plan Educativo Superior 11 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT12;Plan Educativo Superior 12 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT13;Plan Educativo Superior 13 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT14;Plan Educativo Superior 14 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT15;Plan Educativo Superior 15 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT16;Plan Educativo Superior 16 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT17;Plan Educativo Superior 17 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;EDUCAT18;Plan Educativo Superior 18 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU05;Plan Educativo Superior 5 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU06;Plan Educativo Superior 6 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU07;Plan Educativo Superior 7 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU08;Plan Educativo Superior 8 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU09;Plan Educativo Superior 9 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU10;Plan Educativo Superior 10 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU11;Plan Educativo Superior 11 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU12;Plan Educativo Superior 12 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU13;Plan Educativo Superior 13 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU14;Plan Educativo Superior 14 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU15;Plan Educativo Superior 15 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU16;Plan Educativo Superior 16 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU17;Plan Educativo Superior 17 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Planes Adicionales Solidaridad;AJUEDU18;Plan Educativo Superior 18 a¦os;;;;;N;D;;C;A;0;;;;0
+12345;;Medicina Prepagada;04CEAD;IVA Med. Coomeva Emergencia  CEAD;8085;8819;C;C;N;D; ;C;A;0;16;18;247;0
+67890;;Seguros;SEGHOGAE;SEGURO HOGARMAS EMPLEADO;683;9317;S;C;N;D;S;F;A;0;30;607;500;0
+67890;;Seguros;SEGINCEE;SEGURO INCENDIO EMPLEADO;684;9316;S;C;N;D;S;F;A;0;30;618;500;0
+67890;;Seguros;SEGPROTE;SEGURO MAS PROTECCION EMPLEADO;685;9315;S;C;N;D;S;F;A;0;30;621;500;0
+67890;;Seguros;RCMEDE;RC MEDICA EMPLEADO;686;9314;S;C;N;D;S;F;A;0;30;627;500;0
+67890;;Seguros;SEGCIVIE;SEGURO RESPONSABILIDAD CIVIL EMP;687;9313;S;C;N;D;S;F;A;0;30;643;500;0
+67890;;Seguros;BOLBILLE;BOLSO Y BILLETERA PROTG;581;9419;S;C;N;D;S;F;A;0;30;265;500;0
+12345;;Medicina Prepagada;04ORPA;IVA Med. Prepagada Programa ORPA;4595;4590;C;C;I;D;F;C;A;0;16;16;7;0
+12345;;Medicina Prepagada;09ORPA;Proporc. Med. Prepagada Prog. ORPA;5042;8840;C;C;N;D;;C;A;0;16;18;210;0
+12345;;Medicina Prepagada;04OBPA;IVA Med. Prepagada Programa OBPA;5043;4590;C;C;N;D;;C;A;0;16;16;8;0
+12345;;Medicina Prepagada;09OBPA;Proporc. Med. Prepagada Prog. OBPA;5044;8840;C;C;N;D;;C;A;0;16;18;211;0
+12345;;Medicina Prepagada;01PLPA;Cuota Medicina Prepagada programa PLPA;4603;8840;C;C;N;D;;C;A;0;16;18;224;0
+12345;;Medicina Prepagada;04PLPA;IVA Med. Prepagada Programa PLPA;5045;4590;C;C;N;D;;C;A;0;16;18;223;0
+12345;;Medicina Prepagada;09PLPA;Proporc. Med. Prepagada Prog. PLPA;5046;8840;C;C;N;D;;C;A;0;16;18;225;0
+12345;;Medicina Prepagada;01PBPA;Cuota Medicina Prepagada programa PBPA;4604;8840;C;C;N;D;;C;A;0;16;18;227;0
+12345;;Medicina Prepagada;04PBPA;IVA Med. Prepagada Programa PBPA;5047;4590;C;C;N;D;;C;A;0;16;18;226;0
+12345;;Medicina Prepagada;09PBPA;Proporc. Med. Prepagada Prog. PBPA;5048;8840;C;C;N;D;;C;A;0;16;18;228;0
+12345;;Medicina Prepagada;01SIP2;Cuota Medicina Prepagada programa SIP2;4605;8840;C;C;N;D;;C;A;0;16;18;230;0
+12345;;Medicina Prepagada;04SIP2;IVA Med. Prepagada Programa SIP2;5049;4590;C;C;N;D;;C;A;0;16;18;229;0
+12345;;Medicina Prepagada;09SIP2;Proporc. Med. Prepagada Prog. SIP2;5050;8840;C;C;N;D;;C;A;0;16;18;231;0
+12345;;Medicina Prepagada;04ADP2;IVA Med. Prepagada Programa ADP2;5051;4590;C;C;N;D;;C;A;0;16;16;12;0
+12345;;Medicina Prepagada;09ADP2;Proporc. Med. Prepagada Prog. ADP2;5052;8840;C;C;N;D;;C;A;0;16;18;215;0
+12345;;Medicina Prepagada;01SOP2;Cuota Medicina Prepagada programa SOP2;4607;8840;C;C;N;D;;C;A;0;16;3;8;0
+12345;;Medicina Prepagada;04SOP2;IVA Med. Prepagada Programa SOP2;5053;4590;C;C;N;D;;C;A;0;16;13;8;0
+12345;;Medicina Prepagada;09SOP2;Proporc. Med. Prepagada Prog. SOP2;5054;8840;C;C;N;D;;C;A;0;16;18;222;0
+12345;;Medicina Prepagada;04CEP2;IVA Med. Prepagada Programa CEP2;5055;4590;C;C;N;D;;C;A;0;16;16;14;0
+12345;;Medicina Prepagada;09CEP2;Proporc. Med. Prepagada Prog. CEP2;5056;8840;C;C;N;D;;C;A;0;16;18;217;0
+12345;;Medicina Prepagada;01SIF1;Cuota Medicina Prepagada programa SIF1;4643;8840;C;C;N;D;;C;A;0;16;18;233;0
+12345;;Medicina Prepagada;04SIF1;IVA MED. PREPAGADA PROGRAMA SIF1;5059;4590;C;C;N;D;;C;A;0;16;18;232;0
+12345;;Medicina Prepagada;09SIF1;Proporc. Med. Prepagada Prog. SIF1;5060;8840;C;C;N;D;;C;A;0;16;18;234;0
+12345;;Medicina Prepagada;04CE2P;IVA Med. Prepagada Programa CE2P;5061;4590;C;C;N;D;;C;A;0;16;16;17;0
+12345;;Medicina Prepagada;09CE2P;Proporc. Med. Prepagada Prog. CE2P;5062;8840;C;C;N;D;;C;A;0;16;18;220;0
+12345;;Medicina Prepagada;01ORPA;Cuota Medicina Prepagada programa ORPA;4594;8840;C;C;N;D;;C;A;0;16;6;9;0
+12345;;Medicina Prepagada;01OBPA;Cuota Medicina Prepagada programa OBPA;4602;8840;C;C;N;D;;C;A;0;16;6;10;0
+12345;;Medicina Prepagada;01ADP2;Cuota Medicina Prepagada programa ADP2;4606;8840;C;C;N;D;;C;A;0;16;2;10;0
+12345;;Medicina Prepagada;01CEP2;CEM PRESTADORES-ASOCIADO DIC 2014;4608;8840;C;C;N;D;;C;A;0;16;8;13;0
+12345;;Medicina Prepagada;01CE2P;Cuota Emergencias Médicas Programa CE2P;4644;8840;C;C;N;D;;C;A;0;16;8;17;0
+12345;;Medicina Prepagada;01CEX3;Cuota Coomeva Emergencia Méd  CEX3;4645;8840;C;C;N;D;;C;A;0;16;8;18;0
+12345;;Medicina Prepagada;04CEX3;IVA Coomeva Emergencia Méd CEX3;5065;4590;C;C;N;D;;C;A;0;16;16;18;0
+12345;;Medicina Prepagada;09CEX3;Proporc. Coomeva Emergencia Méd CEX3;5063;8840;C;C;N;D;;C;A;0;16;18;221;0
+12345;;Medicina Prepagada;01ASOE;Cuota Medicina prepagada Programa ASOE;5066;8809;C;C;N;D;;C;A;0;16;18;236;0
+12345;;Medicina Prepagada;04ASOE;Iva Medicina Prepagada Programa ASOE;5064;8818;C;C;N;D;;C;A;0;16;18;235;0
+12345;;Medicina Prepagada;09ASOE;Proporc. Med. Prepagada Programa ASOE;5067;8840;C;C;N;D;;C;A;0;16;18;237;0
+12345;;Medicina Prepagada;04CLDI;IVA Med. Prepagada Programa CLAS;5071;4640;C;C;N;D;;C;A;0;16;14;3;0
+12345;;Medicina Prepagada;01CLDI;Cuota Medicina Prepagada programa CLAS;5072;8699;C;C;N;D;;C;A;0;16;4;4;0
+12345;;Medicina Prepagada;09CLDI;Proporcionalidad Med. Prepagada Programa;5073;8840;C;C;N;D;;C;A;0;16;18;241;0
+12345;;Medicina Prepagada;04ORAD;IVA Med. Prepagada Programa ORO;5074;4680;C;C;N;D;;C;A;0;16;16;9;0
+12345;;Medicina Prepagada;01ORAD;Cuota Medicina Prepagada programa ORO;5075;8699;C;C;N;D;;C;A;0;16;6;11;0
+12345;;Medicina Prepagada;09ORAD;Proporcionalidad Med. Prepagada Programa;5076;8840;C;C;N;D;;C;A;0;16;18;242;0
+12345;;Medicina Prepagada;04PLUD;IVA Med. Prepagada Programa ORO;5068;8820;C;C;N;D;;C;A;0;16;18;238;0
+12345;;Medicina Prepagada;01PLUD;Cuota Medicina Prepagada programa ORO;5069;8811;C;C;N;D;;C;A;0;16;18;239;0
+12345;;Medicina Prepagada;09PLUD;Proporcionalidad Med. Prepagada Programa;5070;8840;C;C;N;D;;C;A;0;16;18;240;0
+12345;;Medicina Prepagada;04TRED;IVA Med. Prepagada Programa TRAD ESP;5077;4510;C;C;N;D;;C;A;0;16;11;3;0
+12345;;Medicina Prepagada;01TRED;Cuota Medicina Prepagada programa TRAD E;5078;8509;C;C;N;D;;C;A;0;16;1;4;0
+12345;;Medicina Prepagada;09TRED;Proporcionalidad Med. Prepagada Programa;5079;8840;C;C;N;D;;C;A;0;16;18;243;0
+12345;;Medicina Prepagada;04SILE;Iva Med.Prepagada Programa SILE;5080;8819;C;C;N;D;;C;A;0;16;18;244;0
+12345;;Medicina Prepagada;01SILE;Medicina Prepagada Programa SILE;5081;8810;C;C;N;D;;C;A;0;16;18;245;0
+12345;;Medicina Prepagada;04CLEA;IVA Medicina Prepagada programa CLAS;5083;8699;C;C;N;D;;C;A;0;16;14;4;0
+12345;;Medicina Prepagada;01CLEA;Cuota Medicina Prepagada programa CLAS;5082;8699;C;C;N;D;;C;A;0;16;4;5;0
+12345;;Medicina Prepagada;01CEAD;Cuota Coomeva Emergencia Médica CEAD;8084;8819;C;C;N;D;;C;A;0;16;18;246;0
+12345;;Medicina Prepagada;04CEAD;IVA Med. Coomeva Emergencia  CEAD;8085;8819;C;C;N;D;;C;A;0;16;18;247;0
+12345;;Medicina Prepagada;01SOME;Cuota Salud Oral Dental Elite SOME;8086;8819;C;C;N;D;;C;A;0;16;18;248;0
+12345;;Medicina Prepagada;04SOME;IVA Salud Oral Dental Elite SOME;8087;8819;C;C;N;D;;C;A;0;16;18;249;0
+12345;;Medicina Prepagada;01SIE2;Cuota Medicina Prepagada programa SIE2;8088;8819;C;C;N;D;;C;A;0;16;18;250;0
+12345;;Medicina Prepagada;04SIE2;IVA Salud Oral Dental Elite SIE2;8089;8819;C;C;N;D;;C;A;0;16;18;251;0
+12345;;Medicina Prepagada;01ORED;Cuota MP Programa ORED (ORO);8090;8819;C;C;N;D;;C;A;0;16;18;252;0
+12345;;Medicina Prepagada;04ORED;IVA MP PROGRAMA ORED (ORO);8091;8819;C;C;N;D;;C;A;0;16;18;253;0
+12345;;Medicina Prepagada;01TREE;Cuota MP Programa TREE (TRAE);8092;8819;C;C;N;D;;C;A;0;16;18;254;0
+12345;;Medicina Prepagada;04TREE;IVA MP Programa TREE (TRAE);8093;8819;C;C;N;D;;C;A;0;16;18;255;0
+12345;;Medicina Prepagada;01CEIN;Cuota CEM Programa CEIN (CEM);8094;8819;C;C;N;D;;C;A;0;16;18;256;0
+12345;;Medicina Prepagada;04CEIN;IVA CEM Programa CEIN (CEM);8095;8819;C;C;N;D;;C;A;0;16;18;257;0
+12345;;Medicina Prepagada;01OREN;Cuota MP Programa OREN (ORO);8096;8819;C;C;N;D;;C;A;0;16;18;258;0
+12345;;Medicina Prepagada;04OREN;IVA MP Programa OREN (ORO);8097;8819;C;C;N;D;;C;A;0;16;18;259;0
+12345;;Medicina Prepagada;01ADEN;Cuota MP Programa ADEN (ADOR);8098;8819;C;C;N;D;;C;A;0;16;18;260;0
+12345;;Medicina Prepagada;04ADEN;IVA MP Programa ADEN (ADOR);8099;8819;C;C;N;D;;C;A;0;16;18;261;0
+12345;;Medicina Prepagada;01ORA1;Cuota Plan Oro1;8101;8819;C;C;N;D;;C;A;0;16;18;262;0
+12345;;Medicina Prepagada;04ORA1;IVA Plan Oro1;8102;8819;C;C;N;D;;C;A;0;16;18;263;0
+12345;;Medicina Prepagada;01ORA2;CUOTA PLAN ORO2;8103;8819;C;C;N;D;;C;A;0;16;18;264;0
+12345;;Medicina Prepagada;04ORA2;IVA Plan Oro2;8104;8819;C;C;N;D;;C;A;0;16;18;265;0
+12345;;Medicina Prepagada;01ORA3;Cuota Plan Oro3;8105;8819;C;C;N;D;;C;A;0;16;18;266;0
+12345;;Medicina Prepagada;04ORA3;IVA Plan Oro3;8106;8819;C;C;N;D;;C;A;0;16;18;267;0
+12345;;Medicina Prepagada;01ORA4;Cuota Plan Oro4;8107;8819;C;C;N;D;;C;A;0;16;18;268;0
+12345;;Medicina Prepagada;04ORA4;IVA Plan Oro4;8108;8819;C;C;N;D;;C;A;0;16;18;269;0
+12345;;Medicina Prepagada;01OAN5;Cuota Plan OAN5;8109;8819;C;C;N;D;;C;A;0;16;18;270;0
+12345;;Medicina Prepagada;04OAN5;IVA Plan OAN5;8110;8819;C;C;N;D;;C;A;0;16;18;271;0
+12345;;Medicina Prepagada;01OANC;Cuota Plan OANC;8111;8819;C;C;N;D;;C;A;0;16;18;272;0
+12345;;Medicina Prepagada;04OANC;IVA Plan OANC;8112;8819;C;C;N;D;;C;A;0;16;18;273;0
+12345;;Medicina Prepagada;01ADNC;Cuota Plan ADNC;8113;8819;C;C;N;D;;C;A;0;16;18;274;0
+12345;;Medicina Prepagada;04ADNC;IVA Plan ADNC;8114;8819;C;C;N;D;;C;A;0;16;18;275;0
+12345;;Medicina Prepagada;01BBNC;Cuota Plan BBNC;8115;8819;C;C;N;D;;C;A;0;16;18;276;0
+12345;;Medicina Prepagada;04BBNC;IVA Plan BBNC;8116;8819;C;C;N;D;;C;A;0;16;18;277;0
+12345;;Medicina Prepagada;01CE23;Cuota CEM programa CE23;8117;8819;C;C;N;D;;C;A;0;16;18;278;0
+12345;;Medicina Prepagada;04CE23;IVA Salud CEM CE23;8118;8819;C;C;N;D;;C;A;0;16;18;279;0
+12345;;Medicina Prepagada;01ORJO;Cuota MP programa ORJO;8119;8819;C;C;N;D;;C;A;0;16;18;280;0
+12345;;Medicina Prepagada;04ORJO;IVA MP Programa ORJO;8120;8819;C;C;N;D;;C;A;0;16;18;281;0
+12345;;Medicina Prepagada;01ORJ1;Cuota MP programa 01ORJ1;8121;8819;C;C;N;D;;C;A;0;16;18;282;0
+12345;;Medicina Prepagada;04ORJ1;IVA MP Programa ORJ1;8122;8819;C;C;N;D;;C;A;0;16;18;283;0
+12345;;Medicina Prepagada;01ORMY;Cuota MP programa ORMY;8123;8819;C;C;N;D;;C;A;0;16;18;284;0
+12345;;Medicina Prepagada;04ORMY;IVA MP Programa ORMY;8124;8819;C;C;N;D;;C;A;0;16;18;285;0
+12345;;Medicina Prepagada;01PLTC;Cuota MP programa PLTC;8125;8819;C;C;N;D;;C;A;0;16;18;286;0
+12345;;Medicina Prepagada;04PLTC;IVA MP Programa PLTC;8126;8819;C;C;N;D;;C;A;0;16;18;287;0
+12345;;Medicina Prepagada;01SOTC;Cuota Dental Elite SOTC;8127;8819;C;C;N;D;;C;A;0;16;18;288;0
+12345;;Medicina Prepagada;04SOTC;IVA Dental Elite SOTC;8128;8819;C;C;N;D;;C;A;0;16;18;289;0
+12345;;Medicina Prepagada;01S1TC;Cuota Dental Elite S1TC;8129;8819;C;C;N;D;;C;A;0;16;18;290;0
+12345;;Medicina Prepagada;04S1TC;IVA Dental Elite S1TC;8130;8819;C;C;N;D;;C;A;0;16;18;291;0
+12345;;Medicina Prepagada;01S2TC;Cuota Dental Elite S2TC;8131;8819;C;C;N;D;;C;A;0;16;18;292;0
+12345;;Medicina Prepagada;04S2TC;IVA Dental Elite S2TC;8132;8819;C;C;N;D;;C;A;0;16;18;293;0
+12345;;Medicina Prepagada;01SO16;Cuota Dental Elite  enero-junio 2016;8143;8819;C;C;N;D;;C;A;0;16;18;304;0
+12345;;Medicina Prepagada;04SO16;Cuota IVA Dental Elite enero junio 2016;8144;8819;C;C;N;D;;C;A;0;16;18;305;0
+12345;;Medicina Prepagada;01CPEM;Cuota Cem promoción 2016;8141;8819;C;C;N;D;;C;A;0;16;18;302;0
+12345;;Medicina Prepagada;04CPEM;Cuota IVA Cem Promoción 2016;8142;8819;C;C;N;D;;C;A;0;16;18;303;0
+12345;;Medicina Prepagada;01CEB;Cuota CEM sin línea MP CEB;8133;8819;C;C;N;D; ;C;A;0;16;18;294;0
+12345;;Medicina Prepagada;01CEB1;Cuota CEM con línea MP CEB1;8135;8819;C;C;N;D; ;C;A;0;16;18;296;0
+12345;;Medicina Prepagada;01CEX1;Cuota CEM Campa¦a Asociados CEX1;8137;8819;C;C;N;D; ;C;A;0;16;18;298;0
+12345;;Medicina Prepagada;01ONCC;CUOTA ORO NUEVAS COBERTURAS CAFETERO;8155;8819;C;C;N;D; ;C;A;0;16;18;308;0
+12345;;Medicina Prepagada;01ORJ2;Cuota Mp Jóvenes Asociados ORJ02;8139;8819;C;C;N;D; ;C;A;0;16;18;300;0
+12345;;Medicina Prepagada;01ORO4;Cuota Oro Convenio Club Campestre Eje;8145;8819;C;C;N;D; ;C;A;0;16;18;306;0
+12345;;Medicina Prepagada;04CEB;IVA CEM sin línea MP CEB;8134;8819;C;C;N;D; ;C;A;0;16;18;295;0
+12345;;Medicina Prepagada;04CEB1;IVA CEM con línea MP CEB1;8136;8819;C;C;N;D; ;C;A;0;16;18;297;0
+12345;;Medicina Prepagada;04CEX1;IVA Campa¦a Asociados CEX1;8138;8819;C;C;N;D; ;C;A;0;16;18;299;0
+12345;;Medicina Prepagada;04ONCC;IVA Oro Club Campestre 04ONCC;8156;8819;C;C;N;D; ;C;A;0;16;18;309;0
+12345;;Medicina Prepagada;04ORJ2;IVA Mp Jóvenes Asociados ORJ02;8140;8819;C;C;N;D; ;C;A;0;16;18;301;0
+12345;;Medicina Prepagada;04ORO4;IVA Oro Convenio Club Campestre Eje;8146;8819;C;C;N;D; ;C;A;0;16;18;307;0
+12345;;Planes Adicionales Solidaridad;AJUSOLIE;Ajuste Solidaridad Especial;7173;9984;S;C;N;D;S;F;A;0;12;210;518;0
+12345;;Planes Adicionales Solidaridad;AJUVIDCL;Ajuste Vida Clásica;4258;8699;C;C;N;D;;C;A;0;12;235;518;0
+12345;;Seguros;CLINIMA2;Seguro Clinimas2;5400;9991;S;K;N;D;;C;A;0;30;266;500;0
+12345;;Seguros;DESEMPLE;SEGURO DESEMPLEO MP;5407;9991;S;K;N;D;;C;A;0;30;280;500;0
+12345;;;EDU.REFI;Educar Refinancia;1078;8930;S;P;N;D;;C;A;0;30;52;500;0
+12345;;Financiamiento;EDU.ROTA;Educar Rotativo;1258;8802;S;P;N;D;;C;A;0;30;111;500;1
+12345;;;FIND_ROT;FINDETER ROTATIVO;2013;7991;S;P;N;D;;C;A;0;30;46;500;0
+12345;;Financiamiento;PAP.JOVE;PAP JOVEN;4452;8999;C;C;N;D;S;F;A;0;14;83;1;0
+12345;;Financiamiento;PAP.VEHI;PAP Vehículo;4449;8999;C;C;N;D;S;F;A;0;14;82;1;0
+12345;;Financiamiento;PAP.VIVI;PAP Vivienda;4455;8999;C;C;N;D;S;F;A;0;14;86;1;0
+12345;;Financiamiento;PAPEDUC;PAP Educar;4454;8999;C;C;N;D;S;F;A;0;14;85;1;0
+12345;;Financiamiento;PAPRUSIA;PAP Rusia 2018;4453;8999;C;C;N;D;S;F;A;0;14;84;1;0
+12345;;Seguros;RCMEDAUX;SEGURO RC MEDICA AUX SALUD;5408;9435;S;K;N;D;;C;A;0;30;184;500;0
+12345;;Seguros;RCMEDE;RC MEDICA EMPLEADO;5405;9991;S;K;N;D;;C;A;0;30;270;500;0
+12345;;;REVALORI;Revalorizacion Aportes;4008;8699;S;C;N;D;S;F;A;0;14;41;999;0
+12345;;Seguros;SEGUVIDA;SEG VIDA GRUPO COLECTIV;5409;9435;S;K;N;D;;C;A;0;30;185;500;0
+12345;;;TACMC;Tarjeta Asociado MC;1205;8881;S;P;N;D;;C;A;0;20;34;500;0
+12345;;;TC.EMP;Tarjeta Crédito Empresarial;915;9000;S;P;N;D;;C;A;0;20;15;500;0
+12345;;;TCMASTER;TC Mastercard;1206;8881;S;P;N;D;;C;A;0;20;24;500;0
+12345;;;VEH.S/PR;Vehiculo sin Garantía Prendaria;1104;8900;S;P;N;D;;C;A;0;30;72;500;0
+12345;;Medicina Prepagada;01CEB;Cuota CEM sin línea MP CEB;8133;8819;C;C;N;D;;C;A;0;16;18;294;0
+12345;;Medicina Prepagada;01CEB1;Cuota CEM con línea MP CEB1;8135;8819;C;C;N;D;;C;A;0;16;18;296;0
+12345;;Medicina Prepagada;01CEX1;Cuota CEM Campa¦a Asociados CEX1;8137;8819;C;C;N;D;;C;A;0;16;18;298;0
+12345;;Medicina Prepagada;01ONCC;CUOTA ORO NUEVAS COBERTURAS CAFETERO;8155;8819;C;C;N;D;;C;A;0;16;18;308;0
+12345;;Medicina Prepagada;01ORJ2;Cuota Mp Jóvenes Asociados ORJ02;8139;8819;C;C;N;D;;C;A;0;16;18;300;0
+12345;;Medicina Prepagada;01ORO4;Cuota Oro Convenio Club Campestre Eje;8145;8819;C;C;N;D;;C;A;0;16;18;306;0
+12345;;Medicina Prepagada;01SOM2;Cuota Salud Oral < 5 a¦os limit dic/16;8157;8819;C;C;N;D;;C;A;0;16;18;310;0
+12345;;Medicina Prepagada;01SOM3;Cuota Salud Oral < 13 a¦os limit dic/16;8159;8819;C;C;N;D;;C;A;0;16;18;312;0
+12345;;Medicina Prepagada;04CEB;IVA CEM sin línea MP CEB;8134;8819;C;C;N;D;;C;A;0;16;18;295;0
+12345;;Medicina Prepagada;04CEB1;IVA CEM con línea MP CEB1;8136;8819;C;C;N;D;;C;A;0;16;18;297;0
+12345;;Medicina Prepagada;04CEX1;IVA Campa¦a Asociados CEX1;8138;8819;C;C;N;D;;C;A;0;16;18;299;0
+12345;;Medicina Prepagada;04ONCC;IVA Oro Club Campestre 04ONCC;8156;8819;C;C;N;D;;C;A;0;16;18;309;0
+12345;;Medicina Prepagada;04ORJ2;IVA Mp Jóvenes Asociados ORJ02;8140;8819;C;C;N;D;;C;A;0;16;18;301;0
+12345;;Medicina Prepagada;04ORO4;IVA Oro Convenio Club Campestre Eje;8146;8819;C;C;N;D;;C;A;0;16;18;307;0
+12345;;Medicina Prepagada;04SOM2;IVA Salud Oral < 5 a¦os limit dic/16;8158;8819;C;C;N;D;;C;A;0;16;18;311;0
+12345;;Medicina Prepagada;04SOM3;IVA Salud Oral < 13 a¦os limit dic/16;8160;8819;C;C;N;D;;C;A;0;16;18;313;0
+67890;;Planes Adicionales Solidaridad;AJUSO02E;Ajuste Solvencia 2 años Especial;4147;5853;S;C;N;D;S;F;A;0;12;211;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO03E;Ajuste Solvencia 3 años Especial;4148;5852;S;C;N;D;S;F;A;0;12;212;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO04E;Ajuste Solvencia 4 años Especial;4149;5851;S;C;N;D;S;F;A;0;12;213;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO05E;Ajuste Solvencia 5 años Especial;4150;5850;S;C;N;D;S;F;A;0;12;214;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO06E;Ajuste Solvencia 6 años Especial;4151;5849;S;C;N;D;S;F;A;0;12;216;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO07E;Ajuste Solvencia 7 años Especial;4152;5848;S;C;N;D;S;F;A;0;12;217;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO08E;Ajuste Solvencia 8 años Especial;4153;5847;S;C;N;D;S;F;A;0;12;218;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO09E;Ajuste Solvencia 9 años Especial;4154;5846;S;C;N;D;S;F;A;0;12;219;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO10E;Ajuste Solvencia 10 años Especial;4155;5845;S;C;N;D;S;F;A;0;12;220;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO11E;Ajuste Solvencia 11 años Especial;4156;5844;S;C;N;D;S;F;A;0;12;221;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO12E;Ajuste Solvencia 12 años Especial;4157;5843;S;C;N;D;S;F;A;0;12;222;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO13E;Ajuste Solvencia 13 años Especial;4158;5842;S;C;N;D;S;F;A;0;12;223;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO14E;Ajuste Solvencia 14 años Especial;4159;5841;S;C;N;D;S;F;A;0;12;224;518;0
+67890;;Planes Adicionales Solidaridad;AJUSO15E;Ajuste Solvencia 15 años Especial;4160;5840;S;C;N;D;S;F;A;0;12;225;518;0
+67890;;Medicina Prepagada;01PL12;Cuota Plus hijo Campa¦a de 1-12 a¦os;8162;8819;C;C;N;D; ;C;A;0;16;18;315;0
+67890;;Medicina Prepagada;01SI12;Cuota Silver hijo Campa¦a de 1-12 a¦os;8164;8819;C;C;N;D; ;C;A;0;16;18;317;0
+67890;;Medicina Prepagada;01TREA;Cuota Tradicional Especial Aliados;8166;8819;C;C;N;D; ;C;A;0;16;18;319;0
+67890;;Medicina Prepagada;04PL12;IVA Plus hijo Campa¦a de 1-12 a¦os;8161;8819;C;C;N;D; ;C;A;0;16;18;314;0
+67890;;Medicina Prepagada;04SI12;IVA Silver hijo Campa¦a de 1-12 a¦os;8163;8819;C;C;N;D; ;C;A;0;16;18;316;0
+67890;;Medicina Prepagada;04TREA;IVA Tradicional Especial Aliados;8165;8819;C;C;N;D; ;C;A;0;16;18;318;0
+12345;;Otros;ADM ASOC;Cuota de Admision Asociado;4183;8699;C;C;N;D;S;F;A;0;14;56;1;0
+12345;;;ADM PRT;Administracion Portafolio;19;8699;S;K;N;D; ;C;A;0;30;170;500;0
+12345;;Seguros;AUT PESA;Seguro Autos Pesados;566;9436;S;K;N;D; ;C;A;0;30;179;500;0
+12345;;;CHQ EXCL;Cheque Excluido;9;8699;C;K;I;D;F;F;A;0;980;1;207;0
+12345;;;COE FNG;COE Rotativo FNG;2012;7995;S;P;N;D; ;C;A;0;30;42;500;0
+12345;;;COE.ROT;COE ROTATIVO M;2023;3213;S;P;N;D; ;C;A;0;30;44;500;0
+12345;;;CR ORIGI;COMPRA CARTERA ORIGINADOR;1035;9000;S;P;N;D; ;C;A;0;30;45;500;0
+12345;;Financiamiento;CR. EDUC;Credito Educacion;1070;8930;S;P;N;D; ;C;A;0;30;50;500;0
+12345;;Creditos Cooperativos;CR. EMP.;Credito Creacion Empresas;2020;7980;S;P;N;D; ;C;A;0;30;30;500;0
+12345;;;CR. EMPR;COMPRA CARTERA EMPRESARIAL;1034;9000;S;P;N;D; ;C;A;0;30;35;500;0
+12345;;;CR. IPS;Credito Capital Trabajo IPS;2050;7950;S;P;N;D; ;C;A;0;30;100;500;0
+12345;;Financiamiento;CR. PROP;Credito Propiedad Raiz;3020;6980;S;P;N;D; ;C;A;0;30;81;500;0
+12345;;;CR. R.EM;Credito Recuperacion Empresas;2030;7970;S;P;N;D; ;C;A;0;30;31;500;0
+12345;;;CR. SAL.;Credito Salarios Atrasados;1060;8940;S;P;N;D;S;F;A;0;30;41;500;0
+12345;;Financiamiento;CR. UVR;Credito UVR;3040;6960;S;P;N;D; ;C;A;1;30;82;500;0
+12345;;Financiamiento;CR. VEH.;Credito Vehiculo;1100;8900;S;P;N;D; ;C;A;0;30;70;500;0
+12345;;Financiamiento;CR.CAL D;Credito Calamidad Domestica;1040;8960;S;P;N;D; ;C;A;0;30;40;500;0
+12345;;;CREDIFAC;Credifacil;1025;9000;S;P;N;D; ;C;A;0;30;27;500;1
+12345;;Financiamiento;CUP CCTE;Cupo Facil Cuenta Corriente;1199;8800;S;P;N;D; ;C;A;0;30;102;500;0
+12345;;Financiamiento;CUP CTEJ;Cupo cuenta corriente P.J.;1201;8800;S;P;N;D; ;C;A;0;30;115;500;0
+12345;;Financiamiento;CUP CTEN;Cupo cuenta corriente P.N.;1204;8881;S; ; ; ; ;C; ;0;30;114;500;0
+12345;;;CUP NOMI;Cupo Nomina Facil;1198;8800;S;P;N;D; ;C;A;0;30;101;500;0
+12345;;;CUPO CB;Cupo Corresponsales Bancarios;1215;8800;S;P;N;D; ;C;A;0;30;103;500;0
+12345;;Financiamiento;CUPO MUL;Cupo Multiservicios;1202;8881;S;P;N;D; ;C;A;0;30;112;500;0
+12345;;;FINROFNG;FINDETER ROTATIVO FNG;2022;7995;S;P;N;D; ;C;A;0;30;43;500;0
+12345;;;IN. OTRO;Intereses Otros;1073;8930;N;P;N;D; ;C;A;0;30;183;500;0
+12345;;Otros;IVA.ASOC;IVA CUOTA DE ADMISION ASOCIADO;4185;8699;S;C;N;D;S;F;A;0;14;57;1;0
+12345;;;NOTA DEB;Debitos x Correccion;3;8699;C;K;I;D;F;C;A;0;980;1;200;0
+12345;;;ORILIBRA;Originadores Libranza;1479;8999;S;P;N;D; ;C;A;0;30;26;500;1
+12345;;;Pago Mal;Pago Mal Aplicado;1074;8930;S;P;N;D; ;C;A;0;30;4;500;0
+12345;;Seguros;PAGO SEG;Pago Seguro;627;8799;S;K;N;D; ;C;A;0;30;163;500;0
+12345;;;PAP.PNA1;PAP Tasa Fija Persona Natural;4456;8999;C;C;N;D;S;F;A;0;14;87;1;0
+12345;;Financiamiento;PAP.VIV1;PAP VIVIENDA;4462;5545;C;C;N;D;S;F;A;0;14;94;1;0
+12345;;;PAPEDU1;PAP EDUCATIVO;4461;5546;C;C;N;D;S;F;A;0;14;93;1;0
+12345;;;PAPEMPR1;PAP Tasa Fija Empresarial;4457;8999;C;C;N;D;S;F;A;0;14;88;1;0
+12345;;Financiamiento;PAPJOVE1;PAP JOVEN;4459;8999;C;C;N;D;S;F;A;0;14;90;1;0
+12345;;;PAPRUSI1;PAP Rusia 2018;4460;8999;C;C;N;D;S;F;A;0;14;92;1;0
+12345;;Financiamiento;PAPVEHI1;PAP Vehículo;4489;8999;C;C;N;D;S;F;A;0;14;89;1;0
+12345;;Seguros;RC MED;RC MEDICA;678;9703;S;K;N;D; ;C;A;0;30;177;500;0
+12345;;Creditos Cooperativos;REEST CO;REESTRUCTURACION COMERCIAL;1858;9000;S;P;N;D; ;C;A;0;30;960;500;0
+12345;;;REESTPRC;Procesos Concursales - Consumo;1887;7461;S;P;N;D; ;C;A;0;30;400;500;0
+12345;;Seguros;RENTA HG;Seguro Renta Hogar;671;9886;S;K;N;D; ;C;A;0;30;167;500;0
+12345;;Seguros;RENTHONU;Renta Hogar Ventas Nuevas;586;9991;S;K;N;D; ;C;A;0;30;272;500;0
+12345;;Seguros;SEG ACCI;Seguro Accidentes;514;8699;S;K;N;D; ;C;A;0;30;147;500;0
+12345;;Seguros;SEG AUTO;Autoclub Cali;517;8699;S;K;N;D; ;C;A;0;30;149;500;0
+12345;;Seguros;SEG CAST;Seguros Castigados;530;7461;N;K;N;D; ;C;A;0;30;600;500;0
+12345;;Seguros;SEG CIVI;Seguro Responsabilidad Civil;518;8699;S;K;N;D; ;C;A;0;30;132;500;0
+12345;;Seguros;SEG CUBR;Seguro Cubremas;520;8699;S;K;N;D; ;C;A;0;30;146;500;0
+12345;;Seguros;SEG CUMP;Seguro Poliza Cumplimiento;519;8699;S;K;N;D; ;C;A;0;30;133;500;0
+12345;;Seguros;SEG ELEC;Seguro Equipo Electrico;516;8699;S;K;N;D; ;C;A;0;30;131;500;0
+12345;;Seguros;SEG EMBA;Seguro Embarcacion;510;8699;S;K;N;D; ;C;A;0;30;141;500;0
+12345;;Seguros;SEG EQUI;Seguro Equipo Maquinaria;511;8699;S;K;N;D; ;C;A;0;30;142;500;0
+12345;;Seguros;SEG GAP;Seguros Plan 100 %;526;7461;S;K;N;D; ;C;A;0;30;152;500;0
+12345;;Seguros;SEG HOGA;Seguro Hogarmas;505;8699;S;K;N;D; ;C;A;0;30;136;500;0
+12345;;Seguros;SEG INCE;Seguro Incendio;507;8699;S;K;N;D; ;C;A;0;30;138;500;0
+12345;;Seguros;SEG MOTO;Seguro Poliza de Motos;563;9701;S;K;N;D; ;C;A;0;30;165;500;0
+12345;;Seguros;SEG PAGP;Seguro Pago Protegido;672;9702;S;K;N;D; ;C;A;0;30;171;500;0
+12345;;Seguros;SEG PHOG;Seguro Poliza Hogar;515;8699;S;K;N;D; ;C;A;0;30;148;500;0
+12345;;Seguros;SEG PLAN;Seguros Plan Seguros;506;8699;S;K;N;D; ;C;A;0;30;137;500;0
+12345;;Seguros;SEG PYMA;Seguro Pymemas;673;9703;S;K;N;D; ;C;A;0;30;172;500;0
+12345;;Seguros;SEG PYME;Seguros Pyme;513;8699;S;K;N;D; ;C;A;0;30;135;500;0
+12345;;Seguros;SEG RENT;Seguro Renta Hospitalaria;512;8699;S;K;N;D; ;C;A;0;30;143;500;0
+12345;;Seguros;SEG RESC;Seguro Resp Civil Contractual;525;7461;S;K;N;D; ;C;A;0;30;151;500;0
+12345;;Seguros;SEG ROTU;Seguros Rotura Maquinaria;509;8699;S;K;N;D; ;C;A;0;30;140;500;0
+12345;;Seguros;SEG SUST;Seguros Sustraccion;508;8699;S;K;N;D; ;C;A;0;30;139;500;0
+12345;;Seguros;SEG TAMP;Seg. Tarjeta Protegida;528;8899;S;K;N;D; ;C;A;0;30;164;500;0
+12345;;Seguros;SEG VIDA;Seguro Vida Deudores;561;8713;S;K;N;D; ;C;A;0;30;121;500;0
+12345;;Seguros;SEG VIDM;Seguro Vida Deudores Credisolidario;562;8713;S;K;N;D; ;C;A;0;30;421;500;0
+12345;;;TAC MC;Tarjeta Asociado MC;1205;8881;S;P;N;D; ;C;A;0;20;34;500;0
+12345;;;TC CONV.;Cupo Tacre Conv. Pers. Juridica;905;9000;S;P;N;D; ;C;A;0;20;6;500;0
+12345;;;TESREFI;Tes Refinancia Educativo;1079;8930;S;P;N;D; ;C;A;0;30;53;500;0
+12345;;;U CASTIG;Conceptos Castigados;550;7461;S;K;N;D; ;C;A;0;30;700;500;0
+12345;;;VIS UVR;Vivienda Interes Social UVR;3042;6960;S;P;N;D; ;C;A;1;30;86;500;0
+12345;;Medicina Prepagada;01CECA;Cuota CEM Conexión Asociados;8200;8819;C;C;N;D; ;C;A;0;16;18;333;0
+12345;;Medicina Prepagada;01CEC1;Cuota CEM Combo Asociado;8196;8819;C;C;N;D; ;C;A;0;16;18;329;0
+12345;;Medicina Prepagada;01OAC1;Cuota OANC Combo Asociados;8168;8819;C;C;N;D; ;C;A;0;16;18;321;0
+12345;;Medicina Prepagada;01PLC1;Cuota Oro Plus Combo;8192;8819;C;C;N;D; ;C;A;0;16;18;325;0
+12345;;Medicina Prepagada;01SIC1;Cuota Plata Joven Combo;8194;8819;C;C;N;D; ;C;A;0;16;18;327;0
+12345;;Medicina Prepagada;01SOCA;Cuota Dental Elite Conexión Asociado;8202;8819;C;C;N;D; ;C;A;0;16;18;335;0
+12345;;Medicina Prepagada;01SOC1;Cuota Salud Dental Elite Combos;8190;8819;C;C;N;D; ;C;A;0;16;18;323;0
+12345;;Medicina Prepagada;01SO1C;Cuota Salud Dental Elite Combo Asociados;8198;8819;C;C;N;D; ;C;A;0;16;18;331;0
+12345;;Medicina Prepagada;04CECA;IVA CEM Conexión Asociados;8199;8819;C;C;N;D; ;C;A;0;16;18;332;0
+12345;;Medicina Prepagada;04CEC1;IVA CEM Combo Asociado;8195;8819;C;C;N;D; ;C;A;0;16;18;328;0
+12345;;Medicina Prepagada;04OAC1;IVA OANC Combo Asociados;8167;8819;C;C;N;D; ;C;A;0;16;18;320;0
+12345;;Medicina Prepagada;04PLC1;IVA Oro Plus Combo;8191;8819;C;C;N;D; ;C;A;0;16;18;324;0
+12345;;Medicina Prepagada;04SIC1;IVA Plata Joven Combo;8193;8819;C;C;N;D; ;C;A;0;16;18;326;0
+12345;;Medicina Prepagada;04SOCA;IVA Dental Elite Conexión Asociado;8201;8819;C;C;N;D; ;C;A;0;16;18;334;0
+12345;;Medicina Prepagada;04SOC1;IVA Salud Dental Elite Combos;8169;8819;C;C;N;D; ;C;A;0;16;18;322;0
+12345;;Medicina Prepagada;04SO1C;IVA Salud Dental Elite Combo Asociados;8197;8819;C;C;N;D; ;C;A;0;16;18;330;0
+12345;;Otros;EDU-PLUS;Educar Plus;1081;8930;S;P;N;D; ;C;A;0;30;55;500;0
+12345;;Seguros;EQELECBA;SEGURO EQUIPO ELECTRONICO BANCO;574;9991;S;K;N;D; ;C;A;0;30;258;500;0
+12345;;Seguros;HOGMASBA;SEGUROS HOGARMAS BANCO;570;9991;S;K;N;D; ;C;A;0;30;254;500;0
+12345;;Seguros;INCCLIBA;SEGURO INCENDIO CLIENTES BANCO;580;9991;S;K;N;D; ;C;A;0;30;264;500;0
+12345;;Seguros;MOTCLIBA;SEGURO MOTO CLIENTE BANCO;578;9991;S;K;N;D; ;C;A;0;30;262;500;0
+12345;;Seguros;PLA100EM;PLAN 100 DANOS EMPLEADO;3335;8699;S;K;N;D; ;C;A;0;30;534;500;0
+12345;;Seguros;POL.MOTE;Poliza Motos Empleados;3333;8699;S;K;N;D; ;C;A;0;30;532;500;0
+12345;;Seguros;POLAUTEM;POLIZA AUTOMOVILES EMPLEADO;3334;8699;S;K;N;D; ;C;A;0;30;533;500;0
+12345;;Seguros;PYMEBANC;SEGURO PYME BANCO;575;9991;S;K;N;D; ;C;A;0;30;259;500;0
+12345;;Seguros;SEGINCBA;SEGURO INCENDIOS BANCO;571;9991;S;K;N;D; ;C;A;0;30;255;500;0
+12345;;Seguros;SEGMOTBA;SEGURO MOTOS BANCO;572;9991;S;K;N;D; ;C;A;0;30;256;500;0
+12345;;Seguros;SEGSUSBA;SEGURO SUSTRACCION BANCO;573;9991;S;K;N;D; ;C;A;0;30;257;500;0
+12345;;Seguros;SEGVEHBA;SEGUROS VEHICULOS BANCO;568;9991;S;K;N;D; ;C;A;0;30;252;500;0
+12345;;Seguros;SEGVEHCB;SEGUROS VEHICULOS CLIENTES BANCO;569;9991;S;K;N;D; ;C;A;0;30;253;500;0
+12345;;Seguros;TAXCLIBA;SEGUROS TAXI CLIENTE COOMEVA FINANCIERA;579;9991;S;K;N;D; ;C;A;0;30;263;500;0
+12345;;Seguros;TAXIBANC;SEGURO TAXIS BANCO;576;9991;S;K;N;D; ;C;A;0;30;260;500;0
+12345;;Seguros;VEHPESBA;SEGUROS VEHICULOS PESADOS CLIENTES BANC;577;9991;S;K;N;D; ;C;A;0;30;261;500;0
+12345;;Planes Adicionales Solidaridad;PRIMANIV;PRIMA NIVELADA;5320;9984;C;Z;N;D;;C;A;0;12;290;517;0
+12345;;Medicina Prepagada;01CEEF;CUOTA CEM-CONV-CLIN-ESPE-FARALL-CALI;8204;8819;C;C;N;D;;C;A;0;16;18;337;0
+12345;;Medicina Prepagada;01CEMB;CEM Barranquilla y Cartagena;8214;8819;C;C;N;D;;C;A;0;16;18;347;0
+12345;;Medicina Prepagada;01CEMX;CEM1 Convenio TC Multiservicios;8212;8819;C;C;N;D;;C;A;0;16;18;345;0
+12345;;Medicina Prepagada;01CEX0;COOMEVA EMERG MDCA BARRANQUILLA Y CARTAG;8216;8819;C;C;N;D;;C;A;0;16;18;349;0
+12345;;Medicina Prepagada;01OAJN;CUOTA ORO-ASOCIADOS- JOVENES ESPECIAL 0;8210;8819;C;C;N;D;;C;A;0;16;18;343;0
+12345;;Medicina Prepagada;01ORJN;CUOTA ORO-ESPECIAL JOVENES 0-35 A#OS;8206;8819;C;C;N;D;;C;A;0;16;18;339;0
+12345;;Medicina Prepagada;01SOTO;CUOTA DENTAL ELITE CONEXION ASOCIADOS;8208;8819;C;C;N;D;;C;A;0;16;18;341;0
+12345;;Medicina Prepagada;04CEEF;IVA CEM-CONV-CLIN-ESPE-FARALL-CALI;8203;8819;C;C;N;D;;C;A;0;16;18;336;0
+12345;;Medicina Prepagada;04CEMB;IVA CEM Barranquilla y Cartagena;8213;8819;C;C;N;D;;C;A;0;16;18;346;0
+12345;;Medicina Prepagada;04CEMX;IVA CEM1 Convenio TC Multiservicios;8211;8819;C;C;N;D;;C;A;0;16;18;344;0
+12345;;Medicina Prepagada;04CEX0;IVA COOMEVA EMERG MDCA BARRANQUILLA Y CA;8215;8819;C;C;N;D;;C;A;0;16;18;348;0
+12345;;Medicina Prepagada;04OAJN;IVA ORO-ASOCIADOS- JOVENES ESPECIAL 0-;8209;8819;C;C;N;D;;C;A;0;16;18;342;0
+12345;;Medicina Prepagada;04ORJN;IVA ORO-ESPECIAL JOVENES 0-35 A#OS;8205;8819;C;C;N;D;;C;A;0;16;18;338;0
+12345;;Medicina Prepagada;04SOTO;IVA DENTAL ELITE CONEXION ASOCIADOS;8207;8819;C;C;N;D;;C;A;0;16;18;340;0
+12345;;Financiamiento;PAP76;PAP Asociados;4442;8999;C;C;N;D;S;F;A;0;14;76;1;0
+12345;;Medicina Prepagada;01BPNC;Cuota BPNC Convenio TC Multiservicios;8218;8819;C;C;N;D;;C;A;0;16;18;351;0
+12345;;Medicina Prepagada;01PLCN;Cuota PLCN Convenio TC Multiservicios ;8222;8819;C;C;N;D;;C;A;0;16;18;355;0
+12345;;Medicina Prepagada;01PLDC;CUOTA PLDC CONVENIO TC MULTISERVICIOS;8220;8819;C;C;N;D;;C;A;0;16;18;353;0
+12345;;Medicina Prepagada;01PLNC;Cuota PLNC Convenio TC Multiservicios  ;8224;8819;C;C;N;D;;C;A;0;16;18;357;0
+12345;;Medicina Prepagada;04BPNC;IVA BPNC Convenio TC Multiservicios;8217;8819;C;C;N;D;;C;A;0;16;18;350;0
+12345;;Medicina Prepagada;04PLCN;IVA PLCN CONVENIO TC MULTISERVICIOS ;8221;8819;C;C;N;D;;C;A;0;16;18;354;0
+12345;;Medicina Prepagada;04PLDC;IVA PLDC Convenio TC Multiservicios;8219;8819;C;C;N;D;;C;A;0;16;18;352;0
+12345;;Medicina Prepagada;04PLNC;IVA PLNC CONVENIO TC MULTISERVICIOS  ;8223;8819;C;C;N;D;;C;A;0;16;18;356;0
+12345;;Medicina Prepagada;01SONU;Cuota SONU Convenio TC Multiservicios;8226;8819;C;C;N;D;;C;A;0;16;18;359;0
+12345;;Medicina Prepagada;04SONU;IVA SONU Convenio TC Multiservicios;8225;8819;C;C;N;D;;C;A;0;16;18;358;0
+12345;;Financiamiento;REESPCCO;Procesos Concursales - Comercial;1890;7461;S;P;N;D;;C;A;0;30;405;500;0
+12345;;Financiamiento;REESPCIV;Procesos Concursales - Interés Vivienda;1888;7461;S;P;N;D;;C;A;0;30;401;500;0
+12345;;Financiamiento;REESPCVI;Procesos Concursales - Vivienda;1889;7461;S;P;N;D;;C;A;0;30;402;500;0
+12345;;Seguros;SEGMPSTO;SEGURO DESEMPLEO MP STOCK;5410;9991;S;K;N;D;;C;A;0;30;272;500;0
+12345;;Financiamiento;TC.INF;Tarjeta de Credito Infinite SAT;908;9000;S;P;N;D;;C;A;0;20;22;500;0
+12345;;Seguros;AUTOSLI1;AUTOS LIVIANOS 1;5411;9991;S;K;N;D;;C;A;0;30;273;500;0
+12345;;Seguros;AUTOSLI2;AUTOS LIVIANOS 2;5412;9991;S;K;N;D;;C;A;0;30;274;500;0
+12345;;Financiamiento;TC.EMS;TARJETA DE CRÉDITO EMPRESARIAL SAT;907;9093;;C;N;D;S;F;A;0;20;15;600;0
+12345;;Medicina Prepagada;01CEME;CUOTA COOMEVA EMERGENCIA MEDICA;5413;8699;C;C;N;D;;C;A;0;16;8;19;0
+12345;;Medicina Prepagada;01CETE;Cuota CEM Rango Edad 13- 59 A¦os;5415;8699;C;C;N;D;;C;A;0;16;8;21;0
+12345;;Medicina Prepagada;04CEME;IVA CEME Coomeva Emergencia Medica;5414;8699;C;C;N;D;;C;A;0;16;8;20;0
+12345;;Medicina Prepagada;04CETE;IVA CEM Rango Edad 13- 59 A¦os;5416;8699;C;C;N;D;;C;A;0;16;8;22;0
+12345;;Planes Adicionales Solidaridad;AJUPRNIV;AJUSTE PRIMA NIVELADA;5321;9984;C;Z;N;D;;C;A;0;12;290;518;0
+12345;;Seguros;SEGAUTOC;AUTOCONTENIDOS;588;9991;S;K;N;D;;C;A;0;30;276;500;0
+12345;;Seguros;SEGMASCO;MASCOTA PROTEGIDA;589;9991;S;K;N;D;;C;A;0;30;277;500;0
+12345;;Seguros;SEGMOCHI;MOCHILA PROTEGIDA;587;9991;S;K;N;D;;C;A;0;30;275;500;0
+12345;;Financiamiento;SEGTMKBC;SEGURO TMK BANCO;348;9990;S;K;N;D;;C;A;0;30;239;500;0
+12345;;Seguros;SEGVICBA;Seguro Vida Deudores Banco;542;9458;S;K;N;D;;C;A;0;30;280;500;0
+12345;;Seguros;SEGVIGCE;SEGURO VIDAGRUPO COLECTIVO EMPLEADOS;593;8699;S;K;N;D;;C;A;0;30;542;500;0
+12345;;Otros;COFONGAR;Fondo de Garantías;1082;8930;C;C;N;D;S;F;A;0;14;10;1;0
+12345;;Seguros;AUTLIE;SEGURO AUTOS LIVIANOS EMPLEADOS;536;8699;S;K;N;D;;C;A;0;30;535;500;0
+12345;;Seguros;SEGRUNT;RUNT;539;9991;S;K;N;D;;C;A;0;30;279;500;0
+12345;;Seguros;SEGSOAT;SEGURO SOAT;538;9991;S;K;N;D;;C;A;0;30;278;500;0
+12345;;Seguros;SEGVIGC;SEGURO VIDAGRUPO COLECTIVO;543;9458;S;K;N;D;;C;A;0;30;282;500;0
+12345;;Seguros;SGAUCE;SEGURO AUTOCONTENIDOS EMPLEADOS;591;8699;S;K;N;D;;C;A;0;30;538;500;0
+12345;;Seguros;SGMAPE;SEGURO MASCOTA PROTEGIDA EMPLEADOS;592;8699;S;K;N;D;;C;A;0;30;539;500;0
+12345;;Seguros;SGMOPE;SEGURO MOCHILA PROTEGIDA EMPLEADOS;590;8699;S;K;N;D;;C;A;0;30;537;500;0
+12345;;Seguros;SGRUNE;SEGURO RUNT EMPLEADOS;541;8699;S;K;N;D;;C;A;0;30;541;500;0
+12345;;Seguros;SGSOAE;SEGURO SOAT EMPLEADOS;540;8699;S;K;N;D;;C;A;0;30;540;500;0
+12345;;Seguros;SGVGCE;SEGURO VIDAGRUPO COLECTIVO EMPLEADOS;593;8699;S;K;N;D;;C;A;0;30;542;500;0
+12345;;Medicina Prepagada;01CEFI;Cuota CEM Feria del Hogar Bogotá;8230;8819;C;C;N;D;;C;A;0;16;18;363;0
+12345;;Medicina Prepagada;01OPRA;CUOTA ORO PRESTADORES RED ABIERTA;8228;8819;C;C;N;D;;C;A;0;16;18;361;0
+12345;;Medicina Prepagada;01SOFE;Cuota SOEL FERIA DEL HOGAR BOGOTA;8232;8819;C;C;N;D;;C;A;0;16;18;365;0
+12345;;Medicina Prepagada;04CEFI;IVA CEM Feria del Hogar Bogotá;8229;8819;C;C;N;D;;C;A;0;16;18;362;0
+12345;;Medicina Prepagada;04OPRA;IVA ORO PRESTADORES RED ABIERTA;8227;8819;C;C;N;D;;C;A;0;16;18;360;0
+12345;;Medicina Prepagada;04SOFE;IVA SOEL FERIA DEL HOGAR BOGOTA;8231;8819;C;C;N;D;;C;A;0;16;18;364;0
+12345;;Seguros;EVCRICOO;EVENTOS CRITICOS COOMEVA;595;9991;S;K;N;D;;C;A;0;30;285;500;0
+12345;;Seguros;EVCRIMP;EVENTOS CRITICOS MP;596;9991;S;K;N;D;;C;A;0;30;283;500;0
+12345;;Seguros;PENPRVOL;PENSION PROTEGIDA VOLUNTARIA;597;9991;S;K;N;D;;C;A;0;30;284;500;0
+12345;;Seguros;VIDEMV;SEGURO VOLUNTARIO EMPLEADOS;594;8699;S;K;N;D;;C;A;0;30;543;500;0
+12345;;Financiamiento;COEROTM;COE Rotativo Manual;2015;3213;S;P;N;D;;C;A;0;30;57;500;0
+12345;;Planes Adicionales Solidaridad;DESE.ADI;DESEMPLEO Y PERDIDA DE INGRESOS ADICIONA;4261;8775;C;C;N;D;;C;A;0;12;295;517;0
+12345;;Financiamiento;FCOERFNG;FINDETER COE Rotativo con FNG;2017;7991;S;P;N;D;;C;A;0;30;59;500;0
+12345;;Financiamiento;FINCOERM;FINDETER COE Rotativo Manual;2016;7991;S;P;N;D;;C;A;0;30;58;500;0
+12345;;Financiamiento;MOD.HIP;Modificación Hipotecaria;2041;6999;S;P;N;D;;C;A;0;30;91;500;0
+12345;;Financiamiento;MODCOMER;Modificación Comercial;2044;7995;S;P;N;D;;C;A;0;30;94;500;0
+12345;;Financiamiento;MODCONSU;Modificación Consumo;2043;9000;S;P;N;D;;C;A;0;30;93;500;1
+12345;;Financiamiento;MODINTHP;Modificación Intereses Hipotecarios;2042;9000;S;P;N;D;;C;A;0;30;92;500;1
+12345;;Financiamiento;TES.FNG;TESORERÍA (TES) Con FNG;2014;7990;S;P;N;D;;C;A;0;30;56;500;0
+12345;;Medicina Prepagada;01CECE;Cuota CECE Convenio TC Multiservicios;8236;8819;C;C;N;D;;C;A;0;16;18;369;0
+12345;;Medicina Prepagada;01CEOC;Cuota CEOC Convenio TC Multiservicios;8240;8819;C;C;N;D;;C;A;0;16;18;373;0
+12345;;Medicina Prepagada;01CEUS;Cuota CEM Usuarios de Alto Costo;8234;8819;C;C;N;D;;C;A;0;16;18;367;0
+12345;;Medicina Prepagada;01SOOC;Cuota SOOC Convenio TC Multiservicios;8238;8819;C;C;N;D;;C;A;0;16;18;371;0
+12345;;Medicina Prepagada;04CECE;IVA CECE Convenio TC Multiservicios;8235;8819;C;C;N;D;;C;A;0;16;18;368;0
+12345;;Medicina Prepagada;04CEOC;IVA CEOC Convenio TC Multiservicios;8239;8819;C;C;N;D;;C;A;0;16;18;372;0
+12345;;Medicina Prepagada;04CEUS;IVA CEM Usuarios de Alto Costo;8233;8819;C;C;N;D;;C;A;0;16;18;366;0
+12345;;Medicina Prepagada;04SOOC;IVA SOOC Convenio TC Multiservicios;8237;8819;C;C;N;D;;C;A;0;16;18;370;0
+12345;;Financiamiento;LIB.SINP;Exlibranza;1251;9000;S;P;N;D;;C;A;0;30;47;500;1
+12345;;Medicina Prepagada;01OANI;Cuota ORO NI#OS DE 1-14 A#OS;8242;8819;C;C;N;D; ;C;A;0;16;18;375;0
+12345;;Medicina Prepagada;04OANI;IVA ORO NI#OS DE 1-14 A#OS;8241;8819;C;C;N;D; ;C;A;0;16;18;374;0
+12345;;Medicina Prepagada;01OA15;Cuota ORO ADOLECENTES DE 15-40 A#OS;8244;8819;C;C;N;D; ;C;A;0;16;18;377;0
+12345;;Medicina Prepagada;04OA15;IVA ORO ADOLECENTES DE 15-40 A#OS;8243;8819;C;C;N;D; ;C;A;0;16;18;376;0
+12345;;Seguros;ECMPFTF;EVENTOS CRITICOS MP ASO FTF;598;9991;S;K;N;D;;C;A;0;30;286;500;0
+12345;;Financiamiento;ORILIGHP;Originadores LI Garantía Hipotecaria;1481;8999;S;P;N;D;;C;A;0;30;29;500;1
+12345;;Financiamiento;ORIVIVI;Originadores Vivienda;1480;8999;S;P;N;D;;C;A;0;30;28;500;1
+12345;;Financiamiento;ORIVIVIS;Originadores Vivienda VIS;1482;8999;S;P;N;D;;C;A;0;30;88;500;1
+12345;;Medicina Prepagada;01ADVP;Cuota VOCACION PRESTADORES;8250;8819;C;C;N;D;;C;A;0;16;18;383;0
+12345;;Medicina Prepagada;01OAVP;Cuota VOCACION PRESTADORES;8248;8819;C;C;N;D;;C;A;0;16;18;381;0
+12345;;Medicina Prepagada;01ORVP;Cuota ORO ASOCIADO PLAN VOCACION PRESTAD;8246;8819;C;C;N;D;;C;A;0;16;18;379;0
+12345;;Medicina Prepagada;04ADVP;IVA VOCACION PRESTADORES;8249;8819;C;C;N;D;;C;A;0;16;18;382;0
+12345;;Medicina Prepagada;04OAVP;IVA VOCACION PRESTADORES;8247;8819;C;C;N;D;;C;A;0;16;18;380;0
+12345;;Medicina Prepagada;04ORVP;IVA ORO ASOCIADO PLAN VOCACION PRESTADOR;8245;8819;C;C;N;D;;C;A;0;16;18;378;0
+12345;;Medicina Prepagada;01ADA3;Cuota Ador Asociado Plan Vocación Presta;8256;8819;C;C;N;D;;C;A;0;16;18;389;0
+12345;;Medicina Prepagada;01APA3;Cuota ADOR Plus Asociado Plan Voca3 Pres;8258;8819;C;C;N;D;;C;A;0;16;18;391;0
+12345;;Medicina Prepagada;01OVA3;Cuota Oro plan Vocación Prestador Asocia;8252;8819;C;C;N;D;;C;A;0;16;18;385;0
+12345;;Medicina Prepagada;01PVA3;Cuota Plus plan Vocación Prestador Asoci;8254;8819;C;C;N;D;;C;A;0;16;18;387;0
+12345;;Medicina Prepagada;04ADA3;IVA Ador Asociado Plan Vocación Prestado;8255;8819;C;C;N;D;;C;A;0;16;18;388;0
+12345;;Medicina Prepagada;04APA3;IVA ADOR Plus Asociado Plan Voca3 Presta;8257;8819;C;C;N;D;;C;A;0;16;18;390;0
+12345;;Medicina Prepagada;04OVA3;IVA Oro plan Vocación Prestador Asociado;8251;8819;C;C;N;D;;C;A;0;16;18;384;0
+12345;;Medicina Prepagada;04PVA3;IVA Plus plan Vocación Prestador Asociad;8253;8819;C;C;N;D;;C;A;0;16;18;386;0
+12345;;Medicina Prepagada;01PLNN;Cuota ORO PLUS UNICO PROGRAMA GAMA ALTA;8260;8819;C;C;N;D;;C;A;0;16;18;393;0
+12345;;Medicina Prepagada;04PLNN;IVA ORO PLUS UNICO PROGRAMA GAMA ALTA;8259;8819;C;C;N;D;;C;A;0;16;18;392;0
+12345;;Medicina Prepagada;01BPGA;Cuota BPLUS GAMA ALTA ASOCIADO;8262;8819;C;C;N;D; ;C;A;0;16;18;395;0
+12345;;Medicina Prepagada;04BPGA;IVA BPLUS GAMA ALTA ASOCIADO;8261;8819;C;C;N;D; ;C;A;0;16;18;394;0
+12345;;Creditos Cooperativos;CRCUOINI;Credito Cuota Inicial;1501;9001;S;P;N;D;;C;A;0;30;461;500;0
+12345;;Creditos Cooperativos;CRPATRIM;Credito Patrimonial;1500;9001;S;P;N;D;;C;A;0;30;460;500;0
+12345;;Financiamiento;ORILIIN;ORIGINADOR LIBRE INVERSION;1011;8989;S;C;N;D;S;F;A;0;30;62;500;1
+12345;;Medicina Prepagada;01CEAM;Cuota CEM Especial Amor y Amistad;8264;8819;C;C;N;D;;C;A;0;16;18;397;0
+12345;;Medicina Prepagada;04CEAM;IVA CEM Especial Amor y Amistad;8263;8819;C;C;N;D;;C;A;0;16;18;396;0
+12345;;Seguros;RCEBASIC;Responsabilidad Civil Extracontractual;600;9400;S;K;N;D;;C;A;0;30;288;500;0
+12345;;Seguros;VIDACOOM;Seguro Vida Grupo COOMEVA;544;9458;S;K;N;D;;C;A;0;30;287;500;0
+12345;;Medicina Prepagada;01CEAB;Cuota CEAB Coomeva Emergencia Médica;8266;8819;C;C;N;D;;C;A;0;16;18;399;0
+12345;;Medicina Prepagada;01SOAB;Cuota SOAB Dental Elite Hijo Benef Asoci;8268;8819;C;C;N;D;;C;A;0;16;18;401;0
+12345;;Medicina Prepagada;01SOEM;Cuota SOEM Dental Empaq. Cuaquier SMP;8270;8819;C;C;N;D;;C;A;0;16;18;403;0
+12345;;Medicina Prepagada;04CEAB;IVA CEAB Coomeva Emergencia Médica;8265;8819;C;C;N;D;;C;A;0;16;18;398;0
+12345;;Medicina Prepagada;04SOAB;IVA SOAB Dental Elite Hijo Benef Asociad;8267;8819;C;C;N;D;;C;A;0;16;18;400;0
+12345;;Medicina Prepagada;04SOEM;IVA SOEM Dental Empaq. Cuaquier SMP;8269;8819;C;C;N;D;;C;A;0;16;18;402;0
+12345;;Medicina Prepagada;01CE19;IVA Coomeva Emergencias Médicas;8272;8819;C;C;N;D;;C;A;0;16;18;405;0
+12345;;Medicina Prepagada;01SO18;Dental Elite Cortesía Asociados;8274;8819;C;C;N;D;;C;A;0;16;18;407;0
+12345;;Medicina Prepagada;04CE19;IVA Coomeva Emergencias Médicas;8271;8819;C;C;N;D;;C;A;0;16;18;404;0
+12345;;Medicina Prepagada;04SO18;Dental Elite Cortesia Asociado;8273;8819;C;C;N;D;;C;A;0;16;18;406;0
+12345;;Seguros;AUTOLEM;AUTOS LIVIANOS EMPLEADOS;603;9397;S;C;N;D;S;F;A;0;30;291;500;0
+12345;;Seguros;AUTOLIV;AUTOS LIVIANOS ASISTENCIA BÁSICA;601;9399;S;C;N;D;S;F;A;0;30;289;500;0
+12345;;Seguros;AUTOLIVF;AUTOS LIVIANOS FINANCIERO;602;9398;S;C;N;D;S;F;A;0;30;290;500;0
+12345;;Medicina Prepagada;01CEA9;Cuota 01CEA9;8276;8819;C;C;N;D;;C;A;0;16;18;409;0
+12345;;Medicina Prepagada;01CET9;CUOTA 01CET9;8278;1722;C;C;N;D;S;F;A;0;16;18;411;0
+12345;;Medicina Prepagada;04CEA9;IVA 04CEA9;8275;8819;C;C;N;D;;C;A;0;16;18;408;0
+12345;;Medicina Prepagada;04CET9;IVA 04CET9;8277;8819;C;C;N;D;;C;A;0;16;18;410;0
+12345;;Planes Adicionales Solidaridad;AJUDESAD;AJUSTE DESEMPLEO ADICIONAL;4262;5738;S;C;N;D;S;F;A;0;12;295;518;0
+12345;;Financiamiento;PAP_PROY;PAP PROYÉCTATE;4463;5537;C;C;N;D;S;F;A;0;14;95;1;0
+12345;;Financiamiento;CRPERSEV;CREDIPERSEVERADOS;1010;8990;S;C;N;D;S;F;A;0;30;63;500;1
+12345;;Seguros;PYMEBAS;PRODUCTO DE PYME BASICO;603;9397;S;C;N;D;S;F;A;0;30;291;500;0
+12345;;Seguros;VGSUSCRI;VIDA GRUPO SUSCRIPCION;604;9396;S;C;N;D;S;F;A;0;30;292;500;0
+12345;;Financiamiento;VISA CLA;TARJETA DE CREDITO CLÁSICA SAT;909;9091;S;C;N;D;S;F;A;0;20;55;600;0
+12345;;Financiamiento;VISA ORO;TARJETA DE CREDITO ORO SAT;910;9090;S;C;N;D;S;F;A;0;20;53;600;0
+12345;;Financiamiento;VISA PLA;TARJETA DE CREDITO PLATINO SAT;911;9089;S;C;N;D;S;F;A;0;20;52;600;0
+12345;;Seguros;ARCEBA;RCE BÁSICO + ASISTENCIA BÁSICA;607;9393;S;C;N;D;S;F;A;0;30;296;500;0
+12345;;Seguros;ARCEPT;RCE + PERDIDAS TOTALES + ASISTENCIA BÁSI;606;9394;S;C;N;D;S;F;A;0;30;294;500;0
+12345;;Seguros;AUTLIB;LIVIANO DE AUTOS;608;9392;S;C;N;D;S;F;A;0;30;297;500;0
+12345;;Seguros;AUTLIV;LIVIANO DE AUTOS;605;9395;S;C;N;D;S;F;A;0;30;293;500;0
+12345;;Seguros;TOHOMLIF;TOTAL HOME LIVIANO;610;9390;S;C;N;D;S;F;A;0;30;299;500;0
+12345;;Seguros;TOHOMLIV;TOTAL HOME LIVIANO PARA RETENCIÓN;609;9391;S;C;N;D;S;F;A;0;30;298;500;0
+12345;;Medicina Prepagada;01OPIA;CUOTA ORO PLUS RED CERRADA BOGOTA;8280;1720;S;C;N;D;S;F;A;0;16;18;413;0
+12345;;Medicina Prepagada;01SOE3;CUOTA DENTAL ELITE ORO PLUS;8282;1718;S;C;N;D;S;F;A;0;16;18;415;0
+12345;;Medicina Prepagada;04OPIA;IVA ORO PLUS RED CERRADA BOGO;8279;1721;S;C;N;D;S;F;A;0;16;18;412;0
+12345;;Medicina Prepagada;04SOE3;IVA DENTAL ELITE ORO PLUS;8281;1719;S;C;N;D;S;F;A;0;16;18;414;0
+12345;;Creditos Cooperativos;CR.APORM;CREDIAPORTES;9002;998;S;C;N;D;S;F;A;0;30;462;500;0
+12345;;Estatutarios;DONACV19;DONACIÓN ALIVIOS COMUNIDAD;4004;5996;N;C;N;D;S;F;A;0;14;58;1;0
+12345;;Medicina Prepagada;01CEE1;CUOTA CEM PERSUASIÓN;8284;1716;S;C;N;D;S;F;A;0;16;18;417;0
+12345;;Medicina Prepagada;01CEE2;CUOTA CEM PERSUASIÓN;8285;1715;S;C;N;D;S;F;A;0;16;18;419;0
+12345;;Medicina Prepagada;01DECC;COOMEVA SALUD ORAL;8287;1713;S;C;N;D;S;F;A;0;16;18;421;0
+12345;;Medicina Prepagada;04CEE1;IVA CUOTA CEM PERSUASIÓN;8283;1717;S;C;N;D;S;F;A;0;16;18;416;0
+12345;;Medicina Prepagada;04CEE2;IVA CUOTA CEM PERSUASIÓN;8285;1715;S;C;N;D;S;F;A;0;16;18;418;0
+12345;;Medicina Prepagada;04DECC;COOMEVA SALUD ORAL;8286;1714;S;C;N;D;S;F;A;0;16;18;420;0
+12345;;Financiamiento;COMALIFI;COMERCIAL  - ALIVIO FINANCIERO;1013;8987;S;C;N;D;S;F;A;0;30;54;500;1
+12345;;Financiamiento;CONALIFI;CONSUMO  - ALIVIO FINANCIERO;1012;8988;S;C;N;D;S;F;A;0;30;64;500;1
+12345;;Financiamiento;VIVALIFI;VIVIENDA - ALIVIO FINANCIERO;1014;8986;S;C;N;D;S;F;A;0;30;89;500;1
+12345;;Creditos Cooperativos;CREDIASO;CREDIASOCIADO;9003;997;S;C;N;D;S;F;A;0;30;470;500;0
+12345;;Seguros;RCMEDLIV;RC MÉDICA LIVIANO PARA RETENCIÓN;611;9389;S;C;N;D;S;F;A;0;30;301;500;0
+12345;;Seguros;VIDASOLI;PÓLIZA VIDA GRUPO ASOCIADOS;612;9388;S;C;N;D;S;F;A;0;30;302;500;0
+12345;;Financiamiento;PAD-CE22;UNIFICACION DE DEUDAS PAD- CE 022;1048;8952;S;C;N;D;S;F;A;0;30;48;500;1
+12345;;Financiamiento;PADECE22;UNIFICACION DE DEUDAS EMPRESAS PAD- CE 0;1049;8951;S;C;N;D;S;F;A;0;30;49;500;0
+12345;;Otros;RECDOM;RECAUDO DOMICILIARIO;4005;5995;N;C;N;D;S;F;A;0;14;59;1;0
+12345;;Medicina Prepagada;01CEMQ;CUOTA CEM TARIFA POR ESCALA;8291;1709;S;C;N;D;S;F;A;0;16;18;425;0
+12345;;Medicina Prepagada;01CE50;CUOTA ASOCIADO - TENENCIA TEMPRANA;8293;1707;S;C;N;D;S;F;A;0;16;18;427;0
+12345;;Medicina Prepagada;01OANE;COOMEVA MEDICINA PREPAGADA;8289;1711;S;C;N;D;S;F;A;0;16;18;423;0
+12345;;Medicina Prepagada;01PACE;CUOTA PLAN PADRINO ASOCIADO CEM;8295;1705;S;C;N;D;S;F;A;0;16;18;429;0
+12345;;Medicina Prepagada;01TACE;CUOTA CEM ASOCIADO CANAL TELEFONICO;8297;1703;S;C;N;D;S;F;A;0;16;18;431;0
+12345;;Medicina Prepagada;04CEMQ;IVA CEM TARIFA POR ESCALA;8290;1710;S;C;N;D;S;F;A;0;16;18;424;0
+12345;;Medicina Prepagada;04CE50;IVA ASOCIADO - TENENCIA TEMPRANA;8292;1708;S;C;N;D;S;F;A;0;16;18;426;0
+12345;;Medicina Prepagada;04OANE;COOMEVA MEDICINA PREPAGADA;8288;1712;S;C;N;D;S;F;A;0;16;18;422;0
+12345;;Medicina Prepagada;04PACE;IVA PLAN PADRINO ASOCIADO CEM;8294;1706;S;C;N;D;S;F;A;0;16;18;428;0
+12345;;Medicina Prepagada;04TACE;IVA CEM ASOCIADO CANAL TELEFONICO;8296;1704;S;C;N;D;S;F;A;0;16;18;430;0
+12345;;Medicina Prepagada;01ASO;ASOCIADO;8314;1686;S;C;N;D;S;F;A;0;16;18;448;0
+12345;;Medicina Prepagada;01CLES;CUOTA 01CLES;8301;1700;S;C;N;D;S;F;A;0;16;18;435;0
+12345;;Medicina Prepagada;01DECT;CUOTA  DECT DENTAL ELITE RANGO TARIFARIO;8299;1701;S;C;N;D;S;F;A;0;16;18;433;0
+12345;;Medicina Prepagada;01DEMA;CUOTA 01DEMA;8307;1693;S;C;N;D;S;F;A;0;16;18;441;0
+12345;;Medicina Prepagada;01OPL;ORO PLUS;8312;1688;S;C;N;D;S;F;A;0;16;18;446;0
+12345;;Medicina Prepagada;01PJV;PLTA JOVEN;8310;1690;S;C;N;D;S;F;A;0;16;18;444;0
+12345;;Medicina Prepagada;01PLAX;CUOTA 01PLAX;8304;1696;S;C;N;D;S;F;A;0;16;18;439;0
+12345;;Medicina Prepagada;01TES;TRADICIONAL ESPECIAL;8316;1684;S;C;N;D;S;F;A;0;16;18;450;0
+12345;;Medicina Prepagada;01TRD;TRADICIONAL;8308;1692;S;C;N;D;S;F;A;0;16;18;442;0
+12345;;Medicina Prepagada;01TRDE;CUOTA 01TRDE;8303;1698;S;C;N;D;S;F;A;0;16;18;437;0
+12345;;Medicina Prepagada;04ASO;IVA ASOCIADO;8315;1685;S;C;N;D;S;F;A;0;16;18;449;0
+12345;;Medicina Prepagada;04CLES;IVA CUOTA 04CLES;8300;1700;S;C;N;D;S;F;A;0;16;18;434;0
+12345;;Medicina Prepagada;04DECT;IVA CUOTA DECT DENTAL ELITE  RANGO TARIF;8298;1702;S;C;N;D;S;F;A;0;16;18;432;0
+12345;;Medicina Prepagada;04DEMA;IVA CUOTA 04DEMA;8306;1694;S;C;N;D;S;F;A;0;16;18;440;0
+12345;;Medicina Prepagada;04OPL;IVA ORO PLUS;8313;1687;S;C;N;D;S;F;A;0;16;18;447;0
+12345;;Medicina Prepagada;04PJV;IVA PLATA JOVEN;8311;1689;S;C;N;D;S;F;A;0;16;18;445;0
+12345;;Medicina Prepagada;04PLAX;IVA CUOTA 04PLAX;8305;1695;S;C;N;D;S;F;A;0;16;18;438;0
+12345;;Medicina Prepagada;04TES;IVA TRADICIONAL ESPECIAL;8317;1683;S;C;N;D;S;F;A;0;16;18;451;0
+12345;;Medicina Prepagada;04TRD;IVA TRANDICIONAL;8309;1691;S;C;N;D;S;F;A;0;16;18;443;0
+12345;;Medicina Prepagada;04TRDE;IVA CUOTA 04TRDE;8302;1698;S;C;N;D;S;F;A;0;16;18;436;0
+12345;;Seguros;AUTOLIV1;PRODUCTO DE AUTOS FULL COBERTURA;4188;5812;S;C;N;D;S;F;A;0;30;303;500;0
+12345;;Seguros;AUTOLIV3;PLAN SOLO RCE - PLAN 1;4189;5811;S;C;N;D;S;F;A;0;30;304;500;0
+12345;;Seguros;AUTOLIV4;PLAN RCE PTD PTH - PLAN 2;4190;5810;S;C;N;D;S;F;A;0;30;305;500;0
+12345;;Seguros;AUTOLIV5;RCE PPDH PTDH - PLAN 3;4191;5809;S;C;N;D;S;F;A;0;30;306;500;0
+12345;;Seguros;AUTOLI1F;PRODUCTO DE AUTOS FULL COBERTURA FIN;4195;5805;S;C;N;D;S;F;A;0;30;311;500;0
+12345;;Seguros;AUTOLI5F;RCE PPDH PTDH - PLAN 3 FIN;4196;5804;S;C;N;D;S;F;A;0;30;312;500;0
+12345;;Seguros;AUTOMOT1;MOTOS;4193;5807;S;C;N;D;S;F;A;0;30;308;500;0
+12345;;Seguros;AUTOMO1F;MOTOS FIN;4198;5802;S;C;N;D;S;F;A;0;30;314;500;0
+12345;;Seguros;AUTOPES1;PLANES FULL PESADOS CARGA, FULL PESADOS;4194;5806;S;C;N;D;S;F;A;0;30;309;500;0
+12345;;Seguros;AUTOPE1F;PLANES FULL PESADOS CARGA, FULL PES FIN;4199;5801;S;C;N;D;S;F;A;0;30;315;500;0
+12345;;Seguros;AUTOTAX1;TAXIS_ FULL COBERTURAS Y SIN RCE;4192;5808;S;C;N;D;S;F;A;0;30;307;500;0
+12345;;Seguros;AUTOTA1F;TAXIS_ FULL COBERTURAS Y SIN RCE FIN;4197;5803;S;C;N;D;S;F;A;0;30;313;500;0
+12345;;Creditos Cooperativos;REESTINI;RESESTRUCT CRCUOTAINI;1466;8534;S;C;N;D;S;F;A;0;30;466;500;0
+12345;;Creditos Cooperativos;REESTPAT;REESTRUCT CRPATRIMONIAL;1465;8535;S;C;N;D;S;F;A;0;30;465;500;0
+12345;;Seguros;SEGVGFS;SEGURO VIDA GRUPO COOMEVA;689;9311;S;C;N;D;S;F;A;0;30;317;500;0
+12345;;Seguros;SEGVIDVA;SEGURO VIDA GRUPO;688;9312;S;C;N;D;S;F;A;0;30;316;500;0
+12345;;Seguros;TPEMPL;PRODUCTO DE AUTOS FULL COBERTURA CON EMP;4207;5793;S;C;N;D;S;F;A;0;30;644;500;0
+12345;;Seguros;TPEMPL1;TAXIS_ FULL COBERTURAS Y SIN RCE EMP;4208;5792;S;C;N;D;S;F;A;0;30;645;500;0
+12345;;Seguros;TPEMPL2;MOTOS EMP;4209;5791;S;C;N;D;S;F;A;0;30;646;500;0
+12345;;Seguros;TPEMPL3;PLANES FULL PESADOS CARGA, FULL PES EMP;4210;5790;S;C;N;D;S;F;A;0;30;647;500;0
+12345;;Seguros;TPEMPL4;PRODUCTO DE AUTOS FULL COBERTURA FIN EMP;4211;5789;S;C;N;D;S;F;A;0;30;648;500;0
+12345;;Seguros;TPEMPL5;TAXIS_ FULL COBERTURAS Y SIN RCE FIN EMP;4212;5788;S;C;N;D;S;F;A;0;30;649;500;0
+12345;;Seguros;TPEMPL6;MOTOS FIN EMP;4213;5787;S;C;N;D;S;F;A;0;30;650;500;0
+12345;;Seguros;TPEMPL7;PLANES FULL PESADOS CARGA, FULL FIN EMP;4214;5786;S;C;N;D;S;F;A;0;30;651;500;0
+12345;;Estatutarios;DONHPROV;DONACIÓN PROVIDENCIA;4006;5994;N;C;N;D;S;F;A;0;14;40;1;0
+12345;;Financiamiento;TCCAFABA;TARJETA DE CRÉDITO CAFABA;913;9087;S;C;N;D;S;F;A;0;20;29;500;0
+12345;;Financiamiento;TCCOOPSE;TARJETA CRÉDITO COOPSERVIR;912;9088;S;C;N;D;S;F;A;0;20;26;500;0
+12345;;Medicina Prepagada;01CTL3;A CEM BASICO+TLEMD+ORIENT X 3 MESES;8323;1677;S;C;N;D;S;F;A;0;16;19;177;0
+12345;;Medicina Prepagada;01CTL6;A CEM BASICO TLEMD+ORIENT X 6 MESES;8324;1676;S;C;N;D;S;F;A;0;16;19;178;0
+12345;;Medicina Prepagada;01CTL9;A CEM BASICO TLEMD+ORIENT X 9 MESES;8325;1675;S;C;N;D;S;F;A;0;16;19;179;0
+12345;;Medicina Prepagada;01CT12;A CEM BASICO TLEMD+ORIENT X 12 MESES;8318;1682;S;C;N;D;S;F;A;0;16;19;172;0
+12345;;Medicina Prepagada;01CT22;A CEM BASICO TELEMD+ORIENTFULL X 12 MESE;8319;1681;S;C;N;D;S;F;A;0;16;19;173;0
+12345;;Medicina Prepagada;01CT23;A CEM BASICO TELEMD+ORIENTFULL X 3 MESES;8320;1680;S;C;N;D;S;F;A;0;16;19;174;0
+12345;;Medicina Prepagada;01CT26;A CEM BASICO TELEMD+ORIENTFULL X 6 MESES;8321;1679;S;C;N;D;S;F;A;0;16;19;175;0
+12345;;Medicina Prepagada;01CT29;A CEM BASICO TELEMD+ORIENTFULL X 9 MESES;8322;1678;S;C;N;D;S;F;A;0;16;19;176;0
+12345;;Medicina Prepagada;01CUE3;A CUEM+TELEMD+TLEORIEN X 3 MESES;8331;1669;S;C;N;D;S;F;A;0;16;19;185;0
+12345;;Medicina Prepagada;01CUE6;A CUEM+TELEMD+TLEORIEN X 6 MESES;8332;1668;S;C;N;D;S;F;A;0;16;19;186;0
+12345;;Medicina Prepagada;01CUE9;A CUEM+TELEMD+TLEORIEN X 9 MESES;8333;1667;S;C;N;D;S;F;A;0;16;19;187;0
+12345;;Medicina Prepagada;01CU12;A CUEM+TELEMD+TLEORIEN X 12 MESES;8326;1674;S;C;N;D;S;F;A;0;16;19;180;0
+12345;;Medicina Prepagada;01CU22;A CUEM+TLEMD+ORIENTFULL X 12 MESES;8327;1673;S;C;N;D;S;F;A;0;16;19;181;0
+12345;;Medicina Prepagada;01CU23;A CUEM+TLEMD+ORIENTFULL X 3 MESES;8328;1672;S;C;N;D;S;F;A;0;16;19;182;0
+12345;;Medicina Prepagada;01CU26;A CUEM+TLEMD+ORIENTFULL X 6 MESES;8329;1671;S;C;N;D;S;F;A;0;16;19;183;0
+12345;;Medicina Prepagada;01CU29;A CUEM+TLEMD+ORIENTFULL X 9 MESES;8330;1670;S;C;N;D;S;F;A;0;16;19;184;0
+12345;;Medicina Prepagada;04CTL3;IVA A CEM BASICO TLEMD+ORIENT X 3 MESES;8339;1661;S;C;N;D;S;F;A;0;16;19;193;0
+12345;;Medicina Prepagada;04CTL6;IVA A CEM BASICO TLEMD+ORIENT X 6 MESES;8340;1660;S;C;N;D;S;F;A;0;16;19;194;0
+12345;;Medicina Prepagada;04CTL9;IVA A CEM BASICO TLEMD+ORIENT X 9 MESES;8341;1659;S;C;N;D;S;F;A;0;16;19;195;0
+12345;;Medicina Prepagada;04CT12;IVA A CEM BASICO TLEMD+ORIENT X 12 MESES;8334;1666;S;C;N;D;S;F;A;0;16;19;188;0
+12345;;Medicina Prepagada;04CT22;IVA A CEM BASICO TELEMD+ORIENTFULL X 12;8335;1665;S;C;N;D;S;F;A;0;16;19;189;0
+12345;;Medicina Prepagada;04CT23;IVA A CEM BASICO TELEMD+ORIENTFULL X 3 M;8336;1664;S;C;N;D;S;F;A;0;16;19;190;0
+12345;;Medicina Prepagada;04CT26;IVA A CEM BASICO TELEMD+ORIENTFULL X 6 M;8337;1663;S;C;N;D;S;F;A;0;16;19;191;0
+12345;;Medicina Prepagada;04CT29;IVA A CEM BASICO TELEMD+ORIENTFULL X 9 M;8338;1662;S;C;N;D;S;F;A;0;16;19;192;0
+12345;;Medicina Prepagada;04CUE3;IVA A CUEM+TELEMD+TLEORIEN X 3 MESES;8347;1653;S;C;N;D;S;F;A;0;16;19;201;0
+12345;;Medicina Prepagada;04CUE6;IVA A CUEM+TELEMD+TLEORIEN X 6 MESES;8348;1652;S;C;N;D;S;F;A;0;16;19;202;0
+12345;;Medicina Prepagada;04CUE9;IVA A CUEM+TELEMD+TLEORIEN X 9 MESES;8349;1651;S;C;N;D;S;F;A;0;16;19;203;0
+12345;;Medicina Prepagada;04CU12;IVA A CUEM+TELEMD+TLEORIEN X 12 MESES;8342;1658;S;C;N;D;S;F;A;0;16;19;196;0
+12345;;Medicina Prepagada;04CU22;IVA A CUEM+TLEMD+ORIENTFULL X 12 MESES;8343;1657;S;C;N;D;S;F;A;0;16;19;197;0
+12345;;Medicina Prepagada;04CU23;IVA A CUEM+TLEMD+ORIENTFULL X 3 MESES;8344;1656;S;C;N;D;S;F;A;0;16;19;198;0
+12345;;Medicina Prepagada;04CU26;IVA A CUEM+TLEMD+ORIENTFULL X 6 MESES;8345;1655;S;C;N;D;S;F;A;0;16;19;199;0
+12345;;Medicina Prepagada;04CU29;IVA A CUEM+TLEMD+ORIENTFULL X 9 MESES;8346;1654;S;C;N;D;S;F;A;0;16;19;200;0
+12345;;Creditos Cooperativos;CINIFSM;CONTRIBUCIÓN INICIAL MOVILIDAD;4009;5991;N;C;N;D;S;F;A;0;14;38;1;0
+12345;;Creditos Cooperativos;CONTRFSM;CONTRIBUCIÓN AL FONDO MOVILIDAD PARA TOD;4007;5993;N;C;N;D;S;F;A;0;14;39;1;0

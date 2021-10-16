@@ -1,0 +1,9 @@
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.pdb
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.pdb
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csprojAssemblyReference.cache
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CopyComplete
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.pdb

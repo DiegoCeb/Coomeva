@@ -1,0 +1,6 @@
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlCifrado\bin\Debug\App.ControlCifrado.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlCifrado\bin\Debug\App.ControlCifrado.pdb
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.csprojAssemblyReference.cache
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.pdb

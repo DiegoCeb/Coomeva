@@ -1,0 +1,12 @@
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\App.ControlFtp.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\App.ControlFtp.pdb
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\DLL_Utilidades.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\Excel.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\Renci.SshNet.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\SharpCompress.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.csprojAssemblyReference.cache
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.csproj.CopyComplete
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.pdb

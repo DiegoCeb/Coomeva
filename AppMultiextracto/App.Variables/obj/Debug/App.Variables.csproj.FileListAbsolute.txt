@@ -1,0 +1,6 @@
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Variables\bin\Debug\App.Variables.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Variables\bin\Debug\App.Variables.pdb
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Variables\obj\Debug\App.Variables.csprojAssemblyReference.cache
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Variables\obj\Debug\App.Variables.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Variables\obj\Debug\App.Variables.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.Variables\obj\Debug\App.Variables.pdb

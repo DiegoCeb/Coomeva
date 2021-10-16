@@ -1,0 +1,16 @@
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlEjecucion.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlEjecucion.pdb
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlFtp.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Controlnsumos.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Variables.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\DLL_Utilidades.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\Renci.SshNet.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\SharpCompress.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlFtp.pdb
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Controlnsumos.pdb
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Variables.pdb
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csprojAssemblyReference.cache
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CopyComplete
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.dll
+C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.pdb
