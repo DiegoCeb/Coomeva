@@ -11,5 +11,7 @@ namespace App.Variables
         public string Proceso { get; set; }
         public string NumeroOrdenProceso { get; set; }
         public string MensajeError { get; set; }
+        public int prueba { get; set; }
+
     }
 }
