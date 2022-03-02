@@ -20,16 +20,16 @@ namespace App.ControlProcesos
         {
             using (Procesamiento objProceso = new Procesamiento())
             {
-                if (!objProceso.DescargaArchivos())
-                {
-                    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
-                    System.Threading.Thread.Sleep(2000);
-                    Environment.Exit(1);
-                }
+                //if (!objProceso.DescargaArchivos())
+                //{
+                //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
+                //    System.Threading.Thread.Sleep(2000);
+                //    Environment.Exit(1);
+                //}
 
-                Console.WriteLine("");
-                Console.WriteLine("---Descargue Correcto de Archivos");
-                Console.WriteLine("");
+                //Console.WriteLine("");
+                //Console.WriteLine("---Descargue Correcto de Archivos");
+                //Console.WriteLine("");
 
                 if (!objProceso.VerificacionArchivosEntrada())
                 {

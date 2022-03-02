@@ -10,3 +10,11 @@ C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug
 C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.csproj.CopyComplete
 C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.dll
 C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\App.ControlFtp.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\App.ControlFtp.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\SharpCompress.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.csproj.AssemblyReference.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.csproj.CoreCompileInputs.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.pdb

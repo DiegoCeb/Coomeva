@@ -14,3 +14,17 @@ C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\obj
 C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CopyComplete
 C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.dll
 C:\Users\pc\Documents\Carvajal\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlEjecucion.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlEjecucion.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlFtp.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Controlnsumos.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Variables.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\Renci.SshNet.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\SharpCompress.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlFtp.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Controlnsumos.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Variables.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.AssemblyReference.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CoreCompileInputs.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.pdb

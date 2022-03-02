@@ -55,12 +55,13 @@ namespace App.ControlEjecucion
                     if (archivo.Contains(insumo))
                     {
                         resultado = "0";
+                        break;
                     }
                 }
 
                 if (resultado == "1")
                 {
-                    MensajeError = $"El siguiente archivo {Path.GetFileName(archivo)} no se reconoce dentro de los nombres configurados";
+                    MensajeError = $"El siguiente archivo {Path.GetFileName(archivo)} no se reconoce dentro de los nombres configurados para el proceso.";
                     Utilidades.EscribirLog(MensajeError, Utilidades.LeerAppConfig("RutaLog"));
                     return false;
                 }
