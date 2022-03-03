@@ -1,0 +1,6 @@
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.ControlCargueArchivos.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.ControlCargueArchivos.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.AssemblyReference.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.CoreCompileInputs.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.pdb

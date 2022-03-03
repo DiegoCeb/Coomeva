@@ -10,12 +10,12 @@ using System.IO;
 
 namespace App.ControlEjecucion
 {
-    public class Procesamiento : Variables.Variables, IProcess, IDisposable
+    public class Procesamiento : Variables.Variables, IProcess, IDisposable 
     {
         // Flag: Has Dispose already been called?
         private bool _disposed = false;
         Dictionary<string, string> DatosVerificacionArchivos;
-
+       
         public bool DescargaArchivos()
         {
             try
@@ -71,6 +71,17 @@ namespace App.ControlEjecucion
             return true;
         }
 
+        public bool CargueArchivosGlobal<TEntidad>(string pArchivo, TEntidad pEntidadArchivo)
+        {
+            var newObject = (Type)(object)pEntidadArchivo;
+
+            object invoke = newObject.InvokeMember(newObject.Name,
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.CreateInstance, null,
+                newObject, new object[] { pArchivo });
+
+            return true;
+        }
+
         public void Dispose()
         {
             // Dispose of unmanaged resources.
@@ -94,5 +105,7 @@ namespace App.ControlEjecucion
             // Free any unmanaged objects here.
             _disposed = true;
         }
+
+
     }
 }

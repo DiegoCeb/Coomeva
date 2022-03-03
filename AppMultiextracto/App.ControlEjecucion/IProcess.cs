@@ -11,5 +11,7 @@ namespace App.ControlEjecucion
         bool DescargaArchivos();
 
         bool VerificacionArchivosEntrada();
+
+        bool CargueArchivosGlobal<TEntidad>(string pArchivo, TEntidad pEntidadArchivo);
     }
 }

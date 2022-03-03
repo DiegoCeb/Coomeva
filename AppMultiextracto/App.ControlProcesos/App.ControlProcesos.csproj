@@ -50,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.ControlCargueArchivos\App.ControlCargueArchivos.csproj">
+      <Project>{ef3f60e0-92d1-421d-b444-12eeb64756c3}</Project>
+      <Name>App.ControlCargueArchivos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.ControlEjecucion\App.ControlEjecucion.csproj">
       <Project>{1884d5ce-f28c-4a57-9d8c-eea95857d848}</Project>
       <Name>App.ControlEjecucion</Name>

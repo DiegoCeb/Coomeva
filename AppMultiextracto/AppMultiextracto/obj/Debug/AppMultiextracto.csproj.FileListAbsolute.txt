@@ -40,3 +40,5 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\De
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.csproj.CopyComplete
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.exe
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlCargueArchivos.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlCargueArchivos.pdb

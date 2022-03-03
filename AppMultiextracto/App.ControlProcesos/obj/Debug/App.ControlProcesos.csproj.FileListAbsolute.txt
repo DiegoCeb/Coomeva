@@ -30,6 +30,8 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Controlnsumos.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.AssemblyReference.cache
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CoreCompileInputs.cache
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CopyComplete
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CopyComplete
