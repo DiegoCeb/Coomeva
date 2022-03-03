@@ -18,45 +18,53 @@ namespace App.ControlProcesos
         // Flag: Has Dispose already been called?
         private bool _disposed = false;
         public Dictionary<string, Type> InsumosCarga = new Dictionary<string, Type>();
-
+        private Procesamiento _objProceso = new Procesamiento();
         public GestionProcesos()
         {
             CargarClaves();
         }
         public void Ejecutar()
         {
-            using (Procesamiento objProceso = new Procesamiento())
+            //if (!objProceso.DescargaArchivos())
+            //{
+            //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
+            //    System.Threading.Thread.Sleep(2000);
+            //    Environment.Exit(1);
+            //}
+
+            Console.WriteLine("");
+            Console.WriteLine("---Descargue Correcto de Archivos");
+            Console.WriteLine("");
+
+            if (!_objProceso.VerificacionArchivosEntrada())
             {
-                //if (!objProceso.DescargaArchivos())
-                //{
-                //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
-                //    System.Threading.Thread.Sleep(2000);
-                //    Environment.Exit(1);
-                //}
+                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
+                System.Threading.Thread.Sleep(2000);
+                Environment.Exit(1);
+            }
 
-                Console.WriteLine("");
-                Console.WriteLine("---Descargue Correcto de Archivos");
-                Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("---Verificacion de Archivos Correcta");
+            Console.WriteLine("");
 
-                if (!objProceso.VerificacionArchivosEntrada())
-                {
-                    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
-                    System.Threading.Thread.Sleep(2000);
-                    Environment.Exit(1);
-                }
+            //Cargamos Archivos Insumos
+            CargueGeneralArchivos(Utilidades.LeerAppConfig("RutaInsumos"));
 
-                Console.WriteLine("");
-                Console.WriteLine("---Verificacion de Archivos Correcta");
-                Console.WriteLine("");
+            //Cargamos Archivos Entrada
+            CargueGeneralArchivos(Utilidades.LeerAppConfig("RutaEntrada"));
+        }
 
-                //Inicio Cargue Archivos e Insumos y formateo
-                foreach (var archivoEntrada in Directory.GetFiles(Utilidades.LeerAppConfig("RutaEntrada")))
-                {
-                    var nombreArchivo = Path.GetFileNameWithoutExtension(archivoEntrada);
+        /// <summary>
+        /// Metodo que carga los insumos por ruta de Archivos.
+        /// </summary>
+        /// <param name="pRuta">Ruta de Archivos</param>
+        private void CargueGeneralArchivos(string pRuta)
+        {
+            foreach (var archivoEntrada in Directory.GetFiles(pRuta))
+            {
+                var nombreArchivo = Path.GetFileNameWithoutExtension(archivoEntrada);
 
-                    objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
-                }
-
+                _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
             }
         }
 
@@ -64,7 +72,7 @@ namespace App.ControlProcesos
         {
             #region Cargar Insumos
             InsumosCarga.Add("F99TODOSXX", typeof(EstadoCuenta));
-            //InsumosCarga.Add("HABEASDATA", "2");
+            InsumosCarga.Add("HABEASDATA", typeof(HabeasData));
             //InsumosCarga.Add("BaseEstadoCuentaAsociados", "3");
             //InsumosCarga.Add("BaseEstadoCuentaTerceros", "4");
             //InsumosCarga.Add("CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE", "5");
