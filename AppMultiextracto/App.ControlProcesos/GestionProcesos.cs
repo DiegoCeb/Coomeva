@@ -19,10 +19,12 @@ namespace App.ControlProcesos
         private bool _disposed = false;
         public Dictionary<string, Type> InsumosCarga = new Dictionary<string, Type>();
         private Procesamiento _objProceso = new Procesamiento();
+
         public GestionProcesos()
         {
             CargarClaves();
         }
+
         public void Ejecutar()
         {
             //if (!objProceso.DescargaArchivos())
@@ -70,17 +72,20 @@ namespace App.ControlProcesos
 
         public Dictionary<string, Type> CargarClaves()
         {
-            #region Cargar Insumos
+            #region Cargar Insumos/Archivos
             InsumosCarga.Add("F99TODOSXX", typeof(EstadoCuenta));
             InsumosCarga.Add("HABEASDATA", typeof(HabeasData));
+            InsumosCarga.Add("ACTIVACION-PROTECCIONES", typeof(ActivacionProtecciones));
+            InsumosCarga.Add("TODO999", typeof(ExtractoAhorros));
+            InsumosCarga.Add("FIDUCOOMEVA", typeof(Fiducoomeva));
+            InsumosCarga.Add("RXX", typeof(Etiquetas));
+            InsumosCarga.Add("Diccionario", typeof(Diccionario));
             //InsumosCarga.Add("BaseEstadoCuentaAsociados", "3");
             //InsumosCarga.Add("BaseEstadoCuentaTerceros", "4");
             //InsumosCarga.Add("CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE", "5");
             //InsumosCarga.Add("ExtractoFundacion", "6");
-            //InsumosCarga.Add("TODO999", "7");
             //InsumosCarga.Add("Extracto_rotativo", "8");
             //InsumosCarga.Add("EXTV", "9");
-            //InsumosCarga.Add("Fiducoomeva", "10");
             //InsumosCarga.Add("PAPEXTVIVV", "11");
             //InsumosCarga.Add("PAPEXTSUBV", "11");
             //InsumosCarga.Add("PlanoBeneficiosEstadoCuenta", "12");
@@ -95,7 +100,7 @@ namespace App.ControlProcesos
         {
             foreach (var insumo in InsumosCarga)
             {
-                if (pNombreArchivo.Contains(insumo.Key))
+                if (pNombreArchivo.ToUpper().Contains(insumo.Key))
                 {
                     return insumo.Value;
                 }
