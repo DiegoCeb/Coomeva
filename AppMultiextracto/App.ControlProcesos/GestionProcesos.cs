@@ -79,9 +79,12 @@ namespace App.ControlProcesos
             InsumosCarga.Add("VIVV", typeof(ExtractosVivienda));
             InsumosCarga.Add("CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE", typeof(CartasCobranzaHabeasData));
             InsumosCarga.Add("EXTRACTOFUNDACION", typeof(ExtractosFundacion));
-            //InsumosCarga.Add("TODO999", "7");
+            InsumosCarga.Add("ACTIVACION-PROTECCIONES", typeof(ActivacionProtecciones));
+            InsumosCarga.Add("TODO999", typeof(ExtractoAhorros));
+            InsumosCarga.Add("FIDUCOOMEVA", typeof(Fiducoomeva));
+            InsumosCarga.Add("RXX", typeof(Etiquetas));
+            InsumosCarga.Add("Diccionario", typeof(Diccionario));
             //InsumosCarga.Add("Extracto_rotativo", "8");
-            //InsumosCarga.Add("Fiducoomeva", "10");
             //InsumosCarga.Add("PAPEXTSUBV", "11");
             //InsumosCarga.Add("PlanoBeneficiosEstadoCuenta", "12");
             //InsumosCarga.Add("Pinos", "13");

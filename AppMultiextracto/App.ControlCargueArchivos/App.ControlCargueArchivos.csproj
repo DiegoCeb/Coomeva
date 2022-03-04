@@ -45,12 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivacionProtecciones.cs" />
     <Compile Include="BaseEstadosCuentaAsociados.cs" />
     <Compile Include="BaseEstadosCuentaTerceros.cs" />
     <Compile Include="CartasCobranzaHabeasData.cs" />
+    <Compile Include="Diccionario.cs" />
     <Compile Include="EstadoCuenta.cs" />
+    <Compile Include="Etiquetas.cs" />
+    <Compile Include="ExtractoAhorros.cs" />
     <Compile Include="ExtractosFundacion.cs" />
     <Compile Include="ExtractosVivienda.cs" />
+    <Compile Include="Fiducoomeva.cs" />
     <Compile Include="HabeasData.cs" />
     <Compile Include="ICargue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
