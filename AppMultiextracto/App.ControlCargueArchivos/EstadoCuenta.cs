@@ -39,6 +39,7 @@ namespace App.ControlCargueArchivos
             {
                 if (linea.Contains("del Mes"))
                 {
+                    //cambio prueba
                     string llaveCruce = linea.Substring(79, 15).Trim();
 
                     if (var.DiccionarioExtractos.ContainsKey(llaveCruce))
