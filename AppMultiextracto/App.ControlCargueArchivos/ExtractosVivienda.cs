@@ -9,20 +9,12 @@ using DLL_Utilidades;
 
 namespace App.ControlCargueArchivos
 {
-    /// <summary>
-    /// Clase que carga los adtos puros del Producto TarjetasCredito
-    /// </summary>
-    public class TarjetasCredito: ICargue
+    public class ExtractosVivienda : ICargue
     {
-        private const string _producto = "TarjetasCredito";
+        private const string _producto = "ExtractosVivienda";
 
-        /// <summary>
-        /// Constructor de la clase
-        /// </summary>
-        /// <param name="pArchivo">Ruta del Archivo</param>
-        public TarjetasCredito(string pArchivo)
+        public ExtractosVivienda(string pArchivo)
         {
-            #region TarjetasCredito
             try
             {
                 Ejecutar(pArchivo);
@@ -35,37 +27,32 @@ namespace App.ControlCargueArchivos
                 System.Threading.Thread.Sleep(2000);
                 Environment.Exit(1);
             }
-            #endregion TarjetasCredito
         }
 
-        /// <summary>
-        /// Metodo que ejecuta el inicio del Cargue
-        /// </summary>
-        /// <param name="pArchivo">Ruta del Archivo</param>
-        public void Ejecutar(string pArchivo)
-        {
-            CargueArchivoDiccionario(pArchivo);
-        }
-
-        /// <summary>
-        /// Metodo que carga los adtos Puros del producto TarjetasCredito
-        /// </summary>
-        /// <param name="pArchivo">Ruta del Archivo</param>
         public void CargueArchivoDiccionario(string pArchivo)
         {
-            #region CargueArchivoDiccionario
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
 
             string linea = string.Empty;
             string llaveCruce = string.Empty;
-
+            List<string> TemEncabezado = new List<string>();
+            bool llaveEncontrada = false;
             while ((linea = lector.ReadLine()) != null)
             {
-                if (linea.Length > 6)
+                if (linea.Length > 120)
                 {
-                    if (linea.Substring(0, 7) == "TARJETA")
+                    if (linea.Substring(60, 35).Trim() == "B A N C O O M E V A")
                     {
-                        llaveCruce = linea.Substring(20).Trim();
+                        llaveEncontrada = false;
+                        TemEncabezado = new List<string>();
+                        TemEncabezado.Add(linea);
+                    }
+                    else if (linea.Substring(0, 19).Trim() == "Cedula del cliente:")
+                    {
+                        llaveEncontrada = true;
+                        llaveCruce = linea.Substring(22, 25).Trim();
+                        TemEncabezado.Add(linea);
+
                         if (!var.DiccionarioExtractos.ContainsKey(llaveCruce))
                         {
                             var.DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
@@ -73,7 +60,7 @@ namespace App.ControlCargueArchivos
                                 {_producto, new Variables.DatosExtractos
                                 {
                                     Separador = 'P',
-                                    Extracto = new List<string>(){ linea}
+                                    Extracto = TemEncabezado
 
                                 }
                                 }
@@ -86,7 +73,7 @@ namespace App.ControlCargueArchivos
                                 var.DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
                                 {
                                     Separador = 'p',
-                                    Extracto = new List<string>() { linea }
+                                    Extracto = TemEncabezado
                                 });
                             }
                             else
@@ -95,24 +82,41 @@ namespace App.ControlCargueArchivos
                             }
 
                         }
+
+                    }
+                    else
+                    {
+                        if (!llaveEncontrada)
+                        {
+                            TemEncabezado.Add(linea);
+                        }
+                        else
+                        {
+                            var.DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
+                        }
+                    }
+                }
+                else
+                {
+                    if (!llaveEncontrada)
+                    {
+                        TemEncabezado.Add(linea);
                     }
                     else
                     {
                         var.DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
                     }
                 }
-                else
-                {
-                    var.DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
-                }
+
             }
 
             lector.Close();
-
-            #endregion CargueArchivoDiccionario
-
         }
 
-        
+        public void Ejecutar(string pArchivo)
+        {
+            CargueArchivoDiccionario(pArchivo);
+        }
+
     }
 }

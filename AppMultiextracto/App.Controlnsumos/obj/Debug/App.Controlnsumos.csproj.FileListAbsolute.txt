@@ -16,3 +16,12 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\D
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CopyComplete
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.AssemblyReference.cache
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CoreCompileInputs.cache
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CopyComplete
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.pdb

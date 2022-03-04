@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +7,9 @@ using DLL_Utilidades;
 
 namespace App.ControlCargueArchivos
 {
-    public class HabeasData : ICargue
+    public class CartasCobranzaHabeasData : ICargue
     {
-        public HabeasData(string pArchivo)
+        public CartasCobranzaHabeasData(string pArchivo)
         {
             try
             {
@@ -28,16 +27,7 @@ namespace App.ControlCargueArchivos
 
         public void CargueArchivoDiccionario(string pArchivo)
         {
-            StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
-
-            string linea = string.Empty;
-
-            while ((linea = lector.ReadLine()) != null)
-            {
-
-            }
-
-            lector.Close();
+            
         }
 
         public void Ejecutar(string pArchivo)

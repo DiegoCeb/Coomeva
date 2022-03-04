@@ -73,15 +73,15 @@ namespace App.ControlProcesos
             #region Cargar Insumos
             InsumosCarga.Add("F99TODOSXX", typeof(EstadoCuenta));
             InsumosCarga.Add("HABEASDATA", typeof(HabeasData));
-            //InsumosCarga.Add("BaseEstadoCuentaAsociados", "3");
-            //InsumosCarga.Add("BaseEstadoCuentaTerceros", "4");
-            //InsumosCarga.Add("CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE", "5");
-            //InsumosCarga.Add("ExtractoFundacion", "6");
+            InsumosCarga.Add("EXTV", typeof(TarjetasCredito));
+            InsumosCarga.Add("BASEESTADOCUENTAASOCIADOS", typeof(BaseEstadosCuentaAsociados));
+            InsumosCarga.Add("BASEESTADOCUENTATERCEROS", typeof(BaseEstadosCuentaTerceros));
+            InsumosCarga.Add("VIVV", typeof(ExtractosVivienda));
+            InsumosCarga.Add("CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE", typeof(CartasCobranzaHabeasData));
+            InsumosCarga.Add("EXTRACTOFUNDACION", typeof(ExtractosFundacion));
             //InsumosCarga.Add("TODO999", "7");
             //InsumosCarga.Add("Extracto_rotativo", "8");
-            //InsumosCarga.Add("EXTV", "9");
             //InsumosCarga.Add("Fiducoomeva", "10");
-            //InsumosCarga.Add("PAPEXTVIVV", "11");
             //InsumosCarga.Add("PAPEXTSUBV", "11");
             //InsumosCarga.Add("PlanoBeneficiosEstadoCuenta", "12");
             //InsumosCarga.Add("Pinos", "13");
@@ -95,7 +95,7 @@ namespace App.ControlProcesos
         {
             foreach (var insumo in InsumosCarga)
             {
-                if (pNombreArchivo.Contains(insumo.Key))
+                if (pNombreArchivo.ToUpper().Contains(insumo.Key))
                 {
                     return insumo.Value;
                 }

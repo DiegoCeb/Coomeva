@@ -8,9 +8,9 @@ using DLL_Utilidades;
 
 namespace App.ControlCargueArchivos
 {
-    public class HabeasData : ICargue
+    public class ExtractosFundacion : ICargue
     {
-        public HabeasData(string pArchivo)
+        public ExtractosFundacion(string pArchivo)
         {
             try
             {
