@@ -10,7 +10,7 @@ using DLL_Utilidades;
 namespace App.ControlCargueArchivos
 {
     /// <summary>
-    /// Clase que carga los adtos puros del Producto TarjetasCredito
+    /// Clase que carga los datos puros del Producto TarjetasCredito
     /// </summary>
     public class TarjetasCredito: ICargue
     {
@@ -48,7 +48,7 @@ namespace App.ControlCargueArchivos
         }
 
         /// <summary>
-        /// Metodo que carga los adtos Puros del producto TarjetasCredito
+        /// Metodo que carga los datos Puros del producto TarjetasCredito
         /// </summary>
         /// <param name="pArchivo">Ruta del Archivo</param>
         public void CargueArchivoDiccionario(string pArchivo)
