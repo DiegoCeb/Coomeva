@@ -25,3 +25,5 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsu
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CopyComplete
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\Excel.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\ICSharpCode.SharpZipLib.dll

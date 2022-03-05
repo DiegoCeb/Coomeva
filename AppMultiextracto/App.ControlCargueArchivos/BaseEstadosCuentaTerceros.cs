@@ -5,11 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DLL_Utilidades;
+using var = App.Variables.Variables;
 
 namespace App.ControlCargueArchivos
 {
     public class BaseEstadosCuentaTerceros : ICargue
     {
+        private const string _producto = "BaseEstadosCuentaAsociados";
+
         public BaseEstadosCuentaTerceros(string pArchivo)
         {
             try
@@ -31,10 +34,43 @@ namespace App.ControlCargueArchivos
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
 
             string linea = string.Empty;
+            string llaveCruce = string.Empty;
 
             while ((linea = lector.ReadLine()) != null)
             {
+                if (linea.Split('|')[0].Trim().ToUpper() != "NITCLI")
+                {
+                    llaveCruce = linea.Split('|')[0].Trim();
+                    if (!var.DiccionarioExtractos.ContainsKey(llaveCruce))
+                    {
+                        var.DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
+                            {
+                                {_producto, new Variables.DatosExtractos
+                                {
+                                    Separador = '|',
+                                    Extracto = new List<string>(){ linea}
 
+                                }
+                                }
+                            });
+                    }
+                    else
+                    {
+                        if (!var.DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
+                        {
+                            var.DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
+                            {
+                                Separador = '|',
+                                Extracto = new List<string>() { linea }
+                            });
+                        }
+                        else
+                        {
+                            var.DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
+                        }
+
+                    }
+                }
             }
 
             lector.Close();
