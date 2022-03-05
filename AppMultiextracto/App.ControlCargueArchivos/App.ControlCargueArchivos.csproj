@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivacionProtecciones.cs" />
+    <Compile Include="AsociadosInactivos.cs" />
     <Compile Include="BaseEstadosCuentaAsociados.cs" />
     <Compile Include="BaseEstadosCuentaTerceros.cs" />
     <Compile Include="CartasCobranzaHabeasData.cs" />
