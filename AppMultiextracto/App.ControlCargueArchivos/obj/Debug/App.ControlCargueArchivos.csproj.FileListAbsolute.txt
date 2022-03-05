@@ -8,3 +8,17 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchiv
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Variables.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_Utilidades.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\SharpCompress.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.ControlCargueArchivos.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.ControlCargueArchivos.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Variables.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_Utilidades.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\Excel.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\SharpCompress.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Variables.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.AssemblyReference.cache
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.CoreCompileInputs.cache
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\ICSharpCode.SharpZipLib.dll
