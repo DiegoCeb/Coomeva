@@ -53,3 +53,6 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlP
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CoreCompileInputs.cache
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\Excel.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CopyComplete
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\ICSharpCode.SharpZipLib.dll
