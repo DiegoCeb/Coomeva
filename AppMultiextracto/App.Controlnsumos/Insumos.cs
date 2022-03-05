@@ -21,7 +21,7 @@ namespace App.Controlnsumos
                 {"SMS" , "SMS"},
                 {"SOAT" , "Cartas Soat"},
                 {"E0" , "Extractos de cuentas de ahorro"},
-                {"Asociados_Inactivos" , ""},
+                {"Asociados_Inactivos" , "Asociados Inactivos"},
                 {"Extracto_rotativo" , "Creditos rotativo"},
                 {"EXTV" , "Tarjetas de credito"},
                 {"Fiducoomeva" , "Extractos Fiducoomeva"},
