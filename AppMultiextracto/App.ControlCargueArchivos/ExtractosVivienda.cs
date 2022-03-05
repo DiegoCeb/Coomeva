@@ -9,12 +9,20 @@ using DLL_Utilidades;
 
 namespace App.ControlCargueArchivos
 {
+    /// <summary>
+    /// Clase que carga los datos puros del Producto ExtractosVivienda
+    /// </summary>
     public class ExtractosVivienda : ICargue
     {
         private const string _producto = "ExtractosVivienda";
 
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        /// <param name="pArchivo">Ruta del Archivo</param>
         public ExtractosVivienda(string pArchivo)
         {
+            #region ExtractosVivienda
             try
             {
                 Ejecutar(pArchivo);
@@ -27,10 +35,26 @@ namespace App.ControlCargueArchivos
                 System.Threading.Thread.Sleep(2000);
                 Environment.Exit(1);
             }
+
+            #endregion ExtractosVivienda
         }
 
+        /// <summary>
+        /// Metodo que ejecuta el inicio del Cargue
+        /// </summary>
+        /// <param name="pArchivo">Ruta del Archivo</param>
+        public void Ejecutar(string pArchivo)
+        {
+            CargueArchivoDiccionario(pArchivo);
+        }
+
+        /// <summary>
+        /// Metodo que carga los datos Puros del producto TarjetasCredito
+        /// </summary>
+        /// <param name="pArchivo">Ruta del Archivo</param>
         public void CargueArchivoDiccionario(string pArchivo)
         {
+            #region CargueArchivoDiccionario
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
 
             string linea = string.Empty;
@@ -111,12 +135,7 @@ namespace App.ControlCargueArchivos
             }
 
             lector.Close();
+            #endregion CargueArchivoDiccionario
         }
-
-        public void Ejecutar(string pArchivo)
-        {
-            CargueArchivoDiccionario(pArchivo);
-        }
-
     }
 }
