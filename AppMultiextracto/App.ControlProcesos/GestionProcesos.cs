@@ -84,7 +84,6 @@ namespace App.ControlProcesos
             InsumosCarga.Add("FIDUCOOMEVA", typeof(Fiducoomeva));
             InsumosCarga.Add("RXX", typeof(Etiquetas));
             InsumosCarga.Add("Diccionario", typeof(Diccionario));
-            //InsumosCarga.Add("Extracto_rotativo", "8");
             //InsumosCarga.Add("PAPEXTSUBV", "11");
             //InsumosCarga.Add("PlanoBeneficiosEstadoCuenta", "12");
             //InsumosCarga.Add("Pinos", "13");

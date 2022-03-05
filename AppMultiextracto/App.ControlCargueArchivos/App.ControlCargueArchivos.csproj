@@ -54,6 +54,7 @@
     <Compile Include="Etiquetas.cs" />
     <Compile Include="ExtractoAhorros.cs" />
     <Compile Include="ExtractosFundacion.cs" />
+    <Compile Include="ExtractosRotativo.cs" />
     <Compile Include="ExtractosVivienda.cs" />
     <Compile Include="Fiducoomeva.cs" />
     <Compile Include="HabeasData.cs" />
