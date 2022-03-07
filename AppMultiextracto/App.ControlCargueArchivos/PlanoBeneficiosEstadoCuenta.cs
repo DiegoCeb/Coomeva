@@ -2,25 +2,25 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using var = App.Variables.Variables;
+using System.Text;
 
 namespace App.ControlCargueArchivos
 {
     /// <summary>
-    /// Clase que se encarga de cargar el archivo de AsociadosInactivos
+    /// Clase que se encarga de cargar el archivo de PlanoBeneficiosEstadoCuenta
     /// </summary>
-    public class AsociadosInactivos : ICargue
+    public class PlanoBeneficiosEstadoCuenta: ICargue
     {
-        private const string _producto = "AsociadosInactivos";
-        
+        private const string _producto = "PlanoBeneficiosEstadoCuenta";
+
         /// <summary>
         /// Constructor de clase.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
-        public AsociadosInactivos (string pArchivo)
+        public PlanoBeneficiosEstadoCuenta(string pArchivo)
         {
-            #region AsociadosInactivos
+            #region PlanoBeneficiosEstadoCuenta
             try
             {
                 Ejecutar(pArchivo);
@@ -47,11 +47,11 @@ namespace App.ControlCargueArchivos
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
             string linea = string.Empty;
 
-            while (!string.IsNullOrEmpty(linea = lector.ReadLine()) )
+            while (!string.IsNullOrEmpty(linea = lector.ReadLine()))
             {
-                if(linea.Split(';')[0].Trim().ToUpper() != "CEDULA")
+                if (linea.Split('\t')[0].Trim().ToUpper() != "PERIODO")
                 {
-                    llaveCruce = linea.Split(';')[0].Trim();
+                    llaveCruce = linea.Split('\t')[3].Trim();
 
                     if (!var.DiccionarioExtractos.ContainsKey(llaveCruce))
                     {
