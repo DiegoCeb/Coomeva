@@ -1,24 +1,23 @@
-﻿using DLL_Utilidades;
+﻿using App.Controlnsumos;
+using DLL_Utilidades;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using var = App.Variables.Variables;
 
 namespace App.ControlCargueArchivos
 {
     /// <summary>
-    /// Clase que se encarga de cargar el archivo de AsociadosInactivos
+    /// Clase que se encarga de cargar el archivo de NuevosAsociadosFisico
     /// </summary>
-    public class AsociadosInactivos : ICargue
+    public class NuevosAsociadosFisico : ICargue
     {
-        private const string _producto = "AsociadosInactivos";
-        
+        private const string _producto = "NuevosAsociadosFisico";
+
         /// <summary>
         /// Constructor de clase.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
-        public AsociadosInactivos (string pArchivo)
+        public NuevosAsociadosFisico (string pArchivo)
         {
             #region AsociadosInactivos
             try
@@ -43,16 +42,13 @@ namespace App.ControlCargueArchivos
         {
             #region CargueArchivoDiccionario
             string llaveCruce = string.Empty;
+            List<string> archivo = Helpers.ConvertirExcel(pArchivo);
 
-            StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
-            string linea = string.Empty;
-
-            while (!string.IsNullOrEmpty(linea = lector.ReadLine()) )
+            foreach (string linea in archivo)
             {
-                if(linea.Split(';')[0].Trim().ToUpper() != "CEDULA")
+                if (linea.Split('|')[0].Trim().ToUpper() != "CEDULA")
                 {
-                    llaveCruce = linea.Split(';')[0].Trim();
-
+                    llaveCruce = linea.Split('|')[0].Trim();
                     if (!var.DiccionarioExtractos.ContainsKey(llaveCruce))
                     {
                         var.DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
@@ -82,9 +78,6 @@ namespace App.ControlCargueArchivos
                     }
                 }
             }
-
-            lector.Close();
-
             #endregion
         }
 

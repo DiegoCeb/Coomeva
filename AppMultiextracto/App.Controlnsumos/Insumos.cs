@@ -28,7 +28,12 @@ namespace App.Controlnsumos
                 {"PAPEXTVIVV" , "Extractos de vivienda"},
                 {"Pinos" , "Puntos Coomeva"},
                 {"BaseEstadoCuentaAsociados" , "Base Asociados"},
-                {"BaseEstadoCuentaTerceros" , "Base Asociados"}
+                {"BaseEstadoCuentaTerceros" , "Base Asociados"},
+                {"muestras" , "Base de muestras"},
+                {"PlanoBeneficiosEstadoCuenta" , "Beneficios Estado Cuenta"},
+                {"PAPEXTSUBV" , "Libranza"},                
+                {"Nuevos_Asociados_Fisicos" , "Base Asociados"}
+
             };
         }
 

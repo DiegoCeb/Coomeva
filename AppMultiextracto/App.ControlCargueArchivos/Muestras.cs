@@ -8,19 +8,19 @@ using var = App.Variables.Variables;
 namespace App.ControlCargueArchivos
 {
     /// <summary>
-    /// Clase que se encarga de cargar el archivo de AsociadosInactivos
+    /// Clase que se encarga de cargar el archivo de Muestras
     /// </summary>
-    public class AsociadosInactivos : ICargue
+    public class Muestras: ICargue
     {
-        private const string _producto = "AsociadosInactivos";
-        
+        private const string _producto = "Muestras";
+
         /// <summary>
         /// Constructor de clase.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
-        public AsociadosInactivos (string pArchivo)
+        public Muestras(string pArchivo)
         {
-            #region AsociadosInactivos
+            #region Muestras
             try
             {
                 Ejecutar(pArchivo);
@@ -47,15 +47,13 @@ namespace App.ControlCargueArchivos
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
             string linea = string.Empty;
 
-            while (!string.IsNullOrEmpty(linea = lector.ReadLine()) )
+            while (!string.IsNullOrEmpty(linea = lector.ReadLine()))
             {
-                if(linea.Split(';')[0].Trim().ToUpper() != "CEDULA")
-                {
-                    llaveCruce = linea.Split(';')[0].Trim();
+                llaveCruce = linea.Trim();
 
-                    if (!var.DiccionarioExtractos.ContainsKey(llaveCruce))
-                    {
-                        var.DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
+                if (!var.DiccionarioExtractos.ContainsKey(llaveCruce))
+                {
+                    var.DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
                             {
                                 {_producto, new Variables.DatosExtractos
                                     {
@@ -64,27 +62,25 @@ namespace App.ControlCargueArchivos
                                     }
                                 }
                             });
+                }
+                else
+                {
+                    if (!var.DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
+                    {
+                        var.DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
+                        {
+                            Separador = '|',
+                            Extracto = new List<string>() { linea }
+                        });
                     }
                     else
                     {
-                        if (!var.DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
-                        {
-                            var.DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
-                            {
-                                Separador = '|',
-                                Extracto = new List<string>() { linea }
-                            });
-                        }
-                        else
-                        {
-                            var.DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
-                        }
+                        var.DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
                     }
                 }
             }
 
             lector.Close();
-
             #endregion
         }
 

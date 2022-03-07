@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ef3f60e0-92d1-421d-b444-12eeb64756c3": {
+      "ProjectGuid": "ef3f60e0-92d1-421d-b444-12eeb64756c3",
+      "DisplayName": "App.ControlCargueArchivos",
+      "ColorIndex": 0
+    },
+    "7843c729-32d9-4ef8-8b20-c699fe651dd2": {
+      "ProjectGuid": "7843c729-32d9-4ef8-8b20-c699fe651dd2",
+      "DisplayName": "App.Variables",
+      "ColorIndex": 1
+    },
+    "f7bfd40c-1c08-4771-9a52-7c8562db1870": {
+      "ProjectGuid": "f7bfd40c-1c08-4771-9a52-7c8562db1870",
+      "DisplayName": "AppMultiextracto",
+      "ColorIndex": 2
+    },
+    "d1935b5b-0b70-4aa4-8dd1-e6ce34dd5d91": {
+      "ProjectGuid": "d1935b5b-0b70-4aa4-8dd1-e6ce34dd5d91",
+      "DisplayName": "App.ControlProcesos",
+      "ColorIndex": 3
+    },
+    "06f1a65c-e25b-4c4f-bbbc-ff9a8d887b23": {
+      "ProjectGuid": "06f1a65c-e25b-4c4f-bbbc-ff9a8d887b23",
+      "DisplayName": "App.Controlnsumos",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
+    },
+    "1884d5ce-f28c-4a57-9d8c-eea95857d848": {
+      "ProjectGuid": "1884d5ce-f28c-4a57-9d8c-eea95857d848",
+      "DisplayName": "App.ControlEjecucion",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}

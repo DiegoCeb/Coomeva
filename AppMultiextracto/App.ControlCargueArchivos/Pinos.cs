@@ -8,19 +8,19 @@ using var = App.Variables.Variables;
 namespace App.ControlCargueArchivos
 {
     /// <summary>
-    /// Clase que se encarga de cargar el archivo de AsociadosInactivos
+    /// Clase que se encarga de cargar el archivo de Pinos
     /// </summary>
-    public class AsociadosInactivos : ICargue
+    public class Pinos : ICargue
     {
-        private const string _producto = "AsociadosInactivos";
-        
+        private const string _producto = "Pinos";
+
         /// <summary>
         /// Constructor de clase.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
-        public AsociadosInactivos (string pArchivo)
+        public Pinos(string pArchivo)
         {
-            #region AsociadosInactivos
+            #region Pinos
             try
             {
                 Ejecutar(pArchivo);
@@ -47,9 +47,9 @@ namespace App.ControlCargueArchivos
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
             string linea = string.Empty;
 
-            while (!string.IsNullOrEmpty(linea = lector.ReadLine()) )
+            while (!string.IsNullOrEmpty(linea = lector.ReadLine()))
             {
-                if(linea.Split(';')[0].Trim().ToUpper() != "CEDULA")
+                if (linea.Split(';')[0].Trim().ToUpper() != "CEDULA")
                 {
                     llaveCruce = linea.Split(';')[0].Trim();
 
@@ -84,7 +84,6 @@ namespace App.ControlCargueArchivos
             }
 
             lector.Close();
-
             #endregion
         }
 
