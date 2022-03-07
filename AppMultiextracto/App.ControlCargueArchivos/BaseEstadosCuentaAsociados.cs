@@ -9,12 +9,20 @@ using var = App.Variables.Variables;
 
 namespace App.ControlCargueArchivos
 {
+    /// <summary>
+    /// Clase que se encarga de cargar el archivo de BaseEstadosCuentaAsociados
+    /// </summary>
     public class BaseEstadosCuentaAsociados : ICargue
     {
         private const string _producto = "BaseEstadosCuentaAsociados";
 
+        /// <summary>
+        /// Constructor de clase.
+        /// </summary>
+        /// <param name="pArchivo">ruta del archivo a cargar</param>
         public BaseEstadosCuentaAsociados(string pArchivo)
         {
+            #region BaseEstadosCuentaAsociados
             try
             {
                 Ejecutar(pArchivo);
@@ -27,10 +35,13 @@ namespace App.ControlCargueArchivos
                 System.Threading.Thread.Sleep(2000);
                 Environment.Exit(1);
             }
+            #endregion BaseEstadosCuentaAsociados
         }
 
         public void CargueArchivoDiccionario(string pArchivo)
         {
+            #region CargueArchivoDiccionario
+
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
 
             string linea = string.Empty;
@@ -74,8 +85,14 @@ namespace App.ControlCargueArchivos
             }
 
             lector.Close();
+
+            #endregion CargueArchivoDiccionario
         }
 
+        /// <summary>
+        /// Metodo que desencadena el cargue.
+        /// </summary>
+        /// <param name="pArchivo">ruta del archivo a cargar</param>
         public void Ejecutar(string pArchivo)
         {
             CargueArchivoDiccionario(pArchivo);
