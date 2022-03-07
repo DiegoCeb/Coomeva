@@ -9,12 +9,20 @@ using DLL_Utilidades;
 
 namespace App.ControlCargueArchivos
 {
+    /// <summary>
+    /// Clase que se encarga de cargar el archivo de EstadoCuenta
+    /// </summary>
     public class EstadoCuenta : ICargue
     {
         private const string _producto = "EstadoCuenta";
 
+        /// <summary>
+        /// Constructor de clase.
+        /// </summary>
+        /// <param name="pArchivo">ruta del archivo a cargar</param>
         public EstadoCuenta(string pArchivo)
         {
+            #region EstadoCuenta
             try
             {
                 Ejecutar(pArchivo);
@@ -26,49 +34,44 @@ namespace App.ControlCargueArchivos
                 Utilidades.EscribirLog(ex.Message, Utilidades.LeerAppConfig("RutaLog"));
                 Environment.Exit(1);
             }
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+        /// </summary>
+        /// <param name="pArchivo">ruta del archivo a cargar</param>
         public void CargueArchivoDiccionario(string pArchivo)
         {
+            #region CargueArchivoDiccionario
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
 
             string linea = string.Empty;
             List<string> temp = new List<string>();
+            bool extractoCompleto = false;
+            string llaveCruce = string.Empty;
 
             while ((linea = lector.ReadLine()) != null)
             {
-                if (linea.Contains("del Mes"))
+                if (linea.Contains("Código Asociado"))
                 {
-                    //cambio prueba
-                    string llaveCruce = linea.Substring(79, 15).Trim();
+                    extractoCompleto = false;
 
-                    if (var.DiccionarioExtractos.ContainsKey(llaveCruce))
+                    if (temp.Count > 1)
                     {
-                        if (var.DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
-                        {
-                            var.DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(temp.FirstOrDefault());
-                            var.DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
-                        }
-                        else
-                        {
-                            var.DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
-                            {
-                                Separador = 'P',
-                                Extracto = new List<string>() { linea }
-                            });
-                        }
+                        extractoCompleto = true;
                     }
-                    else
+
+                    if (extractoCompleto)
                     {
-                        var.DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
-                        {
-                            { _producto, new Variables.DatosExtractos
-                            {
-                                Separador = 'P',
-                                Extracto = new List<string>(temp)
-                            } }
-                        });
+                        llaveCruce = temp.ElementAt(1).Substring(79, 15).Trim();
+
+                        AgregarDiccionario(llaveCruce, temp);
+
+                        temp.Clear();
                     }
+
+                    temp.Add(linea);
                 }
                 else
                 {
@@ -76,9 +79,59 @@ namespace App.ControlCargueArchivos
                 }
             }
 
+            //Ultimo Extracto
+            if (temp.Count > 1)
+            {
+                llaveCruce = temp.ElementAt(1).Substring(79, 15).Trim();
+
+                AgregarDiccionario(llaveCruce, temp);
+            }
+
             lector.Close();
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo que agrega al Dicionario General.
+        /// </summary>
+        /// <param name="pLlaveCruce">llave de cruce (Cedula)</param>
+        /// <param name="pTemp">Lista del extracto</param>
+        private void AgregarDiccionario(string pLlaveCruce, List<string> pTemp)
+        {
+            #region AgregarDiccionario
+            if (var.DiccionarioExtractos.ContainsKey(pLlaveCruce))
+            {
+                if (var.DiccionarioExtractos[pLlaveCruce].ContainsKey(_producto))
+                {
+                    var.DiccionarioExtractos[pLlaveCruce][_producto].Extracto.InsertRange(var.DiccionarioExtractos[pLlaveCruce][_producto].Extracto.Count, pTemp);
+                }
+                else
+                {
+                    var.DiccionarioExtractos[pLlaveCruce].Add(_producto, new Variables.DatosExtractos
+                    {
+                        Separador = 'P',
+                        Extracto = new List<string>(pTemp)
+                    });
+                }
+            }
+            else
+            {
+                var.DiccionarioExtractos.Add(pLlaveCruce, new Dictionary<string, Variables.DatosExtractos>
+                        {
+                            { _producto, new Variables.DatosExtractos
+                            {
+                                Separador = 'P',
+                                Extracto = new List<string>(pTemp)
+                            } }
+                        });
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// Metodo que desencadena el cargue.
+        /// </summary>
+        /// <param name="pArchivo">ruta del archivo a cargar</param>
         public void Ejecutar(string pArchivo)
         {
             CargueArchivoDiccionario(pArchivo);
