@@ -85,11 +85,12 @@ namespace App.ControlProcesos
             InsumosCarga.Add("RXX", typeof(Etiquetas));
             InsumosCarga.Add("Diccionario", typeof(Diccionario));
             InsumosCarga.Add("ASOCIADOS_INACTIVOS", typeof(AsociadosInactivos));
-            //InsumosCarga.Add("Extracto_rotativo", "8");
-            //InsumosCarga.Add("PAPEXTSUBV", "11");
-            //InsumosCarga.Add("PlanoBeneficiosEstadoCuenta", "12");
-            //InsumosCarga.Add("Pinos", "13");
-            //InsumosCarga.Add("Carta_Incremento_Aportes", "14");
+            InsumosCarga.Add("NUEVOS_ASOCIADOS_FISICOS", typeof(NuevosAsociadosFisico));
+            InsumosCarga.Add("PINOS", typeof(Pinos));
+            InsumosCarga.Add("MUESTRAS", typeof(Muestras));
+            InsumosCarga.Add("PLANOBENEFICIOSESTADOCUENTA", typeof(PlanoBeneficiosEstadoCuenta));
+            InsumosCarga.Add("PAPEXTSUBV", typeof(Libranza));
+            InsumosCarga.Add("R99TODOSXX", typeof(EstadoCuentaExAsociados));
 
             return InsumosCarga;
             #endregion
