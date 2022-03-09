@@ -83,7 +83,7 @@ namespace App.ControlProcesos
             InsumosCarga.Add("TODO999", typeof(ExtractoAhorros));
             InsumosCarga.Add("FIDUCOOMEVA", typeof(Fiducoomeva));
             InsumosCarga.Add("RXX", typeof(Etiquetas));
-            InsumosCarga.Add("Diccionario", typeof(Diccionario));
+            InsumosCarga.Add("DICCIONARIO", typeof(Diccionario));
             InsumosCarga.Add("ASOCIADOS_INACTIVOS", typeof(AsociadosInactivos));
             InsumosCarga.Add("NUEVOS_ASOCIADOS_FISICOS", typeof(NuevosAsociadosFisico));
             InsumosCarga.Add("PINOS", typeof(Pinos));
