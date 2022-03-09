@@ -22,7 +22,6 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.AssemblyReference.cache
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CoreCompileInputs.cache
-C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CopyComplete
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\Excel.dll
