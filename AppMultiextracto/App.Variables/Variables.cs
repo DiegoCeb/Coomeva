@@ -13,6 +13,7 @@ namespace App.Variables
         public string MensajeError { get; set; }
 
         public static Dictionary<string, Dictionary<string, DatosExtractos>> DiccionarioExtractos = new Dictionary<string, Dictionary<string, DatosExtractos>>();
+        public static Dictionary<string, DatosExtractos> InsumoDiccionarioDatos = new Dictionary<string, DatosExtractos>();
     }
 
     public struct DatosExtractos
