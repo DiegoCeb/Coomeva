@@ -52,6 +52,7 @@ namespace App.ControlProcesos
 
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig("RutaEntrada"));
+
         }
 
         /// <summary>
