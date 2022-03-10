@@ -55,7 +55,7 @@ namespace App.ControlCargueArchivos
             {
                 if (linea.Length > 9)
                 {
-                    if (linea.Substring(0, 9) == "Cuenta de")
+                    if (linea.Substring(0, 7) == "Cuenta ")
                     {
                         extractoCompleto = false;
 
@@ -89,7 +89,7 @@ namespace App.ControlCargueArchivos
             //Ultimo Extracto
             if (temp.Count > 1)
             {
-                llaveCruce = temp.ElementAt(1).Substring(49, 19).Trim();
+                llaveCruce = temp.ElementAt(1).Substring(49, 19).TrimStart('0').Trim();
 
                 AgregarDiccionario(llaveCruce, temp);
             }
