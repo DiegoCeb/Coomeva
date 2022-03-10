@@ -83,7 +83,7 @@ namespace App.ControlProcesos
             InsumosCarga.Add("TODO999", typeof(ExtractoAhorros));
             InsumosCarga.Add("FIDUCOOMEVA", typeof(Fiducoomeva));
             InsumosCarga.Add("RXX", typeof(Etiquetas));
-            InsumosCarga.Add("Diccionario", typeof(Diccionario));
+            InsumosCarga.Add("DICCIONARIO", typeof(Diccionario));
             InsumosCarga.Add("ASOCIADOS_INACTIVOS", typeof(AsociadosInactivos));
             InsumosCarga.Add("NUEVOS_ASOCIADOS_FISICOS", typeof(NuevosAsociadosFisico));
             InsumosCarga.Add("PINOS", typeof(Pinos));
@@ -91,6 +91,7 @@ namespace App.ControlProcesos
             InsumosCarga.Add("PLANOBENEFICIOSESTADOCUENTA", typeof(PlanoBeneficiosEstadoCuenta));
             InsumosCarga.Add("PAPEXTSUBV", typeof(Libranza));
             InsumosCarga.Add("R99TODOSXX", typeof(EstadoCuentaExAsociados));
+            InsumosCarga.Add("EXTRACTO_ROTATIVO", typeof(ExtractosRotativo));
 
             return InsumosCarga;
             #endregion
