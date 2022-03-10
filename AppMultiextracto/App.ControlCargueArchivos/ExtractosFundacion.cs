@@ -5,13 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DLL_Utilidades;
+using Helpers = App.Controlnsumos.Helpers;
+using var = App.Variables.Variables;
 
 namespace App.ControlCargueArchivos
 {
+    /// <summary>
+    /// Clase que se encarga de cargar el archivo de ExtractosFundacion
+    /// </summary>
     public class ExtractosFundacion : ICargue
     {
+        private const string _producto = "ExtractosFundacion";
+
+        private bool _disposed = false;
+
+        /// <summary>
+        /// Constructor de clase.
+        /// </summary>
+        /// <param name="pArchivo">ruta del archivo a cargar</param>
         public ExtractosFundacion(string pArchivo)
         {
+            #region ExtractosFundacion
             try
             {
                 Ejecutar(pArchivo);
@@ -24,25 +38,110 @@ namespace App.ControlCargueArchivos
                 System.Threading.Thread.Sleep(2000);
                 Environment.Exit(1);
             }
+            #endregion ExtractosFundacion
+
         }
 
+        /// <summary>
+        /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+        /// </summary>
+        /// <param name="pArchivo">ruta del archivo a cargar</param>
         public void CargueArchivoDiccionario(string pArchivo)
         {
-            StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
-
+            #region CargueArchivoDiccionario
             string linea = string.Empty;
+            string llaveCruce = string.Empty;
+            List<string> archivo = Helpers.ConvertirExcel(pArchivo);
 
-            while ((linea = lector.ReadLine()) != null)
+            foreach (string lineaIteracion in archivo)
             {
+                linea = lineaIteracion.Replace('"', ' ').Trim();
+
+                if (linea.Split('|')[0].Trim().ToUpper() != "NAME")
+                {
+                    llaveCruce = linea.Split('|')[61].Trim();
+                    if (!var.DiccionarioExtractos.ContainsKey(llaveCruce))
+                    {
+                        var.DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
+                            {
+                                {_producto, new Variables.DatosExtractos
+                                {
+                                    Separador = '|',
+                                    Extracto = new List<string>(){ linea}
+
+                                }
+                                }
+                            });
+                    }
+                    else
+                    {
+                        if (!var.DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
+                        {
+                            var.DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
+                            {
+                                Separador = '|',
+                                Extracto = new List<string>() { linea }
+                            });
+                        }
+                        else
+                        {
+                            var.DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
+                        }
+
+                    }
+                }
 
             }
 
-            lector.Close();
+            archivo.Clear();
+
+            #endregion CargueArchivoDiccionario
         }
 
+        /// <summary>
+        /// Metodo que desencadena el cargue.
+        /// </summary>
+        /// <param name="pArchivo">ruta del archivo a cargar</param>
         public void Ejecutar(string pArchivo)
         {
             CargueArchivoDiccionario(pArchivo);
+        }
+
+        /// <summary>
+        /// Metodo que destruye la lista proveniente del excel
+        /// </summary>
+        public void Dispose()
+        {
+            #region Dispose
+
+            // Dispose of unmanaged resources.
+            Dispose(true);
+            // Suppress finalization.
+            GC.SuppressFinalize(this);
+
+            #endregion Dispose
+
+        }
+
+        /// <summary>
+        /// Imlementacion del Dispose para destrir lista del excel.
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected virtual void Dispose(bool disposing)
+        {
+            #region Dispose
+
+            if (_disposed)
+                return;
+
+            if (disposing)
+            {
+                // Free any other managed objects here.
+            }
+
+            // Free any unmanaged objects here.
+            _disposed = true;
+            #endregion Dispose
         }
     }
 }
