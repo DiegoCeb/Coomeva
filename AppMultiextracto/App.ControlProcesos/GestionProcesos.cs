@@ -76,7 +76,7 @@ namespace App.ControlProcesos
             InsumosCarga.Add("EXTV", typeof(TarjetasCredito));
             InsumosCarga.Add("BASEESTADOCUENTAASOCIADOS", typeof(BaseEstadosCuentaAsociados));
             InsumosCarga.Add("BASEESTADOCUENTATERCEROS", typeof(BaseEstadosCuentaTerceros));
-            InsumosCarga.Add("VIVV", typeof(ExtractosVivienda));
+            InsumosCarga.Add("PAPEXTVIVV", typeof(ExtractosVivienda));
             InsumosCarga.Add("CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE", typeof(CartasCobranzaHabeasData));
             InsumosCarga.Add("EXTRACTOFUNDACION", typeof(ExtractosFundacion));
             InsumosCarga.Add("ACTIVACION-PROTECCIONES", typeof(ActivacionProtecciones));
@@ -103,7 +103,21 @@ namespace App.ControlProcesos
             {
                 if (pNombreArchivo.ToUpper().Contains(insumo.Key))
                 {
-                    return insumo.Value;
+                    if (pNombreArchivo.ToUpper().Contains("EXTV"))
+                    {
+                        if (pNombreArchivo.ToUpper().Substring(0, 4) == "EXTV")
+                        {
+                            return InsumosCarga["EXTV"];
+                        }
+                        else
+                        {
+                            return InsumosCarga["PAPEXTVIVV"];
+                        }
+                    }
+                    else
+                    {
+                        return insumo.Value;
+                    }
                 }
             }
 
