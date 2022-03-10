@@ -91,6 +91,7 @@ namespace App.ControlProcesos
             InsumosCarga.Add("PLANOBENEFICIOSESTADOCUENTA", typeof(PlanoBeneficiosEstadoCuenta));
             InsumosCarga.Add("PAPEXTSUBV", typeof(Libranza));
             InsumosCarga.Add("R99TODOSXX", typeof(EstadoCuentaExAsociados));
+            InsumosCarga.Add("EXTRACTO_ROTATIVO", typeof(ExtractosRotativo));
 
             return InsumosCarga;
             #endregion
