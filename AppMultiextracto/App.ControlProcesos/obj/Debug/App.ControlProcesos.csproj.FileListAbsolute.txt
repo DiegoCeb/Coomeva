@@ -77,3 +77,5 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CopyComplete
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\Excel.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\ICSharpCode.SharpZipLib.dll

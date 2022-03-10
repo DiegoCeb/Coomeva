@@ -37,3 +37,7 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.CopyComplete
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\Excel.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.pdb
