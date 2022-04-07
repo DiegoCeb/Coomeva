@@ -29,8 +29,6 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\ICSharpCode.Sh
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.pdb
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.dll
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\Excel.dll
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.pdb
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.AssemblyReference.cache
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CoreCompileInputs.cache

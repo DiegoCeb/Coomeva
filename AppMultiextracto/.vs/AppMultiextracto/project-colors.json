@@ -35,7 +35,27 @@
       "ProjectGuid": "1884d5ce-f28c-4a57-9d8c-eea95857d848",
       "DisplayName": "App.ControlEjecucion",
       "ColorIndex": 5
+    },
+    "30d66875-7b49-4014-b2d8-6ca8fecf082d": {
+      "ProjectGuid": "30d66875-7b49-4014-b2d8-6ca8fecf082d",
+      "DisplayName": "App.ControlFtp",
+      "ColorIndex": 6
+    },
+    "5d871e2d-1c65-43f6-8d72-0e08e5a7b834": {
+      "ProjectGuid": "5d871e2d-1c65-43f6-8d72-0e08e5a7b834",
+      "DisplayName": "App.ControlCifrado",
+      "ColorIndex": 7
+    },
+    "47bb3e87-00dd-479c-a7d8-43efcab68147": {
+      "ProjectGuid": "47bb3e87-00dd-479c-a7d8-43efcab68147",
+      "DisplayName": "App.ControlWebServiceDelta",
+      "ColorIndex": 8
+    },
+    "3ce6c384-499e-431d-b208-c22db4992637": {
+      "ProjectGuid": "3ce6c384-499e-431d-b208-c22db4992637",
+      "DisplayName": "App.ControlWebServiceZonificacion",
+      "ColorIndex": 9
     }
   },
-  "NextColorIndex": 6
+  "NextColorIndex": 10
 }

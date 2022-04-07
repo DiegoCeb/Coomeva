@@ -1,0 +1,11 @@
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\bin\Debug\App.ControlWebServiceZonificacion.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\bin\Debug\App.ControlWebServiceZonificacion.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\bin\Debug\DLL_ServicioDelta.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\bin\Debug\DLL_Utilidades.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\bin\Debug\DLL_ServicioDelta.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\bin\Debug\DLL_ServicioDelta.dll.config
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.csproj.AssemblyReference.cache
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.csproj.CoreCompileInputs.cache
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.csproj.CopyComplete
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.pdb
