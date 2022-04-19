@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Excel;
 
 namespace App.Controlnsumos
 {
     public static class Helpers
     {
+        /// <summary>
+        /// Metodo para convertir Excel (.xlsx - .xls) en archivo plano
+        /// </summary>
+        /// <param name="archivo"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static List<string> ConvertirExcel(string archivo)
         {
-            #region Carga el archivo Excel
+            #region ConvertirExcel
             DataSet result = new DataSet();
             try
             {
@@ -77,18 +80,31 @@ namespace App.Controlnsumos
             #endregion
         }
 
-        public static Int64 GetTamañoArchivo(string pRutaArchivo)
+        /// <summary>
+        /// Metodo para crear carpeta 
+        /// </summary>
+        /// <param name="ruta"></param>
+        /// <returns>Ruta de la carpeta creada</returns>
+        /// <exception cref="Exception"></exception>
+        public static string CrearCarpeta(string ruta)
         {
-            Int64 tamañoArchivo = 0;
-            
-            FileInfo fileInfo = new FileInfo(pRutaArchivo);
-
-            if (fileInfo.Exists)
+            #region CrearCarpeta
+            try
             {
-                tamañoArchivo = fileInfo.Length;
+                string carpeta = ruta;
+
+                if (!Directory.Exists(ruta))
+                {
+                    Directory.CreateDirectory(ruta);
+                }
+
+                return carpeta;
             }
-          
-            return tamañoArchivo;
+            catch (Exception ex)
+            {
+                throw new Exception("Error: " + ex.Message);                
+            }
+            #endregion
         }
     }
 }

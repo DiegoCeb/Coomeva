@@ -10,9 +10,9 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCifrado\obj\
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.csproj.CoreCompileInputs.cache
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.pdb
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCifrado\bin\Debug\App.ControlCifrado.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCifrado\bin\Debug\App.ControlCifrado.pdb
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.csproj.AssemblyReference.cache
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.csproj.CoreCompileInputs.cache
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCifrado\bin\Debug\App.ControlCifrado.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCifrado\bin\Debug\App.ControlCifrado.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.csproj.AssemblyReference.cache
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.csproj.CoreCompileInputs.cache
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCifrado\obj\Debug\App.ControlCifrado.pdb
