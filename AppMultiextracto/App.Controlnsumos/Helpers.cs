@@ -76,5 +76,19 @@ namespace App.Controlnsumos
             }
             #endregion
         }
+
+        public static Int64 GetTamañoArchivo(string pRutaArchivo)
+        {
+            Int64 tamañoArchivo = 0;
+            
+            FileInfo fileInfo = new FileInfo(pRutaArchivo);
+
+            if (fileInfo.Exists)
+            {
+                tamañoArchivo = fileInfo.Length;
+            }
+          
+            return tamañoArchivo;
+        }
     }
 }

@@ -42,7 +42,6 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlE
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Variables.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlFtp.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Controlnsumos.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\SharpCompress.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\Renci.SshNet.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlEjecucion.pdb

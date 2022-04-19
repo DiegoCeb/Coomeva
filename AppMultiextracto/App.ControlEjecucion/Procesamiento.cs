@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DLL_Utilidades;
 using App.Controlnsumos;
 using System.IO;
+using App.Variables;
 
 namespace App.ControlEjecucion
 {
@@ -55,6 +56,7 @@ namespace App.ControlEjecucion
                     if (archivo.Contains(insumo))
                     {
                         resultado = "0";
+                        GetTamañoArchivo(insumo, archivo);
                         break;
                     }
                 }
@@ -71,6 +73,18 @@ namespace App.ControlEjecucion
             return true;
         }
 
+        private void GetTamañoArchivo(string pInsumo, string pArchivo)
+        {
+            Int64 tamañoArchivo = Helpers.GetTamañoArchivo(pArchivo);
+
+            if (CheckListProceso.DiccionarioCantidadesArchivos.ContainsKey(pInsumo))
+            {
+                CantidadesArchivos cantidadesArchivos = CheckListProceso.DiccionarioCantidadesArchivos[pInsumo];
+                cantidadesArchivos.PesoArchivoMesActual = tamañoArchivo;
+                cantidadesArchivos.DiferenciaPesoArchivo = cantidadesArchivos.PesoArchivoMesActual - cantidadesArchivos.PesoArchivoMesAnterior;
+            }
+        }
+
         public bool CargueArchivosGlobal<TEntidad>(string pArchivo, TEntidad pEntidadArchivo)
         {
             var newObject = (Type)(object)pEntidadArchivo;
@@ -80,6 +94,11 @@ namespace App.ControlEjecucion
                 newObject, new object[] { pArchivo });
 
             return true;
+        }
+
+        public void CargueDiccionarioCheckList()
+        {
+            Insumos.CargarNombresArchivosChekList();
         }
 
         public void Dispose()

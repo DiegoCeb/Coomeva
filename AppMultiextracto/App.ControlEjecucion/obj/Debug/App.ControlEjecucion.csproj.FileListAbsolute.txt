@@ -36,13 +36,11 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Control
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Variables.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\Renci.SshNet.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\Excel.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\SharpCompress.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlFtp.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Controlnsumos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Variables.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.AssemblyReference.cache
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CoreCompileInputs.cache
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CopyComplete
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\ICSharpCode.SharpZipLib.dll

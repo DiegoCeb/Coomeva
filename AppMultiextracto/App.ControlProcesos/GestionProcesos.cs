@@ -25,6 +25,9 @@ namespace App.ControlProcesos
         }
         public void Ejecutar()
         {
+            CheckListProceso.FechaHoraIncio = DateTime.Now;
+            _objProceso.CargueDiccionarioCheckList();
+
             //if (!objProceso.DescargaArchivos())
             //{
             //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
@@ -52,6 +55,8 @@ namespace App.ControlProcesos
 
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig("RutaEntrada"));
+
+
 
         }
 
