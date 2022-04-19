@@ -80,20 +80,20 @@ namespace App.Controlnsumos
             #endregion
         }
 
-<<<<<<< HEAD
+
         public static Int64 GetTamañoArchivo(string pRutaArchivo)
         {
             Int64 tamañoArchivo = 0;
-            
+
             FileInfo fileInfo = new FileInfo(pRutaArchivo);
 
             if (fileInfo.Exists)
             {
                 tamañoArchivo = fileInfo.Length;
             }
-          
+
             return tamañoArchivo;
-=======
+        }
         /// <summary>
         /// Metodo para crear carpeta 
         /// </summary>
@@ -119,7 +119,7 @@ namespace App.Controlnsumos
                 throw new Exception("Error: " + ex.Message);                
             }
             #endregion
->>>>>>> main
+
         }
     }
 }

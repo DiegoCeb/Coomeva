@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 using DLL_Utilidades;
 using App.Controlnsumos;
 using System.IO;
-<<<<<<< HEAD
 using App.Variables;
-=======
 using App.ControlWebServiceZonificacion;
->>>>>>> main
+
 
 namespace App.ControlEjecucion
 {
@@ -85,7 +83,7 @@ namespace App.ControlEjecucion
             return true;
         }
 
-<<<<<<< HEAD
+
         private void GetTamañoArchivo(string pInsumo, string pArchivo)
         {
             Int64 tamañoArchivo = Helpers.GetTamañoArchivo(pArchivo);
@@ -98,7 +96,7 @@ namespace App.ControlEjecucion
             }
         }
 
-=======
+
         /// <summary>
         /// Metodo para cargar los archivos globales
         /// </summary>
@@ -106,7 +104,7 @@ namespace App.ControlEjecucion
         /// <param name="pArchivo"></param>
         /// <param name="pEntidadArchivo"></param>
         /// <returns></returns>
->>>>>>> main
+
         public bool CargueArchivosGlobal<TEntidad>(string pArchivo, TEntidad pEntidadArchivo)
         {
             var newObject = (Type)(object)pEntidadArchivo;
@@ -240,7 +238,7 @@ namespace App.ControlEjecucion
 
                                     //descarga la orden                                    
                                     RutaBaseDelta = Helpers.CrearCarpeta(Path.GetDirectoryName(RutaBaseDelta) + "\\" + Orden);
-                                    claseFTP.DescargarArchivosFtp(Utilidades.LeerAppConfig("RutaFtpSalidas") + Orden, RutaBaseDelta);
+                                    claseFTP.DescargarArchivosFtpOrden(Utilidades.LeerAppConfig("RutaFtpSalidas") + Orden, RutaBaseDelta);
                                     Utilidades.EscribirLog("Termina Zonificacion por DELTA", Utilidades.LeerAppConfig("RutaLog"));
                                 }
                                 else

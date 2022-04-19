@@ -135,7 +135,7 @@ namespace App.ControlFtp
         /// <param name="rutaFtpDelta"></param>
         /// <param name="rutaDescarga"></param>
         /// <returns>Booleano True = OK / False = KO </returns>
-        public bool DescargarArchivosFtp(string rutaFtpDelta, string rutaDescarga)
+        public bool DescargarArchivosFtpOrden(string rutaFtpDelta, string rutaDescarga)
         {
             #region DescargaArchivos de un FTP.
             try

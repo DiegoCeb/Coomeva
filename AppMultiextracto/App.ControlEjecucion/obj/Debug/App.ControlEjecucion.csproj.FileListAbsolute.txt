@@ -67,3 +67,7 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CopyComplete
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlWebServiceZonificacion.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlWebServiceZonificacion.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\DLL_ServicioDelta.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\DLL_ServicioDelta.dll.config
