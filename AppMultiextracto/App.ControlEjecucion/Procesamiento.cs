@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DLL_Utilidades;
 using App.Controlnsumos;
 using System.IO;
+using App.ControlWebServiceZonificacion;
 
 namespace App.ControlEjecucion
 {
@@ -16,6 +17,10 @@ namespace App.ControlEjecucion
         private bool _disposed = false;
         Dictionary<string, string> DatosVerificacionArchivos;
        
+        /// <summary>
+        /// Metodo para descaragra Archivos del FTP de Coomeva
+        /// </summary>
+        /// <returns></returns>
         public bool DescargaArchivos()
         {
             try
@@ -42,6 +47,10 @@ namespace App.ControlEjecucion
 
         }
 
+        /// <summary>
+        /// Metodo para verificar archivos de entrada
+        /// </summary>
+        /// <returns></returns>
         public bool VerificacionArchivosEntrada()
         {
             string resultado = "1";
@@ -72,58 +81,171 @@ namespace App.ControlEjecucion
         }
 
         /// <summary>
-        /// Carga los archivos de3 manera global y temporal.
+        /// Metodo para cargar los archivos globales
         /// </summary>
-        /// <typeparam name="TEntidad">Entidad que se va a cargar</typeparam>
-        /// <param name="pArchivo">ruta del archivo</param>
-        /// <param name="pEntidadArchivo">Entidad del proceso</param>
-        /// <returns>True o False segun proceso.</returns>
+        /// <typeparam name="TEntidad"></typeparam>
+        /// <param name="pArchivo"></param>
+        /// <param name="pEntidadArchivo"></param>
+        /// <returns></returns>
         public bool CargueArchivosGlobal<TEntidad>(string pArchivo, TEntidad pEntidadArchivo)
         {
-            #region CargueArchivosGlobal
             var newObject = (Type)(object)pEntidadArchivo;
-
-            if (newObject.Name == "Etiquetas" && Path.GetFileNameWithoutExtension(pArchivo).ToUpper().Contains("I"))
-            {
-                Helpers.RutaBaseMaestraFisico = GenerarBaseMaestra(pArchivo);
-            }
 
             object invoke = newObject.InvokeMember(newObject.Name,
                 System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.CreateInstance, null,
                 newObject, new object[] { pArchivo });
 
-            return true; 
-            #endregion
+            return true;
         }
-
-        public string GenerarBaseMaestra(string pArchivo)
+        
+        /// <summary>
+        /// Metodo para Iniciar La Zonificacion
+        /// </summary>
+        /// <param name="tipoProceso"></param>
+        /// <param name="nombreProceso"></param>
+        /// <returns></returns>
+        public string IniciarZonificacion(string tipoProceso, string nombreProceso)
         {
-            #region GenerarBaseMaestra
-            string rutaResult = $"{Helpers.RutaProceso}\\BaseMaestra.csv";
-            List<string> datosBaseMaestra = new List<string>();
-
-            //Encabezado
-            datosBaseMaestra.Add($"cedula;cuenta;nombres;direccion;ciudad;dpto");
-
-            foreach (var linea in Utilidades.LeerArchivoPlanoANSI(pArchivo))
+            try
             {
-                string cedula = $"{linea.Substring(143, 6)}{linea.Substring(151, 5)}".TrimStart('0');
-                string cuenta = $"{linea.Substring(143, 6)}{linea.Substring(151, 5)}".TrimStart('0');
-                string nombres = linea.Substring(0, 31).Trim();
-                string direccion = linea.Substring(31, 60).Trim();
-                string segmentoCiudadDpto = linea.Substring(92, 37).Trim();
-                string ciudad = segmentoCiudadDpto.LastIndexOf('(') != -1 ? segmentoCiudadDpto.Substring(0, segmentoCiudadDpto.LastIndexOf('(')).Trim() : segmentoCiudadDpto;
-                string dpto = segmentoCiudadDpto.LastIndexOf('(') != -1 ? segmentoCiudadDpto.Substring(segmentoCiudadDpto.LastIndexOf('(')).Trim().Replace("(","").Replace(")", "") : segmentoCiudadDpto;
+                // Ftp Delta
+                ClaseFtp claseFTP = new ClaseFtp(Utilidades.LeerAppConfig("FtpDireccionDelta"),
+                                                 Convert.ToInt16(Utilidades.LeerAppConfig("FtpPuertoDelta")),
+                                                 Utilidades.LeerAppConfig("FtpUsuarioDelta"),
+                                                 Utilidades.LeerAppConfig("FtpClaveDelta"));
 
-                datosBaseMaestra.Add($"{cedula};{cuenta};{nombres};{direccion};{ciudad};{dpto}");
+                switch (tipoProceso.ToLower())
+                {
+                    case "virtual":
+                        {
+                            #region ZonificacionMail
+
+                            string nombreCarpeta = Utilidades.LeerAppConfig("RutaFtp") + "/" + nombreProceso + " - " + DateTime.Now.ToShortDateString().Replace("/", "") + "_" + DateTime.Now.Second;
+                            
+                            if (claseFTP.CrearcarpetaFtp(nombreCarpeta))
+                            {
+                                //carpeta creada correctamente
+                                if (claseFTP.CargarArchivoFtp(RutaBaseDelta, nombreCarpeta + "/" + Path.GetFileName(RutaBaseDelta)))
+                                {
+                                    //se crea la orden de servicio
+                                    Orden = ControlZonificacion.CrearOrdenServicio(Utilidades.LeerAppConfig("CodigoCliente"), Utilidades.LeerAppConfig("CodigoProcesoMail"));
+
+                                    //se realiza zonificacion
+                                    string estado = ControlZonificacion.RealizarZonificacion(Orden, 
+                                                                                             nombreCarpeta + "/" + Path.GetFileName(RutaBaseDelta),
+                                                                                             Utilidades.LeerAppConfig("ConfiguracionMapeoVirtual"),
+                                                                                             Utilidades.LeerAppConfig("TipoCargueVirtual"), 
+                                                                                             Utilidades.LeerAppConfig("CodigoCliente"),
+                                                                                             Utilidades.LeerAppConfig("CodigoCourier"),
+                                                                                             Utilidades.LeerAppConfig("CodigoProcesoVirtual"),
+                                                                                             Utilidades.LeerAppConfig("EmailCertificadoVirtual"),
+                                                                                             Utilidades.LeerAppConfig("TipoArchivo"),
+                                                                                             Utilidades.LeerAppConfig("ReordenamientoVirtual"),
+                                                                                             Utilidades.LeerAppConfig("Publicacion"),
+                                                                                             nombreProceso,
+                                                                                             Utilidades.LeerAppConfig("Delimitador"),
+                                                                                             Utilidades.LeerAppConfig("InicioExtractoSpool")
+                                                                                             );
+
+                                    //verifica si ya termino el proceso
+                                    while (estado != "finalizado")
+                                    {
+                                        estado = ControlZonificacion.ValidarOrden(Orden).ToLower();
+                                    }
+
+                                    string archivosMail = Utilidades.LeerAppConfig("RutaFtpMail") + "/" + Orden;
+
+                                    claseFTP.CrearcarpetaFtp(archivosMail);
+
+                                    foreach (var item in Directory.GetFiles(Path.GetDirectoryName(RutaBaseDelta) ?? throw new InvalidOperationException()))
+                                    {
+                                        if (Path.GetExtension(item).ToLower() == ".pdf")
+                                        {
+                                            claseFTP.CargarArchivoFtp(item, archivosMail + "/" + Path.GetFileName(item));
+                                        }
+                                    }
+
+                                    File.Create(Path.GetDirectoryName(Path.GetDirectoryName(RutaBaseDelta)) + "\\" + Orden + ".txt");
+
+                                    Utilidades.EscribirLog("Termina Zonificacion por DELTA", Utilidades.LeerAppConfig("RutaLog"));
+                                }
+                                else
+                                {
+                                    Utilidades.EscribirLog("Error al momento de cargar la base DELTA", Utilidades.LeerAppConfig("RutaLog"));
+                                }
+                            }
+                            else
+                            {
+                                Utilidades.EscribirLog("Error al momento de crear la carpeta para la base DELTA", Utilidades.LeerAppConfig("RutaLog"));
+                            }
+                            #endregion
+
+                            break;
+                        }
+                    case "fisico":
+                        {
+                            #region ZonificacionFisica
+                            string nombreCarpeta = Utilidades.LeerAppConfig("RutaFtp") + "/Proceso " + tipoProceso + " - " + DateTime.Now.ToShortDateString().Replace("/", "") + "_" + DateTime.Now.Second;
+
+                            if (claseFTP.CrearcarpetaFtp(nombreCarpeta))
+                            {
+                                //carpeta creada correctamente
+                                if (claseFTP.CargarArchivoFtp(RutaBaseDelta, nombreCarpeta + "/" + Path.GetFileName(RutaBaseDelta)))
+                                {
+                                    //se crea la orden de servicio
+                                    Orden = ControlZonificacion.CrearOrdenServicio(Utilidades.LeerAppConfig("CodigoCliente"), Utilidades.LeerAppConfig("CodigoProceso"));
+                                    
+                                    //se realiza zonificacion
+                                    string estado = ControlZonificacion.RealizarZonificacion(Orden, 
+                                                                                             nombreCarpeta + "/" + Path.GetFileName(RutaBaseDelta),
+                                                                                             Utilidades.LeerAppConfig("ConfiguracionMapeoFisica"),
+                                                                                             Utilidades.LeerAppConfig("TipoCargueFisico"),
+                                                                                             Utilidades.LeerAppConfig("CodigoCliente"),
+                                                                                             Utilidades.LeerAppConfig("CodigoCourier"),
+                                                                                             Utilidades.LeerAppConfig("CodigoProcesoFisico"),
+                                                                                             Utilidades.LeerAppConfig("EmailCertificadoFisico"),
+                                                                                             Utilidades.LeerAppConfig("TipoArchivo"),
+                                                                                             Utilidades.LeerAppConfig("ReordenamientoFisico"),                                                                                             
+                                                                                             Utilidades.LeerAppConfig("Publicacion"),
+                                                                                             nombreProceso,
+                                                                                             Utilidades.LeerAppConfig("Delimitador"),
+                                                                                             Utilidades.LeerAppConfig("InicioExtractoSpool")
+                                                                                             );
+
+                                    //verifica si ya termino el procesos
+                                    while (estado != "finalizado")
+                                    {
+                                        estado = ControlZonificacion.ValidarOrden(Orden).ToLower();
+                                    }
+
+                                    //descarga la orden                                    
+                                    RutaBaseDelta = Helpers.CrearCarpeta(Path.GetDirectoryName(RutaBaseDelta) + "\\" + Orden);
+                                    claseFTP.DescargarArchivosFtp(Utilidades.LeerAppConfig("RutaFtpSalidas") + Orden, RutaBaseDelta);
+                                    Utilidades.EscribirLog("Termina Zonificacion por DELTA", Utilidades.LeerAppConfig("RutaLog"));
+                                }
+                                else
+                                {
+                                    Utilidades.EscribirLog("Error al momento de cargar la base DELTA", Utilidades.LeerAppConfig("RutaLog"));
+                                }
+                            }
+                            else
+                            {                                
+                                Utilidades.EscribirLog("Error al momento de crear la carpeta para la base DELTA", Utilidades.LeerAppConfig("RutaLog"));
+                            }
+
+                            #endregion
+
+                            break;
+                        }
+                }
+                return "";
             }
-
-            File.WriteAllLines(rutaResult, datosBaseMaestra);
-
-            datosBaseMaestra.Clear();
-
-            return rutaResult; 
-            #endregion
+            catch (Exception ex)
+            {
+                MensajeError = ex.Message;
+                Utilidades.EscribirLog(MensajeError, Utilidades.LeerAppConfig("RutaLog"));
+                return MensajeError;
+            }            
         }
 
         public void Dispose()

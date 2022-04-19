@@ -34,6 +34,7 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CopyComplete
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlProcesos.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlProcesos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.dll
@@ -41,7 +42,6 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlE
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Variables.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlFtp.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Controlnsumos.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\SharpCompress.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\Renci.SshNet.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlEjecucion.pdb
@@ -62,7 +62,6 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Variables.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Controlnsumos.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlFtp.dll
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\SharpCompress.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\Excel.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\Renci.SshNet.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\ICSharpCode.SharpZipLib.dll
@@ -78,4 +77,8 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\Excel.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CopyComplete
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlWebServiceZonificacion.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlWebServiceZonificacion.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.dll.config

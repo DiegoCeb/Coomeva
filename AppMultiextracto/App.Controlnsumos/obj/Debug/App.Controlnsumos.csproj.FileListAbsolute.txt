@@ -13,6 +13,7 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\D
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.AssemblyReference.cache
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CoreCompileInputs.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CopyComplete
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.dll
@@ -28,8 +29,6 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\ICSharpCode.Sh
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.pdb
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.dll
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\Excel.dll
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.pdb
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.AssemblyReference.cache
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CoreCompileInputs.cache
@@ -38,4 +37,4 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\Excel.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CopyComplete
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CopyComplete

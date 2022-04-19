@@ -52,7 +52,6 @@ C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\DLL_Utilidades.
 C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlCargueArchivos.dll
 C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlFtp.dll
 C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.Controlnsumos.dll
-C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\SharpCompress.dll
 C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\Renci.SshNet.dll
 C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlProcesos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.Variables.pdb
@@ -77,7 +76,6 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMul
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlCargueArchivos.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlFtp.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.Controlnsumos.dll
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\SharpCompress.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\Renci.SshNet.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\Excel.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\ICSharpCode.SharpZipLib.dll
@@ -95,3 +93,8 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMul
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\Excel.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\DLL_ServicioDelta.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlWebServiceZonificacion.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\DLL_ServicioDelta.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\DLL_ServicioDelta.dll.config
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlWebServiceZonificacion.pdb
