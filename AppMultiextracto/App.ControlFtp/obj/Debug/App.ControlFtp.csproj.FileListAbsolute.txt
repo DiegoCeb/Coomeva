@@ -27,8 +27,6 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\App.ControlFtp.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\App.ControlFtp.pdb
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\SharpCompress.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.csproj.AssemblyReference.cache
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.csproj.CoreCompileInputs.cache
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.dll

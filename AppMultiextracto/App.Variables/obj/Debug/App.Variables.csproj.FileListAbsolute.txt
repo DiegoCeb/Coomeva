@@ -21,3 +21,4 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Va
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Variables\obj\Debug\App.Variables.csproj.CoreCompileInputs.cache
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Variables\obj\Debug\App.Variables.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Variables\obj\Debug\App.Variables.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.Variables\obj\Debug\App.Variables.csproj.AssemblyReference.cache
