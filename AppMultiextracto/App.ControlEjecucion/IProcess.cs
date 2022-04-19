@@ -13,5 +13,7 @@ namespace App.ControlEjecucion
         bool VerificacionArchivosEntrada();
 
         bool CargueArchivosGlobal<TEntidad>(string pArchivo, TEntidad pEntidadArchivo);
+
+        string GenerarBaseMaestra(string pArchivo);
     }
 }

@@ -58,6 +58,10 @@
       <Project>{1884d5ce-f28c-4a57-9d8c-eea95857d848}</Project>
       <Name>App.ControlEjecucion</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.Controlnsumos\App.Controlnsumos.csproj">
+      <Project>{06f1a65c-e25b-4c4f-bbbc-ff9a8d887b23}</Project>
+      <Name>App.Controlnsumos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Variables\App.Variables.csproj">
       <Project>{7843c729-32d9-4ef8-8b20-c699fe651dd2}</Project>
       <Name>App.Variables</Name>

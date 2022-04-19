@@ -11,6 +11,8 @@ namespace App.Controlnsumos
 {
     public static class Helpers
     {
+        public static string RutaProceso { get; set; }
+        public static string RutaBaseMaestraFisico { get; set; }
         public static List<string> ConvertirExcel(string archivo)
         {
             #region Carga el archivo Excel

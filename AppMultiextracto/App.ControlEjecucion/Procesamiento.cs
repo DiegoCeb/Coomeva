@@ -71,15 +71,59 @@ namespace App.ControlEjecucion
             return true;
         }
 
+        /// <summary>
+        /// Carga los archivos de3 manera global y temporal.
+        /// </summary>
+        /// <typeparam name="TEntidad">Entidad que se va a cargar</typeparam>
+        /// <param name="pArchivo">ruta del archivo</param>
+        /// <param name="pEntidadArchivo">Entidad del proceso</param>
+        /// <returns>True o False segun proceso.</returns>
         public bool CargueArchivosGlobal<TEntidad>(string pArchivo, TEntidad pEntidadArchivo)
         {
+            #region CargueArchivosGlobal
             var newObject = (Type)(object)pEntidadArchivo;
+
+            if (newObject.Name == "Etiquetas" && Path.GetFileNameWithoutExtension(pArchivo).ToUpper().Contains("I"))
+            {
+                Helpers.RutaBaseMaestraFisico = GenerarBaseMaestra(pArchivo);
+            }
 
             object invoke = newObject.InvokeMember(newObject.Name,
                 System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.CreateInstance, null,
                 newObject, new object[] { pArchivo });
 
-            return true;
+            return true; 
+            #endregion
+        }
+
+        public string GenerarBaseMaestra(string pArchivo)
+        {
+            #region GenerarBaseMaestra
+            string rutaResult = $"{Helpers.RutaProceso}\\BaseMaestra.csv";
+            List<string> datosBaseMaestra = new List<string>();
+
+            //Encabezado
+            datosBaseMaestra.Add($"cedula;cuenta;nombres;direccion;ciudad;dpto");
+
+            foreach (var linea in Utilidades.LeerArchivoPlanoANSI(pArchivo))
+            {
+                string cedula = $"{linea.Substring(143, 6)}{linea.Substring(151, 5)}".TrimStart('0');
+                string cuenta = $"{linea.Substring(143, 6)}{linea.Substring(151, 5)}".TrimStart('0');
+                string nombres = linea.Substring(0, 31).Trim();
+                string direccion = linea.Substring(31, 60).Trim();
+                string segmentoCiudadDpto = linea.Substring(92, 37).Trim();
+                string ciudad = segmentoCiudadDpto.LastIndexOf('(') != -1 ? segmentoCiudadDpto.Substring(0, segmentoCiudadDpto.LastIndexOf('(')).Trim() : segmentoCiudadDpto;
+                string dpto = segmentoCiudadDpto.LastIndexOf('(') != -1 ? segmentoCiudadDpto.Substring(segmentoCiudadDpto.LastIndexOf('(')).Trim().Replace("(","").Replace(")", "") : segmentoCiudadDpto;
+
+                datosBaseMaestra.Add($"{cedula};{cuenta};{nombres};{direccion};{ciudad};{dpto}");
+            }
+
+            File.WriteAllLines(rutaResult, datosBaseMaestra);
+
+            datosBaseMaestra.Clear();
+
+            return rutaResult; 
+            #endregion
         }
 
         public void Dispose()
@@ -106,6 +150,6 @@ namespace App.ControlEjecucion
             _disposed = true;
         }
 
-
+        
     }
 }

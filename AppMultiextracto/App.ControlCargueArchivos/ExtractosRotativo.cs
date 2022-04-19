@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using var = App.Variables.Variables;
 
 namespace App.ControlCargueArchivos
 {
     /// <summary>
     /// Clase que se encarga de cargar el archivo de ExtractosRotativo
     /// </summary>
-    public class ExtractosRotativo: ICargue
+    public class ExtractosRotativo: App.Variables.Variables, ICargue
     {
         private const string _producto = "ExtractosRotativo";
 
@@ -95,15 +94,15 @@ namespace App.ControlCargueArchivos
         private void AgregarDiccionario(string pLlaveCruce, List<string> pTemp)
         {
             #region AgregarDiccionario
-            if (var.DiccionarioExtractos.ContainsKey(pLlaveCruce))
+            if (DiccionarioExtractos.ContainsKey(pLlaveCruce))
             {
-                if (var.DiccionarioExtractos[pLlaveCruce].ContainsKey(_producto))
+                if (DiccionarioExtractos[pLlaveCruce].ContainsKey(_producto))
                 {
-                    var.DiccionarioExtractos[pLlaveCruce][_producto].Extracto.InsertRange(var.DiccionarioExtractos[pLlaveCruce][_producto].Extracto.Count, pTemp);
+                    DiccionarioExtractos[pLlaveCruce][_producto].Extracto.InsertRange(DiccionarioExtractos[pLlaveCruce][_producto].Extracto.Count, pTemp);
                 }
                 else
                 {
-                    var.DiccionarioExtractos[pLlaveCruce].Add(_producto, new Variables.DatosExtractos
+                    DiccionarioExtractos[pLlaveCruce].Add(_producto, new Variables.DatosExtractos
                     {
                         Separador = '|',
                         Extracto = new List<string>(pTemp)
@@ -112,7 +111,7 @@ namespace App.ControlCargueArchivos
             }
             else
             {
-                var.DiccionarioExtractos.Add(pLlaveCruce, new Dictionary<string, Variables.DatosExtractos>
+                DiccionarioExtractos.Add(pLlaveCruce, new Dictionary<string, Variables.DatosExtractos>
                         {
                             { _producto, new Variables.DatosExtractos
                             {

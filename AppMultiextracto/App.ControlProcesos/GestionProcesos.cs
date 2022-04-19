@@ -10,6 +10,7 @@ using App.ControlEjecucion;
 using App.Variables;
 using DLL_Utilidades;
 using App.ControlCargueArchivos;
+using App.Controlnsumos;
 
 namespace App.ControlProcesos
 {
@@ -19,6 +20,7 @@ namespace App.ControlProcesos
         private bool _disposed = false;
         public Dictionary<string, Type> InsumosCarga = new Dictionary<string, Type>();
         private Procesamiento _objProceso = new Procesamiento();
+
         public GestionProcesos()
         {
             CargarClaves();
@@ -47,11 +49,15 @@ namespace App.ControlProcesos
             Console.WriteLine("---Verificacion de Archivos Correcta");
             Console.WriteLine("");
 
+            //Creacion carpeta de salida del proceso
+            Helpers.RutaProceso = Directory.CreateDirectory($"{Utilidades.LeerAppConfig("RutaSalida")}\\{NumeroOrdenProceso}_{DateTime.Now:yyyyMMdd}").FullName;
+
             //Cargamos Archivos Insumos
             CargueGeneralArchivos(Utilidades.LeerAppConfig("RutaInsumos"));
 
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig("RutaEntrada"));
+
 
         }
 
