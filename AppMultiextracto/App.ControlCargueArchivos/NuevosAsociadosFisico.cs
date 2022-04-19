@@ -2,14 +2,13 @@
 using DLL_Utilidades;
 using System;
 using System.Collections.Generic;
-using var = App.Variables.Variables;
 
 namespace App.ControlCargueArchivos
 {
     /// <summary>
     /// Clase que se encarga de cargar el archivo de NuevosAsociadosFisico
     /// </summary>
-    public class NuevosAsociadosFisico : ICargue
+    public class NuevosAsociadosFisico : App.Variables.Variables, ICargue
     {
         private const string _producto = "NuevosAsociadosFisico";
 
@@ -49,9 +48,9 @@ namespace App.ControlCargueArchivos
                 if (linea.Split('|')[0].Trim().ToUpper() != "CEDULA")
                 {
                     llaveCruce = linea.Split('|')[0].Trim();
-                    if (!var.DiccionarioExtractos.ContainsKey(llaveCruce))
+                    if (!DiccionarioExtractos.ContainsKey(llaveCruce))
                     {
-                        var.DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
+                        DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
                             {
                                 {_producto, new Variables.DatosExtractos
                                     {
@@ -63,9 +62,9 @@ namespace App.ControlCargueArchivos
                     }
                     else
                     {
-                        if (!var.DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
+                        if (!DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
                         {
-                            var.DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
+                            DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
                             {
                                 Separador = '|',
                                 Extracto = new List<string>() { linea }
@@ -73,7 +72,7 @@ namespace App.ControlCargueArchivos
                         }
                         else
                         {
-                            var.DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
+                            DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
                         }
                     }
                 }

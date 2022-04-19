@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using var = App.Variables.Variables;
 using DLL_Utilidades;
 using System.IO;
 
@@ -12,7 +11,7 @@ namespace App.ControlCargueArchivos
     /// <summary>
     /// Clase que se encarga de cargar el archivo de Diccionario
     /// </summary>
-    public class Diccionario : ICargue
+    public class Diccionario : App.Variables.Variables, ICargue
     {
         /// <summary>
         /// Constructor de clase.
@@ -58,13 +57,13 @@ namespace App.ControlCargueArchivos
 
                 string llaveCruce = linea.Split(';').ElementAt(3).Trim();
 
-                if (var.InsumoDiccionarioDatos.ContainsKey(llaveCruce))
+                if (InsumoDiccionarioDatos.ContainsKey(llaveCruce))
                 {
-                    var.InsumoDiccionarioDatos[llaveCruce].Extracto.Add(linea);
+                    InsumoDiccionarioDatos[llaveCruce].Extracto.Add(linea);
                 }
                 else
                 {
-                    var.InsumoDiccionarioDatos.Add(llaveCruce, new Variables.DatosExtractos
+                    InsumoDiccionarioDatos.Add(llaveCruce, new Variables.DatosExtractos
                     {
                         Separador = ';',
                         Extracto = new List<string> { linea }

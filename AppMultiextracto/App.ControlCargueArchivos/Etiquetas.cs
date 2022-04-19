@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using var = App.Variables.Variables;
 using DLL_Utilidades;
 
 namespace App.ControlCargueArchivos
@@ -12,7 +11,7 @@ namespace App.ControlCargueArchivos
     /// <summary>
     /// Clase que se encarga de cargar el archivo de Etiquetas
     /// </summary>
-    public class Etiquetas : ICargue
+    public class Etiquetas : App.Variables.Variables, ICargue
     {
         private const string _productoMail = "EtiquetaMail";
         private const string _productoFisico = "EtiquetaFisico";
@@ -63,15 +62,15 @@ namespace App.ControlCargueArchivos
             {
                 string llaveCruce = $"{linea.Substring(143, 6)}{linea.Substring(151, 5)}".TrimStart('0');
 
-                if (var.DiccionarioExtractos.ContainsKey(llaveCruce))
+                if (DiccionarioExtractos.ContainsKey(llaveCruce))
                 {
-                    if (var.DiccionarioExtractos[llaveCruce].ContainsKey(producto))
+                    if (DiccionarioExtractos[llaveCruce].ContainsKey(producto))
                     {
-                        var.DiccionarioExtractos[llaveCruce][producto].Extracto.Add(linea);
+                        DiccionarioExtractos[llaveCruce][producto].Extracto.Add(linea);
                     }
                     else
                     {
-                        var.DiccionarioExtractos[llaveCruce].Add(producto, new Variables.DatosExtractos
+                        DiccionarioExtractos[llaveCruce].Add(producto, new Variables.DatosExtractos
                         {
                             Separador = 'P',
                             Extracto = new List<string>() { linea }
@@ -80,7 +79,7 @@ namespace App.ControlCargueArchivos
                 }
                 else
                 {
-                    var.DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
+                    DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
                         {
                             { producto, new Variables.DatosExtractos
                             {
