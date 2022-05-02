@@ -8,6 +8,9 @@ namespace App.Controlnsumos
 {
     public static class Helpers
     {
+        public static string RutaProceso { get; set; }
+        public static string RutaBaseMaestraFisico { get; set; }
+
         /// <summary>
         /// Metodo para convertir Excel (.xlsx - .xls) en archivo plano
         /// </summary>

@@ -22,7 +22,6 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Variables.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlFtp.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Controlnsumos.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\SharpCompress.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\Renci.SshNet.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlEjecucion.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Variables.pdb
@@ -87,3 +86,8 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_Servicio
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlWebServiceZonificacion.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.dll.config
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlWebServiceZonificacion.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlWebServiceZonificacion.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.dll.config
