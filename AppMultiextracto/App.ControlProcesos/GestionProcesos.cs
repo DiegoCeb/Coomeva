@@ -10,6 +10,7 @@ using App.ControlEjecucion;
 using App.Variables;
 using DLL_Utilidades;
 using App.ControlCargueArchivos;
+using App.Controlnsumos;
 
 namespace App.ControlProcesos
 {
@@ -49,6 +50,9 @@ namespace App.ControlProcesos
             Console.WriteLine("");
             Console.WriteLine("---Verificacion de Archivos Correcta");
             Console.WriteLine("");
+
+            //Creacion carpeta de salida del proceso
+            Helpers.RutaProceso = Directory.CreateDirectory($"{Utilidades.LeerAppConfig("RutaSalida")}\\{NumeroOrdenProceso}_{DateTime.Now:yyyyMMdd}").FullName;
 
             //Cargamos Archivos Insumos
             CargueGeneralArchivos(Utilidades.LeerAppConfig("RutaInsumos"));

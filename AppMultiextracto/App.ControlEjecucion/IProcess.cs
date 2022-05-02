@@ -15,6 +15,8 @@ namespace App.ControlEjecucion
         bool CargueArchivosGlobal<TEntidad>(string pArchivo, TEntidad pEntidadArchivo);
 
         string IniciarZonificacion(string tipoProceso, string nombreProceso);
-        
+
+        string GenerarBaseMaestra(string pArchivo);
+
     }
 }
