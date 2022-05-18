@@ -93,3 +93,5 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.dll.config
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.RXGeneral.resources
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.GenerateResource.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.RXGeneral.resources
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.GenerateResource.cache
