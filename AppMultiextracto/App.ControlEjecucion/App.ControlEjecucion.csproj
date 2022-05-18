@@ -53,6 +53,11 @@
     <Compile Include="IProcess.cs" />
     <Compile Include="Procesamiento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RXGeneral.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RXGeneral.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.ControlCargueArchivos\App.ControlCargueArchivos.csproj">
@@ -75,6 +80,12 @@
       <Project>{7843c729-32d9-4ef8-8b20-c699fe651dd2}</Project>
       <Name>App.Variables</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RXGeneral.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RXGeneral.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -313,9 +313,142 @@ namespace App.ControlEjecucion
             }            
         }
 
-        public void CargueDiccionarioCheckList()
+        public void CargueDiccionarioCheckList(string pNumeroOrdenProceso)
         {
-            Insumos.CargarNombresArchivosChekList();
+            NombreCorte = ObtenerNombreCorte(pNumeroOrdenProceso);
+            List<string> camposUltimoCorte = CargarHistoricoCantidades(Utilidades.LeerAppConfig("RutaLogCantidades"), NombreCorte);
+            Insumos.CargarNombresArchivosChekList(camposUltimoCorte);
+            Insumos.CargarCantidadesExtractos(camposUltimoCorte);
+        }
+
+        private List<string> CargarHistoricoCantidades(string pRutaHistorico, string pCorte)
+        {
+            List<string> camposUltimoCorte = new List<string>();
+
+            if (File.Exists(pRutaHistorico))
+            {
+                StreamReader lector = new StreamReader(pRutaHistorico, Encoding.Default);
+
+                string linea = string.Empty;
+                while ((linea = lector.ReadLine()) != null)
+                {
+                    string[] campos = linea.Split('|');
+
+                    if (campos[0] == pCorte)
+                    {
+                        camposUltimoCorte = campos.ToList();
+                    }
+                }
+
+                lector.Close();
+            }
+            else
+            {
+                InsertarDatosHistoCantidades(pRutaHistorico, true, null);
+            }
+
+            
+            return camposUltimoCorte;
+        }
+
+        private void InsertarDatosHistoCantidades(string pRutaHistorico, bool pEscribirTitulos, string pLinea)
+        {
+            if (File.Exists(pRutaHistorico))
+            {
+                using (StreamWriter streamWriter = new StreamWriter(pRutaHistorico, true, Encoding.Default))
+                {
+
+                    EscribirHistoricoCantidades(streamWriter, pEscribirTitulos, pLinea);
+                }
+            }
+            else
+            {
+                FileStream escritor = File.Create(pRutaHistorico);
+
+                using (StreamWriter streamWriter = new StreamWriter(escritor, Encoding.Default))
+                {
+                    EscribirHistoricoCantidades(streamWriter, true, pLinea);
+                }
+
+                escritor.Close();
+            }
+        }
+
+        private void EscribirHistoricoCantidades(StreamWriter pStreamWriter, bool pEscribirTitulos, string pLinea)
+        {
+            if (pEscribirTitulos)
+            {
+                pStreamWriter.WriteLine(RXGeneral.TitulosHistoricoCantidades);
+            }
+
+            if (!string.IsNullOrEmpty(pLinea))
+            {
+                pStreamWriter.WriteLine(pLinea);
+            }
+        }
+
+        private string ObtenerNombreCorte(string pNumeroOrdenProceso)
+        {
+            if (pNumeroOrdenProceso.Length > 4)
+            {
+                return $"C{pNumeroOrdenProceso.Substring(pNumeroOrdenProceso.Length - 2)}";
+            }
+            else
+            { return string.Empty; }
+
+
+        }
+
+        public void RegistrarDatosHistoCantidades()
+        {
+            string nuevaLineaCantidades =
+                $"{NombreCorte}" +
+                $"|{DateTime.Now.ToString("dd/MM/yyyy")}" +
+            #region Tamaño Archivos
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["ACTIVACION-PROTECCIONES"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["HABEASDATA"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["ExtractoFundacion"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["F99TODOSXX"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["R99TODOSXX"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["RXX"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["SMS"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["SOAT"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["E0"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["Asociados_Inactivos"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["Extracto_rotativo"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["EXTV"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["Fiducoomeva"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["PAPEXTVIVV"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["Pinos"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["BaseEstadoCuentaAsociados"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["BaseEstadoCuentaTerceros"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["muestras"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["PlanoBeneficiosEstadoCuenta"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["PAPEXTSUBV"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["Nuevos_Asociados_Fisicos"].PesoArchivoMesActual}" +
+            #endregion
+            #region Cantidades Extractos
+                $"|{CheckListProceso.CantidadesExtractosNacional.Extractos.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.HojasEstadoCuentaSimplex.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.HojasEstadoCuentaDuplex.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.HojasViviendaSimplex.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.HojasViviendaDuplex.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.HojasDespositosSimplex.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.HojasDespositosDuplex.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosVisa.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosMaster.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.CartasSOAT.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.CartasAsocHabeasData.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.CartasCobrosHabeasData.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.ActivacionProtecciones.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosPlanPagosLibranza.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosCreditoRotativo.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosMicroCredito.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.Fiducoomeva.MesActual}";
+            #endregion
+
+            InsertarDatosHistoCantidades(Utilidades.LeerAppConfig("RutaLogCantidades"), false, nuevaLineaCantidades);
         }
 
         public void Dispose()

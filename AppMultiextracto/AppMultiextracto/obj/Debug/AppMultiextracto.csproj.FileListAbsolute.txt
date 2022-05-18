@@ -105,3 +105,4 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\De
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\DLL_ServicioDelta.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\DLL_ServicioDelta.dll.config
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlWebServiceZonificacion.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.csproj.SuggestedBindingRedirects.cache
