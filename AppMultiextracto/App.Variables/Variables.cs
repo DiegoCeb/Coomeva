@@ -19,6 +19,7 @@ namespace App.Variables
         public static CheckList CheckListProceso = new CheckList();
         public static string Orden = string.Empty;
         public static string RutaBaseDelta;
+        public string NombreCorte { get; set; }
 
     }
 

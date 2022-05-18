@@ -97,6 +97,57 @@ namespace App.Controlnsumos
 
             return tamañoArchivo;
         }
+
+        public static Int64 GetTamañoHistorico(List<string> tamañoUltimoCorte, int pPosicion)
+        {
+            Int64 tamañoArchivo = 0;
+
+            try
+            {
+                if (tamañoUltimoCorte.Count >= pPosicion)
+                {
+                    string pValor = tamañoUltimoCorte[pPosicion];
+                    
+                    if (!string.IsNullOrEmpty(pValor))
+                    {
+                        tamañoArchivo = Convert.ToInt64(pValor);
+                    }
+                }
+                
+            }
+            catch
+            {
+                tamañoArchivo = 0;
+            }
+
+            return tamañoArchivo;
+        }
+
+        public static Int32 GetTamañoHistoricoInt(List<string> tamañoUltimoCorte, int pPosicion)
+        {
+            Int32 tamañoArchivo = 0;
+
+            try
+            {
+                if (tamañoUltimoCorte.Count >= pPosicion)
+                {
+                    string pValor = tamañoUltimoCorte[pPosicion];
+
+                    if (!string.IsNullOrEmpty(pValor))
+                    {
+                        tamañoArchivo = Convert.ToInt32(pValor);
+                    }
+                }
+
+            }
+            catch
+            {
+                tamañoArchivo = 0;
+            }
+
+            return tamañoArchivo;
+        }
+
         /// <summary>
         /// Metodo para crear carpeta 
         /// </summary>

@@ -34,7 +34,7 @@ namespace App.Variables
         /// <summary>
         /// Cantidades Extractos por Prodctos Nacional
         /// </summary>
-        public CantidadesExtractos CantidadesExtractosNacional { get; set; }
+        public CantidadesExtractos CantidadesExtractosNacional = new CantidadesExtractos();
 
         /// <summary>
         /// Diccionario de Cantidades por Extractos Producto por Ciudades
@@ -57,24 +57,31 @@ namespace App.Variables
     /// <summary>
     /// Estructura para almacenar Cantidades por Extractos y Tipo de Producto
     /// </summary>
-    public struct CantidadesExtractos
+    public class CantidadesExtractos
     {
-        public Int32 Extractos;
-        public Int32 HojasEstadoCuentaSimplex;
-        public Int32 HojasEstadoCuentaDuplex;
-        public Int32 HojasViviendaSimplex;
-        public Int32 HojasViviendaDuplex;
-        public Int32 HojasDespositosSimplex;
-        public Int32 HojasDespositosDuplex;
-        public Int32 ExtractosVisa;
-        public Int32 ExtractosMaster;
-        public Int32 CartasSOAT;
-        public Int32 CartasAsocHabeasData;
-        public Int32 CartasCobrosHabeasData;
-        public Int32 ActivacionProtecciones;
-        public Int32 ExtractosPlanPagosLibranza;
-        public Int32 ExtractosCreditoRotativo;
-        public Int32 ExtractosMicroCredito;
-        public Int32 Fiducoomeva;
+        public CantidadProducto Extractos;
+        public CantidadProducto HojasEstadoCuentaSimplex;
+        public CantidadProducto HojasEstadoCuentaDuplex;
+        public CantidadProducto HojasViviendaSimplex;
+        public CantidadProducto HojasViviendaDuplex;
+        public CantidadProducto HojasDespositosSimplex;
+        public CantidadProducto HojasDespositosDuplex;
+        public CantidadProducto ExtractosVisa;
+        public CantidadProducto ExtractosMaster;
+        public CantidadProducto CartasSOAT;
+        public CantidadProducto CartasAsocHabeasData;
+        public CantidadProducto CartasCobrosHabeasData;
+        public CantidadProducto ActivacionProtecciones;
+        public CantidadProducto ExtractosPlanPagosLibranza;
+        public CantidadProducto ExtractosCreditoRotativo;
+        public CantidadProducto ExtractosMicroCredito;
+        public CantidadProducto Fiducoomeva;
+    }
+
+    public struct CantidadProducto
+    {
+        public Int32 MesActual;
+        public Int32 MesAnterior;
+        public Int32 Diferencia;
     }
 }
