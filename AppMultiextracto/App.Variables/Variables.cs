@@ -20,13 +20,15 @@ namespace App.Variables
         public static string Orden = string.Empty;
         public static string RutaBaseDelta;
         public string NombreCorte { get; set; }
-
+        public static List<string> CedulasSinProducto = new List<string>();
     }
 
     public struct DatosExtractos
     {
         public List<string> Extracto;
         public char Separador;
+        public Type TipoClase;
+        public bool Insumo;
     }
 
 
