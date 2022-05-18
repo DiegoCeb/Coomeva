@@ -166,10 +166,10 @@ namespace App.ControlEjecucion
         /// <summary>
         /// Metodo para Iniciar La Zonificacion
         /// </summary>
-        /// <param name="tipoProceso"></param>
-        /// <param name="nombreProceso"></param>
-        /// <returns></returns>
-        public string IniciarZonificacion(string tipoProceso, string nombreProceso)
+        /// <param name="tipoProceso">Enviar literal de "Fisico" o  "Virtual"</param>
+        /// <param name="nombreProceso">nombre personalizado para el proceso.</param>
+        /// <returns>True o False dependiendo el resultado.</returns>
+        public bool IniciarZonificacion(string tipoProceso, string nombreProceso)
         {
             try
             {
@@ -303,13 +303,13 @@ namespace App.ControlEjecucion
                             break;
                         }
                 }
-                return "";
+                return true;
             }
             catch (Exception ex)
             {
                 MensajeError = ex.Message;
                 Utilidades.EscribirLog(MensajeError, Utilidades.LeerAppConfig("RutaLog"));
-                return MensajeError;
+                return false;
             }            
         }
 

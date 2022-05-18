@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Convergencia.cs" />
+    <Compile Include="IConvergencia.cs" />
     <Compile Include="IProcess.cs" />
     <Compile Include="Procesamiento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +60,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.ControlCargueArchivos\App.ControlCargueArchivos.csproj">
+      <Project>{ef3f60e0-92d1-421d-b444-12eeb64756c3}</Project>
+      <Name>App.ControlCargueArchivos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.ControlFtp\App.ControlFtp.csproj">
       <Project>{30d66875-7b49-4014-b2d8-6ca8fecf082d}</Project>
       <Name>App.ControlFtp</Name>

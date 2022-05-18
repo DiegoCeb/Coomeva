@@ -38,6 +38,12 @@ namespace App.ControlCargueArchivos
         }
 
         /// <summary>
+        /// Constructor General
+        /// </summary>
+        public TarjetasCredito()
+        {}
+
+        /// <summary>
         /// Metodo que ejecuta el inicio del Cargue
         /// </summary>
         /// <param name="pArchivo">Ruta del Archivo</param>
@@ -72,8 +78,8 @@ namespace App.ControlCargueArchivos
                                 {_producto, new Variables.DatosExtractos
                                 {
                                     Separador = 'P',
-                                    Extracto = new List<string>(){ linea}
-
+                                    Extracto = new List<string>(){ linea},
+                                    TipoClase = typeof(TarjetasCredito)
                                 }
                                 }
                             });
@@ -85,7 +91,8 @@ namespace App.ControlCargueArchivos
                                 DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
                                 {
                                     Separador = 'p',
-                                    Extracto = new List<string>() { linea }
+                                    Extracto = new List<string>() { linea },
+                                    TipoClase = typeof(TarjetasCredito)
                                 });
                             }
                             else
@@ -109,9 +116,11 @@ namespace App.ControlCargueArchivos
             lector.Close();
 
             #endregion CargueArchivoDiccionario
-
         }
 
-        
+        public List<string> FormatearArchivo(List<string> datosOriginales)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

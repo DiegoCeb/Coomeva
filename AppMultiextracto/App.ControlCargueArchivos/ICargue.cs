@@ -9,7 +9,7 @@ namespace App.ControlCargueArchivos
     public interface ICargue
     {
         void Ejecutar(string pArchivo);
-
         void CargueArchivoDiccionario(string pArchivo);
+        List<string> FormatearArchivo(List<string> datosOriginales);
     }
 }

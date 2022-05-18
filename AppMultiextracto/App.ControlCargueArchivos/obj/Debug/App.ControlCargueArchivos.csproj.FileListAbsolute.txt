@@ -42,4 +42,3 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchiv
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.CopyComplete
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.CopyComplete

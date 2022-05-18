@@ -12,12 +12,12 @@ namespace App.ControlCargueArchivos
     public class AsociadosInactivos : App.Variables.Variables, ICargue
     {
         private const string _producto = "AsociadosInactivos";
-        
+
         /// <summary>
         /// Constructor de clase.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
-        public AsociadosInactivos (string pArchivo)
+        public AsociadosInactivos(string pArchivo)
         {
             #region AsociadosInactivos
             try
@@ -35,6 +35,12 @@ namespace App.ControlCargueArchivos
         }
 
         /// <summary>
+        /// Constructor Generico
+        /// </summary>
+        public AsociadosInactivos()
+        {}
+
+        /// <summary>
         /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
@@ -46,9 +52,9 @@ namespace App.ControlCargueArchivos
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
             string linea = string.Empty;
 
-            while (!string.IsNullOrEmpty(linea = lector.ReadLine()) )
+            while (!string.IsNullOrEmpty(linea = lector.ReadLine()))
             {
-                if(linea.Split(';')[0].Trim().ToUpper() != "CEDULA")
+                if (linea.Split(';')[0].Trim().ToUpper() != "CEDULA")
                 {
                     llaveCruce = linea.Split(';')[0].Trim();
 
@@ -59,7 +65,9 @@ namespace App.ControlCargueArchivos
                                 {_producto, new Variables.DatosExtractos
                                     {
                                         Separador = '|',
-                                        Extracto = new List<string>(){ linea}
+                                        Extracto = new List<string>(){ linea},
+                                        TipoClase = typeof(AsociadosInactivos),
+                                        Insumo = true
                                     }
                                 }
                             });
@@ -71,7 +79,9 @@ namespace App.ControlCargueArchivos
                             DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
                             {
                                 Separador = '|',
-                                Extracto = new List<string>() { linea }
+                                Extracto = new List<string>() { linea },
+                                TipoClase = typeof(AsociadosInactivos),
+                                Insumo = true
                             });
                         }
                         else
@@ -94,6 +104,11 @@ namespace App.ControlCargueArchivos
         public void Ejecutar(string pArchivo)
         {
             CargueArchivoDiccionario(pArchivo);
+        }
+
+        public List<string> FormatearArchivo(List<string> datosOriginales)
+        {
+            throw new NotImplementedException();
         }
     }
 }

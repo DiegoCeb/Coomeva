@@ -37,6 +37,12 @@ namespace App.ControlCargueArchivos
             #endregion BaseEstadosCuentaAsociados
         }
 
+        /// <summary>
+        /// Constructor Generico
+        /// </summary>
+        public BaseEstadosCuentaAsociados()
+        {}
+
         public void CargueArchivoDiccionario(string pArchivo)
         {
             #region CargueArchivoDiccionario
@@ -58,8 +64,9 @@ namespace App.ControlCargueArchivos
                                 {_producto, new Variables.DatosExtractos
                                 {
                                     Separador = '|',
-                                    Extracto = new List<string>(){ linea}
-
+                                    Extracto = new List<string>(){ linea},
+                                    TipoClase = typeof(BaseEstadosCuentaAsociados),
+                                    Insumo = true
                                 }
                                 }
                             });
@@ -71,7 +78,9 @@ namespace App.ControlCargueArchivos
                             DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
                             {
                                 Separador = '|',
-                                Extracto = new List<string>() { linea }
+                                Extracto = new List<string>() { linea },
+                                TipoClase = typeof(BaseEstadosCuentaAsociados),
+                                Insumo = true
                             });
                         }
                         else
@@ -95,6 +104,11 @@ namespace App.ControlCargueArchivos
         public void Ejecutar(string pArchivo)
         {
             CargueArchivoDiccionario(pArchivo);
+        }
+
+        public List<string> FormatearArchivo(List<string> datosOriginales)
+        {
+            throw new NotImplementedException();
         }
     }
 }

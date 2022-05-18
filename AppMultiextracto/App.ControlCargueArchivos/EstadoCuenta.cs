@@ -37,6 +37,12 @@ namespace App.ControlCargueArchivos
         }
 
         /// <summary>
+        /// Constructor General
+        /// </summary>
+        public EstadoCuenta()
+        {}
+
+        /// <summary>
         /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
@@ -109,7 +115,8 @@ namespace App.ControlCargueArchivos
                     DiccionarioExtractos[pLlaveCruce].Add(_producto, new Variables.DatosExtractos
                     {
                         Separador = 'P',
-                        Extracto = new List<string>(pTemp)
+                        Extracto = new List<string>(pTemp),
+                        TipoClase = typeof(EstadoCuenta)
                     });
                 }
             }
@@ -120,7 +127,8 @@ namespace App.ControlCargueArchivos
                             { _producto, new Variables.DatosExtractos
                             {
                                 Separador = 'P',
-                                Extracto = new List<string>(pTemp)
+                                Extracto = new List<string>(pTemp),
+                                TipoClase = typeof(EstadoCuenta)
                             } }
                         });
             }
@@ -134,6 +142,11 @@ namespace App.ControlCargueArchivos
         public void Ejecutar(string pArchivo)
         {
             CargueArchivoDiccionario(pArchivo);
+        }
+
+        public List<string> FormatearArchivo(List<string> datosOriginales)
+        {
+            return new List<string>();
         }
     }
 }
