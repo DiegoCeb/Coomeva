@@ -27,7 +27,7 @@ namespace App.ControlProcesos
         public void Ejecutar()
         {
             CheckListProceso.FechaHoraIncio = DateTime.Now;
-            _objProceso.CargueDiccionarioCheckList();
+            _objProceso.CargueDiccionarioCheckList(this.NumeroOrdenProceso);
 
             //if (!objProceso.DescargaArchivos())
             //{
@@ -58,10 +58,9 @@ namespace App.ControlProcesos
             CargueGeneralArchivos(Utilidades.LeerAppConfig("RutaInsumos"));
 
             //Cargamos Archivos Entrada
-            CargueGeneralArchivos(Utilidades.LeerAppConfig("RutaEntrada"));
+            CargueGeneralArchivos(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
 
-
-
+            _objProceso.RegistrarDatosHistoCantidades();
         }
 
         /// <summary>
