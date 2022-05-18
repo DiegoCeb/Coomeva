@@ -73,3 +73,6 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bi
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlWebServiceZonificacion.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\DLL_ServicioDelta.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\DLL_ServicioDelta.dll.config
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CopyComplete

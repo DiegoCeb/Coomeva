@@ -38,6 +38,12 @@ namespace App.ControlCargueArchivos
         }
 
         /// <summary>
+        /// Cosntructor General
+        /// </summary>
+        public Etiquetas()
+        {}
+
+        /// <summary>
         /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
@@ -73,7 +79,9 @@ namespace App.ControlCargueArchivos
                         DiccionarioExtractos[llaveCruce].Add(producto, new Variables.DatosExtractos
                         {
                             Separador = 'P',
-                            Extracto = new List<string>() { linea }
+                            Extracto = new List<string>() { linea },
+                            TipoClase = typeof(Etiquetas),
+                            Insumo = true
                         });
                     }
                 }
@@ -84,7 +92,9 @@ namespace App.ControlCargueArchivos
                             { producto, new Variables.DatosExtractos
                             {
                                 Separador = 'P',
-                                Extracto = new List<string>() { linea }
+                                Extracto = new List<string>() { linea },
+                                TipoClase = typeof(Etiquetas),
+                                Insumo = true
                             } }
                         });
                 }
@@ -101,6 +111,11 @@ namespace App.ControlCargueArchivos
         public void Ejecutar(string pArchivo)
         {
             CargueArchivoDiccionario(pArchivo);
+        }
+
+        public List<string> FormatearArchivo(List<string> datosOriginales)
+        {
+            throw new NotImplementedException();
         }
     }
 }

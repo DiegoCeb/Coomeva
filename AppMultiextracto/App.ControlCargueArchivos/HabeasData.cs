@@ -41,6 +41,12 @@ namespace App.ControlCargueArchivos
         }
 
         /// <summary>
+        /// Cosntuctor General
+        /// </summary>
+        public HabeasData()
+        {}
+
+        /// <summary>
         /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
@@ -66,8 +72,8 @@ namespace App.ControlCargueArchivos
                                 {_producto, new Variables.DatosExtractos
                                 {
                                     Separador = '|',
-                                    Extracto = new List<string>(){ linea}
-
+                                    Extracto = new List<string>(){ linea},
+                                    TipoClase = typeof(HabeasData)
                                 }
                                 }
                             });
@@ -79,7 +85,8 @@ namespace App.ControlCargueArchivos
                             DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
                             {
                                 Separador = '|',
-                                Extracto = new List<string>() { linea }
+                                Extracto = new List<string>() { linea },
+                                TipoClase = typeof(HabeasData)
                             });
                         }
                         else
@@ -138,6 +145,11 @@ namespace App.ControlCargueArchivos
             // Free any unmanaged objects here.
             _disposed = true;
             #endregion Dispose
+        }
+
+        public List<string> FormatearArchivo(List<string> datosOriginales)
+        {
+            throw new NotImplementedException();
         }
     }
 }

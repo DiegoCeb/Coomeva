@@ -60,6 +60,22 @@ namespace App.ControlProcesos
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig("RutaEntrada"));
 
+            if (!_objProceso.IniciarZonificacion("Fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
+            {
+                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
+                System.Threading.Thread.Sleep(2000);
+                Environment.Exit(1);
+            }
+
+            //Convergencia
+            _ = new Convergencia();
+
+            //Parte Mail, Generar journal PS - Cargue a vault - Cargue journal delta - cargue adjuntos en linea
+
+            //Proceso SMS
+
+            //Reportes
+
 
 
         }
@@ -70,12 +86,14 @@ namespace App.ControlProcesos
         /// <param name="pRuta">Ruta de Archivos</param>
         private void CargueGeneralArchivos(string pRuta)
         {
+            #region CargueGeneralArchivos
             foreach (var archivoEntrada in Directory.GetFiles(pRuta))
             {
                 var nombreArchivo = Path.GetFileNameWithoutExtension(archivoEntrada);
 
                 _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
-            }
+            } 
+            #endregion
         }
 
         public Dictionary<string, Type> CargarClaves()
@@ -107,8 +125,14 @@ namespace App.ControlProcesos
             #endregion
         }
 
+        /// <summary>
+        /// Identifica el archivo que se va a procesar.
+        /// </summary>
+        /// <param name="pNombreArchivo">Nombre del archivo.</param>
+        /// <returns>Type Configurado par ael proceso.</returns>
         private Type IdentificarArchivo(string pNombreArchivo)
         {
+            #region IdentificarArchivo
             foreach (var insumo in InsumosCarga)
             {
                 if (pNombreArchivo.ToUpper().Contains(insumo.Key))
@@ -131,7 +155,8 @@ namespace App.ControlProcesos
                 }
             }
 
-            return null;
+            return null; 
+            #endregion
         }
 
         public void Inicio()

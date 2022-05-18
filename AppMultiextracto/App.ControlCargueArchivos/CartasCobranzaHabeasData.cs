@@ -40,6 +40,12 @@ namespace App.ControlCargueArchivos
         }
 
         /// <summary>
+        /// Constructor General
+        /// </summary>
+        public CartasCobranzaHabeasData()
+        {}
+
+        /// <summary>
         /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
@@ -64,8 +70,8 @@ namespace App.ControlCargueArchivos
                                 {_producto, new Variables.DatosExtractos
                                 {
                                     Separador = '|',
-                                    Extracto = new List<string>(){ linea}
-
+                                    Extracto = new List<string>(){ linea},
+                                    TipoClase = typeof(CartasCobranzaHabeasData)
                                 }
                                 }
                             });
@@ -77,7 +83,8 @@ namespace App.ControlCargueArchivos
                             DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
                             {
                                 Separador = '|',
-                                Extracto = new List<string>() { linea }
+                                Extracto = new List<string>() { linea },
+                                TipoClase = typeof(CartasCobranzaHabeasData)
                             });
                         }
                         else
@@ -141,6 +148,9 @@ namespace App.ControlCargueArchivos
             #endregion Dispose
         }
 
-
+        public List<string> FormatearArchivo(List<string> datosOriginales)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

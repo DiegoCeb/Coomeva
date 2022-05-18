@@ -37,6 +37,12 @@ namespace App.ControlCargueArchivos
         }
 
         /// <summary>
+        /// Constructor Generico
+        /// </summary>
+        public ActivacionProtecciones()
+        {}
+
+        /// <summary>
         /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
@@ -71,7 +77,8 @@ namespace App.ControlCargueArchivos
                         DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
                         {
                             Separador = ';',
-                            Extracto = new List<string>() { linea.Replace('"', ' ').Trim() }
+                            Extracto = new List<string>() { linea.Replace('"', ' ').Trim() },
+                            TipoClase = typeof(ActivacionProtecciones)
                         });
                     }
                 }
@@ -82,7 +89,8 @@ namespace App.ControlCargueArchivos
                             { _producto, new Variables.DatosExtractos
                             {
                                 Separador = ';',
-                                Extracto = new List<string>() { linea.Replace('"',' ').Trim() }
+                                Extracto = new List<string>() { linea.Replace('"',' ').Trim() },
+                                TipoClase = typeof(ActivacionProtecciones)
                             } }
                         });
                 }
@@ -99,6 +107,11 @@ namespace App.ControlCargueArchivos
         public void Ejecutar(string pArchivo)
         {
             CargueArchivoDiccionario(pArchivo);
+        }
+
+        public List<string> FormatearArchivo(List<string> datosOriginales)
+        {
+            throw new NotImplementedException();
         }
     }
 }
