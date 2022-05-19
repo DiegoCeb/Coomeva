@@ -33,7 +33,6 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.pdb
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CopyComplete
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlProcesos.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlProcesos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.dll
@@ -95,3 +94,4 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlP
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.GenerateResource.cache
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.RXGeneral.resources
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.GenerateResource.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CopyComplete
