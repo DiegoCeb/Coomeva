@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 using Excel;
 
 namespace App.Controlnsumos
@@ -83,9 +84,14 @@ namespace App.Controlnsumos
             #endregion
         }
 
-
+        /// <summary>
+        /// Obtiene el tamaño del archivo
+        /// </summary>
+        /// <param name="pRutaArchivo">Ruta del Archivo</param>
+        /// <returns>Tamaño</returns>
         public static Int64 GetTamañoArchivo(string pRutaArchivo)
         {
+            #region GetTamañoArchivo
             Int64 tamañoArchivo = 0;
 
             FileInfo fileInfo = new FileInfo(pRutaArchivo);
@@ -95,11 +101,19 @@ namespace App.Controlnsumos
                 tamañoArchivo = fileInfo.Length;
             }
 
-            return tamañoArchivo;
+            return tamañoArchivo; 
+            #endregion
         }
 
+        /// <summary>
+        /// Obtiene el Tamaño del ultimo corte por posicion
+        /// </summary>
+        /// <param name="tamañoUltimoCorte">Lista de campos UltimoCorte</param>
+        /// <param name="pPosicion">Posicion</param>
+        /// <returns>Tamaño</returns>
         public static Int64 GetTamañoHistorico(List<string> tamañoUltimoCorte, int pPosicion)
         {
+            #region GetTamañoHistorico
             Int64 tamañoArchivo = 0;
 
             try
@@ -107,24 +121,33 @@ namespace App.Controlnsumos
                 if (tamañoUltimoCorte.Count >= pPosicion)
                 {
                     string pValor = tamañoUltimoCorte[pPosicion];
-                    
+
                     if (!string.IsNullOrEmpty(pValor))
                     {
                         tamañoArchivo = Convert.ToInt64(pValor);
                     }
                 }
-                
+
             }
             catch
             {
                 tamañoArchivo = 0;
             }
 
-            return tamañoArchivo;
+            return tamañoArchivo; 
+            #endregion
         }
 
+        /// <summary>
+        /// Obtiene el Tamaño del ultimo corte por posicion
+        /// </summary>
+        /// <param name="tamañoUltimoCorte">Lista de campos UltimoCorte</param>
+        /// <param name="pPosicion">Posicion</param>
+        /// <returns>Tamaño</returns>
         public static Int32 GetTamañoHistoricoInt(List<string> tamañoUltimoCorte, int pPosicion)
         {
+            #region GetTamañoHistoricoInt
+
             Int32 tamañoArchivo = 0;
 
             try
@@ -145,7 +168,8 @@ namespace App.Controlnsumos
                 tamañoArchivo = 0;
             }
 
-            return tamañoArchivo;
+            return tamañoArchivo; 
+            #endregion
         }
 
         /// <summary>
@@ -170,10 +194,73 @@ namespace App.Controlnsumos
             }
             catch (Exception ex)
             {
-                throw new Exception("Error: " + ex.Message);                
+                throw new Exception("Error: " + ex.Message);
             }
             #endregion
 
+        }
+
+        /// <summary>
+        /// Metodo que valida si hay Pipe seguidos o si se debe ageregar balnco al final de la cadena
+        /// </summary>
+        /// <param name="linea">String a verificar</param>
+        /// <returns>linea con el blanco adicionado</returns>
+        public static string ValidarPipePipe(string linea)
+        {
+            #region ValidarPipePipe
+
+            linea = linea.Replace("||", "| |").Replace("||", "| |");
+
+            if (linea.Last() == '|')
+            {
+                return $"{linea} ";
+            }
+            else
+            {
+                return linea;
+            }
+
+            #endregion
+        }
+
+        /// <summary>
+        /// Metodo que remplaza un carcater en la linea enviada.
+        /// </summary>
+        /// <param name="caracterRemplazar">Caracter que se quiere remplazar.</param>
+        /// <param name="caracterNuevo">Carcater con el que se quiere remplazar.</param>
+        /// <param name="linea">Linea donde se va a hacer el remplazo.</param>
+        /// <returns>Linea con carcater remplazado</returns>
+        public static string RemplazarCaracteres(char caracterRemplazar, char caracterNuevo, string linea)
+        {
+            #region RemplazarCaracteres
+            linea = linea.Replace(caracterRemplazar, caracterNuevo);
+            return linea; 
+            #endregion
+
+        }
+
+        /// <summary>
+        /// Metodo que hace trim a los campos de una linea separa por caracter especial.
+        /// </summary>
+        /// <param name="separador">caracter de separador</param>
+        /// <param name="linea">linea de datos</param>
+        /// <returns>linea con trim de campos</returns>
+        public static string TrimCamposLinea(char separador, string linea)
+        {
+            #region TrimCamposLinea
+            string resultado = string.Empty;
+            List<string> lines = linea.Split(separador).ToList();
+
+            foreach (string campo in lines)
+            {
+                if (!string.IsNullOrEmpty(resultado))
+                { resultado += "|"; }
+
+                resultado += $"{campo.Trim()}";
+            }
+
+            return resultado; 
+            #endregion
         }
     }
 }

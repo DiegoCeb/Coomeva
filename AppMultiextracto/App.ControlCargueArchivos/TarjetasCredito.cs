@@ -120,7 +120,7 @@ namespace App.ControlCargueArchivos
 
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
-            throw new NotImplementedException();
+            return new List<string>();
         }
     }
 }

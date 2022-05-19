@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Helpers = App.Controlnsumos.Helpers;
 
 namespace App.ControlCargueArchivos
 {
@@ -140,9 +141,37 @@ namespace App.ControlCargueArchivos
             CargueArchivoDiccionario(pArchivo);
         }
 
+        /// <summary>
+        /// Metodo que Formatea la data para el Sal.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
-            throw new NotImplementedException();
+            List<string> resultado = new List<string>();
+
+            List<string> campos;
+            foreach (var linea in datosOriginales)
+            {
+                campos = linea.Split('|').ToList();
+
+                switch (campos[0])
+                {
+                    case "1":
+                        resultado.Add($"1ROT|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        break;
+                    case "2":
+                        resultado.Add($"1ROB|{Helpers.ValidarPipePipe(linea)}");
+                        break;
+                    case "3":
+                        resultado.Add($"1ROC|{Helpers.ValidarPipePipe(linea)}");
+                        break;
+                    case "4":
+                        resultado.Add($"1ROD|{Helpers.ValidarPipePipe(linea)}");
+                        break;
+                }
+            }
+            return resultado;
         }
     }
 }

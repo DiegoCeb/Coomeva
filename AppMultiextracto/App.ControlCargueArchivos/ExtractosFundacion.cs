@@ -149,9 +149,20 @@ namespace App.ControlCargueArchivos
             #endregion Dispose
         }
 
+        /// <summary>
+        /// Metodo que Formatea la data para el Sal.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
-            throw new NotImplementedException();
+            List<string> resultado = new List<string>();
+
+            foreach (var linea in datosOriginales)
+            {
+                resultado.Add($"1MIC|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+            }
+            return resultado;
         }
     }
 }
