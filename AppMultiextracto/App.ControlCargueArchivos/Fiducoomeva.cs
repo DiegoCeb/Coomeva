@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DLL_Utilidades;
+using Helpers = App.Controlnsumos.Helpers;
 
 namespace App.ControlCargueArchivos
 {
@@ -149,9 +150,48 @@ namespace App.ControlCargueArchivos
             CargueArchivoDiccionario(pArchivo);
         }
 
+        /// <summary>
+        /// Metodo que Formatea la data para el Sal.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
-            throw new NotImplementedException();
+            #region FormatearArchivo
+            List<string> resultado = new List<string>();
+
+            List<string> campos;
+            string linea;
+            foreach (var lineaDatos in datosOriginales)
+            {
+                linea = Helpers.RemplazarCaracteres(';', '|', lineaDatos);
+                linea = Helpers.TrimCamposLinea('|', linea);
+                campos = linea.Split('|').ToList();
+
+                switch (campos[0])
+                {
+                    case "001":
+                        resultado.Add($"1FID|KITXXX|{campos[2].Substring(0,3)}|{Helpers.ValidarPipePipe(linea)}");
+                        break;
+                    case "002":
+                        resultado.Add($"1FIB|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        break;
+                    case "003":
+                        resultado.Add($"1FIC|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        break;
+                    case "004":
+                        resultado.Add($"1FDD|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        break;
+                    case "005":
+                        resultado.Add($"1FIE|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        break;
+                    case "006":
+                        resultado.Add($"1FIF|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        break;
+                }
+            }
+            return resultado; 
+            #endregion
         }
     }
 }

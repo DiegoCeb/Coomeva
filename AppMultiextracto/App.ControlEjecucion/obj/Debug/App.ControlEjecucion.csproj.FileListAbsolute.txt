@@ -80,3 +80,6 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\ob
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.GenerateResource.cache
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CopyComplete
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.pdb
