@@ -60,7 +60,24 @@ namespace App.ControlProcesos
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
 
+            if (!_objProceso.IniciarZonificacion("Fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
+            {
+                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
+                System.Threading.Thread.Sleep(2000);
+                Environment.Exit(1);
+            }
+
+            //Convergencia
+            _ = new Convergencia();
+
+            //Parte Mail, Generar journal PS - Cargue a vault - Cargue journal delta - cargue adjuntos en linea
+
+            //Proceso SMS
+
+            //Reportes
+
             _objProceso.RegistrarDatosHistoCantidades();
+
         }
 
         /// <summary>
@@ -72,6 +89,9 @@ namespace App.ControlProcesos
             foreach (var archivoEntrada in Directory.GetFiles(pRuta))
             {
                 var nombreArchivo = Path.GetFileNameWithoutExtension(archivoEntrada);
+
+                if (nombreArchivo.Contains("Historico"))
+                    continue;
 
                 _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
             }
@@ -169,7 +189,7 @@ namespace App.ControlProcesos
             Console.WriteLine("");
             Proceso = Console.ReadKey().KeyChar.ToString();
             Console.WriteLine("");
-            
+
 
             switch (Proceso)
             {
