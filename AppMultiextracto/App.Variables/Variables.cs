@@ -13,7 +13,8 @@ namespace App.Variables
         public string MensajeError { get; set; }
 
         public static Dictionary<string, Dictionary<string, DatosExtractos>> DiccionarioExtractos = new Dictionary<string, Dictionary<string, DatosExtractos>>();
-        public static Dictionary<string, DatosExtractos> InsumoDiccionarioDatos = new Dictionary<string, DatosExtractos>();
+        public static Dictionary<string, Dictionary<string, List<string>>> DiccionarioExtractosFormateados = new Dictionary<string, Dictionary<string, List<string>>>();
+        public static Dictionary<string, DatosInsumos> InsumoDiccionarioDatos = new Dictionary<string, DatosInsumos>();
 
         public static CheckList CheckListProceso = new CheckList();
         public static string Orden = string.Empty;
@@ -28,6 +29,13 @@ namespace App.Variables
         public char Separador;
         public Type TipoClase;
         public bool Insumo;
+    }
+
+    public struct DatosInsumos
+    {
+        public List<string> InsumoLinea;
+        public char Separador;
+        public Type TipoClase;
     }
 
 

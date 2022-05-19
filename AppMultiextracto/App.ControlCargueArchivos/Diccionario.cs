@@ -65,16 +65,15 @@ namespace App.ControlCargueArchivos
 
                 if (InsumoDiccionarioDatos.ContainsKey(llaveCruce))
                 {
-                    InsumoDiccionarioDatos[llaveCruce].Extracto.Add(linea);
+                    InsumoDiccionarioDatos[llaveCruce].InsumoLinea.Add(linea);
                 }
                 else
                 {
-                    InsumoDiccionarioDatos.Add(llaveCruce, new Variables.DatosExtractos
+                    InsumoDiccionarioDatos.Add(llaveCruce, new Variables.DatosInsumos
                     {
                         Separador = ';',
-                        Extracto = new List<string> { linea },
-                        TipoClase = typeof(Diccionario),
-                        Insumo = true
+                        InsumoLinea = new List<string> { linea },
+                        TipoClase = typeof(Diccionario)
                     });
                 }
             }
