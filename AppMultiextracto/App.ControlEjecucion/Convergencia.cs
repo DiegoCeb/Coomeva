@@ -44,6 +44,12 @@ namespace App.ControlEjecucion
                             var retConstructorParametrizado = method.Invoke(objetoConParametros, new object[] { ElementosPaquete.Value.Extracto });
 
                             //Llenar el formateado
+
+                            //debo crear otro diccionario donde se vaya creando ya la salida final con division de fisico e email
+                            
+
+
+
                         }
                         else
                         {
