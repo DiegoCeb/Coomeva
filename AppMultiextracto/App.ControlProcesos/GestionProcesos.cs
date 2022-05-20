@@ -60,12 +60,12 @@ namespace App.ControlProcesos
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
 
-            if (!_objProceso.IniciarZonificacion("Fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
-            {
-                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
-                System.Threading.Thread.Sleep(2000);
-                Environment.Exit(1);
-            }
+            //if (!_objProceso.IniciarZonificacion("Fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
+            //{
+            //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
+            //    System.Threading.Thread.Sleep(2000);
+            //    Environment.Exit(1);
+            //}
 
             //Convergencia
             _ = new Convergencia();
