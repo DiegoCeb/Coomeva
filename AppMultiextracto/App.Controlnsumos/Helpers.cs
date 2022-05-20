@@ -262,5 +262,45 @@ namespace App.Controlnsumos
             return resultado; 
             #endregion
         }
+
+        public static string ExtraccionCamposSpool(List<PosCortes> posCortes, string linea)
+        {
+            string lineaResultado = string.Empty;
+            string campo = string.Empty;
+            foreach (PosCortes campos in posCortes)
+            {
+                if (!string.IsNullOrEmpty(lineaResultado))
+                { lineaResultado += "|"; }
+
+                if (campos.Cantidad > 0)
+                {
+                    campo = linea.Substring(campos.PosInicial, campos.Cantidad).Trim();
+                }
+                else
+                {
+                    campo = linea.Substring(campos.PosInicial).Trim();
+                }
+
+                if (string.IsNullOrEmpty(campo))
+                { campo = " "; }
+
+                lineaResultado += campo;
+            }
+
+            return lineaResultado;
+            
+        }
+    }
+
+    public struct PosCortes
+    {
+        public Int32 PosInicial;
+        public Int32 Cantidad;
+
+        public PosCortes(Int32 posInicial, Int32 cantidad)
+        {
+            this.PosInicial = posInicial;  
+            this.Cantidad = cantidad;
+        }
     }
 }

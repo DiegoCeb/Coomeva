@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DLL_Utilidades;
+using App.Controlnsumos;
 
 namespace App.ControlCargueArchivos
 {
@@ -120,7 +121,141 @@ namespace App.ControlCargueArchivos
 
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
-            return new List<string>();
+            #region FormatearArchivo
+            List<string> resultado = new List<string>();
+
+            List<PosCortes> listaCortes = new List<PosCortes>();
+            string identificador;
+            string canalEnMapeo = string.Empty;
+            foreach (var lineaDatos in datosOriginales)
+            {
+                identificador = lineaDatos.Substring(0, 1);
+                switch (identificador)
+                {
+                    case "T":
+                        canalEnMapeo = string.Empty;
+                        canalEnMapeo += $"1TAR|KITXXX|";
+                        listaCortes.Add(new PosCortes(0, 15));
+                        listaCortes.Add(new PosCortes(15, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes,lineaDatos);
+                        break;
+                    case "1":
+                        canalEnMapeo += $"|";
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        break;
+                    case "2":
+                        resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo));
+                        
+                        canalEnMapeo = string.Empty;
+                        canalEnMapeo += $"1TA2|";
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 25));
+                        listaCortes.Add(new PosCortes(26, 20));
+                        listaCortes.Add(new PosCortes(46, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        break;
+                    case "3":
+                        canalEnMapeo += $"|";
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 40));
+                        listaCortes.Add(new PosCortes(41, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        break;
+                    case "4":
+                        canalEnMapeo += $"|";
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        break;
+                    case "5":
+                        if (!string.IsNullOrEmpty(canalEnMapeo))
+                        { resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo)); }
+
+                        canalEnMapeo = string.Empty;
+
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 11));
+                        listaCortes.Add(new PosCortes(12, 6));
+                        listaCortes.Add(new PosCortes(18, 26));
+                        listaCortes.Add(new PosCortes(44, 16));
+                        listaCortes.Add(new PosCortes(60, 7));
+                        listaCortes.Add(new PosCortes(67, 9));
+                        listaCortes.Add(new PosCortes(76, 17));
+                        listaCortes.Add(new PosCortes(93, 17));
+                        listaCortes.Add(new PosCortes(110, 16));
+                        listaCortes.Add(new PosCortes(126, 5));
+                        listaCortes.Add(new PosCortes(131, 5));
+                        listaCortes.Add(new PosCortes(136, 0));
+                        canalEnMapeo = Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        resultado.Add($"1TA3|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        canalEnMapeo = string.Empty;
+                        break;
+                    case "6":
+                        canalEnMapeo = string.Empty;
+
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 17));
+                        listaCortes.Add(new PosCortes(18, 17));
+                        listaCortes.Add(new PosCortes(35, 17));
+                        listaCortes.Add(new PosCortes(52, 17));
+                        listaCortes.Add(new PosCortes(69, 17));
+                        listaCortes.Add(new PosCortes(86, 17));
+                        listaCortes.Add(new PosCortes(103, 17));
+                        listaCortes.Add(new PosCortes(120, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        resultado.Add($"1TA4|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        break;
+                    case "7":
+                        canalEnMapeo = string.Empty;
+
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 13));
+                        listaCortes.Add(new PosCortes(14, 13));
+                        listaCortes.Add(new PosCortes(27, 16));
+                        listaCortes.Add(new PosCortes(43, 16));
+                        listaCortes.Add(new PosCortes(59, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        resultado.Add($"1TA5|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        break;
+                    case "8":
+                        canalEnMapeo = string.Empty;
+
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        resultado.Add($"1TA6|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        break;
+                    case "9":
+                        canalEnMapeo = string.Empty;
+                        canalEnMapeo += $"1TA7|";
+
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        break;
+                    case "A":
+                        canalEnMapeo += $"|";
+
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        break;
+                    case "B":
+                        canalEnMapeo += $"|";
+
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(1, 4));
+                        listaCortes.Add(new PosCortes(8, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo));
+                        break;
+                }
+
+            }
+            return resultado;
+            #endregion
         }
     }
 }
