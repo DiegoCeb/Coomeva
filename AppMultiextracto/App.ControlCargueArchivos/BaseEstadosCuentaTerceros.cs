@@ -13,8 +13,6 @@ namespace App.ControlCargueArchivos
     /// </summary>
     public class BaseEstadosCuentaTerceros : App.Variables.Variables, ICargue
     {
-        private const string _producto = "BaseEstadosCuentaAsociados";
-
         /// <summary>
         /// Constructor de clase.
         /// </summary>
@@ -54,45 +52,30 @@ namespace App.ControlCargueArchivos
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
 
             string linea = string.Empty;
-            string llaveCruce = string.Empty;
+
+            bool encabezado = true;
 
             while ((linea = lector.ReadLine()) != null)
             {
-                if (linea.Split('|')[0].Trim().ToUpper() != "NITCLI")
+                if (encabezado)
                 {
-                    llaveCruce = linea.Split('|')[0].Trim();
-                    if (!DiccionarioExtractos.ContainsKey(llaveCruce))
-                    {
-                        DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
-                            {
-                                {_producto, new Variables.DatosExtractos
-                                {
-                                    Separador = '|',
-                                    Extracto = new List<string>(){ linea},
-                                    TipoClase = typeof(BaseEstadosCuentaTerceros),
-                                    Insumo = true
-                                }
-                                }
-                            });
-                    }
-                    else
-                    {
-                        if (!DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
-                        {
-                            DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
-                            {
-                                Separador = '|',
-                                Extracto = new List<string>() { linea },
-                                TipoClase = typeof(BaseEstadosCuentaTerceros),
-                                Insumo = true
-                            });
-                        }
-                        else
-                        {
-                            DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
-                        }
+                    encabezado = false;
+                    continue;
+                }
 
-                    }
+                string llaveCruce = linea.Split('|')[0].Trim();
+
+                if (InsumoBaseTerceros.ContainsKey(llaveCruce))
+                {
+                    InsumoBaseTerceros[llaveCruce].InsumoLinea.Add(linea);
+                }
+                else
+                {
+                    InsumoBaseTerceros.Add(llaveCruce, new Variables.DatosInsumos
+                    {
+                        Separador = '|',
+                        InsumoLinea = new List<string> { linea }
+                    });
                 }
             }
 

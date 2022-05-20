@@ -11,8 +11,6 @@ namespace App.ControlCargueArchivos
     /// </summary>
     public class AsociadosInactivos : App.Variables.Variables, ICargue
     {
-        private const string _producto = "AsociadosInactivos";
-
         /// <summary>
         /// Constructor de clase.
         /// </summary>
@@ -47,48 +45,32 @@ namespace App.ControlCargueArchivos
         public void CargueArchivoDiccionario(string pArchivo)
         {
             #region CargueArchivoDiccionario
-            string llaveCruce = string.Empty;
-
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
             string linea = string.Empty;
 
-            while (!string.IsNullOrEmpty(linea = lector.ReadLine()))
-            {
-                if (linea.Split(';')[0].Trim().ToUpper() != "CEDULA")
-                {
-                    llaveCruce = linea.Split(';')[0].Trim();
+            bool encabezado = true;
 
-                    if (!DiccionarioExtractos.ContainsKey(llaveCruce))
+            while ((linea = lector.ReadLine()) != null)
+            {
+                if (encabezado)
+                {
+                    encabezado = false;
+                    continue;
+                }
+
+                string llaveCruce = linea.Split(';')[0].Trim();
+
+                if (InsumoAsociadosInactivos.ContainsKey(llaveCruce))
+                {
+                    InsumoAsociadosInactivos[llaveCruce].InsumoLinea.Add(linea);
+                }
+                else
+                {
+                    InsumoAsociadosInactivos.Add(llaveCruce, new Variables.DatosInsumos
                     {
-                        DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
-                            {
-                                {_producto, new Variables.DatosExtractos
-                                    {
-                                        Separador = '|',
-                                        Extracto = new List<string>(){ linea},
-                                        TipoClase = typeof(AsociadosInactivos),
-                                        Insumo = true
-                                    }
-                                }
-                            });
-                    }
-                    else
-                    {
-                        if (!DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
-                        {
-                            DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
-                            {
-                                Separador = '|',
-                                Extracto = new List<string>() { linea },
-                                TipoClase = typeof(AsociadosInactivos),
-                                Insumo = true
-                            });
-                        }
-                        else
-                        {
-                            DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
-                        }
-                    }
+                        Separador = '|',
+                        InsumoLinea = new List<string> { linea }
+                    });
                 }
             }
 

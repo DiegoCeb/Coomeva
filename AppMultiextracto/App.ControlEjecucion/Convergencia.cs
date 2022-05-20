@@ -13,6 +13,8 @@ namespace App.ControlEjecucion
     /// </summary>
     public class Convergencia : IConvergencia
     {
+        private bool _disposed = false;
+
         /// <summary>
         /// 
         /// </summary>
@@ -20,9 +22,10 @@ namespace App.ControlEjecucion
         {
             #region Convergencia
             Formatear(Variables.Variables.DiccionarioExtractos);
-            //Separar mail de fisico
             //ordenar el extracto final
+            //Separar por data fisica
 
+            Dispose();
             #endregion
         }
 
@@ -37,62 +40,18 @@ namespace App.ControlEjecucion
 
             foreach (var Paquete in datosOriginales)
             {
-                if (Paquete.Value.ContainsKey("EstadoCuenta")) // Con Estado de cuenta
+                tipoEnvio = VerificarTipoEnvio(Paquete.Key);
+
+                if (tipoEnvio == "NA")
                 {
-                    #region Producto principal Existe
-
-                    #region Identificacion Tipo de envio
-                    if (Paquete.Value.ContainsKey("EtiquetasMail"))
-                    {
-                        tipoEnvio = "Virtual";
-                    }
-                    else
-                    {
-                        tipoEnvio = "Fsiico";
-                    }
-                    #endregion
-
-                    foreach (var ElementosPaquete in Paquete.Value)
-                    {
-                        if (!ElementosPaquete.Value.Insumo)
-                        {
-                            AgregarFormateado(Paquete.Key, tipoEnvio, InvocarMetodoFormateo(ElementosPaquete.Value.TipoClase, ElementosPaquete.Value.Extracto) as List<string>);
-                        }
-                        else
-                        {
-                            //Reglas especificas de que debe traer cuando es un insumo
-
-
-                        }
-                    }
-                    #endregion
+                    continue;
                 }
-                else
+
+                foreach (var ElementosPaquete in Paquete.Value)
                 {
-                    #region Producto Principal No existe
-                    //Los que no tienen estado de cuenta, se verifica a ver si no tienen otros productos que se impriman o envien mail
-                    bool ExisteProducto = false;
-
-                    foreach (var ElementosPaquete in Paquete.Value)
-                    {
-                        if (ElementosPaquete.Value.Insumo != true)
-                        {
-                            ExisteProducto = true;
-                        }
-                    }
-
-                    if (ExisteProducto)
-                    {
-                        //Existe un producto diferente de estado de cuenta
-
-                    }
-                    else
-                    {
-                        Variables.Variables.CedulasSinProducto.Add(Paquete.Key);
-                    }
-                    #endregion
+                    AgregarFormateado(Paquete.Key, tipoEnvio, InvocarMetodoFormateo(ElementosPaquete.Value.TipoClase, ElementosPaquete.Value.Extracto) as List<string>);
                 }
-            } 
+            }
             #endregion
         }
 
@@ -123,7 +82,7 @@ namespace App.ControlEjecucion
                 {
                     { pTipoEnvio, pExtracto }
                 });
-            } 
+            }
             #endregion
         }
 
@@ -150,8 +109,70 @@ namespace App.ControlEjecucion
             //Llamamos al método pasandole el objeto creado dinámicamente y los argumentos dentro de un object[]
             object retornoConstructorParametrizado = method.Invoke(objetoConParametros, new object[] { pParametroEnvio });
 
-            return retornoConstructorParametrizado; 
+            return retornoConstructorParametrizado;
             #endregion
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pCedula"></param>
+        /// <returns></returns>
+        private string VerificarTipoEnvio(string pCedula)
+        {
+            #region Identificacion Tipo de envio
+
+            string resultado = string.Empty;
+
+            if (Variables.Variables.InsumoEtiquetasMail.ContainsKey(pCedula))
+            {
+                resultado = "Virtual";
+            }
+            else if (Variables.Variables.InsumoEtiquetasFisico.ContainsKey(pCedula))
+            {
+                resultado = "Fisico";
+            }
+            else
+            {
+                resultado = "NA";
+                Variables.Variables.CedulasSinTipoEnvio.Add(pCedula);
+            }
+
+            return resultado;
+            #endregion
+        }
+
+        public void Dispose()
+        {
+            // Dispose of unmanaged resources.
+            Dispose(true);
+            // Suppress finalization.
+            GC.SuppressFinalize(this);
+        }
+
+        // Protected implementation of Dispose pattern.
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+                return;
+
+            if (disposing)
+            {
+                Variables.Variables.DiccionarioExtractos.Clear();
+                Variables.Variables.InsumoDiccionarioDatos.Clear();
+                Variables.Variables.InsumoPlanoBeneficios.Clear();
+                Variables.Variables.InsumoBaseTerceros.Clear();
+                Variables.Variables.InsumoBaseAsociados.Clear();
+                Variables.Variables.InsumoMuestras.Clear();
+                Variables.Variables.InsumoNuevosAsociadosFisicos.Clear();
+                Variables.Variables.InsumoPinos.Clear();
+                Variables.Variables.InsumoAsociadosInactivos.Clear();
+                Variables.Variables.InsumoEtiquetasMail.Clear();
+                Variables.Variables.InsumoEtiquetasFisico.Clear();
+            }
+
+            // Free any unmanaged objects here.
+            _disposed = true;
         }
 
     }

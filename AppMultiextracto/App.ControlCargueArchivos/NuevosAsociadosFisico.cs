@@ -10,13 +10,11 @@ namespace App.ControlCargueArchivos
     /// </summary>
     public class NuevosAsociadosFisico : App.Variables.Variables, ICargue
     {
-        private const string _producto = "NuevosAsociadosFisico";
-
         /// <summary>
         /// Constructor de clase.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
-        public NuevosAsociadosFisico (string pArchivo)
+        public NuevosAsociadosFisico(string pArchivo)
         {
             #region AsociadosInactivos
             try
@@ -37,7 +35,7 @@ namespace App.ControlCargueArchivos
         /// Constructor General
         /// </summary>
         public NuevosAsociadosFisico()
-        {}
+        { }
 
         /// <summary>
         /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
@@ -46,47 +44,34 @@ namespace App.ControlCargueArchivos
         public void CargueArchivoDiccionario(string pArchivo)
         {
             #region CargueArchivoDiccionario
-            string llaveCruce = string.Empty;
             List<string> archivo = Helpers.ConvertirExcel(pArchivo);
+
+            bool encabezado = true;
 
             foreach (string linea in archivo)
             {
-                if (linea.Split('|')[0].Trim().ToUpper() != "CEDULA")
+                if (encabezado)
                 {
-                    llaveCruce = linea.Split('|')[0].Trim();
-                    if (!DiccionarioExtractos.ContainsKey(llaveCruce))
+                    encabezado = false;
+                    continue;
+                }
+
+                string llaveCruce = linea.Split('|')[0].Trim();
+
+                if (InsumoNuevosAsociadosFisicos.ContainsKey(llaveCruce))
+                {
+                    InsumoNuevosAsociadosFisicos[llaveCruce].InsumoLinea.Add(linea);
+                }
+                else
+                {
+                    InsumoNuevosAsociadosFisicos.Add(llaveCruce, new Variables.DatosInsumos
                     {
-                        DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
-                            {
-                                {_producto, new Variables.DatosExtractos
-                                    {
-                                        Separador = '|',
-                                        Extracto = new List<string>(){ linea},
-                                        TipoClase = typeof(NuevosAsociadosFisico),
-                                        Insumo = true
-                                    }
-                                }
-                            });
-                    }
-                    else
-                    {
-                        if (!DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
-                        {
-                            DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
-                            {
-                                Separador = '|',
-                                Extracto = new List<string>() { linea },
-                                TipoClase = typeof(NuevosAsociadosFisico),
-                                Insumo = true
-                            });
-                        }
-                        else
-                        {
-                            DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
-                        }
-                    }
+                        Separador = '|',
+                        InsumoLinea = new List<string> { linea }
+                    });
                 }
             }
+
             #endregion
         }
 

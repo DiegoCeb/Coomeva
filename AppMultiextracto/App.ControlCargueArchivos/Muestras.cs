@@ -11,8 +11,6 @@ namespace App.ControlCargueArchivos
     /// </summary>
     public class Muestras: App.Variables.Variables, ICargue
     {
-        private const string _producto = "Muestras";
-
         /// <summary>
         /// Constructor de clase.
         /// </summary>
@@ -47,45 +45,32 @@ namespace App.ControlCargueArchivos
         public void CargueArchivoDiccionario(string pArchivo)
         {
             #region CargueArchivoDiccionario
-            string llaveCruce = string.Empty;
-
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
             string linea = string.Empty;
 
-            while (!string.IsNullOrEmpty(linea = lector.ReadLine()))
-            {
-                llaveCruce = linea.Trim();
+            bool encabezado = true;
 
-                if (!DiccionarioExtractos.ContainsKey(llaveCruce))
+            while ((linea = lector.ReadLine()) != null)
+            {
+                if (encabezado)
                 {
-                    DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
-                            {
-                                {_producto, new Variables.DatosExtractos
-                                    {
-                                        Separador = '|',
-                                        Extracto = new List<string>(){ linea},
-                                        TipoClase = typeof(Muestras),
-                                        Insumo = true
-                                    }
-                                }
-                            });
+                    encabezado = false;
+                    continue;
+                }
+
+                string llaveCruce = linea.Trim();
+
+                if (InsumoMuestras.ContainsKey(llaveCruce))
+                {
+                    InsumoMuestras[llaveCruce].InsumoLinea.Add(linea);
                 }
                 else
                 {
-                    if (!DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
+                    InsumoMuestras.Add(llaveCruce, new Variables.DatosInsumos
                     {
-                        DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
-                        {
-                            Separador = '|',
-                            Extracto = new List<string>() { linea },
-                            TipoClase = typeof(Muestras),
-                            Insumo = true
-                        });
-                    }
-                    else
-                    {
-                        DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
-                    }
+                        Separador = '0',
+                        InsumoLinea = new List<string> { linea }
+                    });
                 }
             }
 

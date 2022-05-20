@@ -9,10 +9,8 @@ namespace App.ControlCargueArchivos
     /// <summary>
     /// Clase que se encarga de cargar el archivo de PlanoBeneficiosEstadoCuenta
     /// </summary>
-    public class PlanoBeneficiosEstadoCuenta: App.Variables.Variables, ICargue
+    public class PlanoBeneficiosEstadoCuenta : App.Variables.Variables, ICargue
     {
-        private const string _producto = "PlanoBeneficiosEstadoCuenta";
-
         /// <summary>
         /// Constructor de clase.
         /// </summary>
@@ -38,7 +36,7 @@ namespace App.ControlCargueArchivos
         /// Constructor General
         /// </summary>
         public PlanoBeneficiosEstadoCuenta()
-        {}
+        { }
 
         /// <summary>
         /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
@@ -47,53 +45,36 @@ namespace App.ControlCargueArchivos
         public void CargueArchivoDiccionario(string pArchivo)
         {
             #region CargueArchivoDiccionario
-            string llaveCruce = string.Empty;
-
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
+
             string linea = string.Empty;
+            bool encabezado = true;
 
             while (!string.IsNullOrEmpty(linea = lector.ReadLine()))
             {
-                if (linea.Split('\t')[0].Trim().ToUpper() != "PERIODO")
+                if (encabezado)
                 {
-                    llaveCruce = linea.Split('\t')[3].Trim();
+                    encabezado = false;
+                    continue;
+                }
 
-                    if (!DiccionarioExtractos.ContainsKey(llaveCruce))
+                string llaveCruce = linea.Split('\t')[3].Trim();
+
+                if (InsumoPlanoBeneficios.ContainsKey(llaveCruce))
+                {
+                    InsumoPlanoBeneficios[llaveCruce].InsumoLinea.Add(linea);
+                }
+                else
+                {
+                    InsumoPlanoBeneficios.Add(llaveCruce, new Variables.DatosInsumos
                     {
-                        DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
-                            {
-                                {_producto, new Variables.DatosExtractos
-                                    {
-                                        Separador = '|',
-                                        Extracto = new List<string>(){ linea},
-                                        TipoClase = typeof(PlanoBeneficiosEstadoCuenta),
-                                        Insumo = true
-                                    }
-                                }
-                            });
-                    }
-                    else
-                    {
-                        if (!DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
-                        {
-                            DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
-                            {
-                                Separador = '|',
-                                Extracto = new List<string>() { linea },
-                                TipoClase = typeof(PlanoBeneficiosEstadoCuenta),
-                                Insumo = true
-                            });
-                        }
-                        else
-                        {
-                            DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
-                        }
-                    }
+                        Separador = '\t',
+                        InsumoLinea = new List<string> { linea }
+                    });
                 }
             }
 
             lector.Close();
-
             #endregion
         }
 

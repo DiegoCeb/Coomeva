@@ -72,8 +72,7 @@ namespace App.ControlCargueArchivos
                     InsumoDiccionarioDatos.Add(llaveCruce, new Variables.DatosInsumos
                     {
                         Separador = ';',
-                        InsumoLinea = new List<string> { linea },
-                        TipoClase = typeof(Diccionario)
+                        InsumoLinea = new List<string> { linea }
                     });
                 }
             }

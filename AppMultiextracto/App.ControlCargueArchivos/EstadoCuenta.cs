@@ -146,7 +146,16 @@ namespace App.ControlCargueArchivos
 
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
-            return new List<string>();
+            List<string> resultado = new List<string>();
+
+            foreach (var lineaDatos in datosOriginales)
+            {
+
+
+
+            }
+
+            return resultado;
         }
     }
 }

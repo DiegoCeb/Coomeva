@@ -90,6 +90,9 @@ namespace App.ControlProcesos
             {
                 var nombreArchivo = Path.GetFileNameWithoutExtension(archivoEntrada);
 
+                if (nombreArchivo.Contains("HistoricoCantidades"))
+                    continue;
+
                 _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
             }
         }

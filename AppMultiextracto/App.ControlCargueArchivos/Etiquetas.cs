@@ -13,9 +13,6 @@ namespace App.ControlCargueArchivos
     /// </summary>
     public class Etiquetas : App.Variables.Variables, ICargue
     {
-        private const string _productoMail = "EtiquetaMail";
-        private const string _productoFisico = "EtiquetaFisico";
-
         /// <summary>
         /// Constructor de clase.
         /// </summary>
@@ -55,52 +52,47 @@ namespace App.ControlCargueArchivos
             string linea = string.Empty;
             string producto = string.Empty;
 
-            if (Path.GetFileNameWithoutExtension(pArchivo).Split('_').ElementAt(0).Last() == 'E')
-            {
-                producto = _productoMail;
-            }
-            else
-            {
-                producto = _productoFisico;
-            }
-
             while ((linea = lector.ReadLine()) != null)
             {
                 string llaveCruce = $"{linea.Substring(143, 6)}{linea.Substring(151, 5)}".TrimStart('0');
 
-                if (DiccionarioExtractos.ContainsKey(llaveCruce))
+                if (Path.GetFileNameWithoutExtension(pArchivo).Split('_').ElementAt(0).Last() == 'E')
                 {
-                    if (DiccionarioExtractos[llaveCruce].ContainsKey(producto))
-                    {
-                        DiccionarioExtractos[llaveCruce][producto].Extracto.Add(linea);
-                    }
-                    else
-                    {
-                        DiccionarioExtractos[llaveCruce].Add(producto, new Variables.DatosExtractos
-                        {
-                            Separador = 'P',
-                            Extracto = new List<string>() { linea },
-                            TipoClase = typeof(Etiquetas),
-                            Insumo = true
-                        });
-                    }
+                    AgregarDiccionario(InsumoEtiquetasMail, llaveCruce, linea);
                 }
                 else
                 {
-                    DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
-                        {
-                            { producto, new Variables.DatosExtractos
-                            {
-                                Separador = 'P',
-                                Extracto = new List<string>() { linea },
-                                TipoClase = typeof(Etiquetas),
-                                Insumo = true
-                            } }
-                        });
+                    AgregarDiccionario(InsumoEtiquetasFisico, llaveCruce, linea);
                 }
             }
 
             lector.Close(); 
+            #endregion
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="pDiccionario"></param>
+        /// <param name="pLlaveCruce"></param>
+        /// <param name="pLinea"></param>
+        private void AgregarDiccionario<T>(T pDiccionario, string pLlaveCruce, string pLinea) 
+            where T : Dictionary<string, Variables.DatosInsumos>
+        {
+            #region AgregarDiccionario
+            if (pDiccionario.ContainsKey(pLlaveCruce))
+            {
+                pDiccionario[pLlaveCruce].InsumoLinea.Add(pLinea);
+            }
+            else
+            {
+                pDiccionario.Add(pLlaveCruce, new Variables.DatosInsumos
+                {
+                    Separador = 'P',
+                    InsumoLinea = new List<string> { pLinea }
+                });
+            } 
             #endregion
         }
 
