@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DLL_Utilidades;
+using App.Controlnsumos;
 
 namespace App.ControlCargueArchivos
 {
@@ -53,50 +54,24 @@ namespace App.ControlCargueArchivos
 
             string linea = string.Empty;
             List<string> temp = new List<string>();
-            bool extractoCompleto = false;
             string llaveCruce = string.Empty;
 
             while ((linea = lector.ReadLine()) != null)
             {
-                if (linea.Length > 9)
+                if (linea.Trim() == "@")
                 {
-                    if (linea.Substring(0, 7) == "Cuenta ")
-                    {
-                        extractoCompleto = false;
+                    temp.Add(linea);
 
-                        if (temp.Count > 1)
-                        {
-                            extractoCompleto = true;
-                        }
+                    llaveCruce = temp.ElementAt(1).Substring(49, 19).Trim();
 
-                        if (extractoCompleto)
-                        {
-                            llaveCruce = temp.ElementAt(1).Substring(49, 19).Trim();
+                    AgregarDiccionario(llaveCruce, temp);
 
-                            AgregarDiccionario(llaveCruce, temp);
-
-                            temp.Clear();
-                        }
-
-                        temp.Add(linea);
-                    }
-                    else
-                    {
-                        temp.Add(linea);
-                    }
+                    temp.Clear();
                 }
                 else
                 {
                     temp.Add(linea);
                 }
-            }
-
-            //Ultimo Extracto
-            if (temp.Count > 1)
-            {
-                llaveCruce = temp.ElementAt(1).Substring(49, 19).TrimStart('0').Trim();
-
-                AgregarDiccionario(llaveCruce, temp);
             }
 
             lector.Close();
@@ -151,9 +126,89 @@ namespace App.ControlCargueArchivos
             CargueArchivoDiccionario(pArchivo);
         }
 
+        /// <summary>
+        /// Metodo que Formatea la data para el Sal.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
-            return new List<string>();
+            #region FormatearArchivo
+            List<string> resultado = new List<string>();
+
+            List<PosCortes> listaCortes = new List<PosCortes>();
+            string lineaDatos;
+            string canalEnMapeo = string.Empty;
+            int indiceExtracto = 0;
+
+            for (int indice = 0; indice < datosOriginales.Count(); indice++)
+            {
+                lineaDatos = datosOriginales[indice];
+
+                if (lineaDatos.Trim() == "@")
+                {
+                    indiceExtracto = 0;
+                }
+                else
+                {
+                    switch (indiceExtracto)
+                    {
+                        case 0:
+                            canalEnMapeo = string.Empty;
+                            listaCortes.Clear();
+                            canalEnMapeo += $"1AEA|";
+                            listaCortes.Add(new PosCortes(0, 40));
+                            listaCortes.Add(new PosCortes(85, 0));
+                            canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                            break;
+
+                        case 1:
+                            listaCortes.Clear();
+                            listaCortes.Add(new PosCortes(0, 50));
+                            listaCortes.Add(new PosCortes(50, 18));
+                            listaCortes.Add(new PosCortes(69, 30));
+                            listaCortes.Add(new PosCortes(100, 0));
+                            canalEnMapeo += $"|{Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos)}";
+                            break;
+                        case 2:
+                            listaCortes.Clear();
+                            listaCortes.Add(new PosCortes(0, 10));
+                            listaCortes.Add(new PosCortes(11, 10));
+                            listaCortes.Add(new PosCortes(21, 20));
+                            listaCortes.Add(new PosCortes(41, 20));
+                            listaCortes.Add(new PosCortes(61, 0));
+                            canalEnMapeo += $"|{Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos)}";
+                            canalEnMapeo += $"|KITXXX| ";
+                            resultado.Add($"{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                            break;
+
+                        default:
+                            canalEnMapeo = string.Empty;
+                            int result = 0;
+                            bool esDetalle = int.TryParse(lineaDatos.Substring(0, 2), out result);
+                            if (esDetalle)
+                            {
+                                listaCortes.Clear();
+                                listaCortes.Add(new PosCortes(0, 2));
+                                listaCortes.Add(new PosCortes(3, 30));
+                                listaCortes.Add(new PosCortes(34, 26));
+                                listaCortes.Add(new PosCortes(60, 19));
+                                listaCortes.Add(new PosCortes(79, 19));
+                                listaCortes.Add(new PosCortes(98, 0));
+                                canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                                resultado.Add($"1DEA|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                            }
+                            else
+                            { }
+                            break;
+                    }
+
+                    indiceExtracto++;
+                }
+            }
+            
+            return resultado;
+            #endregion
         }
     }
 }

@@ -83,7 +83,11 @@ namespace App.ControlEjecucion
             return true;
         }
 
-
+        /// <summary>
+        /// Metodo que Obtiene el tamaño del Archivo
+        /// </summary>
+        /// <param name="pInsumo">Nombre del Insumo</param>
+        /// <param name="pArchivo">Ruta del Archivo</param>
         private void GetTamañoArchivo(string pInsumo, string pArchivo)
         {
             Int64 tamañoArchivo = Helpers.GetTamañoArchivo(pArchivo);
@@ -313,14 +317,58 @@ namespace App.ControlEjecucion
             }            
         }
 
+        /// <summary>
+        /// Metodo que Carga los Datos del proceso anterior correspondiete al corte actual
+        /// </summary>
+        /// <param name="pNumeroOrdenProceso">Número de Orden</param>
         public void CargueDiccionarioCheckList(string pNumeroOrdenProceso)
         {
-            NombreCorte = ObtenerNombreCorte(pNumeroOrdenProceso);
+            NombreCorte = ValidarNumeroOrden(pNumeroOrdenProceso);
             List<string> camposUltimoCorte = CargarHistoricoCantidades(Utilidades.LeerAppConfig("RutaLogCantidades"), NombreCorte);
             Insumos.CargarNombresArchivosChekList(camposUltimoCorte);
             Insumos.CargarCantidadesExtractos(camposUltimoCorte);
         }
 
+        public string ValidarNumeroOrden(string pNumeroOrdenProceso)
+        {
+            #region ValidarNumeroOrden
+            string corte = string.Empty;
+
+            if (pNumeroOrdenProceso.Length == 10)
+            {
+                corte = ObtenerNombreCorte(pNumeroOrdenProceso);
+
+                if (corte == "05" || corte == "10" || corte == "15" || corte == "20" || corte == "25" || corte == "30") //NL
+                {
+                    corte = $"C{corte}";
+                }
+                else
+                {
+                    Console.WriteLine(RXGeneral.ErrorNumCorte);
+                    Utilidades.EscribirLog(RXGeneral.ErrorNumCorte, Utilidades.LeerAppConfig("RutaLog"));
+                    System.Threading.Thread.Sleep(2000);
+                    Environment.Exit(1);
+                }
+
+            }
+            else
+            {
+                Console.WriteLine(RXGeneral.ErrorTamañoNumOrden);
+                Utilidades.EscribirLog(RXGeneral.ErrorNumCorte, Utilidades.LeerAppConfig("RutaLog"));
+                System.Threading.Thread.Sleep(2000);
+                Environment.Exit(1);
+            }
+
+            return corte; 
+            #endregion
+        }
+
+        /// <summary>
+        /// Busca el ultimo regitro del corte correspondiente y Segmeta la linea de cantiadades para obtner los Valores
+        /// </summary>
+        /// <param name="pRutaHistorico">Ruta RAchivo</param>
+        /// <param name="pCorte">Corte</param>
+        /// <returns></returns>
         private List<string> CargarHistoricoCantidades(string pRutaHistorico, string pCorte)
         {
             List<string> camposUltimoCorte = new List<string>();
@@ -351,6 +399,12 @@ namespace App.ControlEjecucion
             return camposUltimoCorte;
         }
 
+        /// <summary>
+        /// Metodo que controla la insercion de datos de Cantidades en el Log
+        /// </summary>
+        /// <param name="pRutaHistorico">Ruta Archivo</param>
+        /// <param name="pEscribirTitulos">Bandera de Titulos</param>
+        /// <param name="pLinea">Linea a registrar</param>
         private void InsertarDatosHistoCantidades(string pRutaHistorico, bool pEscribirTitulos, string pLinea)
         {
             if (File.Exists(pRutaHistorico))
@@ -374,6 +428,12 @@ namespace App.ControlEjecucion
             }
         }
 
+        /// <summary>
+        /// Metodo que escribe directamente en el archivo
+        /// </summary>
+        /// <param name="pStreamWriter">Objeto de escritura</param>
+        /// <param name="pEscribirTitulos">Bandera de Titulos</param>
+        /// <param name="pLinea">LInea a escribir</param>
         private void EscribirHistoricoCantidades(StreamWriter pStreamWriter, bool pEscribirTitulos, string pLinea)
         {
             if (pEscribirTitulos)
@@ -387,11 +447,16 @@ namespace App.ControlEjecucion
             }
         }
 
+        /// <summary>
+        /// Metodo que obtiene el COrte a aprtir del Número de Orden
+        /// </summary>
+        /// <param name="pNumeroOrdenProceso">Número de Orden</param>
+        /// <returns></returns>
         private string ObtenerNombreCorte(string pNumeroOrdenProceso)
         {
             if (pNumeroOrdenProceso.Length > 4)
             {
-                return $"C{pNumeroOrdenProceso.Substring(pNumeroOrdenProceso.Length - 2)}";
+                return $"{pNumeroOrdenProceso.Substring(pNumeroOrdenProceso.Length - 2)}";
             }
             else
             { return string.Empty; }
@@ -399,6 +464,9 @@ namespace App.ControlEjecucion
 
         }
 
+        /// <summary>
+        /// Metdodo que obtiene los datos y los ordena para registralos
+        /// </summary>
         public void RegistrarDatosHistoCantidades()
         {
             string nuevaLineaCantidades =
@@ -427,6 +495,8 @@ namespace App.ControlEjecucion
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["PlanoBeneficiosEstadoCuenta"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["PAPEXTSUBV"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["Nuevos_Asociados_Fisicos"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["BASE_ACTIVOS_TAC"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["BASE_INACTIVOS_TAC"].PesoArchivoMesActual}" +
             #endregion
             #region Cantidades Extractos
                 $"|{CheckListProceso.CantidadesExtractosNacional.Extractos.MesActual}" +
@@ -445,7 +515,9 @@ namespace App.ControlEjecucion
                 $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosPlanPagosLibranza.MesActual}" +
                 $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosCreditoRotativo.MesActual}" +
                 $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosMicroCredito.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.Fiducoomeva.MesActual}";
+                $"|{CheckListProceso.CantidadesExtractosNacional.Fiducoomeva.MesActual}" +
+                $"|{CheckListProceso.CantidadesExtractosNacional.CartasTAC.MesActual}";
+
             #endregion
 
             InsertarDatosHistoCantidades(Utilidades.LeerAppConfig("RutaLogCantidades"), false, nuevaLineaCantidades);

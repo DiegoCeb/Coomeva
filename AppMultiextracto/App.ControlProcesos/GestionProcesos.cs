@@ -90,6 +90,9 @@ namespace App.ControlProcesos
             {
                 var nombreArchivo = Path.GetFileNameWithoutExtension(archivoEntrada);
 
+                if (nombreArchivo == "HistoricoCantidades")
+                { continue; }
+
                 _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
             }
         }
@@ -118,6 +121,8 @@ namespace App.ControlProcesos
             InsumosCarga.Add("PAPEXTSUBV", typeof(Libranza));
             InsumosCarga.Add("R99TODOSXX", typeof(EstadoCuentaExAsociados));
             InsumosCarga.Add("EXTRACTO_ROTATIVO", typeof(ExtractosRotativo));
+            InsumosCarga.Add("BASE_ACTIVOS_TAC", typeof(CartasTAC));
+            InsumosCarga.Add("BASE_INACTIVOS_TAC", typeof(CartasTAC));
 
             return InsumosCarga;
             #endregion
