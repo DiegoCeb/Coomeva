@@ -29,7 +29,7 @@ namespace App.ControlProcesos
             CheckListProceso.FechaHoraIncio = DateTime.Now;
             _objProceso.CargueDiccionarioCheckList(this.NumeroOrdenProceso);
 
-            //if (!objProceso.DescargaArchivos())
+            //if (!_objProceso.DescargaArchivos())
             //{
             //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
             //    System.Threading.Thread.Sleep(2000);
