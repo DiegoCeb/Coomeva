@@ -82,3 +82,4 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bi
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CopyComplete

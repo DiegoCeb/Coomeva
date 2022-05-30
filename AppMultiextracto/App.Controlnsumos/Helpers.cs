@@ -272,13 +272,27 @@ namespace App.Controlnsumos
                 if (!string.IsNullOrEmpty(lineaResultado))
                 { lineaResultado += "|"; }
 
-                if (campos.Cantidad > 0)
+                if (campos.PosInicial != null && campos.Cantidad != null)
                 {
-                    campo = linea.Substring(campos.PosInicial, campos.Cantidad).Trim();
+                    try
+                    {
+                        if (campos.Cantidad > 0)
+                        {
+                            campo = linea.Substring(campos.PosInicial.Value, campos.Cantidad.Value).Trim();
+                        }
+                        else
+                        {
+                            campo = linea.Substring(campos.PosInicial.Value).Trim();
+                        }
+                    }
+                    catch
+                    {
+                        campo = " ";
+                    }
                 }
                 else
                 {
-                    campo = linea.Substring(campos.PosInicial).Trim();
+                    campo = " ";
                 }
 
                 if (string.IsNullOrEmpty(campo))
@@ -288,14 +302,14 @@ namespace App.Controlnsumos
             }
 
             return lineaResultado;
-            
+
         }
     }
 
     public struct PosCortes
     {
-        public Int32 PosInicial;
-        public Int32 Cantidad;
+        public Int32? PosInicial;
+        public Int32? Cantidad;
 
         public PosCortes(Int32 posInicial, Int32 cantidad)
         {

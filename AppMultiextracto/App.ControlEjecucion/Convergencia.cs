@@ -21,6 +21,7 @@ namespace App.ControlEjecucion
         public Convergencia()
         {
             #region Convergencia
+            LlenarEstructuraDatosBeneficios();
             Formatear(Variables.Variables.DiccionarioExtractos);
             //ordenar el extracto final
             //Separar por data fisica
@@ -175,5 +176,67 @@ namespace App.ControlEjecucion
             _disposed = true;
         }
 
+        private void LlenarEstructuraDatosBeneficios()
+        {
+            #region LlenarEstructuraDatosBeneficios();
+
+            Variables.Variables.EstructuraBeneficios.Add("Servicios*", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Financieras|Servicios*| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Productos de crédito", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Financieras|Productos de crédito| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Productos de ahorro", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Financieras|Productos de ahorro| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Medicina Prepagada", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Salud|Medicina Prepagada| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Coomeva Emergencia Médica", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Salud|Coomeva Emergencia Médica| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Salud Oral", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Salud|Salud Oral| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Cuota manejo TAC MasterCard", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Cooperativas|Cuota manejo TAC MasterCard| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Educativas (Bonos de descuento)", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Cooperativas|Educativas (Bonos de descuento)| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Beneficio Tasa Compensada (Coomeva Educa)", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Cooperativas|Beneficio Tasa Compensada (Coomeva Educa)| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Fondo Social de Vivienda", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Cooperativas|Fondo Social de Vivienda| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Asistencia Jurídica", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Proteccion|Asistencia Jurídica| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Asistencia Pensional", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Proteccion|Asistencia Pensional| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Segunda Opinión Médica", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Proteccion|Segunda Opinión Médica| | | | "
+            });
+            Variables.Variables.EstructuraBeneficios.Add("Microcrédito", new Variables.DatosPlanoBeneficios
+            {
+                Formato = "1GGG|Soluciones Desarrollo Empresarial|Microcrédito| | | | "
+            });
+            #endregion
+        }
     }
 }

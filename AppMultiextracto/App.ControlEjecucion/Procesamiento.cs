@@ -141,8 +141,8 @@ namespace App.ControlEjecucion
                 string cedula = $"{linea.Substring(143, 6)}{linea.Substring(151, 5)}".TrimStart('0');
                 string cuenta = $"{linea.Substring(143, 6)}{linea.Substring(151, 5)}".TrimStart('0');
                 string nombres = linea.Substring(0, 31).Trim();
-                string direccion = linea.Substring(31, 60).Trim();
-                string segmentoCiudadDpto = linea.Substring(92, 37).Trim();
+                string direccion = linea.Substring(31, 59).Trim();
+                string segmentoCiudadDpto = linea.Substring(92, 30).Trim();
                 string ciudad = segmentoCiudadDpto.LastIndexOf('(') != -1 ? segmentoCiudadDpto.Substring(0, segmentoCiudadDpto.LastIndexOf('(')).Trim() : segmentoCiudadDpto;
                 string dpto = segmentoCiudadDpto.LastIndexOf('(') != -1 ? segmentoCiudadDpto.Substring(segmentoCiudadDpto.LastIndexOf('(')).Trim().Replace("(", "").Replace(")", "") : segmentoCiudadDpto;
 
