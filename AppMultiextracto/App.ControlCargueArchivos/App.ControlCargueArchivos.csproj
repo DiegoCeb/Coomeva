@@ -50,6 +50,7 @@
     <Compile Include="BaseEstadosCuentaAsociados.cs" />
     <Compile Include="BaseEstadosCuentaTerceros.cs" />
     <Compile Include="CartasCobranzaHabeasData.cs" />
+    <Compile Include="CartasTAC.cs" />
     <Compile Include="Diccionario.cs" />
     <Compile Include="EstadoCuenta.cs" />
     <Compile Include="EstadoCuentaExAsociados.cs" />

@@ -76,6 +76,7 @@ namespace App.Variables
         public CantidadProducto ExtractosCreditoRotativo;
         public CantidadProducto ExtractosMicroCredito;
         public CantidadProducto Fiducoomeva;
+        public CantidadProducto CartasTAC;
     }
 
     public struct CantidadProducto

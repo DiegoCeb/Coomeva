@@ -171,27 +171,80 @@ namespace App.ControlCargueArchivos
                 switch (campos[0])
                 {
                     case "001":
-                        resultado.Add($"1FID|KITXXX|{campos[2].Substring(0,3)}|{Helpers.ValidarPipePipe(linea)}");
+                        resultado.Add($"1FID|KITXXX|{campos[2].Substring(0,3)}|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FID"))}");
                         break;
                     case "002":
-                        resultado.Add($"1FIB|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        resultado.Add($"1FIB|KITXXX|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIB"))}");
                         break;
                     case "003":
-                        resultado.Add($"1FIC|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        resultado.Add($"1FIC|KITXXX|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIC"))}");
                         break;
                     case "004":
-                        resultado.Add($"1FDD|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        resultado.Add($"1FDD|KITXXX|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FDD"))}");
                         break;
                     case "005":
-                        resultado.Add($"1FIE|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        resultado.Add($"1FIE|KITXXX|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIE"))}");
                         break;
                     case "006":
-                        resultado.Add($"1FIF|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        resultado.Add($"1FIF|KITXXX|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIF"))}");
                         break;
                 }
             }
+            
             return resultado; 
             #endregion
         }
+
+        /// <summary>
+        /// Metodo que Formatea cada campo segun el requerimiento.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
+        private string FormatearCampos(List<string> pCampos, string Canal)
+        {
+            string resultado = string.Empty;
+            List<string> campos = pCampos;
+
+            switch (Canal)
+            {
+                case "1FID":
+                    campos[6] = Helpers.StringToMoneda(campos[6], 2);
+                    campos[7] = Helpers.StringToMoneda(campos[7], 2);
+                    campos[8] = Helpers.StringToMoneda(campos[8], 2);
+                    campos[9] = Helpers.StringToMoneda(campos[9], 2);
+                    campos[11] = Helpers.StringToMoneda(campos[11], 2);
+                    campos[12] = Helpers.StringToMoneda(campos[12], 2);
+                    campos[13] = Helpers.StringToMoneda(campos[13], 2);
+                    campos[14] = campos[14].TrimStart('0');
+                    resultado = Helpers.ListaCamposToLinea(campos, '|');
+                    break;
+                case "1FIB":
+                    campos[5] = campos[5].TrimStart('0');
+                    campos[6] = campos[6].TrimStart('0');
+                    campos[7] = Helpers.StringToMoneda(campos[7], 6);
+                    campos[8] = campos[8].TrimStart('0');
+                    campos[9] = Helpers.StringToMoneda(campos[9], 2);
+                    resultado = Helpers.ListaCamposToLinea(campos, '|');
+                    break;
+                case "1FIC":
+                    campos[31] = Helpers.StringToMoneda(campos[31], 2);
+                    campos[34] = Helpers.StringToMoneda(campos[34], 2);
+                    resultado = Helpers.ListaCamposToLinea(campos, '|');
+                    break;
+                case "1FDD":
+                    campos[5] = campos[5].TrimStart('0');
+                    campos[6] = Helpers.StringToMoneda(campos[6], 2);
+                    resultado = Helpers.ListaCamposToLinea(campos, '|');
+                    break;
+                default:
+                    resultado = Helpers.ListaCamposToLinea(campos, '|');
+                    break;
+            }
+            
+            return resultado;
+        }
+
+        
+        
     }
 }

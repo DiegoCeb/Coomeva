@@ -119,6 +119,11 @@ namespace App.ControlCargueArchivos
             #endregion CargueArchivoDiccionario
         }
 
+        /// <summary>
+        /// Metodo que Formatea la data para el Sal.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
             #region FormatearArchivo
@@ -127,6 +132,7 @@ namespace App.ControlCargueArchivos
             List<PosCortes> listaCortes = new List<PosCortes>();
             string identificador;
             string canalEnMapeo = string.Empty;
+            int ContadorDetalles = 0;
             foreach (var lineaDatos in datosOriginales)
             {
                 identificador = lineaDatos.Substring(0, 1);
@@ -134,10 +140,11 @@ namespace App.ControlCargueArchivos
                 {
                     case "T":
                         canalEnMapeo = string.Empty;
+                        listaCortes.Clear();
                         canalEnMapeo += $"1TAR|KITXXX|";
                         listaCortes.Add(new PosCortes(0, 15));
                         listaCortes.Add(new PosCortes(15, 0));
-                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes,lineaDatos);
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
                         break;
                     case "1":
                         canalEnMapeo += $"|";
@@ -147,7 +154,7 @@ namespace App.ControlCargueArchivos
                         break;
                     case "2":
                         resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo));
-                        
+
                         canalEnMapeo = string.Empty;
                         canalEnMapeo += $"1TA2|";
                         listaCortes.Clear();
@@ -179,17 +186,37 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(1, 11));
                         listaCortes.Add(new PosCortes(12, 6));
                         listaCortes.Add(new PosCortes(18, 26));
-                        listaCortes.Add(new PosCortes(44, 16));
-                        listaCortes.Add(new PosCortes(60, 7));
-                        listaCortes.Add(new PosCortes(67, 9));
-                        listaCortes.Add(new PosCortes(76, 17));
-                        listaCortes.Add(new PosCortes(93, 17));
-                        listaCortes.Add(new PosCortes(110, 16));
-                        listaCortes.Add(new PosCortes(126, 5));
-                        listaCortes.Add(new PosCortes(131, 5));
-                        listaCortes.Add(new PosCortes(136, 0));
-                        canalEnMapeo = Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        listaCortes.Add(new PosCortes(44, 17));
+                        listaCortes.Add(new PosCortes(61, 7));
+                        listaCortes.Add(new PosCortes(68, 9));
+                        listaCortes.Add(new PosCortes(77, 17));
+                        listaCortes.Add(new PosCortes(94, 17));
+                        
+
+                        if (lineaDatos.Length < 135)
+                        {
+                            canalEnMapeo = Helpers.CompletarEspaciosLinea(lineaDatos, 120);
+
+                            listaCortes.Add(new PosCortes(null, null));
+                            listaCortes.Add(new PosCortes(111, 5));
+                            listaCortes.Add(new PosCortes(116, 0));
+                            
+                        }
+                        else
+                        {
+                            listaCortes.Add(new PosCortes(111, 16));
+                            listaCortes.Add(new PosCortes(127, 5));
+                            listaCortes.Add(new PosCortes(132, 0));
+                            canalEnMapeo = lineaDatos;
+                            
+
+                        }
+
+                        canalEnMapeo = Helpers.ExtraccionCamposSpool(listaCortes, canalEnMapeo);
+                        canalEnMapeo += $"|{ObtenerCuotasPendientes(canalEnMapeo)}";
                         resultado.Add($"1TA3|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+
+                        ContadorDetalles++;
                         canalEnMapeo = string.Empty;
                         break;
                     case "6":
@@ -254,7 +281,46 @@ namespace App.ControlCargueArchivos
                 }
 
             }
+
             return resultado;
+            #endregion
+        }
+
+        /// <summary>
+        /// Metodo que calcula las Cuotas Pendintes
+        /// </summary>
+        /// <param name="linea">Campos del Detalle</param>
+        /// <returns>campo de Cuotas Pendientes</returns>
+        private string ObtenerCuotasPendientes(string linea)
+        {
+            #region ObtenerCuotasPendientes
+            string[] campos = linea.Split('|');
+
+            if ((!string.IsNullOrEmpty(campos[9].Trim())) && (!string.IsNullOrEmpty(campos[10].Trim())))
+            {
+                try
+                {
+                    int plazo = int.Parse(campos[9].Trim());
+                    int cuotasPagadas = int.Parse(campos[10].Trim());
+                    int cuotasPendintes = 0;
+
+                    if (plazo >= cuotasPagadas)
+                    {
+                        cuotasPendintes = (plazo - cuotasPagadas);
+                    }
+
+                    return $"{cuotasPendintes.ToString().PadLeft(2, '0')}";
+
+                }
+                catch
+                {
+                    return "  ";
+                }
+            }
+            else
+            {
+                return "  ";
+            } 
             #endregion
         }
     }

@@ -162,6 +162,7 @@ namespace App.ControlCargueArchivos
             {
                 resultado.Add($"1MIC|KITXXX|{Helpers.ValidarPipePipe(linea)}");
             }
+
             return resultado;
         }
     }

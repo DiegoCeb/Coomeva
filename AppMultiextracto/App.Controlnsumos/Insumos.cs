@@ -62,30 +62,33 @@ namespace App.Controlnsumos
                     {"muestras" , new Variables.CantidadesArchivos { NombreArchivo = "Base de muestras", PesoArchivoMesAnterior = Helpers.GetTamañoHistorico(tamañoUltimoCorte,20) } },
                     {"PlanoBeneficiosEstadoCuenta" , new Variables.CantidadesArchivos { NombreArchivo = "Beneficios Estado Cuenta", PesoArchivoMesAnterior = Helpers.GetTamañoHistorico(tamañoUltimoCorte,21) } },
                     {"PAPEXTSUBV" , new Variables.CantidadesArchivos { NombreArchivo = "Libranza", PesoArchivoMesAnterior = Helpers.GetTamañoHistorico(tamañoUltimoCorte,22) } },
-                    {"Nuevos_Asociados_Fisicos" , new Variables.CantidadesArchivos { NombreArchivo = "Base Asociados", PesoArchivoMesAnterior = Helpers.GetTamañoHistorico(tamañoUltimoCorte,23) } }
+                    {"Nuevos_Asociados_Fisicos" , new Variables.CantidadesArchivos { NombreArchivo = "Base Asociados", PesoArchivoMesAnterior = Helpers.GetTamañoHistorico(tamañoUltimoCorte,23) } },
+                    {"BASE_ACTIVOS_TAC" , new Variables.CantidadesArchivos { NombreArchivo = "Base Activos Tac", PesoArchivoMesAnterior = Helpers.GetTamañoHistorico(tamañoUltimoCorte,24) } },
+                    {"BASE_INACTIVOS_TAC" , new Variables.CantidadesArchivos { NombreArchivo = "Base Inactivos Tac", PesoArchivoMesAnterior = Helpers.GetTamañoHistorico(tamañoUltimoCorte,25) } }
 
             };
         }
 
         public static void CargarCantidadesExtractos(List<string> camposUltimoCorte)
         {
-            CheckListProceso.CantidadesExtractosNacional.Extractos.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 24);
-            CheckListProceso.CantidadesExtractosNacional.HojasEstadoCuentaSimplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 25);
-            CheckListProceso.CantidadesExtractosNacional.HojasEstadoCuentaDuplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 26);
-            CheckListProceso.CantidadesExtractosNacional.HojasViviendaSimplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 27);
-            CheckListProceso.CantidadesExtractosNacional.HojasViviendaDuplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 28);
-            CheckListProceso.CantidadesExtractosNacional.HojasDespositosSimplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 29);
-            CheckListProceso.CantidadesExtractosNacional.HojasDespositosDuplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 30);
-            CheckListProceso.CantidadesExtractosNacional.ExtractosVisa.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 31);
-            CheckListProceso.CantidadesExtractosNacional.ExtractosMaster.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 32);
-            CheckListProceso.CantidadesExtractosNacional.CartasSOAT.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 33);
-            CheckListProceso.CantidadesExtractosNacional.CartasAsocHabeasData.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 34);
-            CheckListProceso.CantidadesExtractosNacional.CartasCobrosHabeasData.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 35);
-            CheckListProceso.CantidadesExtractosNacional.ActivacionProtecciones.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 36);
-            CheckListProceso.CantidadesExtractosNacional.ExtractosPlanPagosLibranza.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 37);
-            CheckListProceso.CantidadesExtractosNacional.ExtractosCreditoRotativo.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 38);
-            CheckListProceso.CantidadesExtractosNacional.ExtractosMicroCredito.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 39);
-            CheckListProceso.CantidadesExtractosNacional.Fiducoomeva.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 40);
+            CheckListProceso.CantidadesExtractosNacional.Extractos.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 26);
+            CheckListProceso.CantidadesExtractosNacional.HojasEstadoCuentaSimplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 27);
+            CheckListProceso.CantidadesExtractosNacional.HojasEstadoCuentaDuplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 28);
+            CheckListProceso.CantidadesExtractosNacional.HojasViviendaSimplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 29);
+            CheckListProceso.CantidadesExtractosNacional.HojasViviendaDuplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 30);
+            CheckListProceso.CantidadesExtractosNacional.HojasDespositosSimplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 31);
+            CheckListProceso.CantidadesExtractosNacional.HojasDespositosDuplex.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 32);
+            CheckListProceso.CantidadesExtractosNacional.ExtractosVisa.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 33);
+            CheckListProceso.CantidadesExtractosNacional.ExtractosMaster.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 34);
+            CheckListProceso.CantidadesExtractosNacional.CartasSOAT.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 35);
+            CheckListProceso.CantidadesExtractosNacional.CartasAsocHabeasData.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 36);
+            CheckListProceso.CantidadesExtractosNacional.CartasCobrosHabeasData.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 37);
+            CheckListProceso.CantidadesExtractosNacional.ActivacionProtecciones.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 38);
+            CheckListProceso.CantidadesExtractosNacional.ExtractosPlanPagosLibranza.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 39);
+            CheckListProceso.CantidadesExtractosNacional.ExtractosCreditoRotativo.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 40);
+            CheckListProceso.CantidadesExtractosNacional.ExtractosMicroCredito.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 41);
+            CheckListProceso.CantidadesExtractosNacional.Fiducoomeva.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 42);
+            CheckListProceso.CantidadesExtractosNacional.CartasTAC.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 43);
         }
 
 
