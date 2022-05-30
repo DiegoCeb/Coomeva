@@ -61,6 +61,24 @@ namespace App.ControlEjecucion {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Los dos últimos dígitos del número de la orden no corresponden a ningún corte de Coomeva, por favor verifique e intenten de nuevo..
+        /// </summary>
+        internal static string ErrorNumCorte {
+            get {
+                return ResourceManager.GetString("ErrorNumCorte", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El tamaño de caracteres del numero de la orden es incorrecto, el número de orden debe ser de 10 caracteres, por favor verifique y vuelva a intentar procesar..
+        /// </summary>
+        internal static string ErrorTamañoNumOrden {
+            get {
+                return ResourceManager.GetString("ErrorTamañoNumOrden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXX|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|Extractos|HojasEstadoCuentaSimplex|HojasEstadoCuentaDuplex|HojasViviendaSimplex|HojasViviendaDuplex|HojasDespositosSimplex|HojasDespositosDuplex|ExtractosVisa|ExtractosMas [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string TitulosHistoricoCantidades {

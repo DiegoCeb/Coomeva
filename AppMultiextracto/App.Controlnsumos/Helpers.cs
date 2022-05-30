@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Globalization;
 using Excel;
 
 namespace App.Controlnsumos
@@ -263,8 +265,15 @@ namespace App.Controlnsumos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo que extrae los campos de una linea de posiciones fijas
+        /// </summary>
+        /// <param name="posCortes">LIsta de Cortes</param>
+        /// <param name="linea">Linea</param>
+        /// <returns></returns>
         public static string ExtraccionCamposSpool(List<PosCortes> posCortes, string linea)
         {
+            #region ExtraccionCamposSpool
             string lineaResultado = string.Empty;
             string campo = string.Empty;
             foreach (PosCortes campos in posCortes)
@@ -301,8 +310,114 @@ namespace App.Controlnsumos
                 lineaResultado += campo;
             }
 
-            return lineaResultado;
+            return lineaResultado; 
+            #endregion
 
+        }
+
+        /// <summary>
+        /// Completa una estructura con campos blancos
+        /// </summary>
+        /// <param name="linea">Liea</param>
+        /// <param name="cantPosiciones"> Posiciones que se necesitan</param>
+        /// <returns></returns>
+        public static string CompletarEspaciosLinea(string linea, int cantPosiciones)
+        {
+            #region CompletarEspaciosLinea
+            string lineaResultado = linea;
+            for (int i = linea.Length; i < cantPosiciones; i++)
+            {
+                lineaResultado += " ";
+            }
+
+
+            return lineaResultado; 
+            #endregion
+
+        }
+
+        /// <summary>
+        /// Da formato de monea a campo
+        /// </summary>
+        /// <param name="pCampo">Campo</param>
+        /// <param name="pPosDecimales">Cantidad Decimales</param>
+        /// <returns>Campo Formateado</returns>
+        public static string StringToMoneda(string pCampo, int pPosDecimales)
+        {
+            #region StringToMoneda
+            string resultado = pCampo;
+            try
+            {
+                NumberFormatInfo nfi = new CultureInfo(CultureInfo.InvariantCulture.Name, false).NumberFormat;
+                nfi.NumberDecimalSeparator = ".";
+                nfi.NumberDecimalDigits = pPosDecimales;
+                nfi.CurrencyDecimalDigits = pPosDecimales;
+                nfi.CurrencySymbol = String.Empty;
+
+                decimal Valor = Convert.ToDecimal(pCampo.Replace('.', ','));
+                resultado = Valor.ToString("C", nfi);
+
+            }
+            catch (Exception)
+            {
+                resultado = pCampo;
+            }
+
+            return resultado; 
+            #endregion
+        }
+
+        /// <summary>
+        /// Retorna una lidea a partir de una lista de campos
+        /// </summary>
+        /// <param name="campos">Lista Campos</param>
+        /// <param name="separador">Separador</param>
+        /// <returns>Linea</returns>
+        public static string ListaCamposToLinea(List<string> campos, char separador)
+        {
+            #region ListaCamposToLinea
+            string resultado = string.Empty;
+
+            foreach (string campo in campos)
+            {
+                if (!string.IsNullOrEmpty(resultado))
+                { resultado += separador; }
+
+                resultado += $"{campo.Trim()}";
+            }
+
+            return resultado;
+            #endregion
+        }
+
+
+        public static void EscribirEnArchivo(string ruta, List<string> listado)
+        {
+            if (File.Exists(ruta))
+            {
+                using (StreamWriter streamWriter = new StreamWriter(ruta, true, Encoding.Default))
+                {
+                    foreach (var item in listado)
+                    {
+                        streamWriter.WriteLine(item);
+                    }
+                    
+                }
+            }
+            else
+            {
+                FileStream escritor = File.Create(ruta);
+
+                using (StreamWriter streamWriter = new StreamWriter(escritor, Encoding.Default))
+                {
+                    foreach (var item in listado)
+                    {
+                        streamWriter.WriteLine(item);
+                    }
+                }
+
+                escritor.Close();
+            }
         }
     }
 
@@ -314,6 +429,12 @@ namespace App.Controlnsumos
         public PosCortes(Int32 posInicial, Int32 cantidad)
         {
             this.PosInicial = posInicial;  
+            this.Cantidad = cantidad;
+        }
+
+        public PosCortes(Int32? posInicial, Int32? cantidad)
+        {
+            this.PosInicial = posInicial;
             this.Cantidad = cantidad;
         }
     }

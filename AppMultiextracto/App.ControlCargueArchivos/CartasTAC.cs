@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +8,9 @@ using Helpers = App.Controlnsumos.Helpers;
 
 namespace App.ControlCargueArchivos
 {
-    /// <summary>
-    /// Clase que se encarga de cargar el archivo de HabeasData
-    /// </summary>
-    public class HabeasData : App.Variables.Variables, ICargue, IDisposable
+    public class CartasTAC : App.Variables.Variables, ICargue, IDisposable
     {
-        private const string _producto = "HabeasData";
+        private const string _producto = "CartasTAC";
 
         private bool _disposed = false;
 
@@ -22,9 +18,9 @@ namespace App.ControlCargueArchivos
         /// Constructor de clase.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
-        public HabeasData(string pArchivo)
+        public CartasTAC(string pArchivo)
         {
-            #region HabeasData
+            #region CartasTAC
             try
             {
                 Ejecutar(pArchivo);
@@ -37,14 +33,14 @@ namespace App.ControlCargueArchivos
                 System.Threading.Thread.Sleep(2000);
                 Environment.Exit(1);
             }
-            #endregion HabeasData
+            #endregion CartasTAC
         }
 
         /// <summary>
-        /// Cosntuctor General
+        /// Constructor General
         /// </summary>
-        public HabeasData()
-        {}
+        public CartasTAC()
+        { }
 
         /// <summary>
         /// Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
@@ -53,7 +49,6 @@ namespace App.ControlCargueArchivos
         public void CargueArchivoDiccionario(string pArchivo)
         {
             #region CargueArchivoDiccionario
-
             string linea = string.Empty;
             string llaveCruce = string.Empty;
             List<string> archivo = Helpers.ConvertirExcel(pArchivo);
@@ -62,9 +57,20 @@ namespace App.ControlCargueArchivos
             {
                 linea = lineaIteracion.Replace('"', ' ').Trim();
 
-                if (linea.Split('|')[0].Trim().ToUpper() != "CEDULA")
+                if (linea.Split('|')[0].Trim().ToUpper() != "ESTADO")
                 {
-                    llaveCruce = linea.Split('|')[0].Trim();
+                    llaveCruce = linea.Split('|')[2].Trim();
+
+                    if (pArchivo.ToUpper().Contains("BASE_ACTIVOS_TAC"))
+                    {
+                        linea = $"{linea}|Activos";
+                    }
+                    else
+                    {
+                        linea = $"{linea}|Inactivos";
+                    }
+
+
                     if (!DiccionarioExtractos.ContainsKey(llaveCruce))
                     {
                         DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
@@ -72,8 +78,8 @@ namespace App.ControlCargueArchivos
                                 {_producto, new Variables.DatosExtractos
                                 {
                                     Separador = '|',
-                                    Extracto = new List<string>(){ linea},
-                                    TipoClase = typeof(HabeasData)
+                                    Extracto = new List<string>(){ linea },
+                                    TipoClase = typeof(CartasTAC)
                                 }
                                 }
                             });
@@ -86,7 +92,7 @@ namespace App.ControlCargueArchivos
                             {
                                 Separador = '|',
                                 Extracto = new List<string>() { linea },
-                                TipoClase = typeof(HabeasData)
+                                TipoClase = typeof(CartasTAC)
                             });
                         }
                         else
@@ -100,6 +106,7 @@ namespace App.ControlCargueArchivos
             }
 
             archivo.Clear();
+
             #endregion CargueArchivoDiccionario
         }
 
@@ -125,6 +132,7 @@ namespace App.ControlCargueArchivos
             GC.SuppressFinalize(this);
 
             #endregion Dispose
+
         }
 
         /// <summary>
@@ -134,6 +142,7 @@ namespace App.ControlCargueArchivos
         protected virtual void Dispose(bool disposing)
         {
             #region Dispose
+
             if (_disposed)
                 return;
 
@@ -154,14 +163,26 @@ namespace App.ControlCargueArchivos
         /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
+            #region FormatearArchivo
             List<string> resultado = new List<string>();
-
-            foreach (var linea in datosOriginales)
+            List<string> campos;
+            string linea;
+            foreach (var lineaDatos in datosOriginales)
             {
-                resultado.Add($"1HAB|KITXXX|FECHA VALIDAR |{Helpers.ValidarPipePipe(linea)}");
-            }
+                linea = Helpers.RemplazarCaracteres(';', '|', lineaDatos);
+                linea = Helpers.TrimCamposLinea('|', linea);
+                campos = linea.Split('|').ToList();
 
+                if (campos[(campos.Count() - 1)] == "Activos")
+                {
+                    campos.Insert(8, " ");
+                }
+                linea = Helpers.ListaCamposToLinea(campos, '|');
+                resultado.Add($"1UUU| |{Helpers.ValidarPipePipe(linea)}");
+            }
+            Helpers.EscribirEnArchivo(@"C:\Users\ivanm\OneDrive\Documentos\ProyectosC\Coomeva\EjemploExtractosCartasTAC.sal", resultado);
             return resultado;
+            #endregion
         }
     }
 }

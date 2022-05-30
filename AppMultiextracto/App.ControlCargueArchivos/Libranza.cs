@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using DLL_Utilidades;
+using App.Controlnsumos;
+using System.Linq;
 
 namespace App.ControlCargueArchivos
 {
@@ -137,9 +139,96 @@ namespace App.ControlCargueArchivos
             #endregion CargueArchivoDiccionario
         }
 
+        /// <summary>
+        /// Metodo que Formatea la data para el Sal.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
-            return new List<string>();
+            #region FormatearArchivo
+            List<string> resultado = new List<string>();
+            List<string> resultadoEVB = new List<string>();
+
+            List<PosCortes> listaCortes = new List<PosCortes>();
+            string lineaDatos;
+            string canalEnMapeo = string.Empty;
+            int indiceExtracto = 0;
+
+            for (int indice = 0; indice < datosOriginales.Count(); indice++)
+            {
+                lineaDatos = datosOriginales[indice];
+
+                if (lineaDatos.Length >= 84 && lineaDatos.Substring(65, 19).Trim() == "B A N C O O M E V A")
+                {
+                    indiceExtracto = 0;
+                }
+
+                switch (indiceExtracto)
+                {
+                    case 0:
+                        canalEnMapeo = string.Empty;
+                        resultadoEVB.Clear();
+                        listaCortes.Clear();
+                        canalEnMapeo += $"1ANV|";
+                        listaCortes.Add(new PosCortes(65, 19));
+                        listaCortes.Add(new PosCortes(112, 0));
+                        canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        break;
+
+                    case 1:
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(54, 48));
+                        listaCortes.Add(new PosCortes(109, 0));
+                        canalEnMapeo += $"|{Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos)}";
+                        canalEnMapeo += $"|KITXXX";
+                        resultado.Add($"{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                        canalEnMapeo = string.Empty;
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(0, 87));
+                        canalEnMapeo = $"1EVA|{Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos)}";
+                        resultado.Add($"{Helpers.ValidarPipePipe(canalEnMapeo)}");
+
+                        canalEnMapeo = string.Empty;
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(88, 0));
+                        canalEnMapeo = $"1EVB|{Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos)}";
+                        resultadoEVB.Add($"{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        break;
+                    case 7:
+                        canalEnMapeo = string.Empty;
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(0, 87));
+                        canalEnMapeo = $"1EVA|{Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos)}";
+                        resultado.Add($"{Helpers.ValidarPipePipe(canalEnMapeo)}");
+
+                        canalEnMapeo = string.Empty;
+                        listaCortes.Clear();
+                        listaCortes.Add(new PosCortes(88, 0));
+                        canalEnMapeo = $"1EVB|{Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos)}";
+                        resultadoEVB.Add($"{Helpers.ValidarPipePipe(canalEnMapeo)}");
+
+                        resultado.AddRange(resultadoEVB);
+                        resultadoEVB.Clear();
+                        break;
+
+                    default:
+
+                        resultado.Add($"1VDE|{Helpers.ValidarPipePipe(lineaDatos)}");
+                        break;
+                }
+
+                indiceExtracto++;
+            }
+
+            return resultado;
+            #endregion
         }
     }
 }

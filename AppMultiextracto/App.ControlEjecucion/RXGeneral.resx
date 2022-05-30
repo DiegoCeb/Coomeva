@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ErrorNumCorte" xml:space="preserve">
+    <value>Los dos últimos dígitos del número de la orden no corresponden a ningún corte de Coomeva, por favor verifique e intenten de nuevo.</value>
+  </data>
+  <data name="ErrorTamañoNumOrden" xml:space="preserve">
+    <value>El tamaño de caracteres del numero de la orden es incorrecto, el número de orden debe ser de 10 caracteres, por favor verifique y vuelva a intentar procesar.</value>
+  </data>
   <data name="TitulosHistoricoCantidades" xml:space="preserve">
     <value>CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXX|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|Extractos|HojasEstadoCuentaSimplex|HojasEstadoCuentaDuplex|HojasViviendaSimplex|HojasViviendaDuplex|HojasDespositosSimplex|HojasDespositosDuplex|ExtractosVisa|ExtractosMaster|CartasSOAT|CartasAsocHabeasData|CartasCobrosHabeasData|ActivacionProtecciones|ExtractosPlanPagosLibranza|ExtractosCreditoRotativo|ExtractosMicroCredito|Fiducoomeva</value>
   </data>

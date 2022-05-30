@@ -148,9 +148,24 @@ namespace App.ControlCargueArchivos
             #endregion Dispose
         }
 
+        /// <summary>
+        /// Metodo que Formatea la data para el Sal.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
-            return new List<string>();
+            #region FormatearArchivo
+            List<string> resultado = new List<string>();
+            string linea;
+            foreach (var lineaDatos in datosOriginales)
+            {
+                linea = Helpers.TrimCamposLinea('|', lineaDatos);
+                resultado.Add($"1CCH| |{Helpers.ValidarPipePipe(linea)}");
+            }
+            //Helpers.EscribirEnArchivo(@"C:\Users\ivanm\OneDrive\Documentos\ProyectosC\Coomeva\EjemploExtractosCartasCobranzaHabeasData.sal", resultado);
+            return resultado; 
+            #endregion
         }
     }
 }
