@@ -9,6 +9,7 @@ using App.Controlnsumos;
 using System.IO;
 using App.Variables;
 using App.ControlWebServiceZonificacion;
+using DLL_GenradorDocOne;
 
 
 namespace App.ControlEjecucion
@@ -42,8 +43,7 @@ namespace App.ControlEjecucion
             }
             catch (Exception ex)
             {
-                MensajeError = ex.Message;
-                Utilidades.EscribirLog(MensajeError, Utilidades.LeerAppConfig("RutaLog"));
+                Helpers.EscribirLogVentana(ex.Message);
                 return false;
             }
 
@@ -73,8 +73,7 @@ namespace App.ControlEjecucion
 
                 if (resultado == "1")
                 {
-                    MensajeError = $"El siguiente archivo {Path.GetFileName(archivo)} no se reconoce dentro de los nombres configurados para el proceso.";
-                    Utilidades.EscribirLog(MensajeError, Utilidades.LeerAppConfig("RutaLog"));
+                    Helpers.EscribirLogVentana($"El siguiente archivo {Path.GetFileName(archivo)} no se reconoce dentro de los nombres configurados para el proceso.");
                     return false;
                 }
 
@@ -311,8 +310,7 @@ namespace App.ControlEjecucion
             }
             catch (Exception ex)
             {
-                MensajeError = ex.Message;
-                Utilidades.EscribirLog(MensajeError, Utilidades.LeerAppConfig("RutaLog"));
+                Helpers.EscribirLogVentana(ex.Message);
                 return false;
             }            
         }
@@ -344,19 +342,13 @@ namespace App.ControlEjecucion
                 }
                 else
                 {
-                    Console.WriteLine(RXGeneral.ErrorNumCorte);
-                    Utilidades.EscribirLog(RXGeneral.ErrorNumCorte, Utilidades.LeerAppConfig("RutaLog"));
-                    System.Threading.Thread.Sleep(2000);
-                    Environment.Exit(1);
+                    Helpers.EscribirLogVentana(RXGeneral.ErrorNumCorte, true);
                 }
 
             }
             else
             {
-                Console.WriteLine(RXGeneral.ErrorTamañoNumOrden);
-                Utilidades.EscribirLog(RXGeneral.ErrorNumCorte, Utilidades.LeerAppConfig("RutaLog"));
-                System.Threading.Thread.Sleep(2000);
-                Environment.Exit(1);
+                Helpers.EscribirLogVentana(RXGeneral.ErrorTamañoNumOrden, true);
             }
 
             return corte; 
@@ -521,6 +513,151 @@ namespace App.ControlEjecucion
             #endregion
 
             InsertarDatosHistoCantidades(Utilidades.LeerAppConfig("RutaLogCantidades"), false, nuevaLineaCantidades);
+        }
+
+        public void CargueProcesoDigital(string procesos, string codigoCliente, string codigoProceso, string codigoCourier, string parametros, bool pdfCliente, string basedelProceso, string clienteDoc1, string productoDoc1, string tipoSalidaDoc1)
+        {
+            GenerarSalidasDoc1(clienteDoc1, productoDoc1, tipoSalidaDoc1);
+
+            string nombreJrn = string.Empty;
+            string archivoJrn = string.Empty;
+            string nombrePs = string.Empty;
+
+            nombreJrn = (from file in Directory.GetFiles(Path.GetDirectoryName(RutaBaseDelta), "*.jrn")
+                         where Path.GetExtension(file).ToLower() == ".jrn"
+                         select Path.GetFileNameWithoutExtension(file)).FirstOrDefault();
+
+            archivoJrn = (from file in Directory.GetFiles(Path.GetDirectoryName(RutaBaseDelta), "*.jrn")
+                          where Path.GetExtension(file).ToLower() == ".jrn"
+                          select file).FirstOrDefault();
+
+            nombrePs = (from file in Directory.GetFiles(Path.GetDirectoryName(RutaBaseDelta), "*.ps")
+                        where Path.GetExtension(file).ToLower() == ".ps"
+                        select Path.GetFileNameWithoutExtension(file)).FirstOrDefault();
+
+            Helpers.MoverArchivosExtension(Path.GetDirectoryName(RutaBaseDelta), "*.jrn", Utilidades.LeerAppConfig("RutaVaultDownload"));
+            Helpers.MoverArchivosExtension(Path.GetDirectoryName(RutaBaseDelta), "*.ps", Utilidades.LeerAppConfig("RutaVaultDownload"));
+            Helpers.MoverArchivosCondicionados(Utilidades.LeerAppConfig("RutaVaultDownload"), "*.jrn", Utilidades.LeerAppConfig("RutaVaultFinal"), nombreJrn);
+            Helpers.MoverArchivosCondicionados(Utilidades.LeerAppConfig("RutaVaultDownload"), "*.ps", Utilidades.LeerAppConfig("RutaVaultFinal"), nombrePs);
+
+            IniciarSalidasZonificadas(procesos, archivoJrn, codigoCliente, codigoProceso, codigoCourier, parametros, pdfCliente, basedelProceso);
+        }
+
+        public void IniciarSalidasZonificadas(string nombreProceso, string archivoCargue, string codigoCliente, string codigoProceso, string codigoCourier, string parametros, bool pdfCliente, string basedelProceso)
+        {
+            #region Iniciar Salidas Zonificadas
+            string nombreCarpeta = Utilidades.LeerAppConfig("RutaFtp") + "/" + nombreProceso + " - " + DateTime.Now.ToShortDateString().Replace("/", "") + "_" + DateTime.Now.Second;
+
+            // Ftp Delta
+            ClaseFtp ClaseFtpDelta = new ClaseFtp(Utilidades.LeerAppConfig("FtpDireccionDelta"),
+                                             Convert.ToInt16(Utilidades.LeerAppConfig("FtpPuertoDelta")),
+                                             Utilidades.LeerAppConfig("FtpUsuarioDelta"),
+                                             Utilidades.LeerAppConfig("FtpClaveDelta"));
+
+            if (ClaseFtpDelta.CrearcarpetaFtpDelta(nombreCarpeta))
+            {
+                //carpeta creada correctamente
+                if (ClaseFtpDelta.CargarArchivoFtpDelta(archivoCargue, nombreCarpeta + "/" + Path.GetFileName(archivoCargue)))
+                {
+                    //se crea la orden de servicio
+                    Orden = Helpers.CrearOrdenServicio(codigoCliente, codigoProceso);
+
+                    //se realiza zonificacion
+                    string estado = Helpers.RealizarSalidasZonificadas(Orden, nombreProceso, codigoCourier, codigoCliente, codigoProceso, parametros, "2", nombreCarpeta + "/" + Path.GetFileName(archivoCargue));
+
+                    //verifica si ya termino el proceso
+                    while (estado != "finalizado")
+                    {
+                        estado = Helpers.ValidarOrden(Orden).ToLower();
+                    }
+
+                    Helpers.EscribirLogVentana("Se genera correctamente el proceso...");
+
+                    if (Convert.ToBoolean(pdfCliente))
+                    {
+                        #region Cargar Pdfs de cliente a adjuntos en linea
+                        string archivosMail = Utilidades.LeerAppConfig("RutaFtpMail") + "/" + Orden + "_adicional";
+
+                        ClaseFtpDelta.CrearcarpetaFtpDelta(archivosMail);
+
+                        foreach (var item in Directory.GetFiles(Path.GetDirectoryName(basedelProceso) ?? throw new InvalidOperationException()))
+                        {
+                            if (Path.GetExtension(item).ToLower() == ".pdf")
+                            {
+                                ClaseFtpDelta.CargarArchivoFtpDelta(item, archivosMail + "/" + Path.GetFileName(item));
+                            }
+                        }
+
+                        Helpers.EscribirLogVentana("Termina la carga de los PDFs...");
+                        #endregion
+                    }
+
+                    File.Create(Path.GetDirectoryName(Path.GetDirectoryName(archivoCargue)) + "\\" + Orden + ".txt");
+
+                    Helpers.EscribirLogVentana("Termina Zonificacion por DELTA");
+                }
+                else
+                {
+                    Helpers.EscribirLogVentana("Error al momento de cargar la base DELTA");
+                }
+            }
+            else
+            {
+                Helpers.EscribirLogVentana("Error al momento de crear la carpeta para la base DELTA");
+            }
+            #endregion
+        }
+
+        public void GenerarSalidasDoc1(string clienteDoc1, string productoDoc1, string tipoSalidaDoc1)
+        {
+            #region Generar Salida DOC1 (PDF - PS)
+
+            string Busqueda = string.Empty;
+
+            Busqueda = RutaBaseDelta;
+
+            foreach (var archivo in Directory.GetFiles(Busqueda, "*.sal"))
+            {
+                string nombre = Path.GetFileNameWithoutExtension(archivo);
+                if (nombre.Contains("guias"))
+                {
+                    continue;
+
+                }
+                string estado = GeneradorArchivos.Procesar_Sal(LLenarParametros(), archivo, clienteDoc1, productoDoc1, tipoSalidaDoc1, Busqueda);
+
+                if (estado.Contains("1"))
+                {
+                    Helpers.EscribirLogVentana("Error en la generacion de salida Merge.", true);
+                }
+            }
+            #endregion
+        }
+
+        public static string[] LLenarParametros()
+        {
+            #region LLenar Parametros
+
+            string[] Resultado = new string[15];
+
+            Resultado[0] = @Utilidades.LeerAppConfig("RutaHips");
+            Resultado[1] = @Utilidades.LeerAppConfig("RutaDoc1Log");
+            Resultado[2] = @Utilidades.LeerAppConfig("Doc1_5.5");
+            Resultado[3] = @Utilidades.LeerAppConfig("Doc1_5.6");
+            Resultado[4] = @Utilidades.LeerAppConfig("Doc1_6.0");
+            Resultado[5] = @Utilidades.LeerAppConfig("RutaTemp");
+            Resultado[6] = @Utilidades.LeerAppConfig("FileConfProductos");
+            Resultado[7] = @Utilidades.LeerAppConfig("RutaImages");
+            Resultado[8] = @Utilidades.LeerAppConfig("RutaImagesPDF");
+            Resultado[9] = @Utilidades.LeerAppConfig("RutaImagesAFP");
+            Resultado[10] = @Utilidades.LeerAppConfig("RutaImagesPS");
+            Resultado[11] = @Utilidades.LeerAppConfig("RutaLookUpTable");
+            Resultado[12] = @Utilidades.LeerAppConfig("RutaDoc1Log");
+            Resultado[13] = @Utilidades.LeerAppConfig("Doc1_6.6");
+            Resultado[14] = @Utilidades.LeerAppConfig("Doc1_6.6.11");
+
+            return Resultado;
+            #endregion
         }
 
         public void Dispose()

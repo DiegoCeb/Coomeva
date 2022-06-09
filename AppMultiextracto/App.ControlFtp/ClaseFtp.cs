@@ -160,6 +160,67 @@ namespace App.ControlFtp
             #endregion
         }
 
+        public bool CrearcarpetaFtpDelta(string nombreCarpeta)
+        {
+            #region Crea carpetas en DELTA
+            try
+            {
+                Conexion.CreateDirectory(nombreCarpeta);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            #endregion
+        }
+
+        public bool CargarArchivoFtpDelta(string rutaOriginal, string rutaFtp)
+        {
+            #region Carga Archivo al FTP
+            try
+            {
+                FileStream archivoCargar = new FileStream(rutaOriginal, FileMode.Open, FileAccess.ReadWrite);
+                
+                Conexion.UploadFile(archivoCargar, rutaFtp);
+                return true;
+            }
+            catch 
+            {
+                return false;
+            }
+            #endregion
+        }
+
+        public bool DescargarArchivosFtpDelta(string rutaFtpDelta, string rutaDescarga)
+        {
+            #region DescargaArchivos de un FTP.
+            try
+            {
+                IEnumerable<SftpFile> archivosCarpetaDelta = Conexion.ListDirectory(rutaFtpDelta);
+                foreach (SftpFile archvoFtp in archivosCarpetaDelta)
+                {
+                    if (!archvoFtp.Name.ToLower().Contains("guias") && !archvoFtp.Name.ToLower().Contains("ordenamiento"))
+                    {
+                        continue;
+                    }
+
+                    using (FileStream fs = new FileStream(rutaDescarga + "\\" + archvoFtp.Name, FileMode.Create))
+                    {
+                        Conexion.DownloadFile(archvoFtp.FullName, fs);
+                        fs.Flush();
+                        fs.Close();
+                    }
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            #endregion
+        }
+
         public void Dispose()
         {
             // Dispose of unmanaged resources.

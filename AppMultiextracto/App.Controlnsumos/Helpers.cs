@@ -6,6 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 using Excel;
+using ICSharpCode.SharpZipLib;
+using Starksoft.Aspen.GnuPG;
+using DLL_Utilidades;
+using DLL_ServicioDelta;
+using DLL_ServicioDelta.wsDelta;
 
 namespace App.Controlnsumos
 {
@@ -390,7 +395,197 @@ namespace App.Controlnsumos
             #endregion
         }
 
+        public static void MoverArchivosExtension(string RutaEntrada, string Extension, string RutaSalida)
+        {
+            #region Mover Archivos
+            try
+            {
+                foreach (var _Archivo in Directory.GetFiles(RutaEntrada, Extension))
+                {
+                    File.Copy(_Archivo, RutaSalida + "\\" + Path.GetFileName(_Archivo));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utilidades.EscribirLog(ex.Message, Utilidades.LeerAppConfig("RutaLog"));
+                throw;
+            }
+            #endregion
+        }
 
+        public static void MoverArchivosCondicionados(string RutaEntrada, string Extension, string RutaSalida, string CondicionNomre)
+        {
+            #region Mover Archivos
+            try
+            {
+                foreach (var _Archivo in Directory.GetFiles(RutaEntrada, Extension))
+                {
+                    if (Path.GetFileNameWithoutExtension(_Archivo).Contains(CondicionNomre))
+                    {
+                        File.Move(_Archivo, RutaSalida + "\\" + Path.GetFileName(_Archivo));
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utilidades.EscribirLog(ex.Message, Utilidades.LeerAppConfig("RutaLog"));
+                throw;
+            }
+            #endregion
+        }
+
+        public static void MoverArchivos(string RutaEntrada, string RutaSalida)
+        {
+            #region Mover Archivos
+            try
+            {
+                foreach (var _Archivo in Directory.GetFiles(RutaEntrada))
+                {
+                    File.Move(_Archivo, RutaSalida + "\\" + Path.GetFileName(_Archivo));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utilidades.EscribirLog(ex.Message, Utilidades.LeerAppConfig("RutaLog"));
+                throw;
+            }
+            #endregion
+        }
+        /// <summary>
+        /// Metodo que se encarga de validar si la orden de servicio termino de procesar.
+        /// </summary>
+        /// <param name="orden">Orden a verificar</param>
+        /// <returns>Regresa el estado en el que se encuentra la orden.</returns>
+        public static string ValidarOrden(string orden)
+        {
+            #region Valida Orden de Servicio
+            try
+            {
+                string[] parametros = new string[3];
+
+                parametros[0] = Utilidades.LeerAppConfig("UserWebService");
+                parametros[1] = Utilidades.Base64Encode(Utilidades.LeerAppConfig("Password"));
+                parametros[2] = orden;
+
+                System.Threading.Thread.Sleep(3000);
+
+                string estado = ServicioDelta.ValidarEstadoOrden(parametros).First().estadoCargue;
+
+                return estado;
+            }
+            catch (Exception ex)
+            {
+                Utilidades.EscribirLog(ex.Message, Utilidades.LeerAppConfig("RutaLog"));
+                throw;
+            }
+            #endregion
+        }
+
+        public static string CrearOrdenServicio(string cliente, string proyecto)
+        {
+            #region CreaOrdenServicio
+            try
+            {
+                string[] parametros = new string[4];
+
+                parametros[0] = Utilidades.LeerAppConfig("UserWebService");
+                parametros[1] = Utilidades.Base64Encode(Utilidades.LeerAppConfig("Password"));
+                parametros[2] = cliente;
+                parametros[3] = proyecto;
+
+                string ordenServicio = ServicioDelta.CrearOrdenServicio(parametros).ordenServicio;
+
+                return ordenServicio;
+            }
+            catch (Exception ex)
+            {
+                EscribirLogVentana("ERROR " + ex.Message);
+                throw;
+            }
+            #endregion
+        }
+
+        public static string RealizarSalidasZonificadas(string ordenServicio, string nombreProceso, string courier, string cliente, string proyecto, string codigoParametro, string tipoCargue, string rutaArchivo)
+        {
+            #region Salidas Zonificadas
+            string[] parametros = new string[12];
+
+            parametros[0] = Utilidades.LeerAppConfig("UserWebService");                        // Usuario delta
+            parametros[1] = Utilidades.Base64Encode(Utilidades.LeerAppConfig("Password"));     // Paswword delta
+            parametros[2] = ordenServicio;                                                     // Orden Servicio
+            parametros[3] = courier;                                                           // Courrier
+            parametros[4] = cliente;                                                           // Codigo Cliente  
+            parametros[5] = proyecto;                                                          // Codigo Proceso
+            parametros[6] = DateTime.Now.ToString("yyyy-MM-dd");                               // FechaCorte
+            parametros[7] = codigoParametro;                                                   // Parametros
+            parametros[8] = "astrid.nino@carvajal.com";                                        // Envio Mail Salidas
+            parametros[9] = rutaArchivo;                                                       // Ruta FTP
+            parametros[10] = Path.GetFileName(rutaArchivo);                                    // Nombre Archivo
+            parametros[11] = "";                                                               // Archivo Base64
+
+            procPredStruct[] resultadoDelta = ServicioDelta.SalidaZonificada(parametros);
+
+            return resultadoDelta.Last().estadoCargue;
+            #endregion
+        }
+
+        public static void DesencriptarArchivos(string ArchivosFordecrypt, string llave)
+        {
+            try
+            {
+                Gpg ArchivoEncriptado = new Gpg(@"\\172.19.37.10\proyectos\Ingenieria\Diego\GNU\GnuPG\gpg2.exe");
+                ArchivoEncriptado.Recipient = "<" + llave + ">";
+                ArchivoEncriptado.Passphrase = "Carvajal2012.";
+                string EncryptedFile = ArchivosFordecrypt;
+                string NombreArchivo = Path.GetFileNameWithoutExtension(EncryptedFile);
+                string UnencryptedFile = Path.GetDirectoryName(EncryptedFile) + "\\" + NombreArchivo;
+                var ArchivoDesencriptado = DecryptFile(EncryptedFile, UnencryptedFile, ArchivoEncriptado);
+                if (ArchivoDesencriptado == null)
+                {
+                    EscribirLogVentana("Error al momento de desencriptar el archivo: " + NombreArchivo);
+                }
+            }
+            catch (Exception ex)
+            {
+                EscribirLogVentana(ex.Message);
+            }
+
+        }
+
+        public static FileInfo DecryptFile(string encryptedSourceFile, string decryptedFile, Gpg gpg)
+        {
+            try
+            {
+                // Mirara si el archivo encriptado viene en blanco
+                if (string.IsNullOrEmpty(encryptedSourceFile))
+                    throw new ArgumentException("encryptedSourceFile Parámetro está vacío o nulo", "encryptedSourceFile");
+                // Mirara si el archivo desencriptado viene en blanco
+                if (string.IsNullOrEmpty(decryptedFile))
+                    throw new ArgumentException("decryptedFile Parámetro está vacío o nulo", "decryptedFile");
+
+                FileStream encryptedSourceFileStream = new FileStream(encryptedSourceFile, FileMode.Open, FileAccess.Read);
+                // Se asegura de que estamos al inicio del archivo.
+                encryptedSourceFileStream.Position = 0;
+                FileStream decryptedFileStream = new FileStream(decryptedFile, FileMode.Create, FileAccess.Write);
+
+                // Metodo que desencripta el archivo
+                gpg.Decrypt(encryptedSourceFileStream, decryptedFileStream);
+                //Cerrar stream
+                encryptedSourceFileStream.Close();
+                decryptedFileStream.Close();
+                //retorna el archivo desencriptado.
+                return new FileInfo(decryptedFile);
+            }
+            catch (Exception ex)
+            {
+                //EscribirLog(ex.Message);
+                return null;
+            }
+        }
         public static void EscribirEnArchivo(string ruta, List<string> listado)
         {
             if (File.Exists(ruta))
@@ -417,6 +612,23 @@ namespace App.Controlnsumos
                 }
 
                 escritor.Close();
+            }
+        }
+
+        public static void EscribirLogVentana(string mensaje, bool finalizaProceso = false)
+        {
+            if (!string.IsNullOrEmpty(mensaje))
+            {
+                Console.WriteLine(mensaje);
+                Utilidades.EscribirLog(mensaje, Utilidades.LeerAppConfig("RutaLog"));
+            }
+                        
+            if (finalizaProceso)
+            {
+                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
+                Console.WriteLine("Presione una tecla para cerrar...");
+                Console.ReadKey();
+                Environment.Exit(1);
             }
         }
     }

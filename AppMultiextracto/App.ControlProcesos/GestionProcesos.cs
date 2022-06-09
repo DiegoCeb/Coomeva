@@ -31,9 +31,7 @@ namespace App.ControlProcesos
 
             //if (!_objProceso.DescargaArchivos())
             //{
-            //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
-            //    System.Threading.Thread.Sleep(2000);
-            //    Environment.Exit(1);
+            //    Helpers.EscribirLogVentana(null);
             //}
 
             Console.WriteLine("");
@@ -42,9 +40,7 @@ namespace App.ControlProcesos
 
             if (!_objProceso.VerificacionArchivosEntrada())
             {
-                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
-                System.Threading.Thread.Sleep(2000);
-                Environment.Exit(1);
+                Helpers.EscribirLogVentana(null);
             }
 
             Console.WriteLine("");
@@ -62,9 +58,7 @@ namespace App.ControlProcesos
 
             //if (!_objProceso.IniciarZonificacion("Fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
             //{
-            //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
-            //    System.Threading.Thread.Sleep(2000);
-            //    Environment.Exit(1);
+            //    Helpers.EscribirLogVentana(null);
             //}
 
             //Convergencia

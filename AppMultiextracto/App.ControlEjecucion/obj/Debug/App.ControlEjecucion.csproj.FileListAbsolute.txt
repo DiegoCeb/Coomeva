@@ -28,7 +28,6 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.Control
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CoreCompileInputs.cache
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.pdb
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlEjecucion.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlEjecucion.pdb
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlFtp.dll
@@ -52,8 +51,6 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlWebServiceZonificacion.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlWebServiceZonificacion.pdb
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\DLL_ServicioDelta.pdb
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\DLL_ServicioDelta.dll.config
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CopyComplete
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.RXGeneral.resources
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.GenerateResource.cache
@@ -80,3 +77,9 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\bi
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.csproj.CopyComplete
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlEjecucion\obj\Debug\App.ControlEjecucion.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\DLL_ServicioDelta.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\DLL_ServicioDelta.pdb
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\DLL_ServicioDelta.dll.config
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\starksoft.aspen.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\starksoft.aspen.pdb
