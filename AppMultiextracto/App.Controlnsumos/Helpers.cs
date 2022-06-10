@@ -11,6 +11,8 @@ using Starksoft.Aspen.GnuPG;
 using DLL_Utilidades;
 using DLL_ServicioDelta;
 using DLL_ServicioDelta.wsDelta;
+using SharpCompress.Archives;
+using SharpCompress.Common;
 
 namespace App.Controlnsumos
 {
@@ -108,7 +110,7 @@ namespace App.Controlnsumos
                 tamañoArchivo = fileInfo.Length;
             }
 
-            return tamañoArchivo; 
+            return tamañoArchivo;
             #endregion
         }
 
@@ -141,7 +143,7 @@ namespace App.Controlnsumos
                 tamañoArchivo = 0;
             }
 
-            return tamañoArchivo; 
+            return tamañoArchivo;
             #endregion
         }
 
@@ -175,7 +177,7 @@ namespace App.Controlnsumos
                 tamañoArchivo = 0;
             }
 
-            return tamañoArchivo; 
+            return tamañoArchivo;
             #endregion
         }
 
@@ -241,7 +243,7 @@ namespace App.Controlnsumos
         {
             #region RemplazarCaracteres
             linea = linea.Replace(caracterRemplazar, caracterNuevo);
-            return linea; 
+            return linea;
             #endregion
 
         }
@@ -266,7 +268,7 @@ namespace App.Controlnsumos
                 resultado += $"{campo.Trim()}";
             }
 
-            return resultado; 
+            return resultado;
             #endregion
         }
 
@@ -315,7 +317,7 @@ namespace App.Controlnsumos
                 lineaResultado += campo;
             }
 
-            return lineaResultado; 
+            return lineaResultado;
             #endregion
 
         }
@@ -336,7 +338,7 @@ namespace App.Controlnsumos
             }
 
 
-            return lineaResultado; 
+            return lineaResultado;
             #endregion
 
         }
@@ -368,7 +370,7 @@ namespace App.Controlnsumos
                 resultado = pCampo;
             }
 
-            return resultado; 
+            return resultado;
             #endregion
         }
 
@@ -580,7 +582,7 @@ namespace App.Controlnsumos
                 //retorna el archivo desencriptado.
                 return new FileInfo(decryptedFile);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //EscribirLog(ex.Message);
                 return null;
@@ -596,7 +598,7 @@ namespace App.Controlnsumos
                     {
                         streamWriter.WriteLine(item);
                     }
-                    
+
                 }
             }
             else
@@ -622,7 +624,7 @@ namespace App.Controlnsumos
                 Console.WriteLine(mensaje);
                 Utilidades.EscribirLog(mensaje, Utilidades.LeerAppConfig("RutaLog"));
             }
-                        
+
             if (finalizaProceso)
             {
                 Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
@@ -630,6 +632,97 @@ namespace App.Controlnsumos
                 Console.ReadKey();
                 Environment.Exit(1);
             }
+        }
+
+        /// <summary>
+        /// Metodo encargado de descomprimir archivos, en este caso guias.
+        /// </summary>
+        /// <param name="archivos">Archivos a descomprimir</param>
+        public static void DescomprimirGuias(string[] archivos)
+        {
+            #region Descomprimir Archivos
+            foreach (string archivo in archivos)
+            {
+                string extension = Path.GetExtension(archivo);
+                string nombre = Path.GetFileNameWithoutExtension(archivo);
+
+                if (nombre == null || (extension == null) ||
+                                       (extension.ToLower() != ".rar"))
+                    continue;
+                string ruta = archivo;
+
+                IArchive iArchivo = ArchiveFactory.Open(ruta);
+
+                ExtractionOptions opcionesDeExtraccion = new ExtractionOptions { Overwrite = true };
+
+                foreach (IArchiveEntry item in iArchivo.Entries)
+                {
+                    if (!item.IsDirectory)
+                    {
+                        item.WriteToFile(Path.GetDirectoryName(archivo) + "\\" + nombre.Replace(".rar", ""), opcionesDeExtraccion);
+                    }
+                }
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rutaGuias"></param>
+        /// <param name="poscicion"></param>
+        /// <param name="canal"></param>
+        public static void CargarGuias(string[] rutaGuias, int poscicion, string canal)
+        {
+            #region CargarGuias
+            foreach (string archivo in rutaGuias)
+            {
+                string nombreArchivo = Path.GetFileNameWithoutExtension(archivo);
+                string extension = Path.GetExtension(archivo);
+
+                if (nombreArchivo != null && (extension != null && (extension.ToLower() == ".sal" && nombreArchivo.Contains("guias"))))
+                {
+                    Variables.Variables.Lector = new StreamReader(archivo, Encoding.Default);
+                    Dictionary<string, string> dicGuiasTemp = new Dictionary<string, string>();
+                    string Linea = string.Empty;
+                    string[] Separador = null;
+
+                    while ((Linea = Variables.Variables.Lector.ReadLine()) != null)
+                    {
+                        if (Linea.Substring(0, 4) == canal)
+                        {
+                            Separador = Linea.Split('|');
+
+                            if (!dicGuiasTemp.ContainsKey(Separador[poscicion].Trim()))
+                            {
+                                if (Separador[poscicion].Trim() == "")
+                                {
+                                    if (!dicGuiasTemp.ContainsKey(Separador[poscicion].Trim()))
+                                    {
+                                        dicGuiasTemp.Add(Separador[poscicion].Trim(), Separador[1]);
+                                    }
+                                }
+                                else
+                                {
+                                    dicGuiasTemp.Add(Separador[poscicion].Trim(), Separador[1]);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+
+                    if (!Variables.Variables.DicGuias.ContainsKey(nombreArchivo))
+                    {
+                        Variables.Variables.DicGuias.Add(nombreArchivo, dicGuiasTemp);
+                    }
+
+                    Variables.Variables.Lector.Close();
+                }
+            }
+            #endregion
         }
     }
 
@@ -640,7 +733,7 @@ namespace App.Controlnsumos
 
         public PosCortes(Int32 posInicial, Int32 cantidad)
         {
-            this.PosInicial = posInicial;  
+            this.PosInicial = posInicial;
             this.Cantidad = cantidad;
         }
 

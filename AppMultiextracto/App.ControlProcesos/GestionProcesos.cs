@@ -31,16 +31,20 @@ namespace App.ControlProcesos
 
             //if (!_objProceso.DescargaArchivos())
             //{
-            //    Helpers.EscribirLogVentana(null);
+            //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
+            //    System.Threading.Thread.Sleep(2000);
+            //    Environment.Exit(1);
             //}
 
-            Console.WriteLine("");
-            Console.WriteLine("---Descargue Correcto de Archivos");
-            Console.WriteLine("");
+            //Console.WriteLine("");
+            //Console.WriteLine("---Descargue Correcto de Archivos");
+            //Console.WriteLine("");
 
             if (!_objProceso.VerificacionArchivosEntrada())
             {
-                Helpers.EscribirLogVentana(null);
+                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
+                System.Threading.Thread.Sleep(2000);
+                Environment.Exit(1);
             }
 
             Console.WriteLine("");
@@ -56,10 +60,18 @@ namespace App.ControlProcesos
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
 
-            //if (!_objProceso.IniciarZonificacion("Fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
+            //Console.WriteLine("Cambie los datos de la base para pruebas");
+            //Console.ReadKey();
+
+            //if (!_objProceso.IniciarZonificacion("fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
             //{
-            //    Helpers.EscribirLogVentana(null);
+            //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo (IniciarZonificacion)");
+            //    System.Threading.Thread.Sleep(2000);
+            //    Environment.Exit(1);
             //}
+
+            //Console.WriteLine("termino zonificacion revise antes de convergencia");
+            //Console.ReadKey();
 
             //Convergencia
             _ = new Convergencia();
@@ -113,7 +125,7 @@ namespace App.ControlProcesos
             InsumosCarga.Add("MUESTRAS", typeof(Muestras));
             InsumosCarga.Add("PLANOBENEFICIOSESTADOCUENTA", typeof(PlanoBeneficiosEstadoCuenta));
             InsumosCarga.Add("PAPEXTSUBV", typeof(Libranza));
-            InsumosCarga.Add("R99TODOSXX", typeof(EstadoCuentaExAsociados));
+            InsumosCarga.Add("R99TODOSXX", typeof(EstadoCuenta));
             InsumosCarga.Add("EXTRACTO_ROTATIVO", typeof(ExtractosRotativo));
             InsumosCarga.Add("BASE_ACTIVOS_TAC", typeof(CartasTAC));
             InsumosCarga.Add("BASE_INACTIVOS_TAC", typeof(CartasTAC));
@@ -194,6 +206,7 @@ namespace App.ControlProcesos
                     Console.WriteLine("Ingrese el numero de orden del proceso:");
                     Console.WriteLine("");
                     NumeroOrdenProceso = Console.ReadLine();
+                    Orden = NumeroOrdenProceso;
                     Console.WriteLine("");
                     Ejecutar();
                     break;

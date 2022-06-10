@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.IO;
+using App.Controlnsumos;
 
 namespace App.ControlEjecucion
 {
@@ -14,6 +16,7 @@ namespace App.ControlEjecucion
     public class Convergencia : IConvergencia
     {
         private bool _disposed = false;
+        private string RutaSalidaProceso = string.Empty;
 
         /// <summary>
         /// 
@@ -23,10 +26,142 @@ namespace App.ControlEjecucion
             #region Convergencia
             LlenarEstructuraDatosBeneficios();
             Formatear(Variables.Variables.DiccionarioExtractos);
-            //ordenar el extracto final
-            //Separar por data fisica
+            RutaSalidaProceso = Directory.CreateDirectory($@"{Path.GetDirectoryName(Variables.Variables.RutaBaseDelta)}\Impresion").FullName;
+            OrdenarExtractoFinal();
+            //Dispose();
+            #endregion
+        }
 
-            Dispose();
+        private void OrdenarExtractoFinal()
+        {
+            #region OrdenarExtractoFinal
+            //Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320220510_20220607\1320220510";
+            Helpers.DescomprimirGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta));
+            Helpers.CargarGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta), Convert.ToInt16(DLL_Utilidades.Utilidades.LeerAppConfig("CampoCrucePDF")), "1AAA");
+
+            foreach (var guias in Variables.Variables.DicGuias)
+            {
+                foreach (var ordenImpresion in guias.Value)
+                {
+                    if (guias.Key.ToLower().Contains("bogota"))
+                    {
+                        ProcesarUnificado(ordenImpresion.Key, guias.Key.Split('_').ElementAt(1), ordenImpresion.Value);
+                    }
+                    else
+                    {
+                        ProcesarPlantas(ordenImpresion.Key, guias.Key.Split('_').ElementAt(1), ordenImpresion.Value);
+                    }
+                }
+            } 
+            #endregion
+        }
+
+        private void ProcesarPlantas(string pCedula, string pRegional, string pConsecutivo)
+        {
+            #region ProcesarPlantas
+            if (Variables.Variables.DiccionarioExtractosFormateados.ContainsKey(pCedula))
+            {
+                string RutaSalidaProcesoFisico = Directory.CreateDirectory($@"{RutaSalidaProceso}\{pRegional}").FullName;
+
+                var tipoExtracto = Variables.Variables.DiccionarioExtractosFormateados[pCedula];
+
+                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}";
+
+                if (tipoExtracto.Count == 1)
+                {
+                    if (tipoExtracto.FirstOrDefault().Key == "Fisico")
+                    {
+                        var paqueteExtracto = tipoExtracto["Fisico"];
+                        bool extractoEscrito = false;
+                        bool InicioEnPaquete = false;
+
+                        foreach (var extracto in paqueteExtracto)
+                        {
+                            extractoEscrito = false;
+
+                            for (int i = 0; i <= 4; i++)
+                            {
+                                var producto = (OrdenExtracto)i;
+
+                                if (producto.ToString() == extracto.Key)
+                                {
+                                    if (!InicioEnPaquete)
+                                    {
+                                        extracto.Value.Insert(0, CanalInicio);
+                                        InicioEnPaquete = true;
+                                    }
+
+                                    Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoFisico}\{Variables.Variables.Orden}_{pRegional}_MultiExtracto.sal", extracto.Value);
+                                    extractoEscrito = true;
+                                    break;
+                                }
+                            }
+
+                            if (!extractoEscrito)
+                            {
+                                extracto.Value.Insert(0, CanalInicio);
+                                Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoFisico}\{Variables.Variables.Orden}_{pRegional}_{extracto.Key}.sal", extracto.Value);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //No deberia entrar aca por que en teoria se zonifico solo lo fisico
+                    }
+                }
+                else
+                {
+                    //no deberia entrar aca por que una dcedula solo puede tener un tipo de envio Fisico o Virtual
+                }
+
+            }
+            else
+            {
+                //Si entra aca es por que la cedula esta sin tipo de envio ver variable CedulasSinTipoEnvio
+            }
+
+            #endregion
+        }
+
+        private void ProcesarUnificado(string pCedula, string pRegional, string pConsecutivo)
+        {
+            #region ProcesarUnificado
+            if (Variables.Variables.DiccionarioExtractosFormateados.ContainsKey(pCedula))
+            {
+                string RutaSalidaProcesoFisico = Directory.CreateDirectory($@"{RutaSalidaProceso}\{pRegional}").FullName;
+
+                var tipoExtracto = Variables.Variables.DiccionarioExtractosFormateados[pCedula];
+
+                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}";
+                bool InicioEnPaquete = false;
+
+                if (tipoExtracto.Count == 1)
+                {
+                    if (tipoExtracto.FirstOrDefault().Key == "Fisico")
+                    {
+                        var paqueteExtracto = tipoExtracto["Fisico"];
+
+                        foreach (var extracto in paqueteExtracto)
+                        {
+                            if (!InicioEnPaquete)
+                            {
+                                extracto.Value.Insert(0, CanalInicio);
+                                InicioEnPaquete = true;
+                            }
+
+                            Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoFisico}\{Variables.Variables.Orden}_{pRegional}_MultiExtracto.sal", extracto.Value);
+                        }
+                    }
+                }
+                else
+                {
+                    //no deberia entrar aca por que una dcedula solo puede tener un tipo de envio Fisico o Virtual
+                }
+            }
+            else
+            {
+                //Si entra aca es por que la cedula esta sin tipo de envio ver variable CedulasSinTipoEnvio
+            } 
             #endregion
         }
 
@@ -50,7 +185,7 @@ namespace App.ControlEjecucion
 
                 foreach (var ElementosPaquete in Paquete.Value)
                 {
-                    AgregarFormateado(Paquete.Key, tipoEnvio, InvocarMetodoFormateo(ElementosPaquete.Value.TipoClase, ElementosPaquete.Value.Extracto) as List<string>);
+                    AgregarFormateado(Paquete.Key, tipoEnvio, InvocarMetodoFormateo(ElementosPaquete.Value.TipoClase, ElementosPaquete.Value.Extracto) as List<string>, ElementosPaquete.Value.TipoClase.Name);
                 }
             }
             #endregion
@@ -62,26 +197,32 @@ namespace App.ControlEjecucion
         /// <param name="pCedula"></param>
         /// <param name="pTipoEnvio"></param>
         /// <param name="pExtracto"></param>
-        private void AgregarFormateado(string pCedula, string pTipoEnvio, List<string> pExtracto)
+        private void AgregarFormateado(string pCedula, string pTipoEnvio, List<string> pExtracto, string pProducto)
         {
             #region AgregarFormateado
             if (Variables.Variables.DiccionarioExtractosFormateados.ContainsKey(pCedula))
             {
                 if (Variables.Variables.DiccionarioExtractosFormateados[pCedula].ContainsKey(pTipoEnvio))
                 {
-                    Variables.Variables.DiccionarioExtractosFormateados[pCedula][pTipoEnvio].AddRange(pExtracto);
+                    if (Variables.Variables.DiccionarioExtractosFormateados[pCedula][pTipoEnvio].ContainsKey(pProducto))
+                    {
+                        Variables.Variables.DiccionarioExtractosFormateados[pCedula][pTipoEnvio][pProducto].AddRange(pExtracto);
+                    }
+                    else
+                    {
+                        Variables.Variables.DiccionarioExtractosFormateados[pCedula][pTipoEnvio].Add(pProducto, pExtracto);
+                    }
                 }
                 else
                 {
-                    //Cedula que tiene envio fisico y mail ???
-                    Variables.Variables.DiccionarioExtractosFormateados[pCedula].Add(pTipoEnvio, pExtracto);
+                    //No deberia entrar aca Cedula que tiene envio fisico y mail ???
                 }
             }
             else
             {
-                Variables.Variables.DiccionarioExtractosFormateados.Add(pCedula, new Dictionary<string, List<string>>
+                Variables.Variables.DiccionarioExtractosFormateados.Add(pCedula, new Dictionary<string, Dictionary<string, List<string>>>
                 {
-                    { pTipoEnvio, pExtracto }
+                    { pTipoEnvio, new Dictionary<string, List<string>> { { pProducto, pExtracto } } }
                 });
             }
             #endregion
@@ -239,4 +380,17 @@ namespace App.ControlEjecucion
             #endregion
         }
     }
+
+    public enum OrdenExtracto
+    {
+        [System.ComponentModel.Description("EstadoCuenta")]
+        EstadoCuenta = 0,
+        [System.ComponentModel.Description("ExtractoAhorros")]
+        ExtractoAhorros = 1,
+        [System.ComponentModel.Description("ExtractosVivienda")]
+        ExtractosVivienda = 2,
+        [System.ComponentModel.Description("CartasTAC")]
+        CartasTAC = 3
+    }
+
 }

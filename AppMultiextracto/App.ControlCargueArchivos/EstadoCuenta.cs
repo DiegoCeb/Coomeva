@@ -291,35 +291,35 @@ namespace App.ControlCargueArchivos
             }
             #endregion
 
-            resultado.Add(ArmarCanal("1III", datosOriginales));
+            //resultado.Add(ArmarCanal("1III", datosOriginales));
 
             #region resultado.Add(ArmarCanal("1JJJ", datosOriginales));
-            result = ArmarCanal("1JJJ", datosOriginales);
+            //result = ArmarCanal("1JJJ", datosOriginales);
 
-            if (!string.IsNullOrEmpty(result))
-            {
-                resultado.Add(result);
-            }
+            //if (!string.IsNullOrEmpty(result))
+            //{
+            //    resultado.Add(result);
+            //}
             #endregion
 
             #region resultado.Add(ArmarCanal("1KKK", datosOriginales));
-            listadoDatos = from x in datosOriginales
-                           where x.Contains("Sr.Usuario") ||
-                           x.Contains("Fecha limite de pago") ||
-                           x.Contains("Tenga la tranquilidad") ||
-                           x.Contains("Si realiza su pago") ||
-                           x.Contains("** ")
-                           select x;
+            //listadoDatos = from x in datosOriginales
+            //               where x.Contains("Sr.Usuario") ||
+            //               x.Contains("Fecha limite de pago") ||
+            //               x.Contains("Tenga la tranquilidad") ||
+            //               x.Contains("Si realiza su pago") ||
+            //               x.Contains("** ")
+            //               select x;
 
-            foreach (var detalle in listadoDatos.ToList())
-            {
-                result = ArmarCanal("1KKK", datosOriginales, detalle);
+            //foreach (var detalle in listadoDatos.ToList())
+            //{
+            //    result = ArmarCanal("1KKK", datosOriginales, detalle);
 
-                if (!string.IsNullOrEmpty(result))
-                {
-                    resultado.Add(result);
-                }
-            }
+            //    if (!string.IsNullOrEmpty(result))
+            //    {
+            //        resultado.Add(result);
+            //    }
+            //}
             #endregion
 
             resultado.Add(ArmarCanal("1PR2", datosOriginales));
@@ -363,6 +363,11 @@ namespace App.ControlCargueArchivos
                     #region 1AAA
                     CedulaProceso = pDatos.ElementAt(1).Substring(80, 14).Trim();
 
+                    if (CedulaProceso == "35199646")
+                    {
+
+                    }
+
                     listaCortes.Add(new PosCortes(11, 40));
                     listaCortes.Add(new PosCortes(0, 11));
 
@@ -374,6 +379,10 @@ namespace App.ControlCargueArchivos
                         indiceDatoBuscado = pDatos.FindIndex(x => x == condicionBusqueda);
 
                         cuentaAhorro = pDatos.ElementAt(indiceDatoBuscado + 4);
+                    }
+                    else
+                    {
+                        cuentaAhorro = " ";
                     }
                     #endregion
 
@@ -395,7 +404,14 @@ namespace App.ControlCargueArchivos
 
                     if (!string.IsNullOrEmpty(condicionBusqueda))
                     {
-                        fechaOtrasEntidades = condicionBusqueda.Substring(40);
+                        if (condicionBusqueda.Length > 40)
+                        {
+                            fechaOtrasEntidades = condicionBusqueda.Substring(40);
+                        }
+                        else
+                        {
+                            fechaOtrasEntidades = " ";
+                        }
                     }
 
                     condicionBusqueda = (from x in pDatos where x.Contains("Fecha limite de pago en cajeros automaticos Servibanca") select x).FirstOrDefault();
@@ -403,6 +419,10 @@ namespace App.ControlCargueArchivos
                     if (!string.IsNullOrEmpty(condicionBusqueda))
                     {
                         fechaServibanca = condicionBusqueda.Substring(55);
+                    }
+                    else
+                    {
+                        fechaServibanca = " ";
                     }
 
                     referencia = pDatos.ElementAt(pDatos.Count - 1).Split('(').ElementAt(2).Substring(5);
@@ -448,7 +468,14 @@ namespace App.ControlCargueArchivos
 
                     if (!string.IsNullOrEmpty(condicionBusqueda))
                     {
-                        fechaBancoomeva = condicionBusqueda.Substring(41);
+                        if (condicionBusqueda.Length > 41)
+                        {
+                            fechaBancoomeva = condicionBusqueda.Substring(41);
+                        }
+                        else
+                        {
+                            fechaBancoomeva = " ";
+                        }
                     }
 
                     #endregion
@@ -703,7 +730,7 @@ namespace App.ControlCargueArchivos
                     break;
             }
 
-            return resultado;
+            return Helpers.ValidarPipePipe(resultado);
             #endregion
         }
 
