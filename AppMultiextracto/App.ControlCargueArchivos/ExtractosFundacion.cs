@@ -156,7 +156,7 @@ namespace App.ControlCargueArchivos
 
             foreach (var linea in datosOriginales)
             {
-                resultado.Add($"1MIC|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                resultado.Add($"1MIC| |{Helpers.ValidarPipePipe(linea)}");
             }
 
             return resultado;

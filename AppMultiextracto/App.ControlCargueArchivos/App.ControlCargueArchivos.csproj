@@ -53,7 +53,6 @@
     <Compile Include="CartasTAC.cs" />
     <Compile Include="Diccionario.cs" />
     <Compile Include="EstadoCuenta.cs" />
-    <Compile Include="EstadoCuentaExAsociados.cs" />
     <Compile Include="Etiquetas.cs" />
     <Compile Include="ExtractoAhorros.cs" />
     <Compile Include="ExtractosFundacion.cs" />
@@ -79,6 +78,9 @@
       <Project>{7843c729-32d9-4ef8-8b20-c699fe651dd2}</Project>
       <Name>App.Variables</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
