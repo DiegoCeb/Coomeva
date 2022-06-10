@@ -33,7 +33,7 @@ namespace App.ControlEjecucion
                 {
                     objFtp.ConectarFtp();
 
-                    objFtp.DescargarArchivosFtp(".", Utilidades.LeerAppConfig("RutaEntrada"), ".gpg", ".pgp");
+                    objFtp.DescargarArchivosFtp("./Pruebas2022", Utilidades.LeerAppConfig("RutaEntrada"), ".gpg", ".pgp");
 
                     objFtp.DesconectarFtp();
                 }
@@ -116,6 +116,7 @@ namespace App.ControlEjecucion
             if (newObject.Name == "Etiquetas" && Path.GetFileNameWithoutExtension(pArchivo).ToUpper().Contains("I"))
             {
                 Helpers.RutaBaseMaestraFisico = GenerarBaseMaestra(pArchivo);
+                RutaBaseDelta = Helpers.RutaBaseMaestraFisico;
             }
 
             object invoke = newObject.InvokeMember(newObject.Name,
@@ -134,7 +135,7 @@ namespace App.ControlEjecucion
         public string GenerarBaseMaestra(string pArchivo)
         {
             #region GenerarBaseMaestra
-            string rutaResult = $"{Helpers.RutaProceso}\\BaseMaestra.csv";
+            string rutaResult = $"{Helpers.RutaProceso}\\BaseMaestra{DateTime.Now:yyyyMMddhhmm}.csv";
             List<string> datosBaseMaestra = new List<string>();
 
             //Encabezado
@@ -182,6 +183,8 @@ namespace App.ControlEjecucion
                                                  Convert.ToInt16(Utilidades.LeerAppConfig("FtpPuertoDelta")),
                                                  Utilidades.LeerAppConfig("FtpUsuarioDelta"),
                                                  Utilidades.LeerAppConfig("FtpClaveDelta"));
+
+                claseFTP.ConectarFtp();
 
                 switch (tipoProceso.ToLower())
                 {
@@ -254,7 +257,7 @@ namespace App.ControlEjecucion
                     case "fisico":
                         {
                             #region ZonificacionFisica
-                            string nombreCarpeta = Utilidades.LeerAppConfig("RutaFtp") + "/Proceso " + tipoProceso + " - " + DateTime.Now.ToShortDateString().Replace("/", "") + "_" + DateTime.Now.Second;
+                            string nombreCarpeta = (Utilidades.LeerAppConfig("RutaFtp") + "/" + nombreProceso + " - " + DateTime.Now.ToShortDateString().Replace("/", "") + "_" + DateTime.Now.Second).Replace(" ", "");
 
                             if (claseFTP.CrearcarpetaFtp(nombreCarpeta))
                             {
@@ -262,8 +265,8 @@ namespace App.ControlEjecucion
                                 if (claseFTP.CargarArchivoFtp(RutaBaseDelta, nombreCarpeta + "/" + Path.GetFileName(RutaBaseDelta)))
                                 {
                                     //se crea la orden de servicio
-                                    Orden = ControlZonificacion.CrearOrdenServicio(Utilidades.LeerAppConfig("CodigoCliente"), Utilidades.LeerAppConfig("CodigoProceso"));
-                                    
+                                    Orden = ControlZonificacion.CrearOrdenServicio(Utilidades.LeerAppConfig("CodigoCliente"), Utilidades.LeerAppConfig("CodigoProcesoFisico"));
+                                    Console.WriteLine($"Numero Orden:{Orden}");
                                     //se realiza zonificacion
                                     string estado = ControlZonificacion.RealizarZonificacion(Orden, 
                                                                                              nombreCarpeta + "/" + Path.GetFileName(RutaBaseDelta),
@@ -284,6 +287,7 @@ namespace App.ControlEjecucion
                                     //verifica si ya termino el procesos
                                     while (estado != "finalizado")
                                     {
+                                        Console.WriteLine(estado);
                                         estado = ControlZonificacion.ValidarOrden(Orden).ToLower();
                                     }
 
@@ -299,14 +303,16 @@ namespace App.ControlEjecucion
                             }
                             else
                             {                                
-                                Utilidades.EscribirLog("Error al momento de crear la carpeta para la base DELTA", Utilidades.LeerAppConfig("RutaLog"));
+                                Utilidades.EscribirLog($"Error al momento de crear la carpeta para la base DELTA {nombreCarpeta}", Utilidades.LeerAppConfig("RutaLog"));
                             }
 
                             #endregion
-
                             break;
                         }
                 }
+
+                claseFTP.DesconectarFtp();
+
                 return true;
             }
             catch (Exception ex)
@@ -338,17 +344,17 @@ namespace App.ControlEjecucion
             {
                 corte = ObtenerNombreCorte(pNumeroOrdenProceso);
 
-                if (corte == "05" || corte == "10" || corte == "15" || corte == "20" || corte == "25" || corte == "30") //NL
-                {
+                //if (corte == "05" || corte == "10" || corte == "15" || corte == "20" || corte == "25" || corte == "30") //NL
+                //{
                     corte = $"C{corte}";
-                }
-                else
-                {
-                    Console.WriteLine(RXGeneral.ErrorNumCorte);
-                    Utilidades.EscribirLog(RXGeneral.ErrorNumCorte, Utilidades.LeerAppConfig("RutaLog"));
-                    System.Threading.Thread.Sleep(2000);
-                    Environment.Exit(1);
-                }
+                //}
+                //else
+                //{
+                //    Console.WriteLine(RXGeneral.ErrorNumCorte);
+                //    Utilidades.EscribirLog(RXGeneral.ErrorNumCorte, Utilidades.LeerAppConfig("RutaLog"));
+                //    System.Threading.Thread.Sleep(2000);
+                //    Environment.Exit(1);
+                //}
 
             }
             else

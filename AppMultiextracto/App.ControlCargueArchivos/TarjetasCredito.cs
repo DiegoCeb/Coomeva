@@ -141,7 +141,7 @@ namespace App.ControlCargueArchivos
                     case "T":
                         canalEnMapeo = string.Empty;
                         listaCortes.Clear();
-                        canalEnMapeo += $"1TAR|KITXXX|";
+                        canalEnMapeo += $"1TAR| |";
                         listaCortes.Add(new PosCortes(0, 15));
                         listaCortes.Add(new PosCortes(15, 0));
                         canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);

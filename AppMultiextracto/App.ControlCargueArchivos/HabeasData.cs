@@ -158,7 +158,7 @@ namespace App.ControlCargueArchivos
 
             foreach (var linea in datosOriginales)
             {
-                resultado.Add($"1HAB|KITXXX|FECHA VALIDAR |{Helpers.ValidarPipePipe(linea)}");
+                resultado.Add($"1HAB| |FECHA VALIDAR |{Helpers.ValidarPipePipe(linea)}");
             }
 
             return resultado;

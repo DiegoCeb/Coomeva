@@ -171,22 +171,22 @@ namespace App.ControlCargueArchivos
                 switch (campos[0])
                 {
                     case "001":
-                        resultado.Add($"1FID|KITXXX|{campos[2].Substring(0,3)}|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FID"))}");
+                        resultado.Add($"1FID| |{campos[2].Substring(0,3)}|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FID"))}");
                         break;
                     case "002":
-                        resultado.Add($"1FIB|KITXXX|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIB"))}");
+                        resultado.Add($"1FIB| |{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIB"))}");
                         break;
                     case "003":
-                        resultado.Add($"1FIC|KITXXX|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIC"))}");
+                        resultado.Add($"1FIC| |{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIC"))}");
                         break;
                     case "004":
-                        resultado.Add($"1FDD|KITXXX|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FDD"))}");
+                        resultado.Add($"1FDD| |{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FDD"))}");
                         break;
                     case "005":
-                        resultado.Add($"1FIE|KITXXX|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIE"))}");
+                        resultado.Add($"1FIE| |{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIE"))}");
                         break;
                     case "006":
-                        resultado.Add($"1FIF|KITXXX|{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIF"))}");
+                        resultado.Add($"1FIF| |{Helpers.ValidarPipePipe(FormatearCampos(campos, "1FIF"))}");
                         break;
                 }
             }

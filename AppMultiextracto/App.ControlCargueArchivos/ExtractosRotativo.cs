@@ -158,7 +158,7 @@ namespace App.ControlCargueArchivos
                 switch (campos[0])
                 {
                     case "1":
-                        resultado.Add($"1ROT|KITXXX|{Helpers.ValidarPipePipe(linea)}");
+                        resultado.Add($"1ROT| |{Helpers.ValidarPipePipe(linea)}");
                         break;
                     case "2":
                         resultado.Add($"1ROB|{Helpers.ValidarPipePipe(linea)}");

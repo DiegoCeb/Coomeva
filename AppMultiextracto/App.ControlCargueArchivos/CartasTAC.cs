@@ -180,7 +180,7 @@ namespace App.ControlCargueArchivos
                 linea = Helpers.ListaCamposToLinea(campos, '|');
                 resultado.Add($"1UUU| |{Helpers.ValidarPipePipe(linea)}");
             }
-            Helpers.EscribirEnArchivo(@"C:\Users\ivanm\OneDrive\Documentos\ProyectosC\Coomeva\EjemploExtractosCartasTAC.sal", resultado);
+
             return resultado;
             #endregion
         }

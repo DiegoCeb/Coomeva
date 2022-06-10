@@ -178,7 +178,7 @@ namespace App.ControlCargueArchivos
                             listaCortes.Add(new PosCortes(41, 20));
                             listaCortes.Add(new PosCortes(61, 0));
                             canalEnMapeo += $"|{Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos)}";
-                            canalEnMapeo += $"|KITXXX| ";
+                            canalEnMapeo += $"| | ";
                             resultado.Add($"{Helpers.ValidarPipePipe(canalEnMapeo)}");
                             break;
 

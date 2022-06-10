@@ -163,7 +163,7 @@ namespace App.ControlCargueArchivos
                 linea = Helpers.TrimCamposLinea('|', lineaDatos);
                 resultado.Add($"1CCH| |{Helpers.ValidarPipePipe(linea)}");
             }
-            //Helpers.EscribirEnArchivo(@"C:\Users\ivanm\OneDrive\Documentos\ProyectosC\Coomeva\EjemploExtractosCartasCobranzaHabeasData.sal", resultado);
+
             return resultado; 
             #endregion
         }
