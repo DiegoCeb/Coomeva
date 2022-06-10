@@ -38,10 +38,7 @@ namespace App.ControlCargueArchivos
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
-                System.Threading.Thread.Sleep(2000);
-                Utilidades.EscribirLog(ex.Message, Utilidades.LeerAppConfig("RutaLog"));
-                Environment.Exit(1);
+                Helpers.EscribirLogVentana(ex.Message, true);
             }
             #endregion
         }

@@ -32,8 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DLL_ServicioDelta">
-      <HintPath>..\..\..\..\ARCHIVOS_COOMEVA_APPS_LIBRERIAS\Servicio_Delta\DLL_ServicioDelta.dll</HintPath>
+    <Reference Include="DLL_GenradorDocOne, Version=4.0.0.1, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DLL_GenradorDocOne.dll</HintPath>
+    </Reference>
+    <Reference Include="DLL_ServicioDelta, Version=3.2.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\App.Controlnsumos\bin\Debug\DLL_ServicioDelta.dll</HintPath>
     </Reference>
     <Reference Include="DLL_Utilidades">
       <HintPath>\\172.19.37.71\Proyectos\Ingenieria\Librerias_Desarrollo\Utilidades_Net\DLL_Utilidades.dll</HintPath>
