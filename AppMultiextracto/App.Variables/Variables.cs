@@ -15,6 +15,7 @@ namespace App.Variables
         public static Dictionary<string, Dictionary<string, string>> DicGuias = new Dictionary<string, Dictionary<string, string>>();
         public static Dictionary<string, Dictionary<string, DatosExtractos>> DiccionarioExtractos = new Dictionary<string, Dictionary<string, DatosExtractos>>();
         public static Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> DiccionarioExtractosFormateados = new Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>();
+        public static Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> DiccionarioExtractosMuestras = new Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>();
         public static Dictionary<string, DatosInsumos> InsumoDiccionarioDatos = new Dictionary<string, DatosInsumos>();
         public static Dictionary<string, DatosInsumos> InsumoPlanoBeneficios = new Dictionary<string, DatosInsumos>();
         public static Dictionary<string, DatosInsumos> InsumoBaseTerceros = new Dictionary<string, DatosInsumos>();
@@ -31,7 +32,6 @@ namespace App.Variables
         public static string RutaBaseDelta;
         public static StreamReader Lector;
         public string NombreCorte { get; set; }
-        public static string RutaProcesoVault { get; set; }
         public static List<string> CedulasSinTipoEnvio = new List<string>();
     }
 

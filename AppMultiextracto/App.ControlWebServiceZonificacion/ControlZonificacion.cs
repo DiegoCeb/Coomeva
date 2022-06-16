@@ -81,6 +81,7 @@ namespace App.ControlWebServiceZonificacion
             parametros[19] = "";                                                                    // Archivo Base64
 
             procDinaStruct[] resultadoDelta = ServicioDelta.ZonificarBase(parametros);
+
             return resultadoDelta.Last().estadoCargue;
             #endregion
         }

@@ -41,3 +41,16 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\D
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_ServicioDelta.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_ServicioDelta.dll.config
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\starksoft.aspen.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CopyComplete
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.dll.config
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\SharpCompress.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\System.Memory.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\System.Buffers.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.dll.config
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\SharpCompress.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\System.Memory.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\System.Buffers.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
