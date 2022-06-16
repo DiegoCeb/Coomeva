@@ -97,7 +97,6 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\De
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlCargueArchivos.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlFtp.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlWebServiceZonificacion.pdb
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.csproj.CopyComplete
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.exe
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\ICSharpCode.SharpZipLib.dll
@@ -107,15 +106,8 @@ C:\Proyectos\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\starksoft.aspen
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\DLL_GenradorDocOne.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\starksoft.aspen.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlProcesos.dll.config
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlEjecucion.dll.config
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.Controlnsumos.dll.config
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlCargueArchivos.dll.config
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\starksoft.aspen.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\SharpCompress.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\System.Memory.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\System.Buffers.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\System.Memory.xml
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\System.Buffers.xml
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\FluentFTP.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\FluentFTP.xml
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.csproj.CopyComplete

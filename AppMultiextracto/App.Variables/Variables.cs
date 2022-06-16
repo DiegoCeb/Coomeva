@@ -31,6 +31,7 @@ namespace App.Variables
         public static string RutaBaseDelta;
         public static StreamReader Lector;
         public string NombreCorte { get; set; }
+        public static string RutaProcesoVault { get; set; }
         public static List<string> CedulasSinTipoEnvio = new List<string>();
     }
 

@@ -16,7 +16,8 @@ namespace App.ControlEjecucion
     public class Convergencia : IConvergencia
     {
         private bool _disposed = false;
-        private string RutaSalidaProceso = string.Empty;
+        private string RutaSalidaProcesoFisico = string.Empty;
+        private string RutaSalidaProcesoVault = string.Empty;
 
         /// <summary>
         /// 
@@ -26,16 +27,50 @@ namespace App.ControlEjecucion
             #region Convergencia
             LlenarEstructuraDatosBeneficios();
             Formatear(Variables.Variables.DiccionarioExtractos);
-            RutaSalidaProceso = Directory.CreateDirectory($@"{Path.GetDirectoryName(Variables.Variables.RutaBaseDelta)}\Impresion").FullName;
-            OrdenarExtractoFinal();
+            RutaSalidaProcesoFisico = Directory.CreateDirectory($@"{Path.GetDirectoryName(Variables.Variables.RutaBaseDelta)}\Impresion").FullName;
+            RutaSalidaProcesoVault = Directory.CreateDirectory($@"{Path.GetDirectoryName(Variables.Variables.RutaBaseDelta)}\Vault").FullName;
+            GenerarSalidaVirtualPublicacion();
+            //OrdenarExtractoFinal();
             //Dispose();
             #endregion
+        }
+
+        private void GenerarSalidaVirtualPublicacion()
+        {
+            List<string> publicacion = new List<string>();
+
+            foreach (var paqueteExtracto in Variables.Variables.DiccionarioExtractosFormateados)
+            {
+                string CanalInicio = $"1MUL| |{paqueteExtracto.Key}";
+
+                bool InicioEnPaquete = false;
+
+                foreach (var tipoenvio in paqueteExtracto.Value)
+                {
+                    if (tipoenvio.Key != "NA")
+                    {
+                        foreach (var extracto in tipoenvio.Value)
+                        {
+                            if (!InicioEnPaquete)
+                            {
+                                publicacion.Add(CanalInicio);
+                                InicioEnPaquete = true;
+                            }
+
+                            publicacion.AddRange(extracto.Value);
+                        }
+                    }
+                }
+            }
+
+            Variables.Variables.RutaProcesoVault = $"{RutaSalidaProcesoVault}\\Unificado{DateTime.Now:yyyyMMddhhmmss}.sal";
+            Helpers.EscribirEnArchivo(Variables.Variables.RutaProcesoVault, publicacion);
         }
 
         private void OrdenarExtractoFinal()
         {
             #region OrdenarExtractoFinal
-            //Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320220510_20220607\1320220510";
+            //Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229999_20220614\1320229999";
             Helpers.DescomprimirGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta));
             Helpers.CargarGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta), Convert.ToInt16(DLL_Utilidades.Utilidades.LeerAppConfig("CampoCrucePDF")), "1AAA");
 
@@ -52,7 +87,7 @@ namespace App.ControlEjecucion
                         ProcesarPlantas(ordenImpresion.Key, guias.Key.Split('_').ElementAt(1), ordenImpresion.Value);
                     }
                 }
-            } 
+            }
             #endregion
         }
 
@@ -61,7 +96,7 @@ namespace App.ControlEjecucion
             #region ProcesarPlantas
             if (Variables.Variables.DiccionarioExtractosFormateados.ContainsKey(pCedula))
             {
-                string RutaSalidaProcesoFisico = Directory.CreateDirectory($@"{RutaSalidaProceso}\{pRegional}").FullName;
+                string rutaFinalInterna = Directory.CreateDirectory($@"{RutaSalidaProcesoFisico}\{pRegional}").FullName;
 
                 var tipoExtracto = Variables.Variables.DiccionarioExtractosFormateados[pCedula];
 
@@ -91,7 +126,7 @@ namespace App.ControlEjecucion
                                         InicioEnPaquete = true;
                                     }
 
-                                    Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoFisico}\{Variables.Variables.Orden}_{pRegional}_MultiExtracto.sal", extracto.Value);
+                                    Helpers.EscribirEnArchivo($@"{rutaFinalInterna}\{Variables.Variables.Orden}_{pRegional}_MultiExtracto.sal", extracto.Value);
                                     extractoEscrito = true;
                                     break;
                                 }
@@ -128,7 +163,7 @@ namespace App.ControlEjecucion
             #region ProcesarUnificado
             if (Variables.Variables.DiccionarioExtractosFormateados.ContainsKey(pCedula))
             {
-                string RutaSalidaProcesoFisico = Directory.CreateDirectory($@"{RutaSalidaProceso}\{pRegional}").FullName;
+                string RutafinalInterna = Directory.CreateDirectory($@"{RutaSalidaProcesoFisico}\{pRegional}").FullName;
 
                 var tipoExtracto = Variables.Variables.DiccionarioExtractosFormateados[pCedula];
 
@@ -149,7 +184,7 @@ namespace App.ControlEjecucion
                                 InicioEnPaquete = true;
                             }
 
-                            Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoFisico}\{Variables.Variables.Orden}_{pRegional}_MultiExtracto.sal", extracto.Value);
+                            Helpers.EscribirEnArchivo($@"{RutafinalInterna}\{Variables.Variables.Orden}_{pRegional}_MultiExtracto.sal", extracto.Value);
                         }
                     }
                 }
@@ -161,7 +196,7 @@ namespace App.ControlEjecucion
             else
             {
                 //Si entra aca es por que la cedula esta sin tipo de envio ver variable CedulasSinTipoEnvio
-            } 
+            }
             #endregion
         }
 

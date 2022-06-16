@@ -36,9 +36,15 @@ namespace App.ControlProcesos
             //    Environment.Exit(1);
             //}
 
-            //Console.WriteLine("");
             //Console.WriteLine("---Descargue Correcto de Archivos");
-            //Console.WriteLine("");
+            //Console.ReadKey();
+
+            ////Creacion carpeta donde se almacenaran los archivos originales del proceso
+            //Helpers.RutaOriginales = Directory.CreateDirectory($"{Utilidades.LeerAppConfig("RutaOriginales")}\\{NumeroOrdenProceso}_{DateTime.Now:yyyyMMdd}").FullName;
+            //_objProceso.DesencriptarArchivos();
+
+            //Console.WriteLine("---Desencriptado Correcto de Archivos");
+            //Console.ReadKey();
 
             if (!_objProceso.VerificacionArchivosEntrada())
             {
@@ -60,8 +66,8 @@ namespace App.ControlProcesos
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
 
-            //Console.WriteLine("Cambie los datos de la base para pruebas");
-            //Console.ReadKey();
+            Console.WriteLine("Cambie los datos de la base para pruebas");
+            Console.ReadKey();
 
             //if (!_objProceso.IniciarZonificacion("fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
             //{
@@ -77,6 +83,17 @@ namespace App.ControlProcesos
             _ = new Convergencia();
 
             //Parte Mail, Generar journal PS - Cargue a vault - Cargue journal delta - cargue adjuntos en linea
+
+            //1. generar PS - JRN con este al inicio EX_FID
+            //3. validar que queden como "solo publicacion"
+            //4. validar el tema de la plantilla
+            //5. Hacer lo de adjuntos en linea _adicional probarlo
+            Console.WriteLine("termino convergencia");
+            Console.ReadKey();
+
+            _objProceso.CargueProcesoDigital($"Corte{Orden}_{DateTime.Now:yyyyMMdd}", Utilidades.LeerAppConfig("CodigoCliente"), 
+                Utilidades.LeerAppConfig("CodigoProcesoVirtual"), Utilidades.LeerAppConfig("CodigoCourier"), Utilidades.LeerAppConfig("ConfiguracionMapeoVirtual"),
+                false/*llevapdfs de adjuntos en linea*/, "ruta de los archivos para cargar en adjuntos en linea", Utilidades.LeerAppConfig("ClienteDoc1"), Utilidades.LeerAppConfig("ProductoDoc1"), Utilidades.LeerAppConfig("TipoSalida"), RutaProcesoVault);
 
             //Proceso SMS
 

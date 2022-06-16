@@ -38,11 +38,15 @@
     <Reference Include="Excel">
       <HintPath>\\172.19.37.71\proyectos\Ingenieria\Librerias_Desarrollo\LibreriaExcell\Excel.dll</HintPath>
     </Reference>
+    <Reference Include="FluentFTP, Version=37.0.3.0, Culture=neutral, PublicKeyToken=f4af092b1d8df44f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentFTP.37.0.3\lib\net45\FluentFTP.dll</HintPath>
+    </Reference>
     <Reference Include="Renci.SshNet">
       <HintPath>\\172.19.37.71\proyectos\Ingenieria\Librerias_Desarrollo\FTP\Renci.SshNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,7 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClaseFtp.cs" />
+    <Compile Include="ControlFTP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

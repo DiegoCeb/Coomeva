@@ -63,8 +63,8 @@ namespace App.ControlWebServiceZonificacion
             parametros[1] = Utilidades.Base64Encode(Utilidades.LeerAppConfig("Password"));          //Paswword delta
             parametros[2] = ordenServicio;                                                          //Orden Servicio
             parametros[3] = nombreProceso;                                                          // Nombre Proceso
-            parametros[4] = cliente;                                                                // Codigo Cliente
-            parametros[5] = courier;                                                                // Courrier                        
+            parametros[5] = cliente;                                                                // Codigo Cliente
+            parametros[4] = courier;                                                                // Courrier                        
             parametros[6] = proyecto;                                                               // Codigo Proceso
             parametros[7] = DateTime.Now.ToString("yyyy-MM-dd");                                    // Fecha Corte
             parametros[8] = certificadoEmail;                                                       // Certificado Mail
@@ -81,7 +81,6 @@ namespace App.ControlWebServiceZonificacion
             parametros[19] = "";                                                                    // Archivo Base64
 
             procDinaStruct[] resultadoDelta = ServicioDelta.ZonificarBase(parametros);
-
             return resultadoDelta.Last().estadoCargue;
             #endregion
         }
