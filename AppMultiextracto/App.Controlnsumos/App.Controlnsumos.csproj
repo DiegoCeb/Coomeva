@@ -47,8 +47,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="SharpCompress, Version=0.31.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpCompress.0.31.0\lib\net461\SharpCompress.dll</HintPath>
+    <Reference Include="SharpCompress, Version=0.19.2.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\SharpCompress.dll</HintPath>
     </Reference>
     <Reference Include="starksoft.aspen, Version=1.1.5.0, Culture=neutral, PublicKeyToken=56b8923a24d03eb3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -75,7 +76,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

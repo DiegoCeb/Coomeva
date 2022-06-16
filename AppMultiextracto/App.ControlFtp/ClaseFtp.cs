@@ -109,7 +109,13 @@ namespace App.ControlFtp
             #region DescargaArchivos de un FTP.
             try
             {
+                Console.WriteLine("entro DescargarArchivosFtp");
                 IEnumerable<SftpFile> archivosCarpetaDelta = Conexion.ListDirectory(rutaFtp);
+                foreach (var item in archivosCarpetaDelta)
+                {
+                    Console.WriteLine("nombresCarpetas");
+                    Console.WriteLine(item);
+                }
                 foreach (SftpFile archvoFtp in archivosCarpetaDelta)
                 {
                     if (Path.GetExtension(archvoFtp.Name) != extension || Path.GetExtension(archvoFtp.Name) != extensionAuxiliar) continue;

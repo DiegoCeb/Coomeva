@@ -505,9 +505,9 @@ namespace App.ControlCargueArchivos
 
                         if (grupo == "Estatutarios")
                         {
-                            sumaCapitalVencido += pLineaDetalle.Substring(49, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(49, 14).Trim().Replace(',', '.')) : 0.0;
-                            sumaCapitalMes += pLineaDetalle.Substring(63, 28).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(63, 28).Trim().Replace(',', '.')) : 0.0;
-                            sumaInteresMora += pLineaDetalle.Substring(118, 13).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(118, 13).Trim().Replace(',', '.')) : 0.0;
+                            sumaCapitalVencido += pLineaDetalle.Substring(49, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(49, 14).Trim()) : 0.0;
+                            sumaCapitalMes += pLineaDetalle.Substring(63, 28).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(63, 28).Trim()) : 0.0;
+                            sumaInteresMora += pLineaDetalle.Substring(118, 13).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(118, 13).Trim()) : 0.0;
 
                             if (conceptoFinal == "Aportes")
                             {
@@ -515,7 +515,7 @@ namespace App.ControlCargueArchivos
                             }
                             else if (conceptoFinal.Contains("Solidaridad"))
                             {
-                                saldoSolidaridad += pLineaDetalle.Substring(32, 15).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(32, 15).Trim().Replace(',', '.')) : 0.0;
+                                saldoSolidaridad += pLineaDetalle.Substring(32, 15).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(32, 15).Trim()) : 0.0;
                             }
 
                             listaCortes.Add(new PosCortes(49, 14));  //Capital Vencido
@@ -547,10 +547,10 @@ namespace App.ControlCargueArchivos
 
                         if (grupo == "Creditos Cooperativos" || grupo == "Planes Adicionales Solidaridad" || grupo == "Seguros" || grupo == "Medicina Prepagada")
                         {
-                            sumaCapitalVencido += pLineaDetalle.Substring(49, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(49, 14).Trim().Replace(',', '.')) : 0.0;
-                            sumaCapitalVencido += pLineaDetalle.Substring(63, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(63, 14).Trim().Replace(',', '.')) : 0.0;
-                            sumaCapitalMes += pLineaDetalle.Substring(70, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(70, 14).Trim().Replace(',', '.')) : 0.0;
-                            sumaCapitalMes += pLineaDetalle.Substring(91, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(91, 14).Trim().Replace(',', '.')) : 0.0;
+                            sumaCapitalVencido += pLineaDetalle.Substring(49, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(49, 14).Trim()) : 0.0;
+                            sumaCapitalVencido += pLineaDetalle.Substring(63, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(63, 14).Trim()) : 0.0;
+                            sumaCapitalMes += pLineaDetalle.Substring(70, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(70, 14).Trim()) : 0.0;
+                            sumaCapitalMes += pLineaDetalle.Substring(91, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(91, 14).Trim()) : 0.0;
 
                             listaCortes.Add(new PosCortes(49, 14));  //Capital Vencido
                             listaCortes.Add(new PosCortes(63, 14));  //Financiacion Vencida
@@ -721,9 +721,22 @@ namespace App.ControlCargueArchivos
                     resultado = $"1PRU|{Helpers.ExtraccionCamposSpool(listaCortes, pLineaDetalle)}| ";
                     listaCortes.Clear();
 
-                    listaCortes.Add(new PosCortes(125, 15));
-                    listaCortes.Add(new PosCortes(140, 18));
-                    listaCortes.Add(new PosCortes(158, 18));
+                    if (pLineaDetalle.Length > 125)
+                    {
+                        listaCortes.Add(new PosCortes(125, 15));
+                    }
+                    
+
+                    if (pLineaDetalle.Length > 140)
+                    {
+                        listaCortes.Add(new PosCortes(140, 18));
+                    }
+                   
+                    if (pLineaDetalle.Length > 158)
+                    {
+                        listaCortes.Add(new PosCortes(158, 18));
+                    }
+                   
 
                     resultado += $"|{Helpers.ExtraccionCamposSpool(listaCortes, pLineaDetalle)}";
                     #endregion

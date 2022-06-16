@@ -13,12 +13,14 @@ using DLL_ServicioDelta;
 using DLL_ServicioDelta.wsDelta;
 using SharpCompress.Archives;
 using SharpCompress.Common;
+using SharpCompress.Readers;
 
 namespace App.Controlnsumos
 {
     public static class Helpers
     {
         public static string RutaProceso { get; set; }
+        public static string RutaOriginales { get; set; }
         public static string RutaBaseMaestraFisico { get; set; }
 
         /// <summary>
@@ -220,9 +222,16 @@ namespace App.Controlnsumos
 
             linea = linea.Replace("||", "| |").Replace("||", "| |");
 
-            if (linea.Last() == '|')
+            if (linea != "")
             {
-                return $"{linea} ";
+                if (linea.Last() == '|')
+                {
+                    return $"{linea} ";
+                }
+                else
+                {
+                    return linea;
+                }
             }
             else
             {
@@ -415,6 +424,25 @@ namespace App.Controlnsumos
             #endregion
         }
 
+        public static void CortarMoverArchivosExtension(string RutaEntrada, string Extension, string RutaSalida)
+        {
+            #region Mover Archivos
+            try
+            {
+                foreach (var _Archivo in Directory.GetFiles(RutaEntrada, Extension))
+                {
+                    File.Move(_Archivo, RutaSalida + "\\" + Path.GetFileName(_Archivo));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utilidades.EscribirLog(ex.Message, Utilidades.LeerAppConfig("RutaLog"));
+                throw;
+            }
+            #endregion
+        }
+
+
         public static void MoverArchivosCondicionados(string RutaEntrada, string Extension, string RutaSalida, string CondicionNomre)
         {
             #region Mover Archivos
@@ -524,7 +552,7 @@ namespace App.Controlnsumos
             parametros[5] = proyecto;                                                          // Codigo Proceso
             parametros[6] = DateTime.Now.ToString("yyyy-MM-dd");                               // FechaCorte
             parametros[7] = codigoParametro;                                                   // Parametros
-            parametros[8] = "astrid.nino@carvajal.com";                                        // Envio Mail Salidas
+            parametros[8] = "";                                                                // Envio Mail Salidas
             parametros[9] = rutaArchivo;                                                       // Ruta FTP
             parametros[10] = Path.GetFileName(rutaArchivo);                                    // Nombre Archivo
             parametros[11] = "";                                                               // Archivo Base64
@@ -535,13 +563,13 @@ namespace App.Controlnsumos
             #endregion
         }
 
-        public static void DesencriptarArchivos(string ArchivosFordecrypt, string llave)
+        public static void DesencriptarArchivos(string ArchivosFordecrypt, string llave, string pRutaGnuPg, string pClaveDesencripcion)
         {
             try
             {
-                Gpg ArchivoEncriptado = new Gpg(@"\\172.19.37.10\proyectos\Ingenieria\Diego\GNU\GnuPG\gpg2.exe");
+                Gpg ArchivoEncriptado = new Gpg(pRutaGnuPg);//172.19.37.10\proyectos\Ingenieria\Diego\GNU\GnuPG\gpg2.exe
                 ArchivoEncriptado.Recipient = "<" + llave + ">";
-                ArchivoEncriptado.Passphrase = "Carvajal2012.";
+                ArchivoEncriptado.Passphrase = pClaveDesencripcion;
                 string EncryptedFile = ArchivosFordecrypt;
                 string NombreArchivo = Path.GetFileNameWithoutExtension(EncryptedFile);
                 string UnencryptedFile = Path.GetDirectoryName(EncryptedFile) + "\\" + NombreArchivo;
@@ -549,6 +577,10 @@ namespace App.Controlnsumos
                 if (ArchivoDesencriptado == null)
                 {
                     EscribirLogVentana("Error al momento de desencriptar el archivo: " + NombreArchivo);
+                }
+                else
+                {
+                    EscribirLogVentana("Desencripto Correctamente: " + NombreArchivo);
                 }
             }
             catch (Exception ex)
@@ -560,6 +592,8 @@ namespace App.Controlnsumos
 
         public static FileInfo DecryptFile(string encryptedSourceFile, string decryptedFile, Gpg gpg)
         {
+            FileStream encryptedSourceFileStream = null;
+            FileStream decryptedFileStream = null;
             try
             {
                 // Mirara si el archivo encriptado viene en blanco
@@ -569,10 +603,10 @@ namespace App.Controlnsumos
                 if (string.IsNullOrEmpty(decryptedFile))
                     throw new ArgumentException("decryptedFile Parámetro está vacío o nulo", "decryptedFile");
 
-                FileStream encryptedSourceFileStream = new FileStream(encryptedSourceFile, FileMode.Open, FileAccess.Read);
+                encryptedSourceFileStream = new FileStream(encryptedSourceFile, FileMode.Open, FileAccess.Read);
                 // Se asegura de que estamos al inicio del archivo.
                 encryptedSourceFileStream.Position = 0;
-                FileStream decryptedFileStream = new FileStream(decryptedFile, FileMode.Create, FileAccess.Write);
+                decryptedFileStream = new FileStream(decryptedFile, FileMode.Create, FileAccess.Write);
 
                 // Metodo que desencripta el archivo
                 gpg.Decrypt(encryptedSourceFileStream, decryptedFileStream);
@@ -584,6 +618,16 @@ namespace App.Controlnsumos
             }
             catch (Exception)
             {
+                if (encryptedSourceFileStream != null)
+                {
+                    encryptedSourceFileStream.Close();
+                }
+
+                if (decryptedFileStream != null)
+                {
+                    decryptedFileStream.Close();
+                }
+              
                 //EscribirLog(ex.Message);
                 return null;
             }
@@ -598,7 +642,6 @@ namespace App.Controlnsumos
                     {
                         streamWriter.WriteLine(item);
                     }
-
                 }
             }
             else
