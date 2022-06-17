@@ -88,8 +88,6 @@ namespace App.ControlProcesos
             //3. validar que queden como "solo publicacion"
             //4. validar el tema de la plantilla
             //5. Hacer lo de adjuntos en linea _adicional probarlo
-            Console.WriteLine("termino convergencia");
-            Console.ReadKey();
 
             _objProceso.CargueProcesoDigital($"Corte{Orden}_{DateTime.Now:yyyyMMdd}", Utilidades.LeerAppConfig("CodigoCliente"), 
                 Utilidades.LeerAppConfig("CodigoProcesoVirtual"), Utilidades.LeerAppConfig("CodigoCourier"), Utilidades.LeerAppConfig("ConfiguracionMapeoVirtual"),

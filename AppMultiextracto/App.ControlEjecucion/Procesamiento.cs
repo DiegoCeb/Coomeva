@@ -570,6 +570,8 @@ namespace App.ControlEjecucion
                         where Path.GetExtension(file).ToLower() == ".ps"
                         select Path.GetFileNameWithoutExtension(file)).FirstOrDefault();
 
+            Console.WriteLine($"{nombreJrn}|{archivoJrn}|{nombrePs}");
+            Console.ReadKey();
             //Helpers.MoverArchivosExtension(Path.GetDirectoryName(pRutaArchivoVault), "*.jrn", Utilidades.LeerAppConfig("RutaVaultDownload"));
             //Helpers.MoverArchivosExtension(Path.GetDirectoryName(pRutaArchivoVault), "*.ps", Utilidades.LeerAppConfig("RutaVaultDownload"));
             //Helpers.MoverArchivosCondicionados(Utilidades.LeerAppConfig("RutaVaultDownload"), "*.jrn", Utilidades.LeerAppConfig("RutaVaultFinal"), nombreJrn);
