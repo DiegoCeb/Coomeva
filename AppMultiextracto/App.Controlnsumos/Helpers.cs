@@ -767,6 +767,24 @@ namespace App.Controlnsumos
             }
             #endregion
         }
+
+        /// <summary>
+        /// Metodo encargado de mover un archivo a una carpeta especifica
+        /// </summary>
+        /// <param name="rutaInsumoActual">Ruta archivo a mover</param>
+        /// <param name="nuevaRutaDirectorioInsumo">Ruta cerpeta donde se va a mover el archivo</param>
+        /// <param name="nombreInsumo">Nombre del archivo</param>
+        public static void MoverArchivoaCarpeta(string rutaInsumoActual, string nuevaRutaDirectorioInsumo, string nombreInsumo)
+        {
+            #region MoverArchivoaCarpeta
+            if (!Directory.Exists(nuevaRutaDirectorioInsumo))
+            {
+                Directory.CreateDirectory(nuevaRutaDirectorioInsumo);
+            }
+
+            File.Move(rutaInsumoActual, $@"{nuevaRutaDirectorioInsumo}\{nombreInsumo}");
+            #endregion
+        }
     }
 
     public struct PosCortes

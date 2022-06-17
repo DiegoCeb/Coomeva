@@ -34,9 +34,6 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\D
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_Utilidades.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_ServicioDelta.pdb
-C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_ServicioDelta.dll.config
-C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\starksoft.aspen.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_Utilidades.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_ServicioDelta.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_ServicioDelta.dll.config

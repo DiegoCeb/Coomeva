@@ -33,3 +33,5 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debu
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\FluentFTP.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\FluentFTP.xml
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlFtp\obj\Debug\App.ControlFtp.csproj.CopyComplete
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\FluentFTP.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlFtp\bin\Debug\FluentFTP.xml

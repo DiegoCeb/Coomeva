@@ -40,10 +40,7 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchiv
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.pdb
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.dll.config
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\starksoft.aspen.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\starksoft.aspen.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\starksoft.aspen.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\SharpCompress.dll
@@ -52,3 +49,4 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchiv
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.dll.config
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\starksoft.aspen.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.CopyComplete
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\SharpCompress.dll

@@ -90,10 +90,7 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.pdb
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_GenradorDocOne.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.pdb
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.dll.config
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\starksoft.aspen.dll
-C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\starksoft.aspen.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_GenradorDocOne.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\starksoft.aspen.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\SharpCompress.dll
@@ -104,3 +101,6 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\FluentFTP.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\FluentFTP.xml
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CopyComplete
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\SharpCompress.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\FluentFTP.dll
+C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\FluentFTP.xml
