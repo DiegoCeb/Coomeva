@@ -19,10 +19,12 @@ namespace App.ControlProcesos
         // Flag: Has Dispose already been called?
         private bool _disposed = false;
         public Dictionary<string, Type> InsumosCarga = new Dictionary<string, Type>();
+        public List<string> InsumosActulizarCarga = new List<string>();
         private Procesamiento _objProceso = new Procesamiento();
         public GestionProcesos()
         {
             CargarClaves();
+            CargarClavesInsumos();
         }
         public void Ejecutar()
         {
@@ -57,6 +59,9 @@ namespace App.ControlProcesos
             Console.WriteLine("---Verificacion de Archivos Correcta");
             Console.WriteLine("");
 
+            //Cargamos Archivos Entrada
+            CargueArchivosInsumo(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
+
             //Creacion carpeta de salida del proceso
             Helpers.RutaProceso = Directory.CreateDirectory($"{Utilidades.LeerAppConfig("RutaSalida")}\\{NumeroOrdenProceso}_{DateTime.Now:yyyyMMdd}").FullName;
 
@@ -81,6 +86,10 @@ namespace App.ControlProcesos
 
             //Convergencia
             _ = new Convergencia();
+
+            //Generación de Muestras
+
+            _ = new ExtraccionMuestras();
 
             //Parte Mail, Generar journal PS - Cargue a vault - Cargue journal delta - cargue adjuntos en linea
 
@@ -116,6 +125,45 @@ namespace App.ControlProcesos
 
                 _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
             }
+        }
+
+        /// <summary>
+        /// Metodo que carga los insumos por ruta de Archivos.
+        /// </summary>
+        /// <param name="pRuta">Ruta de Archivos</param>
+        private void CargueArchivosInsumo(string pRuta)
+        {
+            #region CargueArchivosInsumo
+            foreach (var archivoEntrada in Directory.GetFiles(pRuta))
+            {
+                var nombreArchivo = Path.GetFileNameWithoutExtension(archivoEntrada);
+
+                if (nombreArchivo == "HistoricoCantidades")
+                { continue; }
+
+                foreach (var nombreInusmo in InsumosActulizarCarga)
+                {
+                    if (nombreArchivo.ToUpper().Contains(nombreInusmo))
+                    {
+                        _objProceso.ActulizaInsumos(nombreInusmo, archivoEntrada);
+                        break;
+                    }
+                }
+            } 
+            #endregion
+        }
+
+        public List<string> CargarClavesInsumos()
+        {
+            #region CargarClavesInsumos
+            InsumosActulizarCarga.Add("BASEESTADOCUENTAASOCIADOS");
+            InsumosActulizarCarga.Add("BASEESTADOCUENTATERCEROS");
+            InsumosActulizarCarga.Add("DICCIONARIO");
+            InsumosActulizarCarga.Add("MUESTRAS");
+            InsumosActulizarCarga.Add("PLANOBENEFICIOSESTADOCUENTA");
+
+            return InsumosActulizarCarga;
+            #endregion
         }
 
         public Dictionary<string, Type> CargarClaves()
@@ -251,7 +299,7 @@ namespace App.ControlProcesos
 
             if (disposing)
             {
-                // Free any other managed objects here.
+                InsumosActulizarCarga.Clear();
             }
 
             // Free any unmanaged objects here.

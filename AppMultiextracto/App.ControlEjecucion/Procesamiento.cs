@@ -189,6 +189,53 @@ namespace App.ControlEjecucion
         }
 
         /// <summary>
+        /// Metodo que Actuliza los insumo enviados en el proceso
+        /// </summary>
+        /// <param name="nombreInusmo">Nombre Inusmo</param>
+        /// <param name="archivoEntrada">Ruta de Insumo nuevo</param>
+        public void ActulizaInsumos(string nombreInusmo, string archivoEntrada)
+        {
+            #region ActulizaInsumos
+            //Buscar Archivo en Insumos
+            string rutaInsumoActual = BuscarInsumoActual(nombreInusmo);
+
+            //Movemos ArchivoActual a Historico
+            if (!string.IsNullOrEmpty(rutaInsumoActual))
+            {
+                string nuevaRutaInsumo = string.Format(@"{0}\Historico", Utilidades.LeerAppConfig("RutaInsumos")); //NL
+                string nombreInsumo = string.Format("{0}_{1}{2}", Path.GetFileNameWithoutExtension(rutaInsumoActual), DateTime.Now.ToString("yyyyMMdd_mmss"), Path.GetExtension(rutaInsumoActual)); //NL
+                Helpers.MoverArchivoaCarpeta(rutaInsumoActual, nuevaRutaInsumo, nombreInsumo);
+            }
+
+            //Movemos Nuevo Archivo a Insumos
+            Helpers.MoverArchivoaCarpeta(archivoEntrada, Utilidades.LeerAppConfig("RutaInsumos"), Path.GetFileName(archivoEntrada)); //NL
+            
+            #endregion
+        }
+
+        /// <summary>
+        /// Metodo que busca si el insumo existe en la carpeta de inusmos
+        /// </summary>
+        /// <param name="nombreInusmo">NOmbre del Insumo</param>
+        /// <returns>Ruta del Inusmo encontrado</returns>
+        private string BuscarInsumoActual(string nombreInusmo)
+        {
+            #region BuscarInsumoActual
+            foreach (var archivoInsumos in Directory.GetFiles(Utilidades.LeerAppConfig("RutaInsumos")))
+            {
+                var nombreInsumos = Path.GetFileNameWithoutExtension(archivoInsumos);
+
+                if (nombreInsumos.ToUpper().Contains(nombreInusmo))
+                {
+                    return archivoInsumos;
+                }
+            }
+
+            return string.Empty; 
+            #endregion
+        }
+
+        /// <summary>
         /// Metodo para Iniciar La Zonificacion
         /// </summary>
         /// <param name="tipoProceso">Enviar literal de "Fisico" o  "Virtual"</param>
