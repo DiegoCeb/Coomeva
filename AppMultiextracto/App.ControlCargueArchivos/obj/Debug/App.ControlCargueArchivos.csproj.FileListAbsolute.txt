@@ -16,7 +16,6 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Variables.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_Utilidades.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\Excel.dll
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\SharpCompress.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.pdb
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Variables.pdb
@@ -46,3 +45,7 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchiv
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.CoreCompileInputs.cache
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.ControlCargueArchivos.dll.config
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\starksoft.aspen.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.dll.config

@@ -519,30 +519,6 @@ namespace App.Controlnsumos
             #endregion
         }
 
-        public static string CrearOrdenServicio(string cliente, string proyecto)
-        {
-            #region CreaOrdenServicio
-            try
-            {
-                string[] parametros = new string[4];
-
-                parametros[0] = Utilidades.LeerAppConfig("UserWebService");
-                parametros[1] = Utilidades.Base64Encode(Utilidades.LeerAppConfig("Password"));
-                parametros[2] = cliente;
-                parametros[3] = proyecto;
-
-                string ordenServicio = ServicioDelta.CrearOrdenServicio(parametros).ordenServicio;
-
-                return ordenServicio;
-            }
-            catch (Exception ex)
-            {
-                EscribirLogVentana("ERROR " + ex.Message);
-                throw;
-            }
-            #endregion
-        }
-
         public static string RealizarSalidasZonificadas(string ordenServicio, string nombreProceso, string courier, string cliente, string proyecto, string codigoParametro, string tipoCargue, string rutaArchivo)
         {
             #region Salidas Zonificadas
@@ -580,16 +556,24 @@ namespace App.Controlnsumos
                 var ArchivoDesencriptado = DecryptFile(EncryptedFile, UnencryptedFile, ArchivoEncriptado);
                 if (ArchivoDesencriptado == null)
                 {
-                    EscribirLogVentana("Error al momento de desencriptar el archivo: " + NombreArchivo);
+                    throw new Exception("Error al momento de desencriptar el archivo: " + NombreArchivo);
                 }
                 else
                 {
-                    EscribirLogVentana("Desencripto Correctamente: " + NombreArchivo);
+                    EscribirVentanaLog("Desencripto Correctamente: " + NombreArchivo);
                 }
             }
             catch (Exception ex)
             {
-                EscribirLogVentana(ex.Message);
+                DatosError StructError = new DatosError
+                {
+                    Clase = nameof(Helpers),
+                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
+                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
+                    Error = ex.Message
+                };
+
+                Helpers.EscribirLogVentana(StructError, true);
             }
 
         }
@@ -664,7 +648,7 @@ namespace App.Controlnsumos
             }
         }
 
-        public static void EscribirLogVentana(string mensaje, bool finalizaProceso = false)
+        public static void EscribirLogVentanaMelo(string mensaje, bool finalizaProceso = false)
         {
             if (!string.IsNullOrEmpty(mensaje))
             {
@@ -679,6 +663,53 @@ namespace App.Controlnsumos
                 Console.ReadKey();
                 Environment.Exit(1);
             }
+        }
+
+        /// <summary>
+        /// Metodo para escribir en el Log y la ventan ade ejecucion // Dependiendo el error se cierra la aplicacion
+        /// </summary>
+        /// <param name="strucDatosError">Estructura de Datos error</param>
+        /// <param name="finalizaProceso">Bandera para finalizar proceso // True = Cierra - False = Continua </param>
+        public static void EscribirLogVentana(DatosError strucDatosError, bool finalizaProceso = false)
+        {
+            #region EscribirLogVentana
+            string Error = $"Clase: {strucDatosError.Clase} -|- Metodo:{strucDatosError.Metodo} -|- linea Error: {strucDatosError.LineaError} -|- Mensaje: {strucDatosError.Error}";
+
+            if (!string.IsNullOrEmpty(strucDatosError.Error))
+            {
+                Console.WriteLine(Error);
+                Utilidades.EscribirLog(Error, Utilidades.LeerAppConfig("RutaLog"));
+            }
+
+            if (finalizaProceso)
+            {
+                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
+                Console.WriteLine("Presione una tecla para cerrar...");
+                Console.ReadKey();
+                Environment.Exit(1);
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// Metodo creado para escribir en el Log y le Ventana de ejecucion
+        /// </summary>
+        /// <param name="Mensaje">Mensaje a escribir</param>
+        public static void EscribirVentanaLog(string Mensaje)
+        {
+            #region EscribirVentanaLog
+            Console.WriteLine(Mensaje);
+            Utilidades.EscribirLog(Mensaje, Utilidades.LeerAppConfig("RutaLog"));
+            #endregion
+        }
+
+        /// <summary>
+        /// Metodo para escribir el usuario en el Log
+        /// </summary>
+        /// <param name="usuario">Usuario que ejecuta la aplicación</param>
+        public static void EscribirLogUsuario(string usuario)
+        {
+            Utilidades.EscribirLog("*** Nuevo proceso ejecutado por: " + usuario, Utilidades.LeerAppConfig("RutaLog"));
         }
 
         /// <summary>
@@ -807,5 +838,16 @@ namespace App.Controlnsumos
             this.PosInicial = posInicial;
             this.Cantidad = cantidad;
         }
+    }
+
+    /// <summary>
+    /// Structura de datos Error para las Exception
+    /// </summary>
+    public struct DatosError
+    {
+        public string Metodo;
+        public string Clase;
+        public string Error;
+        public int? LineaError;
     }
 }

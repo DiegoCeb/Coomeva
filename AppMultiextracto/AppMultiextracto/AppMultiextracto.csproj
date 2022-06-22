@@ -55,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.Controlnsumos\App.Controlnsumos.csproj">
+      <Project>{06F1A65C-E25B-4C4F-BBBC-FF9A8D887B23}</Project>
+      <Name>App.Controlnsumos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.ControlProcesos\App.ControlProcesos.csproj">
       <Project>{d1935b5b-0b70-4aa4-8dd1-e6ce34dd5d91}</Project>
       <Name>App.ControlProcesos</Name>

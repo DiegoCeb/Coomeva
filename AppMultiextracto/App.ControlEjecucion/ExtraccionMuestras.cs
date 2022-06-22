@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using AppVariables = App.Variables.Variables;
 using App.Controlnsumos;
 using System.IO;
-using App.Controlnsumos;
 
 namespace App.ControlEjecucion
 {

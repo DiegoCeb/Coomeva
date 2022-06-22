@@ -58,8 +58,6 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlWebServiceZonificacion.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlWebServiceZonificacion.pdb
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.pdb
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.dll.config
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlWebServiceZonificacion.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_ServicioDelta.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlWebServiceZonificacion.pdb
@@ -101,3 +99,13 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.CopyComplete
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlProcesos.dll.config
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\DLL_GenradorDocOne.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\starksoft.aspen.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\FluentFTP.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlCargueArchivos.dll.config
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.ControlEjecucion.dll.config
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\App.Controlnsumos.dll.config
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\bin\Debug\FluentFTP.xml
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.RXGeneral.resources
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlProcesos\obj\Debug\App.ControlProcesos.csproj.GenerateResource.cache

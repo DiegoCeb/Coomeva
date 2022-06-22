@@ -447,11 +447,11 @@ namespace App.ControlEjecucion
 
         public string ValidarNumeroOrden(string pNumeroOrdenProceso)
         {
-            #region ValidarNumeroOrden
+            #region ValidarNumeroOrden            
+
             try
             {
                 string corte = string.Empty;
-
                 if (pNumeroOrdenProceso.Length == 10)
                 {
                     corte = ObtenerNombreCorte(pNumeroOrdenProceso);
@@ -484,8 +484,6 @@ namespace App.ControlEjecucion
                 Helpers.EscribirLogVentana(StructError, true);
                 return String.Empty;
             }
-
-            return corte;
 
             #endregion
         }
@@ -717,7 +715,7 @@ namespace App.ControlEjecucion
                             estado = Helpers.ValidarOrden(Orden).ToLower();
                         }
 
-                        Helpers.EscribirLogVentana("Se genera correctamente el proceso...");
+                        Helpers.EscribirVentanaLog("Se genera correctamente el proceso...");
 
                         if (pdfCliente)
                         {
@@ -734,22 +732,22 @@ namespace App.ControlEjecucion
                                 }
                             }
 
-                            Helpers.EscribirLogVentana("Termina la carga de los PDFs...");
+                            Helpers.EscribirVentanaLog("Termina la carga de los PDFs...");
                             #endregion
                         }
 
                         File.Create(Path.GetDirectoryName(Path.GetDirectoryName(archivoCargue)) + "\\" + Orden + ".txt");
 
-                        Helpers.EscribirLogVentana("Termina Zonificacion por DELTA");
+                        Helpers.EscribirVentanaLog("Termina Zonificacion por DELTA");
                     }
                     else
                     {
-                        Helpers.EscribirLogVentana("Error al momento de cargar la base DELTA");
+                        Helpers.EscribirVentanaLog("Error al momento de cargar la base DELTA");
                     }
                 }
                 else
                 {
-                    Helpers.EscribirLogVentana("Error al momento de crear la carpeta para la base DELTA");
+                    Helpers.EscribirVentanaLog("Error al momento de crear la carpeta para la base DELTA");
                 }
 
                 ClaseFtpDelta.DesconectarFtp();
