@@ -12,7 +12,7 @@ namespace App.ControlCargueArchivos
     /// <summary>
     /// Clase que carga los datos puros del Producto TarjetasCredito
     /// </summary>
-    public class TarjetasCredito: App.Variables.Variables, ICargue
+    public class TarjetasCredito : App.Variables.Variables, ICargue
     {
         private const string _producto = "TarjetasCredito";
 
@@ -38,7 +38,7 @@ namespace App.ControlCargueArchivos
         /// Constructor General
         /// </summary>
         public TarjetasCredito()
-        {}
+        { }
 
         /// <summary>
         /// Metodo que ejecuta el inicio del Cargue
@@ -188,7 +188,7 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(68, 9));
                         listaCortes.Add(new PosCortes(77, 17));
                         listaCortes.Add(new PosCortes(94, 17));
-                        
+
 
                         if (lineaDatos.Length < 135)
                         {
@@ -197,7 +197,7 @@ namespace App.ControlCargueArchivos
                             listaCortes.Add(new PosCortes(null, null));
                             listaCortes.Add(new PosCortes(111, 5));
                             listaCortes.Add(new PosCortes(116, 0));
-                            
+
                         }
                         else
                         {
@@ -205,7 +205,7 @@ namespace App.ControlCargueArchivos
                             listaCortes.Add(new PosCortes(127, 5));
                             listaCortes.Add(new PosCortes(132, 0));
                             canalEnMapeo = lineaDatos;
-                            
+
 
                         }
 
@@ -325,7 +325,7 @@ namespace App.ControlCargueArchivos
             else
             {
                 return "  ";
-            } 
+            }
             #endregion
         }
     }

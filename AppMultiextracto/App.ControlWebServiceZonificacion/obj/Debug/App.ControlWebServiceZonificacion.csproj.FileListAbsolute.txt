@@ -20,7 +20,7 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debu
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\bin\Debug\App.ControlWebServiceZonificacion.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\bin\Debug\App.ControlWebServiceZonificacion.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\bin\Debug\DLL_Utilidades.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.csproj.AssemblyReference.cache
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.csproj.CoreCompileInputs.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.csproj.CopyComplete
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.pdb
