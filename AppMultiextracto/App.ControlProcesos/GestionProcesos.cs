@@ -19,7 +19,7 @@ namespace App.ControlProcesos
         // Flag: Has Dispose already been called?
         private bool _disposed = false;
         public Dictionary<string, Type> InsumosCarga = new Dictionary<string, Type>();
-        public List<string> InsumosActulizarCarga = new List<string>();
+        public List<string> InsumosActualizarCarga = new List<string>();
         private Procesamiento _objProceso = new Procesamiento();
         public GestionProcesos()
         {
@@ -71,8 +71,8 @@ namespace App.ControlProcesos
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
 
-            Console.WriteLine("Cambie los datos de la base para pruebas");
-            Console.ReadKey();
+            //Console.WriteLine("Cambie los datos de la base para pruebas");
+            //Console.ReadKey();
 
             //if (!_objProceso.IniciarZonificacion("fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
             //{
@@ -141,7 +141,7 @@ namespace App.ControlProcesos
                 if (nombreArchivo == "HistoricoCantidades")
                 { continue; }
 
-                foreach (var nombreInusmo in InsumosActulizarCarga)
+                foreach (var nombreInusmo in InsumosActualizarCarga)
                 {
                     if (nombreArchivo.ToUpper().Contains(nombreInusmo))
                     {
@@ -156,13 +156,13 @@ namespace App.ControlProcesos
         public List<string> CargarClavesInsumos()
         {
             #region CargarClavesInsumos
-            InsumosActulizarCarga.Add("BASEESTADOCUENTAASOCIADOS");
-            InsumosActulizarCarga.Add("BASEESTADOCUENTATERCEROS");
-            InsumosActulizarCarga.Add("DICCIONARIO");
-            InsumosActulizarCarga.Add("MUESTRAS");
-            InsumosActulizarCarga.Add("PLANOBENEFICIOSESTADOCUENTA");
+            InsumosActualizarCarga.Add("BASEESTADOCUENTAASOCIADOS");
+            InsumosActualizarCarga.Add("BASEESTADOCUENTATERCEROS");
+            InsumosActualizarCarga.Add("DICCIONARIO");
+            InsumosActualizarCarga.Add("MUESTRAS");
+            InsumosActualizarCarga.Add("PLANOBENEFICIOSESTADOCUENTA");
 
-            return InsumosActulizarCarga;
+            return InsumosActualizarCarga;
             #endregion
         }
 
@@ -299,7 +299,7 @@ namespace App.ControlProcesos
 
             if (disposing)
             {
-                InsumosActulizarCarga.Clear();
+                InsumosActualizarCarga.Clear();
             }
 
             // Free any unmanaged objects here.

@@ -364,13 +364,17 @@ namespace App.Controlnsumos
             string resultado = pCampo;
             try
             {
+                if (string.IsNullOrEmpty(pCampo))
+                {
+                    pCampo = "0";
+                }
                 NumberFormatInfo nfi = new CultureInfo(CultureInfo.InvariantCulture.Name, false).NumberFormat;
                 nfi.NumberDecimalSeparator = ".";
                 nfi.NumberDecimalDigits = pPosDecimales;
                 nfi.CurrencyDecimalDigits = pPosDecimales;
                 nfi.CurrencySymbol = String.Empty;
 
-                decimal Valor = Convert.ToDecimal(pCampo.Replace('.', ','));
+                decimal Valor = Convert.ToDecimal(pCampo);
                 resultado = Valor.ToString("C", nfi);
 
             }
@@ -636,7 +640,7 @@ namespace App.Controlnsumos
         {
             if (File.Exists(ruta))
             {
-                using (StreamWriter streamWriter = new StreamWriter(ruta, true, Encoding.Default))
+                using (StreamWriter streamWriter = new StreamWriter(ruta, true, Encoding.UTF8))
                 {
                     foreach (var item in listado)
                     {
@@ -648,7 +652,7 @@ namespace App.Controlnsumos
             {
                 FileStream escritor = File.Create(ruta);
 
-                using (StreamWriter streamWriter = new StreamWriter(escritor, Encoding.Default))
+                using (StreamWriter streamWriter = new StreamWriter(escritor, Encoding.UTF8))
                 {
                     foreach (var item in listado)
                     {

@@ -224,7 +224,10 @@ namespace App.ControlCargueArchivos
                     resultado = Helpers.ListaCamposToLinea(campos, '|');
                     break;
                 case "1FIC":
-                    campos[31] = Helpers.StringToMoneda(campos[31], 2);
+                    campos[9] = Helpers.StringToMoneda(campos[9], 2);
+                    campos[31] = Helpers.StringToMoneda(campos[31], 6);
+                    campos[32] = Helpers.StringToMoneda(campos[32], 6);
+                    campos[33] = Helpers.StringToMoneda(campos[33], 6);
                     campos[34] = Helpers.StringToMoneda(campos[34], 2);
                     resultado = Helpers.ListaCamposToLinea(campos, '|');
                     break;

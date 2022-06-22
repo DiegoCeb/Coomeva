@@ -68,6 +68,7 @@ namespace App.ControlCargueArchivos
                     if (linea.Substring(0, 7) == "TARJETA")
                     {
                         llaveCruce = linea.Substring(20).Trim();
+
                         if (!DiccionarioExtractos.ContainsKey(llaveCruce))
                         {
                             DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
@@ -216,6 +217,9 @@ namespace App.ControlCargueArchivos
                         canalEnMapeo = string.Empty;
                         break;
                     case "6":
+                        if (!string.IsNullOrEmpty(canalEnMapeo))
+                        { resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo)); }
+
                         canalEnMapeo = string.Empty;
 
                         listaCortes.Clear();
@@ -229,8 +233,11 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(120, 0));
                         canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
                         resultado.Add($"1TA4|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        canalEnMapeo = string.Empty;
                         break;
                     case "7":
+                        if (!string.IsNullOrEmpty(canalEnMapeo))
+                        { resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo)); }
                         canalEnMapeo = string.Empty;
 
                         listaCortes.Clear();
@@ -241,6 +248,7 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(59, 0));
                         canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
                         resultado.Add($"1TA5|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        canalEnMapeo = string.Empty;
                         break;
                     case "8":
                         canalEnMapeo = string.Empty;
@@ -249,6 +257,7 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(1, 0));
                         canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
                         resultado.Add($"1TA6|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        canalEnMapeo = string.Empty;
                         break;
                     case "9":
                         canalEnMapeo = string.Empty;

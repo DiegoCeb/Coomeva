@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AppVariables = App.Variables.Variables;
 using App.Controlnsumos;
 using System.IO;
+using App.Controlnsumos;
 
 namespace App.ControlEjecucion
 {
@@ -14,6 +15,8 @@ namespace App.ControlEjecucion
         private bool _disposed = false;
         List<string> muestrasNoCruzadas = new List<string>();
         private string RutaSalidaProcesoMuestras = string.Empty;
+        private string RutaSalidaProcesoMuestrasVirtual = string.Empty;
+        private string RutaSalidaProcesoMuestrasFisica = string.Empty;
 
         /// <summary>
         /// Constructor Extraccion Muestras
@@ -22,7 +25,9 @@ namespace App.ControlEjecucion
         {
             #region ExtraccionMuestras
             ExraerMuetras();
-            RutaSalidaProcesoMuestras = Directory.CreateDirectory($@"{Path.GetDirectoryName(Variables.Variables.RutaBaseDelta)}\Muestras").FullName;
+            RutaSalidaProcesoMuestras = Directory.CreateDirectory($@"{Helpers.RutaProceso}\Muestras").FullName;
+            RutaSalidaProcesoMuestrasVirtual = Directory.CreateDirectory($@"{RutaSalidaProcesoMuestras}\MuestrasVirtuales").FullName;
+            RutaSalidaProcesoMuestrasFisica = Directory.CreateDirectory($@"{RutaSalidaProcesoMuestras}\MuestrasFisicas").FullName;
             GenerarArchivosMuestras();
             GenerarReporteMuestrasNoCruzadas(); 
             #endregion
@@ -60,9 +65,19 @@ namespace App.ControlEjecucion
             {
                 foreach (var tipoExtracto in extractoCedula.Value)
                 {
-                    foreach (var paqueteExtracto in tipoExtracto.Value)
+                    if (tipoExtracto.Key == "Virtual")
                     {
-                        Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoMuestras}\{Variables.Variables.Orden}_Muestras.sal", paqueteExtracto.Value);
+                        foreach (var paqueteExtracto in tipoExtracto.Value)
+                        {
+                            Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoMuestrasVirtual}\{Variables.Variables.Orden}_Muestras_{tipoExtracto.Key}.sal", paqueteExtracto.Value);
+                        }
+                    }
+                    else if (tipoExtracto.Key == "Fisico")
+                    {
+                        foreach (var paqueteExtracto in tipoExtracto.Value)
+                        {
+                            Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoMuestrasFisica}\{Variables.Variables.Orden}_Muestras_{tipoExtracto.Key}.sal", paqueteExtracto.Value);
+                        }
                     }
                 }
             } 

@@ -30,8 +30,8 @@ namespace App.ControlEjecucion
             RutaSalidaProcesoFisico = Directory.CreateDirectory($@"{Path.GetDirectoryName(Variables.Variables.RutaBaseDelta)}\Impresion").FullName;
             RutaSalidaProcesoVault = Directory.CreateDirectory($@"{Path.GetDirectoryName(Variables.Variables.RutaBaseDelta)}\Vault").FullName;
             GenerarSalidaVirtualPublicacion();
-            //OrdenarExtractoFinal();
-            //Dispose();
+            OrdenarExtractoFinal();
+            Dispose();
             #endregion
         }
 
@@ -70,7 +70,7 @@ namespace App.ControlEjecucion
         private void OrdenarExtractoFinal()
         {
             #region OrdenarExtractoFinal
-            //Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229999_20220614\1320229999";
+            Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229999_20220614\1320229998";
             Helpers.DescomprimirGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta));
             Helpers.CargarGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta), Convert.ToInt16(DLL_Utilidades.Utilidades.LeerAppConfig("CampoCrucePDF")), "1AAA");
 
@@ -340,7 +340,6 @@ namespace App.ControlEjecucion
                 Variables.Variables.InsumoPlanoBeneficios.Clear();
                 Variables.Variables.InsumoBaseTerceros.Clear();
                 Variables.Variables.InsumoBaseAsociados.Clear();
-                Variables.Variables.InsumoMuestras.Clear();
                 Variables.Variables.InsumoNuevosAsociadosFisicos.Clear();
                 Variables.Variables.InsumoPinos.Clear();
                 Variables.Variables.InsumoAsociadosInactivos.Clear();

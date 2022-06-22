@@ -52,6 +52,16 @@ namespace App.ControlEjecucion
             foreach (var archivo in Directory.GetFiles(Utilidades.LeerAppConfig("RutaEntrada"), "*.gpg"))
             {
                 Helpers.DesencriptarArchivos(archivo, Utilidades.LeerAppConfig("LLaveDesencripcion"), Utilidades.LeerAppConfig("RutaGnuPg"), Utilidades.LeerAppConfig("ClaveDesencriptado"));
+
+                foreach (var insumo in DatosVerificacionArchivos.Keys)
+                {
+                    if (archivo.Contains(insumo))
+                    {
+                        GetTamañoArchivo(insumo, archivo);
+                        break;
+                    }
+                }
+
             }
 
             Helpers.CortarMoverArchivosExtension(Utilidades.LeerAppConfig("RutaEntrada"), "*.gpg", Helpers.RutaOriginales);
@@ -81,7 +91,6 @@ namespace App.ControlEjecucion
                     if (archivo.Contains(insumo))
                     {
                         resultado = "0";
-                        GetTamañoArchivo(insumo, archivo);
                         break;
                     }
                 }
