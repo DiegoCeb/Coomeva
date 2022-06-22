@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DLL_Utilidades;
 using System.IO;
 using Helpers = App.Controlnsumos.Helpers;
+using App.Controlnsumos;
 
 namespace App.ControlCargueArchivos
 {
@@ -27,7 +28,15 @@ namespace App.ControlCargueArchivos
             }
             catch (Exception ex)
             {
-                Helpers.EscribirLogVentana(ex.Message, true);
+                DatosError StructError = new DatosError
+                {
+                    Clase = nameof(Diccionario),
+                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
+                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
+                    Error = ex.Message
+                };
+
+                Helpers.EscribirLogVentana(StructError, true);                
             } 
             #endregion
         }

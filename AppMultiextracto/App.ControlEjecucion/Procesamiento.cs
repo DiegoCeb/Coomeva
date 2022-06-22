@@ -43,7 +43,15 @@ namespace App.ControlEjecucion
             }
             catch (Exception ex)
             {
-                Helpers.EscribirLogVentana(ex.Message);
+                DatosError StructError = new DatosError
+                {
+                    Clase = nameof(Procesamiento),
+                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
+                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
+                    Error = ex.Message
+                };
+
+                Helpers.EscribirLogVentana(StructError, true);                
                 return false;
             }
 
@@ -55,31 +63,47 @@ namespace App.ControlEjecucion
         /// <returns></returns>
         public bool VerificacionArchivosEntrada()
         {
-            string resultado = "1";
-
-            DatosVerificacionArchivos = Insumos.CargarNombresArchivos();
-
-            foreach (var archivo in Directory.GetFiles(Utilidades.LeerAppConfig("RutaEntrada")))
+            try
             {
-                foreach (var insumo in DatosVerificacionArchivos.Keys)
+                string resultado = "1";
+
+                DatosVerificacionArchivos = Insumos.CargarNombresArchivos();
+
+                foreach (var archivo in Directory.GetFiles(Utilidades.LeerAppConfig("RutaEntrada")))
                 {
-                    if (archivo.Contains(insumo))
+                    foreach (var insumo in DatosVerificacionArchivos.Keys)
                     {
-                        resultado = "0";
-                        GetTamañoArchivo(insumo, archivo);
-                        break;
+                        if (archivo.Contains(insumo))
+                        {
+                            resultado = "0";
+                            GetTamañoArchivo(insumo, archivo);
+                            break;
+                        }
                     }
+
+                    if (resultado == "1")
+                    {
+                       throw new Exception($"El siguiente archivo {Path.GetFileName(archivo)} no se reconoce dentro de los nombres configurados para el proceso.");
+                    }
+
                 }
 
-                if (resultado == "1")
-                {
-                    Helpers.EscribirLogVentana($"El siguiente archivo {Path.GetFileName(archivo)} no se reconoce dentro de los nombres configurados para el proceso.");
-                    return false;
-                }
-
+                return true;
             }
+            catch (Exception ex)
+            {
+                DatosError StructError = new DatosError
+                {
+                    Clase = nameof(Procesamiento),
+                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
+                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
+                    Error = ex.Message
+                };
 
-            return true;
+                Helpers.EscribirLogVentana(StructError, true);
+                return false;
+            }
+            
         }
 
         /// <summary>
@@ -310,7 +334,15 @@ namespace App.ControlEjecucion
             }
             catch (Exception ex)
             {
-                Helpers.EscribirLogVentana(ex.Message);
+                DatosError StructError = new DatosError
+                {
+                    Clase = nameof(Procesamiento),
+                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
+                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
+                    Error = ex.Message
+                };
+
+                Helpers.EscribirLogVentana(StructError, true);
                 return false;
             }            
         }
@@ -330,28 +362,46 @@ namespace App.ControlEjecucion
         public string ValidarNumeroOrden(string pNumeroOrdenProceso)
         {
             #region ValidarNumeroOrden
-            string corte = string.Empty;
-
-            if (pNumeroOrdenProceso.Length == 10)
+            try
             {
-                corte = ObtenerNombreCorte(pNumeroOrdenProceso);
+                string corte = string.Empty;
 
-                if (corte == "05" || corte == "10" || corte == "15" || corte == "20" || corte == "25" || corte == "30") //NL
+                if (pNumeroOrdenProceso.Length == 10)
                 {
-                    corte = $"C{corte}";
+                    corte = ObtenerNombreCorte(pNumeroOrdenProceso);
+
+                    if (corte == "05" || corte == "10" || corte == "15" || corte == "20" || corte == "25" || corte == "30") //NL
+                    {
+                        corte = $"C{corte}";
+                    }
+                    else
+                    {
+                        throw new Exception(RXGeneral.ErrorNumCorte);
+                    }
+
                 }
                 else
                 {
-                    Helpers.EscribirLogVentana(RXGeneral.ErrorNumCorte, true);
+                    throw new Exception(RXGeneral.ErrorTamañoNumOrden);
                 }
 
+                return corte;
             }
-            else
+            catch (Exception ex)
             {
-                Helpers.EscribirLogVentana(RXGeneral.ErrorTamañoNumOrden, true);
+                DatosError StructError = new DatosError
+                {
+                    Clase = nameof(Procesamiento),
+                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
+                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
+                    Error = ex.Message
+                };
+
+                Helpers.EscribirLogVentana(StructError, true);
+                return String.Empty;
             }
 
-            return corte; 
+            
             #endregion
         }
 
@@ -546,91 +596,125 @@ namespace App.ControlEjecucion
         public void IniciarSalidasZonificadas(string nombreProceso, string archivoCargue, string codigoCliente, string codigoProceso, string codigoCourier, string parametros, bool pdfCliente, string basedelProceso)
         {
             #region Iniciar Salidas Zonificadas
-            string nombreCarpeta = Utilidades.LeerAppConfig("RutaFtp") + "/" + nombreProceso + " - " + DateTime.Now.ToShortDateString().Replace("/", "") + "_" + DateTime.Now.Second;
-
-            // Ftp Delta
-            ClaseFtp ClaseFtpDelta = new ClaseFtp(Utilidades.LeerAppConfig("FtpDireccionDelta"),
-                                             Convert.ToInt16(Utilidades.LeerAppConfig("FtpPuertoDelta")),
-                                             Utilidades.LeerAppConfig("FtpUsuarioDelta"),
-                                             Utilidades.LeerAppConfig("FtpClaveDelta"));
-
-            if (ClaseFtpDelta.CrearcarpetaFtpDelta(nombreCarpeta))
+            try
             {
-                //carpeta creada correctamente
-                if (ClaseFtpDelta.CargarArchivoFtpDelta(archivoCargue, nombreCarpeta + "/" + Path.GetFileName(archivoCargue)))
+                string nombreCarpeta = Utilidades.LeerAppConfig("RutaFtp") + "/" + nombreProceso + " - " + DateTime.Now.ToShortDateString().Replace("/", "") + "_" + DateTime.Now.Second;
+
+                // Ftp Delta
+                ClaseFtp ClaseFtpDelta = new ClaseFtp(Utilidades.LeerAppConfig("FtpDireccionDelta"),
+                                                 Convert.ToInt16(Utilidades.LeerAppConfig("FtpPuertoDelta")),
+                                                 Utilidades.LeerAppConfig("FtpUsuarioDelta"),
+                                                 Utilidades.LeerAppConfig("FtpClaveDelta"));
+
+                if (ClaseFtpDelta.CrearcarpetaFtpDelta(nombreCarpeta))
                 {
-                    //se crea la orden de servicio
-                    Orden = Helpers.CrearOrdenServicio(codigoCliente, codigoProceso);
-
-                    //se realiza zonificacion
-                    string estado = Helpers.RealizarSalidasZonificadas(Orden, nombreProceso, codigoCourier, codigoCliente, codigoProceso, parametros, "2", nombreCarpeta + "/" + Path.GetFileName(archivoCargue));
-
-                    //verifica si ya termino el proceso
-                    while (estado != "finalizado")
+                    //carpeta creada correctamente
+                    if (ClaseFtpDelta.CargarArchivoFtpDelta(archivoCargue, nombreCarpeta + "/" + Path.GetFileName(archivoCargue)))
                     {
-                        estado = Helpers.ValidarOrden(Orden).ToLower();
-                    }
+                        //se crea la orden de servicio
+                        Orden = Helpers.CrearOrdenServicio(codigoCliente, codigoProceso);
 
-                    Helpers.EscribirLogVentana("Se genera correctamente el proceso...");
+                        //se realiza zonificacion
+                        string estado = Helpers.RealizarSalidasZonificadas(Orden, nombreProceso, codigoCourier, codigoCliente, codigoProceso, parametros, "2", nombreCarpeta + "/" + Path.GetFileName(archivoCargue));
 
-                    if (Convert.ToBoolean(pdfCliente))
-                    {
-                        #region Cargar Pdfs de cliente a adjuntos en linea
-                        string archivosMail = Utilidades.LeerAppConfig("RutaFtpMail") + "/" + Orden + "_adicional";
-
-                        ClaseFtpDelta.CrearcarpetaFtpDelta(archivosMail);
-
-                        foreach (var item in Directory.GetFiles(Path.GetDirectoryName(basedelProceso) ?? throw new InvalidOperationException()))
+                        //verifica si ya termino el proceso
+                        while (estado != "finalizado")
                         {
-                            if (Path.GetExtension(item).ToLower() == ".pdf")
-                            {
-                                ClaseFtpDelta.CargarArchivoFtpDelta(item, archivosMail + "/" + Path.GetFileName(item));
-                            }
+                            estado = Helpers.ValidarOrden(Orden).ToLower();
                         }
 
-                        Helpers.EscribirLogVentana("Termina la carga de los PDFs...");
-                        #endregion
+                        Helpers.EscribirVentanaLog("Se genera correctamente el proceso...");
+
+                        if (Convert.ToBoolean(pdfCliente))
+                        {
+                            #region Cargar Pdfs de cliente a adjuntos en linea
+                            string archivosMail = Utilidades.LeerAppConfig("RutaFtpMail") + "/" + Orden + "_adicional";
+
+                            ClaseFtpDelta.CrearcarpetaFtpDelta(archivosMail);
+
+                            foreach (var item in Directory.GetFiles(Path.GetDirectoryName(basedelProceso) ?? throw new InvalidOperationException()))
+                            {
+                                if (Path.GetExtension(item).ToLower() == ".pdf")
+                                {
+                                    ClaseFtpDelta.CargarArchivoFtpDelta(item, archivosMail + "/" + Path.GetFileName(item));
+                                }
+                            }
+
+                            Helpers.EscribirVentanaLog("Termina la carga de los PDFs...");
+                            #endregion
+                        }
+
+                        File.Create(Path.GetDirectoryName(Path.GetDirectoryName(archivoCargue)) + "\\" + Orden + ".txt");
+
+                        Helpers.EscribirVentanaLog("Termina Zonificacion por DELTA");
                     }
-
-                    File.Create(Path.GetDirectoryName(Path.GetDirectoryName(archivoCargue)) + "\\" + Orden + ".txt");
-
-                    Helpers.EscribirLogVentana("Termina Zonificacion por DELTA");
+                    else
+                    {
+                        Helpers.EscribirVentanaLog("Error al momento de cargar la base DELTA");
+                    }
                 }
                 else
                 {
-                    Helpers.EscribirLogVentana("Error al momento de cargar la base DELTA");
+                    Helpers.EscribirVentanaLog("Error al momento de crear la carpeta para la base DELTA");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Helpers.EscribirLogVentana("Error al momento de crear la carpeta para la base DELTA");
+                DatosError StructError = new DatosError
+                {
+                    Clase = nameof(Procesamiento),
+                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
+                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
+                    Error = ex.Message
+                };
+
+                Helpers.EscribirLogVentana(StructError, false);
+                
             }
+
+           
             #endregion
         }
 
         public void GenerarSalidasDoc1(string clienteDoc1, string productoDoc1, string tipoSalidaDoc1)
         {
             #region Generar Salida DOC1 (PDF - PS)
-
-            string Busqueda = string.Empty;
-
-            Busqueda = RutaBaseDelta;
-
-            foreach (var archivo in Directory.GetFiles(Busqueda, "*.sal"))
+            try
             {
-                string nombre = Path.GetFileNameWithoutExtension(archivo);
-                if (nombre.Contains("guias"))
-                {
-                    continue;
+                string Busqueda = string.Empty;
 
-                }
-                string estado = GeneradorArchivos.Procesar_Sal(LLenarParametros(), archivo, clienteDoc1, productoDoc1, tipoSalidaDoc1, Busqueda);
+                Busqueda = RutaBaseDelta;
 
-                if (estado.Contains("1"))
+                foreach (var archivo in Directory.GetFiles(Busqueda, "*.sal"))
                 {
-                    Helpers.EscribirLogVentana("Error en la generacion de salida Merge.", true);
+                    string nombre = Path.GetFileNameWithoutExtension(archivo);
+                    if (nombre.Contains("guias"))
+                    {
+                        continue;
+
+                    }
+                    string estado = GeneradorArchivos.Procesar_Sal(LLenarParametros(), archivo, clienteDoc1, productoDoc1, tipoSalidaDoc1, Busqueda);
+
+                    if (estado.Contains("1"))
+                    {
+                        throw new Exception("Error en la generacion de salida Merge.");
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                DatosError StructError = new DatosError
+                {
+                    Clase = nameof(Procesamiento),
+                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
+                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
+                    Error = ex.Message
+                };
+
+                Helpers.EscribirLogVentana(StructError, true);
+            }
+
+            
             #endregion
         }
 

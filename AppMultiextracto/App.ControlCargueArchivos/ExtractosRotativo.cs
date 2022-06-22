@@ -1,4 +1,5 @@
-﻿using DLL_Utilidades;
+﻿using App.Controlnsumos;
+using DLL_Utilidades;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,7 +29,15 @@ namespace App.ControlCargueArchivos
             }
             catch (Exception ex)
             {
-                Helpers.EscribirLogVentana(ex.Message, true);
+                DatosError StructError = new DatosError
+                {
+                    Clase = nameof(ExtractosRotativo),
+                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
+                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
+                    Error = ex.Message
+                };
+
+                Helpers.EscribirLogVentana(StructError, true);                
             }
             #endregion
         }

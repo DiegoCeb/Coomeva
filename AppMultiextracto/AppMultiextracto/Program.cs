@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using App.Controlnsumos;
 using App.ControlProcesos;
 
 namespace AppMultiextracto
@@ -14,7 +15,8 @@ namespace AppMultiextracto
         static void Main(string[] args)
         {
             using (GestionProcesos objProcesos = new GestionProcesos())
-            {
+            {                
+                Helpers.EscribirLogUsuario(Environment.UserName);
                 objProcesos.Menu();
             }
 

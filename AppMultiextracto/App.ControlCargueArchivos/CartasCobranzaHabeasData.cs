@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using App.Controlnsumos;
 using DLL_Utilidades;
 using Helpers = App.Controlnsumos.Helpers;
 
@@ -30,7 +31,16 @@ namespace App.ControlCargueArchivos
             }
             catch (Exception ex)
             {
-                Helpers.EscribirLogVentana(ex.Message, true);
+                DatosError StructError = new DatosError
+                {
+                    Clase = nameof(CartasCobranzaHabeasData),
+                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
+                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
+                    Error = ex.Message
+                };
+
+                Helpers.EscribirLogVentana(StructError, true);
+                
             }
             #endregion CartasCobranzaHabeasData
         }
