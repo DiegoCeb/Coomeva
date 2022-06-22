@@ -71,8 +71,8 @@ namespace App.ControlProcesos
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
 
-            Console.WriteLine("Cambie los datos de la base para pruebas");
-            Console.ReadKey();
+            //Console.WriteLine("Cambie los datos de la base para pruebas");
+            //Console.ReadKey();
 
             //if (!_objProceso.IniciarZonificacion("fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
             //{
@@ -89,7 +89,7 @@ namespace App.ControlProcesos
 
             //Generación de Muestras
 
-            _ = new ExtraccionMuestras();
+            //_ = new ExtraccionMuestras();
 
             //Parte Mail, Generar journal PS - Cargue a vault - Cargue journal delta - cargue adjuntos en linea
 
@@ -98,7 +98,9 @@ namespace App.ControlProcesos
             //4. validar el tema de la plantilla
             //5. Hacer lo de adjuntos en linea _adicional probarlo
 
-            _objProceso.CargueProcesoDigital($"Corte{Orden}_{DateTime.Now:yyyyMMdd}", Utilidades.LeerAppConfig("CodigoCliente"), 
+            //preguntar lo de adjuntos en linea antes de seguir par auqe generen los PDFs
+
+            _objProceso.CargueProcesoDigital($"Corte{Orden}_{DateTime.Now:yyyyMMddhhmmss}", Utilidades.LeerAppConfig("CodigoCliente"), 
                 Utilidades.LeerAppConfig("CodigoProcesoVirtual"), Utilidades.LeerAppConfig("CodigoCourier"), Utilidades.LeerAppConfig("ConfiguracionMapeoVirtual"),
                 false/*llevapdfs de adjuntos en linea*/, "ruta de los archivos para cargar en adjuntos en linea", Utilidades.LeerAppConfig("ClienteDoc1"), Utilidades.LeerAppConfig("ProductoDoc1"), Utilidades.LeerAppConfig("TipoSalida"), RutaProcesoVault);
 

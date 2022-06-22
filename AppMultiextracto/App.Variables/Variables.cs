@@ -26,7 +26,7 @@ namespace App.Variables
         public static Dictionary<string, DatosInsumos> InsumoAsociadosInactivos = new Dictionary<string, DatosInsumos>();
         public static Dictionary<string, DatosInsumos> InsumoEtiquetasMail = new Dictionary<string, DatosInsumos>();
         public static Dictionary<string, DatosInsumos> InsumoEtiquetasFisico = new Dictionary<string, DatosInsumos>();
-        public static Dictionary<string, DatosPlanoBeneficios> EstructuraBeneficios = new Dictionary<string, DatosPlanoBeneficios>();
+        public static SortedDictionary<int, Dictionary<string, DatosPlanoBeneficios>> EstructuraBeneficios = new SortedDictionary<int, Dictionary<string, DatosPlanoBeneficios>>();
         public static CheckList CheckListProceso = new CheckList();
         public static string Orden = string.Empty;
         public static string RutaBaseDelta;

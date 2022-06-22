@@ -443,7 +443,7 @@ namespace App.Controlnsumos
         }
 
 
-        public static void MoverArchivosCondicionados(string RutaEntrada, string Extension, string RutaSalida, string CondicionNomre)
+        public static void MoverArchivosCondicionados(string RutaEntrada, string Extension, string RutaSalida, string CondicionNomre, string pNombreFinal)
         {
             #region Mover Archivos
             try
@@ -452,7 +452,7 @@ namespace App.Controlnsumos
                 {
                     if (Path.GetFileNameWithoutExtension(_Archivo).Contains(CondicionNomre))
                     {
-                        File.Move(_Archivo, RutaSalida + "\\" + Path.GetFileName(_Archivo));
+                        File.Move(_Archivo, RutaSalida + "\\" + pNombreFinal);
                     }
                     else
                     {

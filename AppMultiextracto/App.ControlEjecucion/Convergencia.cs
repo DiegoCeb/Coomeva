@@ -30,7 +30,7 @@ namespace App.ControlEjecucion
             RutaSalidaProcesoFisico = Directory.CreateDirectory($@"{Path.GetDirectoryName(Variables.Variables.RutaBaseDelta)}\Impresion").FullName;
             RutaSalidaProcesoVault = Directory.CreateDirectory($@"{Path.GetDirectoryName(Variables.Variables.RutaBaseDelta)}\Vault").FullName;
             GenerarSalidaVirtualPublicacion();
-            //OrdenarExtractoFinal();
+            OrdenarExtractoFinal();
             //Dispose();
             #endregion
         }
@@ -70,7 +70,7 @@ namespace App.ControlEjecucion
         private void OrdenarExtractoFinal()
         {
             #region OrdenarExtractoFinal
-            //Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229999_20220614\1320229999";
+            Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229999_20220617\1320229998";
             Helpers.DescomprimirGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta));
             Helpers.CargarGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta), Convert.ToInt16(DLL_Utilidades.Utilidades.LeerAppConfig("CampoCrucePDF")), "1AAA");
 
@@ -135,7 +135,7 @@ namespace App.ControlEjecucion
                             if (!extractoEscrito)
                             {
                                 extracto.Value.Insert(0, CanalInicio);
-                                Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoFisico}\{Variables.Variables.Orden}_{pRegional}_{extracto.Key}.sal", extracto.Value);
+                                Helpers.EscribirEnArchivo($@"{rutaFinalInterna}\{Variables.Variables.Orden}_{pRegional}_{extracto.Key}.sal", extracto.Value);
                             }
                         }
                     }
@@ -356,62 +356,148 @@ namespace App.ControlEjecucion
         {
             #region LlenarEstructuraDatosBeneficios();
 
-            Variables.Variables.EstructuraBeneficios.Add("Servicios*", new Variables.DatosPlanoBeneficios
+            #region Financiero
+
+            Variables.Variables.EstructuraBeneficios.Add(1, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Financieras|Servicios*| | | | "
+                { "Servicios*",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Financieras|Servicios*| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Productos de crédito", new Variables.DatosPlanoBeneficios
+
+            Variables.Variables.EstructuraBeneficios.Add(2, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Financieras|Productos de crédito| | | | "
+                { "Productos de crédito",  new Variables.DatosPlanoBeneficios
+                    {
+                         Formato = "1GGG|Soluciones Financieras|Productos de crédito| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Productos de ahorro", new Variables.DatosPlanoBeneficios
+
+            Variables.Variables.EstructuraBeneficios.Add(3, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Financieras|Productos de ahorro| | | | "
+                { "Productos de ahorro",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Financieras|Productos de ahorro| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Medicina Prepagada", new Variables.DatosPlanoBeneficios
+
+            #endregion
+
+            #region Salud
+
+            Variables.Variables.EstructuraBeneficios.Add(4, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Salud|Medicina Prepagada| | | | "
+                { "Medicina Prepagada",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Salud|Medicina Prepagada| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Coomeva Emergencia Médica", new Variables.DatosPlanoBeneficios
+
+            Variables.Variables.EstructuraBeneficios.Add(5, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Salud|Coomeva Emergencia Médica| | | | "
+                { "Coomeva Emergencia Médica",  new Variables.DatosPlanoBeneficios
+                    {
+                         Formato = "1GGG|Soluciones Salud|Coomeva Emergencia Médica| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Salud Oral", new Variables.DatosPlanoBeneficios
+
+            Variables.Variables.EstructuraBeneficios.Add(6, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Salud|Salud Oral| | | | "
+                { "Salud Oral",  new Variables.DatosPlanoBeneficios
+                    {
+                         Formato = "1GGG|Soluciones Salud|Salud Oral| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Cuota manejo TAC MasterCard", new Variables.DatosPlanoBeneficios
+
+            #endregion
+
+            #region Cooperativos
+            Variables.Variables.EstructuraBeneficios.Add(7, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Cooperativas|Cuota manejo TAC MasterCard| | | | "
+                { "Cuota manejo TAC MasterCard",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Cooperativas|Cuota manejo TAC MasterCard| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Educativas (Bonos de descuento)", new Variables.DatosPlanoBeneficios
+
+            Variables.Variables.EstructuraBeneficios.Add(8, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Cooperativas|Educativas (Bonos de descuento)| | | | "
+                { "Educativas (Bonos de descuento)",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Cooperativas|Educativas (Bonos de descuento)| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Beneficio Tasa Compensada (Coomeva Educa)", new Variables.DatosPlanoBeneficios
+
+            Variables.Variables.EstructuraBeneficios.Add(9, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Cooperativas|Beneficio Tasa Compensada (Coomeva Educa)| | | | "
+                { "Beneficio Tasa Compensada (Coomeva Educa)",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Cooperativas|Beneficio Tasa Compensada (Coomeva Educa)| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Fondo Social de Vivienda", new Variables.DatosPlanoBeneficios
+
+            Variables.Variables.EstructuraBeneficios.Add(10, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Cooperativas|Fondo Social de Vivienda| | | | "
+                { "Fondo Social de Vivienda",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Cooperativas|Fondo Social de Vivienda| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Asistencia Jurídica", new Variables.DatosPlanoBeneficios
+
+            #endregion
+
+            #region Proteccion
+            Variables.Variables.EstructuraBeneficios.Add(11, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Proteccion|Asistencia Jurídica| | | | "
+                { "Asistencia Jurídica",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Proteccion|Asistencia Jurídica| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Asistencia Pensional", new Variables.DatosPlanoBeneficios
+
+            Variables.Variables.EstructuraBeneficios.Add(12, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Proteccion|Asistencia Pensional| | | | "
+                { "Asistencia Pensional",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Proteccion|Asistencia Pensional| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Segunda Opinión Médica", new Variables.DatosPlanoBeneficios
+
+            Variables.Variables.EstructuraBeneficios.Add(13, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Proteccion|Segunda Opinión Médica| | | | "
+                { "Segunda Opinión Médica",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Proteccion|Segunda Opinión Médica| | | | "
+                    }
+                }
             });
-            Variables.Variables.EstructuraBeneficios.Add("Microcrédito", new Variables.DatosPlanoBeneficios
+
+            #endregion
+
+            #region Desarrollo Empresarial
+            Variables.Variables.EstructuraBeneficios.Add(14, new Dictionary<string, DatosPlanoBeneficios>()
             {
-                Formato = "1GGG|Soluciones Desarrollo Empresarial|Microcrédito| | | | "
+                { "Microcrédito",  new Variables.DatosPlanoBeneficios
+                    {
+                        Formato = "1GGG|Soluciones Desarrollo Empresarial|Microcrédito| | | | "
+                    }
+                }
             });
+            #endregion
+
             #endregion
         }
     }
