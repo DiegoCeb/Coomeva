@@ -340,7 +340,6 @@ namespace App.ControlEjecucion
                 Variables.Variables.InsumoPlanoBeneficios.Clear();
                 Variables.Variables.InsumoBaseTerceros.Clear();
                 Variables.Variables.InsumoBaseAsociados.Clear();
-                Variables.Variables.InsumoMuestras.Clear();
                 Variables.Variables.InsumoNuevosAsociadosFisicos.Clear();
                 Variables.Variables.InsumoPinos.Clear();
                 Variables.Variables.InsumoAsociadosInactivos.Clear();
