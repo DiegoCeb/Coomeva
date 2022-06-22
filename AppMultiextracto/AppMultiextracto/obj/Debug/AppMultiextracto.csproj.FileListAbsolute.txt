@@ -95,7 +95,6 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMul
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlEjecucion.pdb
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlEjecucion.dll.config
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlCargueArchivos.pdb
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlCargueArchivos.dll.config
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlFtp.pdb
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\App.ControlWebServiceZonificacion.pdb
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\FluentFTP.xml

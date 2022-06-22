@@ -648,23 +648,6 @@ namespace App.Controlnsumos
             }
         }
 
-        public static void EscribirLogVentanaMelo(string mensaje, bool finalizaProceso = false)
-        {
-            if (!string.IsNullOrEmpty(mensaje))
-            {
-                Console.WriteLine(mensaje);
-                Utilidades.EscribirLog(mensaje, Utilidades.LeerAppConfig("RutaLog"));
-            }
-
-            if (finalizaProceso)
-            {
-                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo");
-                Console.WriteLine("Presione una tecla para cerrar...");
-                Console.ReadKey();
-                Environment.Exit(1);
-            }
-        }
-
         /// <summary>
         /// Metodo para escribir en el Log y la ventan ade ejecucion // Dependiendo el error se cierra la aplicacion
         /// </summary>

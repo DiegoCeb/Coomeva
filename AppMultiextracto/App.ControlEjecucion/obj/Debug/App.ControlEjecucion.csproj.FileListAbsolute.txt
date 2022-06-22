@@ -94,6 +94,5 @@ C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Co
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\FluentFTP.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\starksoft.aspen.dll
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.pdb
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.ControlCargueArchivos.dll.config
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\App.Controlnsumos.dll.config
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlEjecucion\bin\Debug\FluentFTP.xml
