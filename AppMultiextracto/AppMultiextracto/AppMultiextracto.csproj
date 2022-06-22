@@ -23,6 +23,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,7 +40,9 @@
       <HintPath>..\..\..\..\ARCHIVOS_COOMEVA_APPS_LIBRERIAS\Servicio_Delta\DLL_ServicioDelta.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,13 +55,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\App.Controlnsumos\App.Controlnsumos.csproj">
-      <Project>{06F1A65C-E25B-4C4F-BBBC-FF9A8D887B23}</Project>
-      <Name>App.Controlnsumos</Name>
-    </ProjectReference>
     <ProjectReference Include="..\App.ControlProcesos\App.ControlProcesos.csproj">
       <Project>{d1935b5b-0b70-4aa4-8dd1-e6ce34dd5d91}</Project>
       <Name>App.ControlProcesos</Name>
@@ -66,6 +63,9 @@
       <Project>{7843C729-32D9-4EF8-8B20-C699FE651DD2}</Project>
       <Name>App.Variables</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

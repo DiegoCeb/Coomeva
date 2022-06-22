@@ -55,16 +55,10 @@ namespace App.ControlCargueArchivos
             StreamReader lector = new StreamReader(pArchivo, Encoding.Default);
             string linea = string.Empty;
 
-            bool encabezado = true;
+            //bool encabezado = true;
 
             while ((linea = lector.ReadLine()) != null)
             {
-                if (encabezado)
-                {
-                    encabezado = false;
-                    continue;
-                }
-
                 string llaveCruce = linea.Trim();
 
                 if (InsumoMuestras.ContainsKey(llaveCruce))

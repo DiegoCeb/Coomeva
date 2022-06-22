@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DLL_Utilidades;
 using App.Controlnsumos;
+using System.Globalization;
 
 namespace App.ControlCargueArchivos
 {
@@ -38,15 +39,7 @@ namespace App.ControlCargueArchivos
             }
             catch (Exception ex)
             {
-                DatosError StructError = new DatosError
-                {
-                    Clase = nameof(EstadoCuenta),
-                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
-                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
-                    Error = ex.Message
-                };
-
-                Helpers.EscribirLogVentana(StructError, true);
+                Helpers.EscribirLogVentana(ex.Message, true);
             }
             #endregion
         }
@@ -73,12 +66,12 @@ namespace App.ControlCargueArchivos
 
             while ((linea = lector.ReadLine()) != null)
             {
-                if (linea == "-Detalle utilizaciones de cupos-" || linea.Contains("F Ben.Tasa Solidaria")|| linea == "@")
+                if (linea == "-Detalle utilizaciones de cupos-" || linea.Contains("F Ben.Tasa Solidaria"))
                 {
                     continue;
                 }
 
-                if (linea.Contains("Código Asociado"))
+                if (linea.Substring(0, 1) == "@")
                 {
                     extractoCompleto = false;
 
@@ -96,7 +89,10 @@ namespace App.ControlCargueArchivos
                         temp.Clear();
                     }
 
-                    temp.Add(linea);
+                    if (linea.Substring(0, 1) != "@")
+                    {
+                        temp.Add(linea);
+                    }
                 }
                 else
                 {
@@ -208,17 +204,18 @@ namespace App.ControlCargueArchivos
             if (resultado.Exists(x => x.Contains("1CCC")))
             {
                 #region resultado.Add(ArmarCanal("1CCB", datosOriginales));
-                listadoDatos = from x in datosOriginales where x.Length > 1 && x.Substring(0, 2) == "T " && x.Contains('|') select x;
+                //listadoDatos = from x in datosOriginales where x.Length > 1 && x.Substring(0, 2) == "T " && x.Contains('|') select x;
 
-                foreach (var detalle in listadoDatos.ToList())
-                {
-                    result = ArmarCanal("1CCB", datosOriginales, detalle);
+                //foreach (var detalle in listadoDatos.ToList())
+                //{
+                //    result = ArmarCanal("1CCB", datosOriginales, detalle);
 
-                    if (!string.IsNullOrEmpty(result))
-                    {
-                        resultado.Add(result);
-                    }
-                }
+                //    if (!string.IsNullOrEmpty(result))
+                //    {
+                //        resultado.Add(result);
+                //    }
+                //}
+                resultado.Add($"1CCB| | | | ");
                 #endregion
             }
 
@@ -268,17 +265,18 @@ namespace App.ControlCargueArchivos
             #endregion
 
             #region resultado.Add(ArmarCanal("1FFF", datosOriginales));
-            listadoDatos = from x in datosOriginales where x.Length > 1 && x.Substring(0, 2) == "T " && x.Contains('|') select x;
+            //listadoDatos = from x in datosOriginales where x.Length > 1 && x.Substring(0, 2) == "T " && x.Contains('|') select x;
 
-            foreach (var detalle in listadoDatos.ToList())
-            {
-                result = ArmarCanal("1FFF", datosOriginales, detalle);
+            //foreach (var detalle in listadoDatos.ToList())
+            //{
+            //    result = ArmarCanal("1FFF", datosOriginales, detalle);
 
-                if (!string.IsNullOrEmpty(result))
-                {
-                    resultado.Add(result);
-                }
-            }
+            //    if (!string.IsNullOrEmpty(result))
+            //    {
+            //        resultado.Add(result);
+            //    }
+            //}
+            resultado.Add($"1FFF| | | | | | | ");
             #endregion
 
             #region resultado.Add(ArmarCanal("1GGG", datosOriginales));
@@ -291,7 +289,10 @@ namespace App.ControlCargueArchivos
 
                 foreach (var datosBeneficios in EstructuraBeneficios.Values)
                 {
-                    resultado.Add(datosBeneficios.Formato);
+                    foreach (var datoFinal in datosBeneficios.Values)
+                    {
+                        resultado.Add(datoFinal.Formato);
+                    }
                 }
 
                 //Solo se obtiene el primero por que todos tienen los mismos totales
@@ -364,6 +365,10 @@ namespace App.ControlCargueArchivos
             string fechaBancoomeva = string.Empty;
             string referencia = string.Empty;
             string totalPagar = string.Empty;
+            string lower = string.Empty;
+            string letraCapital = string.Empty;
+            TextInfo myTI = new CultureInfo("es-CO", false).TextInfo;
+
 
             switch (pCanal)
             {
@@ -371,7 +376,7 @@ namespace App.ControlCargueArchivos
                     #region 1AAA
                     CedulaProceso = pDatos.ElementAt(1).Substring(80, 14).Trim();
 
-                    if (CedulaProceso == "35199646")
+                    if (CedulaProceso == "27956909")
                     {
 
                     }
@@ -513,9 +518,9 @@ namespace App.ControlCargueArchivos
 
                         if (grupo == "Estatutarios")
                         {
-                            sumaCapitalVencido += pLineaDetalle.Substring(49, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(49, 14).Trim().Replace(',', '.')) : 0.0;
-                            sumaCapitalMes += pLineaDetalle.Substring(63, 28).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(63, 28).Trim().Replace(',', '.')) : 0.0;
-                            sumaInteresMora += pLineaDetalle.Substring(118, 13).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(118, 13).Trim().Replace(',', '.')) : 0.0;
+                            sumaCapitalVencido += pLineaDetalle.Substring(49, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(49, 14).Trim()) : 0.0;
+                            sumaCapitalMes += pLineaDetalle.Substring(63, 28).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(63, 28).Trim()) : 0.0;
+                            sumaInteresMora += pLineaDetalle.Substring(118, 13).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(118, 13).Trim()) : 0.0;
 
                             if (conceptoFinal == "Aportes")
                             {
@@ -523,7 +528,7 @@ namespace App.ControlCargueArchivos
                             }
                             else if (conceptoFinal.Contains("Solidaridad"))
                             {
-                                saldoSolidaridad += pLineaDetalle.Substring(32, 15).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(32, 15).Trim().Replace(',', '.')) : 0.0;
+                                saldoSolidaridad += pLineaDetalle.Substring(32, 15).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(32, 15).Trim()) : 0.0;
                             }
 
                             listaCortes.Add(new PosCortes(49, 14));  //Capital Vencido
@@ -531,6 +536,9 @@ namespace App.ControlCargueArchivos
                             listaCortes.Add(new PosCortes(119, 8));  //Interes Mora
                             listaCortes.Add(new PosCortes(127, 14)); //Valor a pagar
 
+                            lower = myTI.ToLower(conceptoFinal);
+                            letraCapital = myTI.ToTitleCase(lower);
+                            conceptoFinal = letraCapital;
                             resultado = $"1BBB|{conceptoFinal}|{Helpers.ExtraccionCamposSpool(listaCortes, pLineaDetalle)}";
                         }
                         #endregion
@@ -553,16 +561,16 @@ namespace App.ControlCargueArchivos
                         #region Detalles
                         BuscarConceptosDiccionario(pLineaDetalle, 184, 0);
 
-                        if (grupo == "Creditos Cooperativos" || grupo == "Planes Adicionales Solidaridad" || grupo == "Seguros" || grupo == "Medicina Prepagada")
+                        if (grupo == "Creditos Cooperativos" || grupo == "Planes Adicionales Solidaridad" || grupo == "Seguros" || grupo == "Medicina Prepagada"|| grupo == "Financiamiento")
                         {
-                            sumaCapitalVencido += pLineaDetalle.Substring(49, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(49, 14).Trim().Replace(',', '.')) : 0.0;
-                            sumaCapitalVencido += pLineaDetalle.Substring(63, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(63, 14).Trim().Replace(',', '.')) : 0.0;
-                            sumaCapitalMes += pLineaDetalle.Substring(70, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(70, 14).Trim().Replace(',', '.')) : 0.0;
-                            sumaCapitalMes += pLineaDetalle.Substring(91, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(91, 14).Trim().Replace(',', '.')) : 0.0;
+                            sumaCapitalVencido += pLineaDetalle.Substring(49, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(49, 14).Trim()) : 0.0;
+                            sumaCapitalVencido += pLineaDetalle.Substring(63, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(63, 14).Trim()) : 0.0;
+                            sumaCapitalMes += pLineaDetalle.Substring(70, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(70, 14).Trim()) : 0.0;
+                            sumaCapitalMes += pLineaDetalle.Substring(91, 14).Trim() != "" ? Convert.ToDouble(pLineaDetalle.Substring(91, 14).Trim()) : 0.0;
 
                             listaCortes.Add(new PosCortes(49, 14));  //Capital Vencido
                             listaCortes.Add(new PosCortes(63, 14));  //Financiacion Vencida
-                            listaCortes.Add(new PosCortes(70, 21));  //Capital Mes
+                            listaCortes.Add(new PosCortes(77, 21));  //Capital Mes
                             listaCortes.Add(new PosCortes(91, 14));  //Financiacion Mes
                             listaCortes.Add(new PosCortes(121, 6));  //Interes Mora
                             listaCortes.Add(new PosCortes(127, 14)); //Valor a Pagar
@@ -572,6 +580,9 @@ namespace App.ControlCargueArchivos
                             listaCortes.Add(new PosCortes(32, 15));  //Saldo Capital Anterior
                             listaCortes.Add(new PosCortes(141, 15)); //Saldo Capital Posterior
 
+                            lower = myTI.ToLower(conceptoFinal);
+                            letraCapital = myTI.ToTitleCase(lower);
+                            conceptoFinal = letraCapital;
                             resultado = $"1CCC|{grupo}|{conceptoFinal}|{Helpers.ExtraccionCamposSpool(listaCortes, pLineaDetalle)}";
                         }
                         #endregion
@@ -667,9 +678,13 @@ namespace App.ControlCargueArchivos
                     #region 1GGG
                     string producto = pLineaDetalle.Split('\t').ElementAt(5).Trim();
 
-                    if (EstructuraBeneficios.ContainsKey(producto))
+                    foreach (var estructuraOrden in EstructuraBeneficios)
                     {
-                        EstructuraBeneficios[producto].Formato = $"1GGG|{pLineaDetalle.Split('\t').ElementAt(4).Trim()}|{producto}|{pLineaDetalle.Split('\t').ElementAt(6).Trim()}|{pLineaDetalle.Split('\t').ElementAt(7).Trim()}|{pLineaDetalle.Split('\t').ElementAt(8).Trim()}| ".Replace("||", "| |").Replace("||", "| |");
+                        if (estructuraOrden.Value.ContainsKey(producto))
+                        {
+                            estructuraOrden.Value[producto].Formato = $"1GGG|{pLineaDetalle.Split('\t').ElementAt(4).Trim()}|{producto}|{pLineaDetalle.Split('\t').ElementAt(6).Trim()}|{pLineaDetalle.Split('\t').ElementAt(7).Trim()}|{pLineaDetalle.Split('\t').ElementAt(8).Trim()}| ".Replace("||", "| |").Replace("||", "| |");
+                            break;
+                        }
                     }
                     #endregion
                     break;
@@ -729,9 +744,22 @@ namespace App.ControlCargueArchivos
                     resultado = $"1PRU|{Helpers.ExtraccionCamposSpool(listaCortes, pLineaDetalle)}| ";
                     listaCortes.Clear();
 
-                    listaCortes.Add(new PosCortes(125, 15));
-                    listaCortes.Add(new PosCortes(140, 18));
-                    listaCortes.Add(new PosCortes(158, 18));
+                    if (pLineaDetalle.Length > 125)
+                    {
+                        listaCortes.Add(new PosCortes(125, 15));
+                    }
+                    
+
+                    if (pLineaDetalle.Length > 140)
+                    {
+                        listaCortes.Add(new PosCortes(140, 18));
+                    }
+                   
+                    if (pLineaDetalle.Length > 158)
+                    {
+                        listaCortes.Add(new PosCortes(158, 18));
+                    }
+                   
 
                     resultado += $"|{Helpers.ExtraccionCamposSpool(listaCortes, pLineaDetalle)}";
                     #endregion

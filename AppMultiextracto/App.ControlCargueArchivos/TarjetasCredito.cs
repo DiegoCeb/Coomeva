@@ -12,7 +12,7 @@ namespace App.ControlCargueArchivos
     /// <summary>
     /// Clase que carga los datos puros del Producto TarjetasCredito
     /// </summary>
-    public class TarjetasCredito: App.Variables.Variables, ICargue
+    public class TarjetasCredito : App.Variables.Variables, ICargue
     {
         private const string _producto = "TarjetasCredito";
 
@@ -46,7 +46,7 @@ namespace App.ControlCargueArchivos
         /// Constructor General
         /// </summary>
         public TarjetasCredito()
-        {}
+        { }
 
         /// <summary>
         /// Metodo que ejecuta el inicio del Cargue
@@ -76,6 +76,7 @@ namespace App.ControlCargueArchivos
                     if (linea.Substring(0, 7) == "TARJETA")
                     {
                         llaveCruce = linea.Substring(20).Trim();
+
                         if (!DiccionarioExtractos.ContainsKey(llaveCruce))
                         {
                             DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
@@ -195,7 +196,7 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(68, 9));
                         listaCortes.Add(new PosCortes(77, 17));
                         listaCortes.Add(new PosCortes(94, 17));
-                        
+
 
                         if (lineaDatos.Length < 135)
                         {
@@ -204,7 +205,7 @@ namespace App.ControlCargueArchivos
                             listaCortes.Add(new PosCortes(null, null));
                             listaCortes.Add(new PosCortes(111, 5));
                             listaCortes.Add(new PosCortes(116, 0));
-                            
+
                         }
                         else
                         {
@@ -212,7 +213,7 @@ namespace App.ControlCargueArchivos
                             listaCortes.Add(new PosCortes(127, 5));
                             listaCortes.Add(new PosCortes(132, 0));
                             canalEnMapeo = lineaDatos;
-                            
+
 
                         }
 
@@ -224,6 +225,9 @@ namespace App.ControlCargueArchivos
                         canalEnMapeo = string.Empty;
                         break;
                     case "6":
+                        if (!string.IsNullOrEmpty(canalEnMapeo))
+                        { resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo)); }
+
                         canalEnMapeo = string.Empty;
 
                         listaCortes.Clear();
@@ -237,8 +241,11 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(120, 0));
                         canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
                         resultado.Add($"1TA4|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        canalEnMapeo = string.Empty;
                         break;
                     case "7":
+                        if (!string.IsNullOrEmpty(canalEnMapeo))
+                        { resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo)); }
                         canalEnMapeo = string.Empty;
 
                         listaCortes.Clear();
@@ -249,6 +256,7 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(59, 0));
                         canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
                         resultado.Add($"1TA5|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        canalEnMapeo = string.Empty;
                         break;
                     case "8":
                         canalEnMapeo = string.Empty;
@@ -257,6 +265,7 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(1, 0));
                         canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
                         resultado.Add($"1TA6|{Helpers.ValidarPipePipe(canalEnMapeo)}");
+                        canalEnMapeo = string.Empty;
                         break;
                     case "9":
                         canalEnMapeo = string.Empty;
@@ -324,7 +333,7 @@ namespace App.ControlCargueArchivos
             else
             {
                 return "  ";
-            } 
+            }
             #endregion
         }
     }

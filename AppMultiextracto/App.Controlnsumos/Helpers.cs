@@ -13,12 +13,14 @@ using DLL_ServicioDelta;
 using DLL_ServicioDelta.wsDelta;
 using SharpCompress.Archives;
 using SharpCompress.Common;
+using SharpCompress.Readers;
 
 namespace App.Controlnsumos
 {
     public static class Helpers
     {
         public static string RutaProceso { get; set; }
+        public static string RutaOriginales { get; set; }
         public static string RutaBaseMaestraFisico { get; set; }
 
         /// <summary>
@@ -220,9 +222,16 @@ namespace App.Controlnsumos
 
             linea = linea.Replace("||", "| |").Replace("||", "| |");
 
-            if (linea.Last() == '|')
+            if (linea != "")
             {
-                return $"{linea} ";
+                if (linea.Last() == '|')
+                {
+                    return $"{linea} ";
+                }
+                else
+                {
+                    return linea;
+                }
             }
             else
             {
@@ -355,13 +364,17 @@ namespace App.Controlnsumos
             string resultado = pCampo;
             try
             {
+                if (string.IsNullOrEmpty(pCampo))
+                {
+                    pCampo = "0";
+                }
                 NumberFormatInfo nfi = new CultureInfo(CultureInfo.InvariantCulture.Name, false).NumberFormat;
                 nfi.NumberDecimalSeparator = ".";
                 nfi.NumberDecimalDigits = pPosDecimales;
                 nfi.CurrencyDecimalDigits = pPosDecimales;
                 nfi.CurrencySymbol = String.Empty;
 
-                decimal Valor = Convert.ToDecimal(pCampo.Replace('.', ','));
+                decimal Valor = Convert.ToDecimal(pCampo);
                 resultado = Valor.ToString("C", nfi);
 
             }
@@ -415,7 +428,26 @@ namespace App.Controlnsumos
             #endregion
         }
 
-        public static void MoverArchivosCondicionados(string RutaEntrada, string Extension, string RutaSalida, string CondicionNomre)
+        public static void CortarMoverArchivosExtension(string RutaEntrada, string Extension, string RutaSalida)
+        {
+            #region Mover Archivos
+            try
+            {
+                foreach (var _Archivo in Directory.GetFiles(RutaEntrada, Extension))
+                {
+                    File.Move(_Archivo, RutaSalida + "\\" + Path.GetFileName(_Archivo));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utilidades.EscribirLog(ex.Message, Utilidades.LeerAppConfig("RutaLog"));
+                throw;
+            }
+            #endregion
+        }
+
+
+        public static void MoverArchivosCondicionados(string RutaEntrada, string Extension, string RutaSalida, string CondicionNomre, string pNombreFinal)
         {
             #region Mover Archivos
             try
@@ -424,7 +456,7 @@ namespace App.Controlnsumos
                 {
                     if (Path.GetFileNameWithoutExtension(_Archivo).Contains(CondicionNomre))
                     {
-                        File.Move(_Archivo, RutaSalida + "\\" + Path.GetFileName(_Archivo));
+                        File.Move(_Archivo, RutaSalida + "\\" + pNombreFinal);
                     }
                     else
                     {
@@ -505,15 +537,7 @@ namespace App.Controlnsumos
             }
             catch (Exception ex)
             {
-                DatosError StructError = new DatosError
-                {
-                    Clase = nameof(CrearOrdenServicio),
-                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
-                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
-                    Error = ex.Message
-                };
-
-                Helpers.EscribirLogVentana(StructError);
+                EscribirLogVentana("ERROR " + ex.Message);
                 throw;
             }
             #endregion
@@ -532,7 +556,7 @@ namespace App.Controlnsumos
             parametros[5] = proyecto;                                                          // Codigo Proceso
             parametros[6] = DateTime.Now.ToString("yyyy-MM-dd");                               // FechaCorte
             parametros[7] = codigoParametro;                                                   // Parametros
-            parametros[8] = "astrid.nino@carvajal.com";                                        // Envio Mail Salidas
+            parametros[8] = "";                                                                // Envio Mail Salidas
             parametros[9] = rutaArchivo;                                                       // Ruta FTP
             parametros[10] = Path.GetFileName(rutaArchivo);                                    // Nombre Archivo
             parametros[11] = "";                                                               // Archivo Base64
@@ -543,40 +567,37 @@ namespace App.Controlnsumos
             #endregion
         }
 
-        public static void DesencriptarArchivos(string ArchivosFordecrypt, string llave)
+        public static void DesencriptarArchivos(string ArchivosFordecrypt, string llave, string pRutaGnuPg, string pClaveDesencripcion)
         {
-            #region DesencriptarArchivos
             try
             {
-                Gpg ArchivoEncriptado = new Gpg(@"\\172.19.37.10\proyectos\Ingenieria\Diego\GNU\GnuPG\gpg2.exe");
+                Gpg ArchivoEncriptado = new Gpg(pRutaGnuPg);//172.19.37.10\proyectos\Ingenieria\Diego\GNU\GnuPG\gpg2.exe
                 ArchivoEncriptado.Recipient = "<" + llave + ">";
-                ArchivoEncriptado.Passphrase = "Carvajal2012.";
+                ArchivoEncriptado.Passphrase = pClaveDesencripcion;
                 string EncryptedFile = ArchivosFordecrypt;
                 string NombreArchivo = Path.GetFileNameWithoutExtension(EncryptedFile);
                 string UnencryptedFile = Path.GetDirectoryName(EncryptedFile) + "\\" + NombreArchivo;
                 var ArchivoDesencriptado = DecryptFile(EncryptedFile, UnencryptedFile, ArchivoEncriptado);
                 if (ArchivoDesencriptado == null)
                 {
-                    throw new Exception("Error al momento de desencriptar el archivo: " + NombreArchivo);
+                    EscribirLogVentana("Error al momento de desencriptar el archivo: " + NombreArchivo);
+                }
+                else
+                {
+                    EscribirLogVentana("Desencripto Correctamente: " + NombreArchivo);
                 }
             }
             catch (Exception ex)
             {
-                DatosError StructError = new DatosError
-                {
-                    Clase = nameof(Helpers),
-                    Metodo = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetMethod().ToString(),
-                    LineaError = new System.Diagnostics.StackTrace(ex, true).GetFrame(0).GetFileLineNumber(),
-                    Error = ex.Message
-                };
-
-                Helpers.EscribirLogVentana(StructError,true);
+                EscribirLogVentana(ex.Message);
             }
-            #endregion
+
         }
 
         public static FileInfo DecryptFile(string encryptedSourceFile, string decryptedFile, Gpg gpg)
         {
+            FileStream encryptedSourceFileStream = null;
+            FileStream decryptedFileStream = null;
             try
             {
                 // Mirara si el archivo encriptado viene en blanco
@@ -586,10 +607,10 @@ namespace App.Controlnsumos
                 if (string.IsNullOrEmpty(decryptedFile))
                     throw new ArgumentException("decryptedFile Parámetro está vacío o nulo", "decryptedFile");
 
-                FileStream encryptedSourceFileStream = new FileStream(encryptedSourceFile, FileMode.Open, FileAccess.Read);
+                encryptedSourceFileStream = new FileStream(encryptedSourceFile, FileMode.Open, FileAccess.Read);
                 // Se asegura de que estamos al inicio del archivo.
                 encryptedSourceFileStream.Position = 0;
-                FileStream decryptedFileStream = new FileStream(decryptedFile, FileMode.Create, FileAccess.Write);
+                decryptedFileStream = new FileStream(decryptedFile, FileMode.Create, FileAccess.Write);
 
                 // Metodo que desencripta el archivo
                 gpg.Decrypt(encryptedSourceFileStream, decryptedFileStream);
@@ -601,6 +622,16 @@ namespace App.Controlnsumos
             }
             catch (Exception)
             {
+                if (encryptedSourceFileStream != null)
+                {
+                    encryptedSourceFileStream.Close();
+                }
+
+                if (decryptedFileStream != null)
+                {
+                    decryptedFileStream.Close();
+                }
+              
                 //EscribirLog(ex.Message);
                 return null;
             }
@@ -609,7 +640,7 @@ namespace App.Controlnsumos
         {
             if (File.Exists(ruta))
             {
-                using (StreamWriter streamWriter = new StreamWriter(ruta, true, Encoding.Default))
+                using (StreamWriter streamWriter = new StreamWriter(ruta, true, Encoding.UTF8))
                 {
                     foreach (var item in listado)
                     {
@@ -621,7 +652,7 @@ namespace App.Controlnsumos
             {
                 FileStream escritor = File.Create(ruta);
 
-                using (StreamWriter streamWriter = new StreamWriter(escritor, Encoding.Default))
+                using (StreamWriter streamWriter = new StreamWriter(escritor, Encoding.UTF8))
                 {
                     foreach (var item in listado)
                     {
@@ -631,22 +662,14 @@ namespace App.Controlnsumos
 
                 escritor.Close();
             }
-        }        
+        }
 
-        /// <summary>
-        /// Metodo para escribir en el Log y la ventan ade ejecucion // Dependiendo el error se cierra la aplicacion
-        /// </summary>
-        /// <param name="strucDatosError">Estructura de Datos error</param>
-        /// <param name="finalizaProceso">Bandera para finalizar proceso // True = Cierra - False = Continua </param>
-        public static void EscribirLogVentana(DatosError strucDatosError, bool finalizaProceso = false)
+        public static void EscribirLogVentana(string mensaje, bool finalizaProceso = false)
         {
-            #region EscribirLogVentana
-            string Error = $"Clase: {strucDatosError.Clase} -|- Metodo:{strucDatosError.Metodo} -|- linea Error: {strucDatosError.LineaError} -|- Mensaje: {strucDatosError.Error}";
-
-            if (!string.IsNullOrEmpty(strucDatosError.Error))
+            if (!string.IsNullOrEmpty(mensaje))
             {
-                Console.WriteLine(Error);
-                Utilidades.EscribirLog(Error, Utilidades.LeerAppConfig("RutaLog"));
+                Console.WriteLine(mensaje);
+                Utilidades.EscribirLog(mensaje, Utilidades.LeerAppConfig("RutaLog"));
             }
 
             if (finalizaProceso)
@@ -656,28 +679,6 @@ namespace App.Controlnsumos
                 Console.ReadKey();
                 Environment.Exit(1);
             }
-            #endregion
-        }
-
-        /// <summary>
-        /// Metodo creado para escribir en el Log y le Ventana de ejecucion
-        /// </summary>
-        /// <param name="Mensaje">Mensaje a escribir</param>
-        public static void EscribirVentanaLog(string Mensaje)
-        {
-            #region EscribirVentanaLog
-            Console.WriteLine(Mensaje);
-            Utilidades.EscribirLog(Mensaje, Utilidades.LeerAppConfig("RutaLog"));
-            #endregion
-        }
-
-        /// <summary>
-        /// Metodo para escribir el usuario en el Log
-        /// </summary>
-        /// <param name="usuario">Usuario que ejecuta la aplicación</param>
-        public static void EscribirLogUsuario(string usuario)
-        {
-            Utilidades.EscribirLog("*** Nuevo proceso ejecutado por: " + usuario, Utilidades.LeerAppConfig("RutaLog"));
         }
 
         /// <summary>
@@ -770,6 +771,24 @@ namespace App.Controlnsumos
             }
             #endregion
         }
+
+        /// <summary>
+        /// Metodo encargado de mover un archivo a una carpeta especifica
+        /// </summary>
+        /// <param name="rutaInsumoActual">Ruta archivo a mover</param>
+        /// <param name="nuevaRutaDirectorioInsumo">Ruta cerpeta donde se va a mover el archivo</param>
+        /// <param name="nombreInsumo">Nombre del archivo</param>
+        public static void MoverArchivoaCarpeta(string rutaInsumoActual, string nuevaRutaDirectorioInsumo, string nombreInsumo)
+        {
+            #region MoverArchivoaCarpeta
+            if (!Directory.Exists(nuevaRutaDirectorioInsumo))
+            {
+                Directory.CreateDirectory(nuevaRutaDirectorioInsumo);
+            }
+
+            File.Move(rutaInsumoActual, $@"{nuevaRutaDirectorioInsumo}\{nombreInsumo}");
+            #endregion
+        }
     }
 
     public struct PosCortes
@@ -788,15 +807,5 @@ namespace App.Controlnsumos
             this.PosInicial = posInicial;
             this.Cantidad = cantidad;
         }
-    }
-    /// <summary>
-    /// Structura de datos Error para las Exception
-    /// </summary>
-    public struct DatosError
-    {        
-        public string Metodo;
-        public string Clase;
-        public string Error;
-        public int? LineaError;
     }
 }
