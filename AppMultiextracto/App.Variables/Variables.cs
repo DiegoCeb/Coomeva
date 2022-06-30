@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.Variables
 {
+    /// <summary>
+    /// Clase Variables 
+    /// </summary>
     public class Variables
     {
         public string Proceso { get; set; }
@@ -36,6 +36,9 @@ namespace App.Variables
         public static List<string> CedulasSinTipoEnvio = new List<string>();
     }
 
+    /// <summary>
+    /// Estructura de Datos extracto
+    /// </summary>
     public struct DatosExtractos
     {
         public List<string> Extracto;
@@ -43,12 +46,18 @@ namespace App.Variables
         public Type TipoClase;
     }
 
+    /// <summary>
+    /// Estructura Datos Insumo
+    /// </summary>
     public struct DatosInsumos
     {
         public List<string> InsumoLinea;
         public char Separador;
     }
 
+    /// <summary>
+    /// Clase plano beneficios
+    /// </summary>
     public class DatosPlanoBeneficios
     {
         public string Formato;

@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reflection;
 using System.IO;
 using App.Controlnsumos;
@@ -11,7 +9,7 @@ using App.Controlnsumos;
 namespace App.ControlEjecucion
 {
     /// <summary>
-    /// 
+    /// Clase de la Convergencia del proceso
     /// </summary>
     public class Convergencia : IConvergencia
     {
@@ -20,7 +18,7 @@ namespace App.ControlEjecucion
         private string RutaSalidaProcesoVault = string.Empty;
 
         /// <summary>
-        /// 
+        /// Constructor Convergencia
         /// </summary>
         public Convergencia()
         {
@@ -35,6 +33,9 @@ namespace App.ControlEjecucion
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para generar las salidas Virtual y publicación
+        /// </summary>
         private void GenerarSalidaVirtualPublicacion()
         {
             List<string> publicacion = new List<string>();
@@ -67,6 +68,9 @@ namespace App.ControlEjecucion
             Helpers.EscribirEnArchivo(Variables.Variables.RutaProcesoVault, publicacion);
         }
 
+        /// <summary>
+        /// Metodo para el Ordenamiento final en base a las Guias
+        /// </summary>
         private void OrdenarExtractoFinal()
         {
             #region OrdenarExtractoFinal
@@ -91,6 +95,12 @@ namespace App.ControlEjecucion
             #endregion
         }
 
+        /// <summary>
+        /// Metodo Procesamiento en Plantas
+        /// </summary>
+        /// <param name="pCedula">Cedula del registro</param>
+        /// <param name="pRegional">Regional del Registro</param>
+        /// <param name="pConsecutivo">Consecutivo del registro</param>
         private void ProcesarPlantas(string pCedula, string pRegional, string pConsecutivo)
         {
             #region ProcesarPlantas
@@ -146,7 +156,7 @@ namespace App.ControlEjecucion
                 }
                 else
                 {
-                    //no deberia entrar aca por que una dcedula solo puede tener un tipo de envio Fisico o Virtual
+                    //no deberia entrar aca por que una cedula solo puede tener un tipo de envio Fisico o Virtual
                 }
 
             }
@@ -158,6 +168,12 @@ namespace App.ControlEjecucion
             #endregion
         }
 
+        /// <summary>
+        /// Metodo Procesamiento Unificado
+        /// </summary>
+        /// <param name="pCedula">Cedula del registro</param>
+        /// <param name="pRegional">Regional del Registro</param>
+        /// <param name="pConsecutivo">Consecutivo del registro</param>
         private void ProcesarUnificado(string pCedula, string pRegional, string pConsecutivo)
         {
             #region ProcesarUnificado
@@ -201,7 +217,7 @@ namespace App.ControlEjecucion
         }
 
         /// <summary>
-        /// 
+        /// Metodo para formatear data
         /// </summary>
         /// <param name="datosOriginales"></param>
         public void Formatear(Dictionary<string, Dictionary<string, DatosExtractos>> datosOriginales)
@@ -227,11 +243,12 @@ namespace App.ControlEjecucion
         }
 
         /// <summary>
-        /// 
+        /// Metodo para agregar registro Formateado
         /// </summary>
-        /// <param name="pCedula"></param>
-        /// <param name="pTipoEnvio"></param>
-        /// <param name="pExtracto"></param>
+        /// <param name="pCedula">Cedula registro</param>
+        /// <param name="pTipoEnvio">Tipo Envio</param>
+        /// <param name="pExtracto">Lista del extracto</param>
+        /// <param name="pProducto">Procto Procesado</param>
         private void AgregarFormateado(string pCedula, string pTipoEnvio, List<string> pExtracto, string pProducto)
         {
             #region AgregarFormateado
@@ -264,11 +281,11 @@ namespace App.ControlEjecucion
         }
 
         /// <summary>
-        /// 
+        /// Intermediador para llamar el metodo de formateo
         /// </summary>
-        /// <param name="pTipoObjeto"></param>
-        /// <param name="pParametroEnvio"></param>
-        /// <returns></returns>
+        /// <param name="pTipoObjeto">Tipo clase a invocar</param>
+        /// <param name="pParametroEnvio">Parametros segun clase invocada</param>
+        /// <returns>Objeto de la clase invocada</returns>
         private object InvocarMetodoFormateo(Type pTipoObjeto, List<string> pParametroEnvio)
         {
             #region InvocarMetodoFormateo
@@ -291,10 +308,10 @@ namespace App.ControlEjecucion
         }
 
         /// <summary>
-        /// 
+        /// Verificacion tipo de envio
         /// </summary>
-        /// <param name="pCedula"></param>
-        /// <returns></returns>
+        /// <param name="pCedula">Cedula registro</param>
+        /// <returns>Strin con tipo de Salida</returns>
         private string VerificarTipoEnvio(string pCedula)
         {
             #region Identificacion Tipo de envio
@@ -319,17 +336,27 @@ namespace App.ControlEjecucion
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>
         public void Dispose()
         {
+            #region Dispose
             // Dispose of unmanaged resources.
             Dispose(true);
             // Suppress finalization.
             GC.SuppressFinalize(this);
+            #endregion
         }
 
         // Protected implementation of Dispose pattern.
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>
+        /// <param name="disposing">Bandera para limpiar variables</param>
         protected virtual void Dispose(bool disposing)
         {
+            #region Dispose
             if (_disposed)
                 return;
 
@@ -349,8 +376,13 @@ namespace App.ControlEjecucion
 
             // Free any unmanaged objects here.
             _disposed = true;
+
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo para llenar los datps de beneficios
+        /// </summary>
         private void LlenarEstructuraDatosBeneficios()
         {
             #region LlenarEstructuraDatosBeneficios();
@@ -501,6 +533,9 @@ namespace App.ControlEjecucion
         }
     }
 
+    /// <summary>
+    /// Enumerable Orden del extracto
+    /// </summary>
     public enum OrdenExtracto
     {
         [System.ComponentModel.Description("EstadoCuenta")]

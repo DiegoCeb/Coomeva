@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using DLL_Utilidades;
 using App.Controlnsumos;
 using System.Globalization;
 
@@ -168,6 +166,11 @@ namespace App.ControlCargueArchivos
             CargueArchivoDiccionario(pArchivo);
         }
 
+        /// <summary>
+        /// Metodo que Formatea la data para el Sal.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
             #region FormatearArchivo
@@ -359,6 +362,13 @@ namespace App.ControlCargueArchivos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo que arma el canal final del .sal
+        /// </summary>
+        /// <param name="pCanal">Identificador de canal</param>
+        /// <param name="pDatos">Lista de datos</param>
+        /// <param name="pLineaDetalle">Cadena de la linea detalle</param>
+        /// <returns>Cadena con canal formateado</returns>
         private string ArmarCanal(string pCanal, List<string> pDatos, string pLineaDetalle = "")
         {
             #region ArmarCanal
@@ -778,6 +788,11 @@ namespace App.ControlCargueArchivos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para optener la Ciudad y Departamento
+        /// </summary>
+        /// <param name="pDatos">Diccionario de las variables de insumos</param>
+        /// <returns>String Con ciudad | Depto</returns>
         private string BuscarCiudadDpto(Dictionary<string, Variables.DatosInsumos> pDatos)
         {
             #region BuscarCiudadDpto
@@ -794,6 +809,12 @@ namespace App.ControlCargueArchivos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para buscar el concepto del diccionario insumos
+        /// </summary>
+        /// <param name="pLineaDetalle">string con la linea detalle</param>
+        /// <param name="pCorteIncial">Inicio del corte</param>
+        /// <param name="pCantidad">Tamaño del campo</param>
         private void BuscarConceptosDiccionario(string pLineaDetalle, int pCorteIncial, int pCantidad)
         {
             #region BuscarConceptosDiccionario

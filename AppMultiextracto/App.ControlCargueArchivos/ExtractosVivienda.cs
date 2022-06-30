@@ -149,6 +149,11 @@ namespace App.ControlCargueArchivos
             #endregion CargueArchivoDiccionario
         }
 
+        /// <summary>
+        /// Metodo que Formatea la data para el Sal.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
             #region FormatearArchivo

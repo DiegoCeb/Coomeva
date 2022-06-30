@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using App.Controlnsumos;
-using DLL_Utilidades;
 using Helpers = App.Controlnsumos.Helpers;
 
 namespace App.ControlCargueArchivos
@@ -16,7 +11,6 @@ namespace App.ControlCargueArchivos
     public class ExtractosFundacion : App.Variables.Variables, ICargue
     {
         private const string _producto = "ExtractosFundacion";
-
         private bool _disposed = false;
 
         /// <summary>

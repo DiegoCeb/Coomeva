@@ -119,7 +119,7 @@ namespace App.ControlCargueArchivos
         /// <summary>
         /// Metodo que Formatea la data para el Sal.
         /// </summary>
-        /// <param name="datosOriginales">Lista orginal</param>
+        /// <param name="datosOriginales">Lista original</param>
         /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {

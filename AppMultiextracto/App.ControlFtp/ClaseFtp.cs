@@ -166,6 +166,11 @@ namespace App.ControlFtp
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para crear carpeta en el FTP de Delta
+        /// </summary>
+        /// <param name="nombreCarpeta">Nombre de la carpeta</param>
+        /// <returns>Booleano True = OK / False = KO </returns>
         public bool CrearcarpetaFtpDelta(string nombreCarpeta)
         {
             #region Crea carpetas en DELTA
@@ -181,6 +186,12 @@ namespace App.ControlFtp
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para cragar archivo a FTP de Delta
+        /// </summary>
+        /// <param name="rutaOriginal">Ruta origen del archivo</param>
+        /// <param name="rutaFtp">Ruta del FTP</param>
+        /// <returns>Booleano True = OK / False = KO </returns>
         public bool CargarArchivoFtpDelta(string rutaOriginal, string rutaFtp)
         {
             #region Carga Archivo al FTP
@@ -198,6 +209,12 @@ namespace App.ControlFtp
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para descargar archivos del FTP de Delta
+        /// </summary>
+        /// <param name="rutaFtpDelta">Ruta del FTP</param>
+        /// <param name="rutaDescarga">Ruta de descarga</param>
+        /// <returns>Booleano True = OK / False = KO </returns>
         public bool DescargarArchivosFtpDelta(string rutaFtpDelta, string rutaDescarga)
         {
             #region DescargaArchivos de un FTP.
@@ -226,7 +243,10 @@ namespace App.ControlFtp
             }
             #endregion
         }
-
+        
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>        
         public void Dispose()
         {
             // Dispose of unmanaged resources.
@@ -235,7 +255,11 @@ namespace App.ControlFtp
             GC.SuppressFinalize(this);
         }
 
-        // Protected implementation of Dispose pattern.
+        // Protected implementation of Dispose pattern.        
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>
+        /// <param name="disposing">Bandera para limpiar variables</param>
         protected virtual void Dispose(bool disposing)
         {
             if (_disposed)

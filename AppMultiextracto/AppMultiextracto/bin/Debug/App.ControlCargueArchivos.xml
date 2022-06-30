@@ -1,0 +1,851 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.ControlCargueArchivos</name>
+    </assembly>
+    <members>
+        <member name="T:App.ControlCargueArchivos.ActivacionProtecciones">
+            <summary>
+            Clase que se encarga de cargar el archivo de ActivacionProtecciones
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ActivacionProtecciones.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ActivacionProtecciones.#ctor">
+            <summary>
+            Constructor Generico
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ActivacionProtecciones.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ActivacionProtecciones.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ActivacionProtecciones.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.AsociadosInactivos">
+            <summary>
+            Clase que se encarga de cargar el archivo de AsociadosInactivos
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.AsociadosInactivos.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.AsociadosInactivos.#ctor">
+            <summary>
+            Constructor Generico
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.AsociadosInactivos.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.AsociadosInactivos.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.AsociadosInactivos.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.BaseEstadosCuentaAsociados">
+            <summary>
+            Clase que se encarga de cargar el archivo de BaseEstadosCuentaAsociados
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.BaseEstadosCuentaAsociados.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.BaseEstadosCuentaAsociados.#ctor">
+            <summary>
+            Constructor Generico
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.BaseEstadosCuentaAsociados.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.BaseEstadosCuentaAsociados.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.BaseEstadosCuentaTerceros">
+            <summary>
+            Clase que se encarga de cargar el archivo de BaseEstadosCuentaTerceros
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.BaseEstadosCuentaTerceros.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.BaseEstadosCuentaTerceros.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.BaseEstadosCuentaTerceros.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.BaseEstadosCuentaTerceros.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.BaseEstadosCuentaTerceros.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.CartasCobranzaHabeasData">
+            <summary>
+            Clase que se encarga de cargar el archivo de CartasCobranzaHabeasData
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasCobranzaHabeasData.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasCobranzaHabeasData.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasCobranzaHabeasData.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasCobranzaHabeasData.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasCobranzaHabeasData.Dispose">
+            <summary>
+            Metodo que destruye la lista proveniente del excel
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasCobranzaHabeasData.Dispose(System.Boolean)">
+            <summary>
+            Imlementacion del Dispose para destrir lista del excel.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasCobranzaHabeasData.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasTAC.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasTAC.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasTAC.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasTAC.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasTAC.Dispose">
+            <summary>
+            Metodo que destruye la lista proveniente del excel
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasTAC.Dispose(System.Boolean)">
+            <summary>
+            Imlementacion del Dispose para destrir lista del excel.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasTAC.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.Diccionario">
+            <summary>
+            Clase que se encarga de cargar el archivo de Diccionario
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Diccionario.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Diccionario.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Diccionario.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Diccionario.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Diccionario.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.EstadoCuenta">
+            <summary>
+            Clase que se encarga de cargar el archivo de EstadoCuenta
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.EstadoCuenta.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.EstadoCuenta.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.EstadoCuenta.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.EstadoCuenta.AgregarDiccionario(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que agrega al Dicionario General.
+            </summary>
+            <param name="pLlaveCruce">llave de cruce (Cedula)</param>
+            <param name="pTemp">Lista del extracto</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.EstadoCuenta.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.EstadoCuenta.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="M:App.ControlCargueArchivos.EstadoCuenta.ArmarCanal(System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Metodo que arma el canal final del .sal
+            </summary>
+            <param name="pCanal">Identificador de canal</param>
+            <param name="pDatos">Lista de datos</param>
+            <param name="pLineaDetalle">Cadena de la linea detalle</param>
+            <returns>Cadena con canal formateado</returns>
+        </member>
+        <member name="M:App.ControlCargueArchivos.EstadoCuenta.BuscarCiudadDpto(System.Collections.Generic.Dictionary{System.String,App.Variables.DatosInsumos})">
+            <summary>
+            Metodo para optener la Ciudad y Departamento
+            </summary>
+            <param name="pDatos">Diccionario de las variables de insumos</param>
+            <returns>String Con ciudad | Depto</returns>
+        </member>
+        <member name="M:App.ControlCargueArchivos.EstadoCuenta.BuscarConceptosDiccionario(System.String,System.Int32,System.Int32)">
+            <summary>
+            Metodo para buscar el concepto del diccionario insumos
+            </summary>
+            <param name="pLineaDetalle">string con la linea detalle</param>
+            <param name="pCorteIncial">Inicio del corte</param>
+            <param name="pCantidad">Tamaño del campo</param>
+        </member>
+        <member name="T:App.ControlCargueArchivos.Etiquetas">
+            <summary>
+            Clase que se encarga de cargar el archivo de Etiquetas
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Etiquetas.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Etiquetas.#ctor">
+            <summary>
+            Cosntructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Etiquetas.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Etiquetas.AgregarDiccionario``1(``0,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pDiccionario"></param>
+            <param name="pLlaveCruce"></param>
+            <param name="pLinea"></param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Etiquetas.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Etiquetas.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.ExtractoAhorros">
+            <summary>
+            Clase que se encarga de cargar el archivo de ExtractoAhorros
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractoAhorros.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractoAhorros.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractoAhorros.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractoAhorros.AgregarDiccionario(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que agrega al Dicionario General.
+            </summary>
+            <param name="pLlaveCruce">llave de cruce (Cedula)</param>
+            <param name="pTemp">Lista del extracto</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractoAhorros.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractoAhorros.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.ExtractosFundacion">
+            <summary>
+            Clase que se encarga de cargar el archivo de ExtractosFundacion
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosFundacion.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosFundacion.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosFundacion.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosFundacion.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosFundacion.Dispose">
+            <summary>
+            Metodo que destruye la lista proveniente del excel
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosFundacion.Dispose(System.Boolean)">
+            <summary>
+            Imlementacion del Dispose para destrir lista del excel.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosFundacion.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.ExtractosRotativo">
+            <summary>
+            Clase que se encarga de cargar el archivo de ExtractosRotativo
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosRotativo.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosRotativo.#ctor">
+            <summary>
+            Cosntructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosRotativo.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosRotativo.AgregarDiccionario(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que agrega al Dicionario General.
+            </summary>
+            <param name="pLlaveCruce">llave de cruce (Cedula)</param>
+            <param name="pTemp">Lista del extracto</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosRotativo.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosRotativo.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.ExtractosVivienda">
+            <summary>
+            Clase que carga los datos puros del Producto ExtractosVivienda
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosVivienda.#ctor(System.String)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="pArchivo">Ruta del Archivo</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosVivienda.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosVivienda.Ejecutar(System.String)">
+            <summary>
+            Metodo que ejecuta el inicio del Cargue
+            </summary>
+            <param name="pArchivo">Ruta del Archivo</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosVivienda.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo que carga los datos Puros del producto TarjetasCredito
+            </summary>
+            <param name="pArchivo">Ruta del Archivo</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosVivienda.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.Fiducoomeva">
+            <summary>
+            Clase que se encarga de cargar el archivo de Fiducoomeva
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Fiducoomeva.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Fiducoomeva.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Fiducoomeva.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Fiducoomeva.AgregarDiccionario(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que agrega al Dicionario General.
+            </summary>
+            <param name="pLlaveCruce">llave de cruce (Cedula)</param>
+            <param name="pTemp">Lista del extracto</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Fiducoomeva.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Fiducoomeva.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Fiducoomeva.FormatearCampos(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Metodo que Formatea cada campo segun el requerimiento.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.HabeasData">
+            <summary>
+            Clase que se encarga de cargar el archivo de HabeasData
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.HabeasData.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.HabeasData.#ctor">
+            <summary>
+            Cosntuctor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.HabeasData.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.HabeasData.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.HabeasData.Dispose">
+            <summary>
+            Metodo que destruye la lista proveniente del excel
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.HabeasData.Dispose(System.Boolean)">
+            <summary>
+            Imlementacion del Dispose para destrir lista del excel.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.HabeasData.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.Libranza">
+            <summary>
+            Clase que se encarga de cargar el archivo de Libranzas
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Libranza.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Libranza.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Libranza.Ejecutar(System.String)">
+            <summary>
+            Metodo que ejecuta el inicio del Cargue
+            </summary>
+            <param name="pArchivo">Ruta del Archivo</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Libranza.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo que carga los datos Puros del producto TarjetasCredito
+            </summary>
+            <param name="pArchivo">Ruta del Archivo</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Libranza.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.Muestras">
+            <summary>
+            Clase que se encarga de cargar el archivo de Muestras
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Muestras.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Muestras.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Muestras.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Muestras.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Muestras.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.NuevosAsociadosFisico">
+            <summary>
+            Clase que se encarga de cargar el archivo de NuevosAsociadosFisico
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.NuevosAsociadosFisico.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.NuevosAsociadosFisico.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.NuevosAsociadosFisico.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.NuevosAsociadosFisico.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.NuevosAsociadosFisico.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.Pinos">
+            <summary>
+            Clase que se encarga de cargar el archivo de Pinos
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Pinos.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Pinos.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Pinos.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Pinos.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.Pinos.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.PlanoBeneficiosEstadoCuenta">
+            <summary>
+            Clase que se encarga de cargar el archivo de PlanoBeneficiosEstadoCuenta
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.PlanoBeneficiosEstadoCuenta.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.PlanoBeneficiosEstadoCuenta.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.PlanoBeneficiosEstadoCuenta.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.PlanoBeneficiosEstadoCuenta.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.PlanoBeneficiosEstadoCuenta.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="T:App.ControlCargueArchivos.TarjetasCredito">
+            <summary>
+            Clase que carga los datos puros del Producto TarjetasCredito
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.TarjetasCredito.#ctor(System.String)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="pArchivo">Ruta del Archivo</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.TarjetasCredito.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.TarjetasCredito.Ejecutar(System.String)">
+            <summary>
+            Metodo que ejecuta el inicio del Cargue
+            </summary>
+            <param name="pArchivo">Ruta del Archivo</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.TarjetasCredito.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo que carga los datos Puros del producto TarjetasCredito
+            </summary>
+            <param name="pArchivo">Ruta del Archivo</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.TarjetasCredito.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="M:App.ControlCargueArchivos.TarjetasCredito.ObtenerCuotasPendientes(System.String)">
+            <summary>
+            Metodo que calcula las Cuotas Pendintes
+            </summary>
+            <param name="linea">Campos del Detalle</param>
+            <returns>campo de Cuotas Pendientes</returns>
+        </member>
+    </members>
+</doc>

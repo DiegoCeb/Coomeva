@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using App.ControlEjecucion;
-using App.Variables;
 using DLL_Utilidades;
 using App.ControlCargueArchivos;
 using App.Controlnsumos;
 
 namespace App.ControlProcesos
 {
+    /// <summary>
+    /// Clase GestionProcesos
+    /// </summary>
     public class GestionProcesos : Variables.Variables, IControl, IDisposable
     {
         // Flag: Has Dispose already been called?
@@ -21,13 +20,20 @@ namespace App.ControlProcesos
         public Dictionary<string, Type> InsumosCarga = new Dictionary<string, Type>();
         public List<string> InsumosActualizarCarga = new List<string>();
         private Procesamiento _objProceso = new Procesamiento();
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public GestionProcesos()
         {
+            #region GestionProcesos
             CargarClaves();
             CargarClavesInsumos();
+            #endregion
         }
         public void Ejecutar()
         {
+            #region Ejecutar
             CheckListProceso.FechaHoraIncio = DateTime.Now;
             _objProceso.CargueDiccionarioCheckList(this.NumeroOrdenProceso);
 
@@ -109,7 +115,7 @@ namespace App.ControlProcesos
             //Reportes
 
             _objProceso.RegistrarDatosHistoCantidades();
-
+            #endregion
         }
 
         /// <summary>
@@ -118,6 +124,7 @@ namespace App.ControlProcesos
         /// <param name="pRuta">Ruta de Archivos</param>
         private void CargueGeneralArchivos(string pRuta)
         {
+            #region CargueGeneralArchivos
             foreach (var archivoEntrada in Directory.GetFiles(pRuta))
             {
                 var nombreArchivo = Path.GetFileNameWithoutExtension(archivoEntrada);
@@ -127,6 +134,7 @@ namespace App.ControlProcesos
 
                 _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
             }
+            #endregion
         }
 
         /// <summary>
@@ -155,6 +163,10 @@ namespace App.ControlProcesos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para cargar las llaves de los insumos
+        /// </summary>
+        /// <returns>Lista con las llaves de insumos</returns>
         public List<string> CargarClavesInsumos()
         {
             #region CargarClavesInsumos
@@ -168,6 +180,10 @@ namespace App.ControlProcesos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para argar cargar las claves
+        /// </summary>
+        /// <returns>Diccionario con las llaves y tipo de cada clase</returns>
         public Dictionary<string, Type> CargarClaves()
         {
             #region Cargar Insumos
@@ -199,8 +215,14 @@ namespace App.ControlProcesos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para identificar los archivos a procesar
+        /// </summary>
+        /// <param name="pNombreArchivo">Nombre arhivo</param>
+        /// <returns>Retorna le valor del insumo cargado</returns>
         private Type IdentificarArchivo(string pNombreArchivo)
         {
+            #region IdentificarArchivo
             foreach (var insumo in InsumosCarga)
             {
                 if (pNombreArchivo.ToUpper().Contains(insumo.Key))
@@ -224,10 +246,16 @@ namespace App.ControlProcesos
             }
 
             return null;
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo para pintar el encabezado al abrir la aplicación
+        /// </summary>
+        /// <exception cref="InvalidOperationException"></exception>
         public void Inicio()
         {
+            #region Inicio
             Assembly assem = Assembly.GetEntryAssembly();
             AssemblyName assemName = assem?.GetName();
             Version ver = assemName?.Version;
@@ -251,10 +279,15 @@ namespace App.ControlProcesos
             Console.WriteLine("");
 
             Console.Title = "Procesos Coomeva " + version;
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo para mostrar el menu de la aplicación
+        /// </summary>
         public void Menu()
         {
+            #region Menu
             Inicio();
             Console.WriteLine("Seleccione el proceso que desea ejecutar:");
             Console.WriteLine("");
@@ -283,19 +316,30 @@ namespace App.ControlProcesos
                     Menu();
                     break;
             }
+            #endregion
         }
-
+        
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>        
         public void Dispose()
         {
+            #region Dispose
             // Dispose of unmanaged resources.
             Dispose(true);
             // Suppress finalization.
             GC.SuppressFinalize(this);
+            #endregion
         }
 
         // Protected implementation of Dispose pattern.
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>
+        /// <param name="disposing">Bandera para limpiar variables</param>
         protected virtual void Dispose(bool disposing)
         {
+            #region Dispose
             if (_disposed)
                 return;
 
@@ -306,7 +350,7 @@ namespace App.ControlProcesos
 
             // Free any unmanaged objects here.
             _disposed = true;
+            #endregion
         }
-
     }
 }

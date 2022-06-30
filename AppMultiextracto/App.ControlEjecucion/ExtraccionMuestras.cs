@@ -96,6 +96,9 @@ namespace App.ControlEjecucion
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>        
         public void Dispose()
         {
             #region Dispose
@@ -107,6 +110,10 @@ namespace App.ControlEjecucion
         }
 
         // Protected implementation of Dispose pattern.
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>
+        /// <param name="disposing">Bandera para limpiar variables</param>
         protected virtual void Dispose(bool disposing)
         {
             #region Dispose
@@ -124,7 +131,5 @@ namespace App.ControlEjecucion
             _disposed = true; 
             #endregion
         }
-    }
-
-   
+    }   
 }

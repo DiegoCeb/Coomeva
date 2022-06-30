@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.ControlFtp</name>
+    </assembly>
+    <members>
+        <member name="M:App.ControlFtp.ClaseFtp.#ctor(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Constructor de la clase: ClaseFtp
+            </summary>
+            <param name="ftpDireccion"></param>
+            <param name="ftpPuerto"></param>
+            <param name="ftpUsuario"></param>
+            <param name="ftpClave"></param>
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.ConectarFtp">
+            <summary>
+            Metodo para conectarse a FTP
+            </summary>
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.DesconectarFtp">
+            <summary>
+            Metodo para desconectarse del FTP
+            </summary>
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.CrearcarpetaFtp(System.String)">
+            <summary>
+            Metodo para crear una carpeta en el FTP
+            </summary>
+            <param name="nombreCarpeta"></param>
+            <returns>Booleano True = OK / False = KO </returns>
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.CargarArchivoFtp(System.String,System.String)">
+            <summary>
+            Metodo para cargar archivos en el FTP
+            </summary>
+            <param name="rutaOriginal"></param>
+            <param name="rutaFtp"></param>
+            <returns>Booleano True = OK / False = KO </returns>
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.DescargarArchivosFtp(System.String,System.String,System.String,System.String)">
+            <summary>
+            Metodo para descargar archivos del FTP
+            </summary>
+            <param name="rutaFtp"></param>
+            <param name="rutaDescarga"></param>
+            <param name="extension"></param>
+            <param name="extensionAuxiliar"></param>
+            <returns>Booleano True = OK / False = KO </returns>
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.DescargarArchivosFtpOrden(System.String,System.String)">
+            <summary>
+            Metodo para descargar archivos del FTP
+            </summary>
+            <param name="rutaFtpDelta"></param>
+            <param name="rutaDescarga"></param>
+            <returns>Booleano True = OK / False = KO </returns>
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.CrearcarpetaFtpDelta(System.String)">
+            <summary>
+            Metodo para crear carpeta en el FTP de Delta
+            </summary>
+            <param name="nombreCarpeta">Nombre de la carpeta</param>
+            <returns>Booleano True = OK / False = KO </returns>
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.CargarArchivoFtpDelta(System.String,System.String)">
+            <summary>
+            Metodo para cragar archivo a FTP de Delta
+            </summary>
+            <param name="rutaOriginal">Ruta origen del archivo</param>
+            <param name="rutaFtp">Ruta del FTP</param>
+            <returns>Booleano True = OK / False = KO </returns>
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.DescargarArchivosFtpDelta(System.String,System.String)">
+            <summary>
+            Metodo para descargar archivos del FTP de Delta
+            </summary>
+            <param name="rutaFtpDelta">Ruta del FTP</param>
+            <param name="rutaDescarga">Ruta de descarga</param>
+            <returns>Booleano True = OK / False = KO </returns>
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.Dispose">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>        
+        </member>
+        <member name="M:App.ControlFtp.ClaseFtp.Dispose(System.Boolean)">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>
+            <param name="disposing">Bandera para limpiar variables</param>
+        </member>
+    </members>
+</doc>

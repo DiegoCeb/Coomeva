@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.Controlnsumos</name>
+    </assembly>
+    <members>
+        <member name="T:App.Controlnsumos.Helpers">
+            <summary>
+            Clase Helpers
+            </summary>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.ConvertirExcel(System.String)">
+            <summary>
+            Metodo para convertir Excel (.xlsx - .xls) en archivo plano
+            </summary>
+            <param name="archivo"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.GetTamañoArchivo(System.String)">
+            <summary>
+            Obtiene el tamaño del archivo
+            </summary>
+            <param name="pRutaArchivo">Ruta del Archivo</param>
+            <returns>Tamaño</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.GetTamañoHistorico(System.Collections.Generic.List{System.String},System.Int32)">
+            <summary>
+            Obtiene el Tamaño del ultimo corte por posicion
+            </summary>
+            <param name="tamañoUltimoCorte">Lista de campos UltimoCorte</param>
+            <param name="pPosicion">Posicion</param>
+            <returns>Tamaño</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.GetTamañoHistoricoInt(System.Collections.Generic.List{System.String},System.Int32)">
+            <summary>
+            Obtiene el Tamaño del ultimo corte por posicion
+            </summary>
+            <param name="tamañoUltimoCorte">Lista de campos UltimoCorte</param>
+            <param name="pPosicion">Posicion</param>
+            <returns>Tamaño</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.CrearCarpeta(System.String)">
+            <summary>
+            Metodo para crear carpeta 
+            </summary>
+            <param name="ruta"></param>
+            <returns>Ruta de la carpeta creada</returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.ValidarPipePipe(System.String)">
+            <summary>
+            Metodo que valida si hay Pipe seguidos o si se debe ageregar balnco al final de la cadena
+            </summary>
+            <param name="linea">String a verificar</param>
+            <returns>linea con el blanco adicionado</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.RemplazarCaracteres(System.Char,System.Char,System.String)">
+            <summary>
+            Metodo que remplaza un carcater en la linea enviada.
+            </summary>
+            <param name="caracterRemplazar">Caracter que se quiere remplazar.</param>
+            <param name="caracterNuevo">Carcater con el que se quiere remplazar.</param>
+            <param name="linea">Linea donde se va a hacer el remplazo.</param>
+            <returns>Linea con carcater remplazado</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.TrimCamposLinea(System.Char,System.String)">
+            <summary>
+            Metodo que hace trim a los campos de una linea separa por caracter especial.
+            </summary>
+            <param name="separador">caracter de separador</param>
+            <param name="linea">linea de datos</param>
+            <returns>linea con trim de campos</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.ExtraccionCamposSpool(System.Collections.Generic.List{App.Controlnsumos.PosCortes},System.String)">
+            <summary>
+            Metodo que extrae los campos de una linea de posiciones fijas
+            </summary>
+            <param name="posCortes">LIsta de Cortes</param>
+            <param name="linea">Linea</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.CompletarEspaciosLinea(System.String,System.Int32)">
+            <summary>
+            Completa una estructura con campos blancos
+            </summary>
+            <param name="linea">Liea</param>
+            <param name="cantPosiciones"> Posiciones que se necesitan</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.StringToMoneda(System.String,System.Int32)">
+            <summary>
+            Da formato de monea a campo
+            </summary>
+            <param name="pCampo">Campo</param>
+            <param name="pPosDecimales">Cantidad Decimales</param>
+            <returns>Campo Formateado</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.ListaCamposToLinea(System.Collections.Generic.List{System.String},System.Char)">
+            <summary>
+            Retorna una lidea a partir de una lista de campos
+            </summary>
+            <param name="campos">Lista Campos</param>
+            <param name="separador">Separador</param>
+            <returns>Linea</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.MoverArchivosExtension(System.String,System.String,System.String)">
+            <summary>
+            Metodo para copiar archivo filtrando por extensión
+            </summary>
+            <param name="RutaEntrada">Ruta carpeta original</param>
+            <param name="Extension">Extension a filtrar</param>
+            <param name="RutaSalida">Ruta a copiar los archivos</param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.CortarMoverArchivosExtension(System.String,System.String,System.String)">
+            <summary>
+            Metodo para Mover archivos de una carpeta a otra filtrada por extensión
+            </summary>
+            <param name="RutaEntrada">Ruta carpeta original</param>
+            <param name="Extension">Extension a filtrar</param>
+            <param name="RutaSalida">Ruta a mover los archivos</param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.MoverArchivosCondicionados(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Metodo para mover archivos de una carpeta a otra bajo condicinados
+            </summary>
+            <param name="RutaEntrada">Ruta carpeta original</param>
+            <param name="Extension">Extension a filtrar</param>
+            <param name="RutaSalida">Ruta a mover los archivos</param>
+            <param name="CondicionNomre">Condicion nombre</param>
+            <param name="pNombreFinal">Nombre Final Archivo</param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.MoverArchivos(System.String,System.String)">
+            <summary>
+            Metodo para mover archivos de una carpeta a otra
+            </summary>
+            <param name="RutaEntrada">Ruta carpeta original</param>        
+            <param name="RutaSalida">Ruta a mover los archivos</param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.ValidarOrden(System.String)">
+            <summary>
+            Metodo que se encarga de validar si la orden de servicio termino de procesar.
+            </summary>
+            <param name="orden">Orden a verificar</param>
+            <returns>Regresa el estado en el que se encuentra la orden.</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.RealizarSalidasZonificadas(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Metodo para realizar la Zonificación en Delta
+            </summary>
+            <param name="ordenServicio">Numero Orden</param>
+            <param name="nombreProceso">Nombre Proceso</param>
+            <param name="courier">Numero Courrier</param>
+            <param name="cliente">Cliente</param>
+            <param name="proyecto">Proyecto</param>
+            <param name="codigoParametro">Parametro</param>
+            <param name="tipoCargue">Tipo Cargue</param>
+            <param name="rutaArchivo">Ruta Archivo</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.DesencriptarArchivos(System.String,System.String,System.String,System.String)">
+            <summary>
+            Metodo para desencriptar archivos
+            </summary>
+            <param name="ArchivosFordecrypt">Archivo encriptado</param>
+            <param name="llave">Llave de desencriptar</param>
+            <param name="pRutaGnuPg">Ruta GnuPg</param>
+            <param name="pClaveDesencripcion">Clave desencriptación</param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.DecryptFile(System.String,System.String,Starksoft.Aspen.GnuPG.Gpg)">
+            <summary>
+            Metodo para desencrptar Archivos.
+            </summary>
+            <param name="encryptedSourceFile">Archivo a desencriptar </param>
+            <param name="decryptedFile">Archivo desencriptado</param>
+            <param name="gpg">Llave de desencriptar</param>
+            <returns>Retorna un FileInfo del archivo desencriptado.</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.EscribirEnArchivo(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo para escribir en archivo plano
+            </summary>
+            <param name="ruta">Ruta del archivo</param>
+            <param name="listado">Lista string a escribir</param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.EscribirLogVentana(App.Controlnsumos.DatosError,System.Boolean)">
+            <summary>
+            Metodo para escribir en el Log y la ventan ade ejecucion // Dependiendo el error se cierra la aplicacion
+            </summary>
+            <param name="strucDatosError">Estructura de Datos error</param>
+            <param name="finalizaProceso">Bandera para finalizar proceso // True = Cierra - False = Continua </param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.EscribirVentanaLog(System.String)">
+            <summary>
+            Metodo creado para escribir en el Log y le Ventana de ejecucion
+            </summary>
+            <param name="Mensaje">Mensaje a escribir</param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.EscribirLogUsuario(System.String)">
+            <summary>
+            Metodo para escribir el usuario en el Log
+            </summary>
+            <param name="usuario">Usuario que ejecuta la aplicación</param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.DescomprimirGuias(System.String[])">
+            <summary>
+            Metodo encargado de descomprimir archivos, en este caso guias.
+            </summary>
+            <param name="archivos">Archivos a descomprimir</param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.CargarGuias(System.String[],System.Int32,System.String)">
+            <summary>
+            Metodo para cargar las Guias
+            </summary>
+            <param name="rutaGuias"></param>
+            <param name="poscicion"></param>
+            <param name="canal"></param>
+        </member>
+        <member name="M:App.Controlnsumos.Helpers.MoverArchivoaCarpeta(System.String,System.String,System.String)">
+            <summary>
+            Metodo encargado de mover un archivo a una carpeta especifica
+            </summary>
+            <param name="rutaInsumoActual">Ruta archivo a mover</param>
+            <param name="nuevaRutaDirectorioInsumo">Ruta cerpeta donde se va a mover el archivo</param>
+            <param name="nombreInsumo">Nombre del archivo</param>
+        </member>
+        <member name="T:App.Controlnsumos.DatosError">
+            <summary>
+            Structura de datos Error para las Exception
+            </summary>
+        </member>
+        <member name="T:App.Controlnsumos.Insumos">
+            <summary>
+            Clase Insumo
+            </summary>
+        </member>
+        <member name="M:App.Controlnsumos.Insumos.CargarNombresArchivos">
+            <summary>
+            Metodo relacionando los archivos y su nombre para procesar
+            </summary>
+            <returns>Diccionario de nombre e identificador de archivo</returns>
+        </member>
+        <member name="M:App.Controlnsumos.Insumos.CargarNombresArchivosChekList(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo para cargar los nombre de los archivos en  el chekList
+            </summary>
+            <param name="tamañoUltimoCorte">Tamaño archivo ultimo corte procesado</param>
+        </member>
+        <member name="M:App.Controlnsumos.Insumos.CargarCantidadesExtractos(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo para cargar las cantidades del ultimo corte procesado
+            </summary>
+            <param name="camposUltimoCorte">Campos ultimo corte procesado</param>
+        </member>
+    </members>
+</doc>

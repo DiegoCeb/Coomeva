@@ -1,5 +1,4 @@
 ﻿using App.Controlnsumos;
-using DLL_Utilidades;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -94,7 +93,11 @@ namespace App.ControlCargueArchivos
             CargueArchivoDiccionario(pArchivo);
         }
 
-
+        /// <summary>
+        /// Metodo que Formatea la data para el Sal.
+        /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
             return new List<string>();

@@ -24,3 +24,4 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZo
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.csproj.CopyComplete
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\obj\Debug\App.ControlWebServiceZonificacion.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlWebServiceZonificacion\bin\Debug\App.ControlWebServiceZonificacion.xml

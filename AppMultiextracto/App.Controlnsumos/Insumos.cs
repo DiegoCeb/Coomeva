@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace App.Controlnsumos
 {
+    /// <summary>
+    /// Clase Insumo
+    /// </summary>
     public class Insumos : Variables.Variables
     {
+        /// <summary>
+        /// Metodo relacionando los archivos y su nombre para procesar
+        /// </summary>
+        /// <returns>Diccionario de nombre e identificador de archivo</returns>
         public static Dictionary<string, string> CargarNombresArchivos()
         {
             return new Dictionary<string, string>() {
@@ -37,6 +44,10 @@ namespace App.Controlnsumos
             };
         }
 
+        /// <summary>
+        /// Metodo para cargar los nombre de los archivos en  el chekList
+        /// </summary>
+        /// <param name="tamañoUltimoCorte">Tamaño archivo ultimo corte procesado</param>
         public static void CargarNombresArchivosChekList(List<string> tamañoUltimoCorte)
         {
             CheckListProceso.DiccionarioCantidadesArchivos = 
@@ -69,6 +80,10 @@ namespace App.Controlnsumos
             };
         }
 
+        /// <summary>
+        /// Metodo para cargar las cantidades del ultimo corte procesado
+        /// </summary>
+        /// <param name="camposUltimoCorte">Campos ultimo corte procesado</param>
         public static void CargarCantidadesExtractos(List<string> camposUltimoCorte)
         {
             CheckListProceso.CantidadesExtractosNacional.Extractos.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 26);
@@ -90,7 +105,5 @@ namespace App.Controlnsumos
             CheckListProceso.CantidadesExtractosNacional.Fiducoomeva.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 42);
             CheckListProceso.CantidadesExtractosNacional.CartasTAC.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 43);
         }
-
-
     }
 }

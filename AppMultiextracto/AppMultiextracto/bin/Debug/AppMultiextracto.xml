@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppMultiextracto</name>
+    </assembly>
+    <members>
+        <member name="T:AppMultiextracto.Program">
+            <summary>
+            Clase Program
+            </summary>
+        </member>
+    </members>
+</doc>

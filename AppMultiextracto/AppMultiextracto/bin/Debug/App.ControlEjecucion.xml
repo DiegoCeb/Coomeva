@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.ControlEjecucion</name>
+    </assembly>
+    <members>
+        <member name="T:App.ControlEjecucion.Convergencia">
+            <summary>
+            Clase de la Convergencia del proceso
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.#ctor">
+            <summary>
+            Constructor Convergencia
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.GenerarSalidaVirtualPublicacion">
+            <summary>
+            Metodo para generar las salidas Virtual y publicación
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.OrdenarExtractoFinal">
+            <summary>
+            Metodo para el Ordenamiento final en base a las Guias
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.ProcesarPlantas(System.String,System.String,System.String)">
+            <summary>
+            Metodo Procesamiento en Plantas
+            </summary>
+            <param name="pCedula">Cedula del registro</param>
+            <param name="pRegional">Regional del Registro</param>
+            <param name="pConsecutivo">Consecutivo del registro</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.ProcesarUnificado(System.String,System.String,System.String)">
+            <summary>
+            Metodo Procesamiento Unificado
+            </summary>
+            <param name="pCedula">Cedula del registro</param>
+            <param name="pRegional">Regional del Registro</param>
+            <param name="pConsecutivo">Consecutivo del registro</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.Formatear(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,App.Variables.DatosExtractos}})">
+            <summary>
+            Metodo para formatear data
+            </summary>
+            <param name="datosOriginales"></param>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.AgregarFormateado(System.String,System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Metodo para agregar registro Formateado
+            </summary>
+            <param name="pCedula">Cedula registro</param>
+            <param name="pTipoEnvio">Tipo Envio</param>
+            <param name="pExtracto">Lista del extracto</param>
+            <param name="pProducto">Procto Procesado</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.InvocarMetodoFormateo(System.Type,System.Collections.Generic.List{System.String})">
+            <summary>
+            Intermediador para llamar el metodo de formateo
+            </summary>
+            <param name="pTipoObjeto">Tipo clase a invocar</param>
+            <param name="pParametroEnvio">Parametros segun clase invocada</param>
+            <returns>Objeto de la clase invocada</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.VerificarTipoEnvio(System.String)">
+            <summary>
+            Verificacion tipo de envio
+            </summary>
+            <param name="pCedula">Cedula registro</param>
+            <returns>Strin con tipo de Salida</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.Dispose">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.Dispose(System.Boolean)">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>
+            <param name="disposing">Bandera para limpiar variables</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.LlenarEstructuraDatosBeneficios">
+            <summary>
+            Metodo para llenar los datps de beneficios
+            </summary>
+        </member>
+        <member name="T:App.ControlEjecucion.OrdenExtracto">
+            <summary>
+            Enumerable Orden del extracto
+            </summary>
+        </member>
+        <member name="T:App.ControlEjecucion.ExtraccionMuestras">
+            <summary>
+            Clase para Extraccion de Muestras
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ExtraccionMuestras.#ctor">
+            <summary>
+            Constructor Extraccion Muestras
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ExtraccionMuestras.ExraerMuetras">
+            <summary>
+            Metodo que extrae las muestras del diccionario completo
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ExtraccionMuestras.GenerarArchivosMuestras">
+            <summary>
+            Genera Archivo SAL de Muestras del Proceso
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ExtraccionMuestras.GenerarReporteMuestrasNoCruzadas">
+            <summary>
+            Genera Archivo CSV de lista de muestras No Cruzadas
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ExtraccionMuestras.Dispose">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>        
+        </member>
+        <member name="M:App.ControlEjecucion.ExtraccionMuestras.Dispose(System.Boolean)">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>
+            <param name="disposing">Bandera para limpiar variables</param>
+        </member>
+        <member name="T:App.ControlEjecucion.Procesamiento">
+            <summary>
+            Clase de ejecucion del proceso
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.DescargaArchivos">
+            <summary>
+            Metodo para descaragra Archivos del FTP de Coomeva
+            </summary>
+            <returns>Bandera para ver estado proceso True = Correct / False = Error</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.DesencriptarArchivos">
+            <summary>
+            Metodo para desencriptar Archivos
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.VerificacionArchivosEntrada">
+            <summary>
+            Metodo para verificar archivos de entrada
+            </summary>
+            <returns>Bandera para ver estado proceso True = Correct / False = Error</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.GetTamañoArchivo(System.String,System.String)">
+            <summary>
+            Metodo que Obtiene el tamaño del Archivo
+            </summary>
+            <param name="pInsumo">Nombre del Insumo</param>
+            <param name="pArchivo">Ruta del Archivo</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.CargueArchivosGlobal``1(System.String,``0)">
+            <summary>
+            Carga los archivos de manera global y temporal.
+            </summary>
+            <typeparam name="TEntidad">Entidad que se va a cargar</typeparam>
+            <param name="pArchivo">ruta del archivo</param>
+            <param name="pEntidadArchivo">Entidad del proceso</param>
+            <returns>True o False segun proceso.</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.GenerarBaseMaestra(System.String)">
+            <summary>
+            Metodo que genera la base maestra para zonificacion
+            </summary>
+            <param name="pArchivo">ruta del archivo de datos donde sale la informacion principal</param>
+            <returns>cadena con la ruta del servidor donde se creo el archivo</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.ActulizaInsumos(System.String,System.String)">
+            <summary>
+            Metodo que Actuliza los insumo enviados en el proceso
+            </summary>
+            <param name="nombreInusmo">Nombre Inusmo</param>
+            <param name="archivoEntrada">Ruta de Insumo nuevo</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.BuscarInsumoActual(System.String)">
+            <summary>
+            Metodo que busca si el insumo existe en la carpeta de inusmos
+            </summary>
+            <param name="nombreInusmo">NOmbre del Insumo</param>
+            <returns>Ruta del Inusmo encontrado</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.IniciarZonificacion(System.String,System.String)">
+            <summary>
+            Metodo para Iniciar La Zonificacion
+            </summary>
+            <param name="tipoProceso">Enviar literal de "Fisico" o  "Virtual"</param>
+            <param name="nombreProceso">nombre personalizado para el proceso.</param>
+            <returns>True o False dependiendo el resultado.</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.CargueDiccionarioCheckList(System.String)">
+            <summary>
+            Metodo que Carga los Datos del proceso anterior correspondiete al corte actual
+            </summary>
+            <param name="pNumeroOrdenProceso">Número de Orden</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.ValidarNumeroOrden(System.String)">
+            <summary>
+            Metodo para validar numero de orden
+            </summary>
+            <param name="pNumeroOrdenProceso">Número de Orden</param>
+            <returns>Retorna el corte</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.CargarHistoricoCantidades(System.String,System.String)">
+            <summary>
+            Busca el ultimo regitro del corte correspondiente y Segmeta la linea de cantiadades para obtner los Valores
+            </summary>
+            <param name="pRutaHistorico">Ruta RAchivo</param>
+            <param name="pCorte">Corte</param>
+            <returns>Lista del ultimo corte correspondiente.</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.InsertarDatosHistoCantidades(System.String,System.Boolean,System.String)">
+            <summary>
+            Metodo que controla la insercion de datos de Cantidades en el Log
+            </summary>
+            <param name="pRutaHistorico">Ruta Archivo</param>
+            <param name="pEscribirTitulos">Bandera de Titulos</param>
+            <param name="pLinea">Linea a registrar</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.EscribirHistoricoCantidades(System.IO.StreamWriter,System.Boolean,System.String)">
+            <summary>
+            Metodo que escribe directamente en el archivo
+            </summary>
+            <param name="pStreamWriter">Objeto de escritura</param>
+            <param name="pEscribirTitulos">Bandera de Titulos</param>
+            <param name="pLinea">LInea a escribir</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.ObtenerNombreCorte(System.String)">
+            <summary>
+            Metodo que obtiene el Corte a aprtir del Número de Orden
+            </summary>
+            <param name="pNumeroOrdenProceso">Número de Orden</param>
+            <returns>Nombre del corte</returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.RegistrarDatosHistoCantidades">
+            <summary>
+            Metdodo que obtiene los datos y los ordena para registralos
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.CargueProcesoDigital(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Metodo para el cargue del proceso digital en Delta
+            </summary>
+            <param name="nombreProceso">Nombre Proceso</param>
+            <param name="codigoCliente">Codigo Cliente</param>
+            <param name="codigoProceso">Codigo Proceso</param>
+            <param name="codigoCourier">Codigo Courrier</param>
+            <param name="parametros">Parametros</param>
+            <param name="pdfCliente">pdfClient</param>
+            <param name="basedelProceso">Base del proceso</param>
+            <param name="clienteDoc1">Cliente Doc1</param>
+            <param name="productoDoc1">Producto Doc1</param>
+            <param name="tipoSalidaDoc1">Tipo salida Doc1</param>
+            <param name="pRutaArchivoVault">Ruta Archivos vault</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.IniciarSalidasZonificadas(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Metodo para iniciar Salidas Zonificadas
+            </summary>
+            <param name="nombreProceso">Nombre Proceso</param>
+            <param name="archivoCargue">Ruta Archivo cargue</param>
+            <param name="codigoCliente">Codigo Cliente</param>
+            <param name="codigoProceso">Codigo Proceso</param>
+            <param name="codigoCourier">Codigo Courrier</param>
+            <param name="parametros">Parametros</param>
+            <param name="pdfCliente">pdfCliente</param>
+            <param name="basedelProceso">Base del proceso</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.GenerarSalidasDoc1(System.String,System.String,System.String,System.String)">
+            <summary>
+            Metodo para genrar salidad de Doc1
+            </summary>
+            <param name="clienteDoc1">Cliente Doc1</param>
+            <param name="productoDoc1">Producto Doc1</param>
+            <param name="tipoSalidaDoc1">Tipo Salida Doc1</param>
+            <param name="pArchivoSal">Ruta Archivo Sal</param>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.LLenarParametros">
+            <summary>
+            Metodo para llenar parametros desde el Config
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.Dispose">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>        
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.Dispose(System.Boolean)">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>
+            <param name="disposing">Bandera para limpiar variables</param>
+        </member>
+        <member name="T:App.ControlEjecucion.RXGeneral">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:App.ControlEjecucion.RXGeneral.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:App.ControlEjecucion.RXGeneral.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:App.ControlEjecucion.RXGeneral.ErrorNumCorte">
+            <summary>
+              Busca una cadena traducida similar a Los dos últimos dígitos del número de la orden no corresponden a ningún corte de Coomeva, por favor verifique e intenten de nuevo..
+            </summary>
+        </member>
+        <member name="P:App.ControlEjecucion.RXGeneral.ErrorTamañoNumOrden">
+            <summary>
+              Busca una cadena traducida similar a El tamaño de caracteres del numero de la orden es incorrecto, el número de orden debe ser de 10 caracteres, por favor verifique y vuelva a intentar procesar..
+            </summary>
+        </member>
+        <member name="P:App.ControlEjecucion.RXGeneral.TitulosHistoricoCantidades">
+            <summary>
+              Busca una cadena traducida similar a CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXX|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|Extractos|HojasEstadoCuentaSimplex|HojasEstadoCuentaDuplex|HojasViviendaSimplex|HojasViviendaDuplex|HojasDespositosSimplex|HojasDespositosDuplex|ExtractosVisa|ExtractosMas [resto de la cadena truncado]&quot;;.
+            </summary>
+        </member>
+    </members>
+</doc>

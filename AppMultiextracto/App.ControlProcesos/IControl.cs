@@ -11,9 +11,5 @@ namespace App.ControlProcesos
         void Inicio();
         void Menu();
         void Ejecutar();
-
-
-
-
     }
 }

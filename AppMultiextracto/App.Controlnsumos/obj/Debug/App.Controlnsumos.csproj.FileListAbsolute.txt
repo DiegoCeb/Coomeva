@@ -37,3 +37,5 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\D
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.pdb
 C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_Utilidades.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.xml
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.xml

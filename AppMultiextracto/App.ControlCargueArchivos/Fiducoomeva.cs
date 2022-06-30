@@ -254,7 +254,5 @@ namespace App.ControlCargueArchivos
             return resultado;
         }
 
-        
-        
     }
 }
