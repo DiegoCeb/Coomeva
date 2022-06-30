@@ -955,8 +955,7 @@ namespace App.ControlEjecucion
             GC.SuppressFinalize(this);
             #endregion
         }
-
-        // Protected implementation of Dispose pattern.
+        
         // Protected implementation of Dispose pattern.
         /// <summary>
         /// Metodo para liberar Memoria

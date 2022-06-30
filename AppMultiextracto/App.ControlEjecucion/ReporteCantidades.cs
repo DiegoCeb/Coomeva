@@ -21,7 +21,7 @@ namespace App.ControlEjecucion
         private string _rutaSalidaReporteGuias = string.Empty;
 
         /// <summary>
-        /// Constructor de la calse
+        /// Constructor de la clase
         /// </summary>
         public ReporteCantidades()
         {
@@ -116,15 +116,16 @@ namespace App.ControlEjecucion
         /// </summary>
         private void ExraerCantidades()
         {
+            #region ExraerCantidades
             int cantidadExtractos = 0;
             string regional = "Virtual";
             foreach (var extractoCedula in AppVariables.DiccionarioExtractosFormateados)
             {
                 foreach (var tipoExtracto in extractoCedula.Value)
                 {
-                    if(tipoExtracto.Key == regional)
+                    if (tipoExtracto.Key == regional)
                     {
-                        ReporteCantidades.ExraerCantidades(new KeyValuePair<string, List<string>>("Extractos", new List<string>() { $"1MUL| | | "}), regional);
+                        ReporteCantidades.ExraerCantidades(new KeyValuePair<string, List<string>>("Extractos", new List<string>() { $"1MUL| | | " }), regional);
 
                         foreach (var paqueteExtracto in tipoExtracto.Value)
                         {
@@ -149,11 +150,11 @@ namespace App.ControlEjecucion
                                 AppVariables.ReporteCantidades.Add(regional, dicTipo);
                             }
 
-                        } 
+                        }
                     }
                 }
-
-            }
+            } 
+            #endregion
         }
 
         /// <summary>
@@ -317,6 +318,7 @@ namespace App.ControlEjecucion
         /// </summary>
         private void GenerarArchivosCantidades()
         {
+            #region GenerarArchivosCantidades
             List<string> registrosCantidades = new List<string>() { "Producto;Extractos;Estado de Cuenta;Depositos;Tarjetas de Credito;Extractos Fundación;Rotativo;Vivienda;Libranza;Fiducoomeva;ActivacionProtecciones;CartasCobranzaHabeasData;HabeasData;CartasTAC" };
 
             foreach (string regional in AppVariables.ReporteCantidades.Keys)
@@ -338,7 +340,8 @@ namespace App.ControlEjecucion
 
             }
 
-            Helpers.EscribirEnArchivo($@"{_rutaSalidaReporteCantidades}", registrosCantidades);
+            Helpers.EscribirEnArchivo($@"{_rutaSalidaReporteCantidades}", registrosCantidades); 
+            #endregion
         }
 
         /// <summary>
@@ -391,7 +394,6 @@ namespace App.ControlEjecucion
 
             Helpers.EscribirEnArchivo($@"{_rutaSalidaCheckList}", checkList); 
             #endregion
-
         }
 
         /// <summary>
@@ -413,6 +415,7 @@ namespace App.ControlEjecucion
         /// <returns></returns>
         private int AgregarProductoReporteCantidades(List<string> registrosCantidades, string pRegional, string pProducto)
         {
+            #region AgregarProductoReporteCantidades
             int resultado = 0;
 
             int pos = registrosCantidades.Count() - 1;
@@ -423,13 +426,13 @@ namespace App.ControlEjecucion
                 if (productos.ContainsKey(pProducto))
                 {
                     resultado = productos[pProducto];
-                    registrosCantidades[pos] += $";{productos[pProducto].ToString()}"; 
+                    registrosCantidades[pos] += $";{productos[pProducto].ToString()}";
 
                 }
                 else
                 {
                     resultado = 0;
-                    registrosCantidades[pos] += $";0"; 
+                    registrosCantidades[pos] += $";0";
                 }
             }
             else
@@ -438,9 +441,13 @@ namespace App.ControlEjecucion
                 registrosCantidades[pos] += $",0";
             }
 
-            return resultado;
+            return resultado; 
+            #endregion
         }
-
+        
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>        
         public void Dispose()
         {
             #region Dispose
@@ -452,6 +459,10 @@ namespace App.ControlEjecucion
         }
 
         // Protected implementation of Dispose pattern.
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>
+        /// <param name="disposing">Bandera para limpiar variables</param>
         protected virtual void Dispose(bool disposing)
         {
             #region Dispose
@@ -467,7 +478,5 @@ namespace App.ControlEjecucion
             _disposed = true;
             #endregion
         }
-
-
     }
 }

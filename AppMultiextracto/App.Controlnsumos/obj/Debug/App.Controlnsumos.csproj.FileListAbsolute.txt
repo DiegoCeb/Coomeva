@@ -37,3 +37,5 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsu
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.csproj.CopyComplete
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.Controlnsumos\obj\Debug\App.Controlnsumos.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.xml
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.xml

@@ -19,9 +19,14 @@
             Metodo para generar las salidas Virtual y publicación
             </summary>
         </member>
-        <member name="M:App.ControlEjecucion.Convergencia.OrdenarExtractoFinal">
+        <member name="M:App.ControlEjecucion.Convergencia.ObtenerClaveMail(System.String)">
             <summary>
             Metodo para el Ordenamiento final en base a las Guias
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.Convergencia.OrdenarExtractoFinal">
+            <summary>
+            Método para Ordenar el extracto final.
             </summary>
         </member>
         <member name="M:App.ControlEjecucion.Convergencia.ProcesarPlantas(System.String,System.String,System.String)">
@@ -111,15 +116,10 @@
             Genera Archivo SAL de Muestras del Proceso
             </summary>
         </member>
-        <member name="M:App.ControlEjecucion.ExtraccionMuestras.GenerarReporteMuestrasNoCruzadas">
-            <summary>
-            Genera Archivo CSV de lista de muestras No Cruzadas
-            </summary>
-        </member>
         <member name="M:App.ControlEjecucion.ExtraccionMuestras.Dispose">
             <summary>
             Metodo para liberar Memoria
-            </summary>        
+            </summary>
         </member>
         <member name="M:App.ControlEjecucion.ExtraccionMuestras.Dispose(System.Boolean)">
             <summary>
@@ -142,6 +142,13 @@
             <summary>
             Metodo para desencriptar Archivos
             </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.Procesamiento.IdentificarArchivo(System.String)">
+            <summary>
+            Método para identificar el archivo a procesar
+            </summary>
+            <param name="pNombreArchivo">Nombre Archivo</param>
+            <returns>Insumo correspondiente para llenar el CheckList</returns>
         </member>
         <member name="M:App.ControlEjecucion.Procesamiento.VerificacionArchivosEntrada">
             <summary>
@@ -298,6 +305,67 @@
             </summary>
             <param name="disposing">Bandera para limpiar variables</param>
         </member>
+        <member name="T:App.ControlEjecucion.ReporteCantidades">
+            <summary>
+            Clase para Extraccion de Muestras
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.#ctor">
+            <summary>
+            Constructor de la calse
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.GenerarReporteGuias">
+            <summary>
+            Generar el reporte de guias por Codigo de Courier
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.ExraerCantidades">
+            <summary>
+            Metodo que extraer las cantidades por producto
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.ContarExtractos(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que cuenta los porductos por extracto
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.ExraerCantidades(System.Collections.Generic.KeyValuePair{System.String,System.Collections.Generic.List{System.String}},System.String)">
+            <summary>
+            Metodo que lamacena en el diccionario las cantidades por producto
+            </summary>
+            <param name="pExtracto">Diccionario de extracto</param>
+            <param name="pRegional">Regional</param>
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.GenerarArchivosCantidades">
+            <summary>
+            Genera Archivo de reporte de cantidades por regional
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.GenerarArchivoCheckList">
+            <summary>
+            Orden y genera el archivo de Check List
+            </summary>
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.ObtenerCantidadesXProducto(App.Variables.CantidadProducto)">
+            <summary>
+            Metodo que retrna una linea con los datos de check list para cantidades por producto
+            </summary>
+            <param name="pProducto">Producto</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.AgregarProductoReporteCantidades(System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Metodo que registra las Cantidades en el reporte de cantidades
+            </summary>
+            <param name="registrosCantidades">Lista de registris</param>
+            <param name="pRegional">Nombre Regional</param>
+            <param name="pProducto">Producto</param>
+            <returns></returns>
+        </member>
         <member name="T:App.ControlEjecucion.RXGeneral">
             <summary>
               Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
@@ -326,7 +394,7 @@
         </member>
         <member name="P:App.ControlEjecucion.RXGeneral.TitulosHistoricoCantidades">
             <summary>
-              Busca una cadena traducida similar a CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXX|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|Extractos|HojasEstadoCuentaSimplex|HojasEstadoCuentaDuplex|HojasViviendaSimplex|HojasViviendaDuplex|HojasDespositosSimplex|HojasDespositosDuplex|ExtractosVisa|ExtractosMas [resto de la cadena truncado]&quot;;.
+              Busca una cadena traducida similar a CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXXI|RXXE|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|BASE_ACTIVOS_TAC|BASE_INACTIVOS_TAC|Extractos|EstadoCuenta|Despositos|TarjetasCredito|ExtractosFundacion|ExtractosRotativo|ExtractosVivienda|Libranza|Fiducoomeva|Act [resto de la cadena truncado]&quot;;.
             </summary>
         </member>
     </members>

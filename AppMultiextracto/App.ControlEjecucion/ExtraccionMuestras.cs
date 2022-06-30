@@ -78,19 +78,6 @@ namespace App.ControlEjecucion
         }
 
         /// <summary>
-        /// Genera Archivo CSV de lista de muestras No Cruzadas
-        /// </summary>
-        private void GenerarReporteMuestrasNoCruzadas()
-        {
-            #region GenerarReporteMuestrasNoCruzadas
-            if (muestrasNoCruzadas.Count > 0)
-            {
-                Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoMuestras}\{Variables.Variables.Orden}_MuestrasNoCruzadas.csv", muestrasNoCruzadas);
-            } 
-            #endregion
-        }
-
-        /// <summary>
         /// Metodo para liberar Memoria
         /// </summary>
         public void Dispose()

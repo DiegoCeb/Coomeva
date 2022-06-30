@@ -21,7 +21,12 @@
         </member>
         <member name="P:App.Variables.CheckList.UsuarioSesion">
             <summary>
-            Usuario se Sesion que Ejecuta el Proceso
+            Usuario de Sesion que Ejecuta el Proceso
+            </summary>
+        </member>
+        <member name="P:App.Variables.CheckList.Corte">
+            <summary>
+            Nombre Corte
             </summary>
         </member>
         <member name="F:App.Variables.CheckList.DiccionarioCantidadesArchivos">
@@ -29,14 +34,9 @@
             Diccionario de Cantidades por Archivo de Proceso
             </summary>
         </member>
-        <member name="F:App.Variables.CheckList.CantidadesExtractosNacional">
+        <member name="F:App.Variables.CheckList.CantidadesProducto">
             <summary>
-            Cantidades Extractos por Prodctos Nacional
-            </summary>
-        </member>
-        <member name="F:App.Variables.CheckList.DiccionarioCantidadesPorCiudades">
-            <summary>
-            Diccionario de Cantidades por Extractos Producto por Ciudades
+            Diccionario de Cantidades por Extractos Producto
             </summary>
         </member>
         <member name="T:App.Variables.CantidadesArchivos">

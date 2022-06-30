@@ -50,3 +50,6 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.Co
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.CopyComplete
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.pdb
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.ControlCargueArchivos.xml
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.xml
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Variables.xml

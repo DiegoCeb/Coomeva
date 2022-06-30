@@ -35,6 +35,11 @@
             Constructor
             </summary>
         </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.Ejecutar">
+            <summary>
+            Metodo para desencader el procesamiento
+            </summary>
+        </member>
         <member name="M:App.ControlProcesos.GestionProcesos.CargueGeneralArchivos(System.String)">
             <summary>
             Metodo que carga los insumos por ruta de Archivos.
