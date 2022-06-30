@@ -41,7 +41,8 @@ namespace App.ControlEjecucion
 
             foreach (var paqueteExtracto in Variables.Variables.DiccionarioExtractosFormateados)
             {
-                string CanalInicio = $"1MUL| |{paqueteExtracto.Key}";
+                //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail 
+                string CanalInicio = $"1MUL| |{paqueteExtracto.Key}|{ObtenerClaveMail(paqueteExtracto.Key)}";
 
                 bool InicioEnPaquete = false;
 
@@ -67,10 +68,23 @@ namespace App.ControlEjecucion
             Helpers.EscribirEnArchivo(Variables.Variables.RutaProcesoVault, publicacion);
         }
 
+        private object ObtenerClaveMail(string key)
+        {
+            string resultado = " ";
+            List<PosCortes> listaCortes = new List<PosCortes>();
+
+            if (Variables.Variables.InsumoEtiquetasMail.ContainsKey(key))
+            {
+                listaCortes.Add(new PosCortes(279, 30));
+                resultado = Helpers.ExtraccionCamposSpool(listaCortes, Variables.Variables.InsumoEtiquetasMail[key].InsumoLinea.FirstOrDefault());
+            }
+            return resultado;
+        }
+
         private void OrdenarExtractoFinal()
         {
             #region OrdenarExtractoFinal
-            Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229999_20220617\1320229998";
+            Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229998";
             Helpers.DescomprimirGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta));
             Helpers.CargarGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta), Convert.ToInt16(DLL_Utilidades.Utilidades.LeerAppConfig("CampoCrucePDF")), "1AAA");
 
@@ -99,13 +113,15 @@ namespace App.ControlEjecucion
                 string rutaFinalInterna = Directory.CreateDirectory($@"{RutaSalidaProcesoFisico}\{pRegional}").FullName;
 
                 var tipoExtracto = Variables.Variables.DiccionarioExtractosFormateados[pCedula];
-
-                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}";
+                //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail 
+                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}| ";
 
                 if (tipoExtracto.Count == 1)
                 {
                     if (tipoExtracto.FirstOrDefault().Key == "Fisico")
                     {
+                        ReporteCantidades.ExraerCantidades(new KeyValuePair<string,List<string>>("Extractos", new List<string>() { CanalInicio }), pRegional);
+
                         var paqueteExtracto = tipoExtracto["Fisico"];
                         bool extractoEscrito = false;
                         bool InicioEnPaquete = false;
@@ -128,6 +144,7 @@ namespace App.ControlEjecucion
 
                                     Helpers.EscribirEnArchivo($@"{rutaFinalInterna}\{Variables.Variables.Orden}_{pRegional}_MultiExtracto.sal", extracto.Value);
                                     extractoEscrito = true;
+                                    ReporteCantidades.ExraerCantidades(extracto, pRegional);
                                     break;
                                 }
                             }
@@ -167,13 +184,16 @@ namespace App.ControlEjecucion
 
                 var tipoExtracto = Variables.Variables.DiccionarioExtractosFormateados[pCedula];
 
-                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}";
+                //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail 
+                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}| ";
                 bool InicioEnPaquete = false;
 
                 if (tipoExtracto.Count == 1)
                 {
                     if (tipoExtracto.FirstOrDefault().Key == "Fisico")
                     {
+                        ReporteCantidades.ExraerCantidades(new KeyValuePair<string, List<string>>("Extractos", new List<string>() { CanalInicio }), pRegional);
+
                         var paqueteExtracto = tipoExtracto["Fisico"];
 
                         foreach (var extracto in paqueteExtracto)
@@ -185,6 +205,7 @@ namespace App.ControlEjecucion
                             }
 
                             Helpers.EscribirEnArchivo($@"{RutafinalInterna}\{Variables.Variables.Orden}_{pRegional}_MultiExtracto.sal", extracto.Value);
+                            ReporteCantidades.ExraerCantidades(extracto, pRegional);
                         }
                     }
                 }

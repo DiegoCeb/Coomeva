@@ -29,6 +29,7 @@ namespace App.ControlProcesos
         public void Ejecutar()
         {
             CheckListProceso.FechaHoraIncio = DateTime.Now;
+            CheckListProceso.UsuarioSesion = Environment.UserName;
             _objProceso.CargueDiccionarioCheckList(this.NumeroOrdenProceso);
 
             //if (!_objProceso.DescargaArchivos())
@@ -41,9 +42,9 @@ namespace App.ControlProcesos
             //Console.WriteLine("---Descargue Correcto de Archivos");
             //Console.ReadKey();
 
-            ////Creacion carpeta donde se almacenaran los archivos originales del proceso
-            //Helpers.RutaOriginales = Directory.CreateDirectory($"{Utilidades.LeerAppConfig("RutaOriginales")}\\{NumeroOrdenProceso}_{DateTime.Now:yyyyMMdd}").FullName;
-            //_objProceso.DesencriptarArchivos();
+            //Creacion carpeta donde se almacenaran los archivos originales del proceso
+            Helpers.RutaOriginales = Directory.CreateDirectory($"{Utilidades.LeerAppConfig("RutaOriginales")}\\{NumeroOrdenProceso}_{DateTime.Now:yyyyMMdd}").FullName;
+            _objProceso.DesencriptarArchivos();
 
             //Console.WriteLine("---Desencriptado Correcto de Archivos");
             //Console.ReadKey();
@@ -55,9 +56,9 @@ namespace App.ControlProcesos
                 Environment.Exit(1);
             }
 
-            Console.WriteLine("");
-            Console.WriteLine("---Verificacion de Archivos Correcta");
-            Console.WriteLine("");
+            Helpers.EscribirVentanaLog("");
+            Helpers.EscribirVentanaLog("Verificacion de Archivos Correcta");
+            Helpers.EscribirVentanaLog("");
 
             //Cargamos Archivos Entrada
             CargueArchivosInsumo(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
@@ -81,15 +82,16 @@ namespace App.ControlProcesos
             //    Environment.Exit(1);
             //}
 
-            //Console.WriteLine("termino zonificacion revise antes de convergencia");
+            Helpers.EscribirVentanaLog("Finalización de Zonificación");
             //Console.ReadKey();
 
             //Convergencia
+            Helpers.EscribirVentanaLog("Inicia Convergencia");
             _ = new Convergencia();
 
             //Generación de Muestras
-
-            //_ = new ExtraccionMuestras();
+            Helpers.EscribirVentanaLog("Inicia Extracción Muestras");
+            _ = new ExtraccionMuestras();
 
             //Parte Mail, Generar journal PS - Cargue a vault - Cargue journal delta - cargue adjuntos en linea
 
@@ -100,15 +102,24 @@ namespace App.ControlProcesos
 
             //preguntar lo de adjuntos en linea antes de seguir par auqe generen los PDFs
 
+            Helpers.EscribirVentanaLog("Inicia Cargue de Proceso Digital");
             _objProceso.CargueProcesoDigital($"Corte{Orden}_{DateTime.Now:yyyyMMddhhmmss}", Utilidades.LeerAppConfig("CodigoCliente"), 
                 Utilidades.LeerAppConfig("CodigoProcesoVirtual"), Utilidades.LeerAppConfig("CodigoCourier"), Utilidades.LeerAppConfig("ConfiguracionMapeoVirtual"),
                 false/*llevapdfs de adjuntos en linea*/, "ruta de los archivos para cargar en adjuntos en linea", Utilidades.LeerAppConfig("ClienteDoc1"), Utilidades.LeerAppConfig("ProductoDoc1"), Utilidades.LeerAppConfig("TipoSalida"), RutaProcesoVault);
 
             //Proceso SMS
 
-            //Reportes
+            // Extraccion de Cantidades
+            CheckListProceso.FechaHoraFin = DateTime.Now;
+            Helpers.EscribirVentanaLog("Inicia Reporte de Cantidades");
+            _ = new ReporteCantidades();
 
             _objProceso.RegistrarDatosHistoCantidades();
+
+            Helpers.EscribirVentanaLog("Final Existoso del Proceso, revise la carpeta salidas !!!");
+            Helpers.EscribirVentanaLog("Presione una tecla para cerrar...");
+            Console.ReadKey();
+            Environment.Exit(1);
 
         }
 
@@ -125,7 +136,17 @@ namespace App.ControlProcesos
                 if (nombreArchivo == "HistoricoCantidades")
                 { continue; }
 
-                _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
+                //_objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
+
+                Type tipo = IdentificarArchivo(nombreArchivo);
+                if (tipo != null)
+                {
+                    _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo));
+                }
+                else
+                {
+                    Helpers.EscribirVentanaLog($"Archivo {nombreArchivo} no identificado en la lista de insumos del proceso.");
+                }
             }
         }
 
