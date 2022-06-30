@@ -60,14 +60,14 @@ namespace App.ControlEjecucion
             {
                 Helpers.DesencriptarArchivos(archivo, Utilidades.LeerAppConfig("LLaveDesencripcion"), Utilidades.LeerAppConfig("RutaGnuPg"), Utilidades.LeerAppConfig("ClaveDesencriptado"));
 
-                foreach (var insumo in DatosVerificacionArchivos.Keys)
-                {
-                    if (archivo.Contains(insumo))
-                    {
-                        GetTamañoArchivo(insumo, archivo);
-                        break;
-                    }
-                }
+                //foreach (var insumo in DatosVerificacionArchivos.Keys)
+                //{
+                //    if (archivo.Contains(insumo))
+                //    {
+                //        GetTamañoArchivo(insumo, archivo);
+                //        break;
+                //    }
+                //}
 
             }
 
@@ -650,7 +650,7 @@ namespace App.ControlEjecucion
 
         public void CargueProcesoDigital(string nombreProceso, string codigoCliente, string codigoProceso, string codigoCourier, string parametros, bool pdfCliente, string basedelProceso, string clienteDoc1, string productoDoc1, string tipoSalidaDoc1, string pRutaArchivoVault)
         {
-            Console.WriteLine("mire el archivo .sal antes de que se genere");
+            Console.WriteLine("mire el archivo .sal antes de que se genere en DOC1");
             Console.WriteLine($"{clienteDoc1}|{productoDoc1}|{tipoSalidaDoc1}|{pRutaArchivoVault}");
             Console.ReadKey();
             GenerarSalidasDoc1(clienteDoc1, productoDoc1, tipoSalidaDoc1, pRutaArchivoVault);
@@ -671,15 +671,15 @@ namespace App.ControlEjecucion
                         where Path.GetExtension(file).ToLower() == ".ps"
                         select Path.GetFileNameWithoutExtension(file)).FirstOrDefault();
 
-            Console.WriteLine($"{nombreJrn}|{archivoJrn}|{nombrePs}");
+            Console.WriteLine($"cargue a vault");
             Console.ReadKey();
+
             Helpers.MoverArchivosExtension(Path.GetDirectoryName(pRutaArchivoVault), "*.jrn", Utilidades.LeerAppConfig("RutaVaultDownload"));
             Helpers.MoverArchivosExtension(Path.GetDirectoryName(pRutaArchivoVault), "*.ps", Utilidades.LeerAppConfig("RutaVaultDownload"));
             Helpers.MoverArchivosCondicionados(Utilidades.LeerAppConfig("RutaVaultDownload"), "*.jrn", Utilidades.LeerAppConfig("RutaVaultFinal"), nombreJrn, nombrePs);
             Helpers.MoverArchivosCondicionados(Utilidades.LeerAppConfig("RutaVaultDownload"), "*.ps", Utilidades.LeerAppConfig("RutaVaultFinal"), nombrePs, nombrePs);
 
-            //Helpers.MoverArchivosCondicionados(Path.GetDirectoryName(pRutaArchivoVault), "*.jrn", Utilidades.LeerAppConfig("RutaVaultFinal"), nombreJrn, nombrePs);
-            //Helpers.MoverArchivosCondicionados(Path.GetDirectoryName(pRutaArchivoVault), "*.ps", Utilidades.LeerAppConfig("RutaVaultFinal"), nombrePs, nombrePs);
+            Console.WriteLine($"termino cargue a vault");
 
             IniciarSalidasZonificadas(nombreProceso, archivoJrn, codigoCliente, codigoProceso, codigoCourier, parametros, pdfCliente, basedelProceso);
         }
@@ -713,6 +713,7 @@ namespace App.ControlEjecucion
                         while (estado != "finalizado")
                         {
                             estado = Helpers.ValidarOrden(Orden).ToLower();
+                            Console.WriteLine(estado);
                         }
 
                         Helpers.EscribirVentanaLog("Se genera correctamente el proceso...");

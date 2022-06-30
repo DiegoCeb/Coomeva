@@ -384,7 +384,7 @@ namespace App.ControlCargueArchivos
                     #region 1AAA
                     CedulaProceso = pDatos.ElementAt(1).Substring(80, 14).Trim();
 
-                    if (CedulaProceso == "27956909")
+                    if (CedulaProceso == "9733011")
                     {
 
                     }
@@ -578,7 +578,7 @@ namespace App.ControlCargueArchivos
 
                             listaCortes.Add(new PosCortes(49, 14));  //Capital Vencido
                             listaCortes.Add(new PosCortes(63, 14));  //Financiacion Vencida
-                            listaCortes.Add(new PosCortes(77, 21));  //Capital Mes
+                            listaCortes.Add(new PosCortes(77, 14));  //Capital Mes
                             listaCortes.Add(new PosCortes(91, 14));  //Financiacion Mes
                             listaCortes.Add(new PosCortes(121, 6));  //Interes Mora
                             listaCortes.Add(new PosCortes(127, 14)); //Valor a Pagar
@@ -640,6 +640,9 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(159, 3));   //Plazo Pendiente
                         listaCortes.Add(new PosCortes(162, 12));  //Tasa
 
+                        lower = myTI.ToLower(conceptoFinal);
+                        letraCapital = myTI.ToTitleCase(lower);
+                        conceptoFinal = letraCapital;
                         resultado = $"1DDD|{conceptoFinal}|{Helpers.ExtraccionCamposSpool(listaCortes, pLineaDetalle)}";
                     }
                     #endregion
@@ -647,7 +650,9 @@ namespace App.ControlCargueArchivos
 
                 case "1DDB":
                     #region 1DDB
-                    resultado = $"1DDB| |{pLineaDetalle.Split('|').ElementAt(1).Trim()}|{pLineaDetalle.Split('|').ElementAt(2).Trim()}|{pLineaDetalle.Split('|').ElementAt(3).Trim()}|{pLineaDetalle.Split('|').ElementAt(4).Trim()}|{pLineaDetalle.Split('|').ElementAt(5).Trim()}|{pLineaDetalle.Split('|').ElementAt(6).Trim()}|{pLineaDetalle.Split('|').ElementAt(0).Substring(1).Trim()}".Replace("||", "| |").Replace("||", "| |");
+                    string totalFinanciero = pLineaDetalle.Split('|').ElementAt(5).Trim() == "" ? "0" : pLineaDetalle.Split('|').ElementAt(5).Trim();
+
+                    resultado = $"1DDB| |{pLineaDetalle.Split('|').ElementAt(1).Trim()}|{pLineaDetalle.Split('|').ElementAt(2).Trim()}|{pLineaDetalle.Split('|').ElementAt(3).Trim()}|{pLineaDetalle.Split('|').ElementAt(4).Trim()}|{totalFinanciero}|{pLineaDetalle.Split('|').ElementAt(6).Trim()}|{pLineaDetalle.Split('|').ElementAt(0).Substring(1).Trim()}".Replace("||", "| |").Replace("||", "| |");
                     #endregion
                     break;
 

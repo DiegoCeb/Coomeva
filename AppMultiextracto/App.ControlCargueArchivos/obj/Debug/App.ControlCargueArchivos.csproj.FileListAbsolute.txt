@@ -29,6 +29,10 @@ C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\ICShar
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\starksoft.aspen.dll
 C:\Proyectos\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\SharpCompress.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\starksoft.aspen.dll
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.dll.config
+C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\SharpCompress.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.ControlCargueArchivos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.ControlCargueArchivos.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.dll
@@ -41,11 +45,9 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchiv
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Variables.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.dll.config
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.AssemblyReference.cache
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.csproj.CoreCompileInputs.cache
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.ControlCargueArchivos\obj\Debug\App.ControlCargueArchivos.pdb
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\DLL_ServicioDelta.dll
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\starksoft.aspen.dll
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\App.Controlnsumos.dll.config
-C:\Users\g18le\Documents\Proyecto\Coomeva\Codigo\Coomeva\AppMultiextracto\App.ControlCargueArchivos\bin\Debug\SharpCompress.dll

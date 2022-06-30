@@ -81,22 +81,14 @@ namespace App.ControlProcesos
             //    Environment.Exit(1);
             //}
 
-            //Console.WriteLine("termino zonificacion revise antes de convergencia");
-            //Console.ReadKey();
-
             //Convergencia
             _ = new Convergencia();
 
             //Generación de Muestras
 
-            //_ = new ExtraccionMuestras();
+            _ = new ExtraccionMuestras();
 
             //Parte Mail, Generar journal PS - Cargue a vault - Cargue journal delta - cargue adjuntos en linea
-
-            //1. generar PS - JRN con este al inicio EX_FID
-            //3. validar que queden como "solo publicacion"
-            //4. validar el tema de la plantilla
-            //5. Hacer lo de adjuntos en linea _adicional probarlo
 
             //preguntar lo de adjuntos en linea antes de seguir par auqe generen los PDFs
 

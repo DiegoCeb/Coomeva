@@ -12,7 +12,6 @@ using DLL_Utilidades;
 using DLL_ServicioDelta;
 using DLL_ServicioDelta.wsDelta;
 using SharpCompress.Archives;
-using SharpCompress.Common;
 using SharpCompress.Readers;
 
 namespace App.Controlnsumos
@@ -456,7 +455,7 @@ namespace App.Controlnsumos
                 {
                     if (Path.GetFileNameWithoutExtension(_Archivo).Contains(CondicionNomre))
                     {
-                        File.Move(_Archivo, RutaSalida + "\\" + pNombreFinal);
+                        File.Move(_Archivo, RutaSalida + "\\" + Path.GetFileName(_Archivo));
                     }
                     else
                     {
@@ -532,7 +531,7 @@ namespace App.Controlnsumos
             parametros[5] = proyecto;                                                          // Codigo Proceso
             parametros[6] = DateTime.Now.ToString("yyyy-MM-dd");                               // FechaCorte
             parametros[7] = codigoParametro;                                                   // Parametros
-            parametros[8] = "";                                                                // Envio Mail Salidas
+            parametros[8] = "diegoandresc507@gmail.com";                                       // Envio Mail Salidas
             parametros[9] = rutaArchivo;                                                       // Ruta FTP
             parametros[10] = Path.GetFileName(rutaArchivo);                                    // Nombre Archivo
             parametros[11] = "";                                                               // Archivo Base64
@@ -545,6 +544,7 @@ namespace App.Controlnsumos
 
         public static void DesencriptarArchivos(string ArchivosFordecrypt, string llave, string pRutaGnuPg, string pClaveDesencripcion)
         {
+            #region DesencriptarArchivos
             try
             {
                 Gpg ArchivoEncriptado = new Gpg(pRutaGnuPg);//172.19.37.10\proyectos\Ingenieria\Diego\GNU\GnuPG\gpg2.exe
@@ -576,6 +576,7 @@ namespace App.Controlnsumos
                 Helpers.EscribirLogVentana(StructError, true);
             }
 
+            #endregion
         }
 
         public static FileInfo DecryptFile(string encryptedSourceFile, string decryptedFile, Gpg gpg)
@@ -624,7 +625,7 @@ namespace App.Controlnsumos
         {
             if (File.Exists(ruta))
             {
-                using (StreamWriter streamWriter = new StreamWriter(ruta, true, Encoding.UTF8))
+                using (StreamWriter streamWriter = new StreamWriter(ruta, true, Encoding.Default))
                 {
                     foreach (var item in listado)
                     {
@@ -636,7 +637,7 @@ namespace App.Controlnsumos
             {
                 FileStream escritor = File.Create(ruta);
 
-                using (StreamWriter streamWriter = new StreamWriter(escritor, Encoding.UTF8))
+                using (StreamWriter streamWriter = new StreamWriter(escritor, Encoding.Default))
                 {
                     foreach (var item in listado)
                     {
@@ -803,6 +804,36 @@ namespace App.Controlnsumos
             File.Move(rutaInsumoActual, $@"{nuevaRutaDirectorioInsumo}\{nombreInsumo}");
             #endregion
         }
+
+
+        public static string ObtenerNombrePaquete(string pCedula)
+        {
+            string resultado = " ";
+
+            if (Variables.Variables.InsumoEtiquetasMail.ContainsKey(pCedula))
+            {
+                resultado = Variables.Variables.InsumoEtiquetasMail[pCedula].InsumoLinea.ElementAt(0).Substring(0, 31).Trim();
+            }
+            else if(Variables.Variables.InsumoEtiquetasFisico.ContainsKey(pCedula))
+            {
+                resultado = Variables.Variables.InsumoEtiquetasFisico[pCedula].InsumoLinea.ElementAt(0).Substring(0, 31).Trim();
+            }
+
+            return resultado;
+        }
+
+        public static string ObtenerEmail(string pCedula)
+        {
+            string resultado = " ";
+
+            if (Variables.Variables.InsumoEtiquetasMail.ContainsKey(pCedula))
+            {
+                resultado = Variables.Variables.InsumoEtiquetasMail[pCedula].InsumoLinea.ElementAt(0).Substring(219, 60).Trim();
+            }
+
+            return resultado;
+        }
+
     }
 
     public struct PosCortes

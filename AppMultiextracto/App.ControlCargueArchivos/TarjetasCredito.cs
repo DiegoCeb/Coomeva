@@ -138,9 +138,16 @@ namespace App.ControlCargueArchivos
             string identificador;
             string canalEnMapeo = string.Empty;
             int ContadorDetalles = 0;
+            bool entroCanalCuatro = false;
+
             foreach (var lineaDatos in datosOriginales)
             {
                 identificador = lineaDatos.Substring(0, 1);
+
+                if (lineaDatos.Contains("39632988"))
+                {
+
+                }
                 switch (identificador)
                 {
                     case "T":
@@ -180,8 +187,15 @@ namespace App.ControlCargueArchivos
                         listaCortes.Clear();
                         listaCortes.Add(new PosCortes(1, 0));
                         canalEnMapeo += Helpers.ExtraccionCamposSpool(listaCortes, lineaDatos);
+                        entroCanalCuatro = true;
                         break;
                     case "5":
+                        if (!entroCanalCuatro)
+                        {
+                            canalEnMapeo += "| | ";//Se agrega ciudad y departamento ya que no tiene canal 4 la tarjeta
+                            entroCanalCuatro = true;
+                        }
+
                         if (!string.IsNullOrEmpty(canalEnMapeo))
                         { resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo)); }
 
@@ -225,6 +239,12 @@ namespace App.ControlCargueArchivos
                         canalEnMapeo = string.Empty;
                         break;
                     case "6":
+                        if (!entroCanalCuatro)
+                        {
+                            canalEnMapeo += "| | ";//Se agrega ciudad y departamento ya que no tiene canal 4 la tarjeta
+                            entroCanalCuatro = true;
+                        }
+
                         if (!string.IsNullOrEmpty(canalEnMapeo))
                         { resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo)); }
 
@@ -244,6 +264,12 @@ namespace App.ControlCargueArchivos
                         canalEnMapeo = string.Empty;
                         break;
                     case "7":
+                        if (!entroCanalCuatro)
+                        {
+                            canalEnMapeo += "| | ";//Se agrega ciudad y departamento ya que no tiene canal 4 la tarjeta
+                            entroCanalCuatro = true;
+                        }
+
                         if (!string.IsNullOrEmpty(canalEnMapeo))
                         { resultado.Add(Helpers.ValidarPipePipe(canalEnMapeo)); }
                         canalEnMapeo = string.Empty;

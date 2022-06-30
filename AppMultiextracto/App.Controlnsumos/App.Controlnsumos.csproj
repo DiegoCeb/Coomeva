@@ -32,28 +32,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DLL_ServicioDelta, Version=3.2.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\DLL_ServicioDelta.dll</HintPath>
+    <Reference Include="DLL_ServicioDelta">
+      <HintPath>..\..\..\..\..\Desktop\Trabajo\ProyectoCoomeva\ARCHIVOS_COOMEVA_APPS_LIBRERIAS\Utilidades\Servicio_Delta\DLL_ServicioDelta.dll</HintPath>
     </Reference>
     <Reference Include="DLL_Utilidades">
       <HintPath>..\App.ControlEjecucion\bin\Debug\DLL_Utilidades.dll</HintPath>
     </Reference>
-    <Reference Include="Excel, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Excel.dll</HintPath>
+    <Reference Include="Excel">
+      <HintPath>..\..\..\..\..\Desktop\Trabajo\ProyectoCoomeva\ARCHIVOS_COOMEVA_APPS_LIBRERIAS\Utilidades\LibreriaExcell\Excel.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\..\..\Desktop\Trabajo\ProyectoCoomeva\ARCHIVOS_COOMEVA_APPS_LIBRERIAS\Utilidades\LibreriaExcell\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="SharpCompress, Version=0.19.2.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\SharpCompress.dll</HintPath>
+    <Reference Include="SharpCompress">
+      <HintPath>..\..\..\..\..\Desktop\Trabajo\ProyectoCoomeva\ARCHIVOS_COOMEVA_APPS_LIBRERIAS\Utilidades\Comprimir_Descomprimir\SharpCompress.dll</HintPath>
     </Reference>
-    <Reference Include="starksoft.aspen, Version=1.1.5.0, Culture=neutral, PublicKeyToken=56b8923a24d03eb3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\starksoft.aspen.dll</HintPath>
+    <Reference Include="starksoft.aspen">
+      <HintPath>..\..\..\..\..\Desktop\Trabajo\ProyectoCoomeva\ARCHIVOS_COOMEVA_APPS_LIBRERIAS\Utilidades\starksoft.aspen.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -37,8 +37,10 @@ namespace App.ControlEjecucion
 
         private void GenerarSalidaVirtualPublicacion()
         {
+            #region GenerarSalidaVirtualPublicacion
             List<string> publicacion = new List<string>();
 
+            
             foreach (var paqueteExtracto in Variables.Variables.DiccionarioExtractosFormateados)
             {
                 string CanalInicio = $"1MUL| |{paqueteExtracto.Key}";
@@ -49,6 +51,15 @@ namespace App.ControlEjecucion
                 {
                     if (tipoenvio.Key != "NA")
                     {
+                        if (tipoenvio.Key == "Virtual")
+                        {
+                            CanalInicio += $"|{Helpers.ObtenerNombrePaquete(paqueteExtracto.Key)}|{Helpers.ObtenerEmail(paqueteExtracto.Key)}";
+                        }
+                        else
+                        {
+                            CanalInicio += $"|{Helpers.ObtenerNombrePaquete(paqueteExtracto.Key)}| ";
+                        }
+
                         foreach (var extracto in tipoenvio.Value)
                         {
                             if (!InicioEnPaquete)
@@ -65,12 +76,13 @@ namespace App.ControlEjecucion
 
             Variables.Variables.RutaProcesoVault = $"{RutaSalidaProcesoVault}\\Unificado{DateTime.Now:yyyyMMddhhmmss}.sal";
             Helpers.EscribirEnArchivo(Variables.Variables.RutaProcesoVault, publicacion);
+            #endregion
         }
 
         private void OrdenarExtractoFinal()
         {
             #region OrdenarExtractoFinal
-            Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229999_20220617\1320229998";
+            Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229998";
             Helpers.DescomprimirGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta));
             Helpers.CargarGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta), Convert.ToInt16(DLL_Utilidades.Utilidades.LeerAppConfig("CampoCrucePDF")), "1AAA");
 
@@ -100,7 +112,7 @@ namespace App.ControlEjecucion
 
                 var tipoExtracto = Variables.Variables.DiccionarioExtractosFormateados[pCedula];
 
-                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}";
+                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}| | ";
 
                 if (tipoExtracto.Count == 1)
                 {
@@ -114,7 +126,7 @@ namespace App.ControlEjecucion
                         {
                             extractoEscrito = false;
 
-                            for (int i = 0; i <= 4; i++)
+                            for (int i = 0; i <= 5; i++)
                             {
                                 var producto = (OrdenExtracto)i;
 
@@ -167,7 +179,7 @@ namespace App.ControlEjecucion
 
                 var tipoExtracto = Variables.Variables.DiccionarioExtractosFormateados[pCedula];
 
-                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}";
+                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}| | ";
                 bool InicioEnPaquete = false;
 
                 if (tipoExtracto.Count == 1)
@@ -510,7 +522,9 @@ namespace App.ControlEjecucion
         [System.ComponentModel.Description("ExtractosVivienda")]
         ExtractosVivienda = 2,
         [System.ComponentModel.Description("CartasTAC")]
-        CartasTAC = 3
+        CartasTAC = 3,
+        [System.ComponentModel.Description("Libranza")]
+        Libranza = 4
     }
 
 }
