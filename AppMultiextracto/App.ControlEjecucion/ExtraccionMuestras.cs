@@ -12,7 +12,6 @@ namespace App.ControlEjecucion
     public class ExtraccionMuestras
     {
         private bool _disposed = false;
-        List<string> muestrasNoCruzadas = new List<string>();
         private string RutaSalidaProcesoMuestras = string.Empty;
         private string RutaSalidaProcesoMuestrasVirtual = string.Empty;
         private string RutaSalidaProcesoMuestrasFisica = string.Empty;
@@ -28,7 +27,6 @@ namespace App.ControlEjecucion
             RutaSalidaProcesoMuestrasVirtual = Directory.CreateDirectory($@"{RutaSalidaProcesoMuestras}\MuestrasVirtuales").FullName;
             RutaSalidaProcesoMuestrasFisica = Directory.CreateDirectory($@"{RutaSalidaProcesoMuestras}\MuestrasFisicas").FullName;
             GenerarArchivosMuestras();
-            GenerarReporteMuestrasNoCruzadas(); 
             #endregion
         }
 
@@ -43,10 +41,6 @@ namespace App.ControlEjecucion
                 if (AppVariables.DiccionarioExtractosFormateados.ContainsKey(muestras.Key))
                 {
                     AppVariables.DiccionarioExtractosMuestras.Add(muestras.Key, AppVariables.DiccionarioExtractosFormateados[muestras.Key]);
-                }
-                else
-                {
-                    muestrasNoCruzadas.Add(muestras.Key);
                 }
 
             } 
@@ -98,7 +92,7 @@ namespace App.ControlEjecucion
 
         /// <summary>
         /// Metodo para liberar Memoria
-        /// </summary>        
+        /// </summary>
         public void Dispose()
         {
             #region Dispose
@@ -124,7 +118,6 @@ namespace App.ControlEjecucion
             {
                 Variables.Variables.DiccionarioExtractosMuestras.Clear();
                 Variables.Variables.InsumoMuestras.Clear();
-                muestrasNoCruzadas.Clear();
             }
 
             // Free any unmanaged objects here.

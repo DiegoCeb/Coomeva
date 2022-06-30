@@ -13,7 +13,8 @@ using DLL_ServicioDelta;
 using DLL_ServicioDelta.wsDelta;
 using SharpCompress.Archives;
 using SharpCompress.Common;
-using SharpCompress.Readers;
+//using SharpCompress.Readers;
+using SC = SharpCompress;
 
 namespace App.Controlnsumos
 {
@@ -687,7 +688,7 @@ namespace App.Controlnsumos
             #region EscribirEnArchivo
             if (File.Exists(ruta))
             {
-                using (StreamWriter streamWriter = new StreamWriter(ruta, true, Encoding.UTF8))
+                using (StreamWriter streamWriter = new StreamWriter(ruta, true, Encoding.Default))
                 {
                     foreach (var item in listado)
                     {
@@ -699,7 +700,7 @@ namespace App.Controlnsumos
             {
                 FileStream escritor = File.Create(ruta);
 
-                using (StreamWriter streamWriter = new StreamWriter(escritor, Encoding.UTF8))
+                using (StreamWriter streamWriter = new StreamWriter(escritor, Encoding.Default))
                 {
                     foreach (var item in listado)
                     {
@@ -724,8 +725,8 @@ namespace App.Controlnsumos
 
             if (!string.IsNullOrEmpty(strucDatosError.Error))
             {
-                Console.WriteLine(Error);
-                Utilidades.EscribirLog(Error, Utilidades.LeerAppConfig("RutaLog"));
+                Console.WriteLine(string.Format("{0} {1}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Error));
+                Utilidades.EscribirLog(string.Format("{0} {1}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Error), Utilidades.LeerAppConfig("RutaLog"));
             }
 
             if (finalizaProceso)
@@ -745,7 +746,7 @@ namespace App.Controlnsumos
         public static void EscribirVentanaLog(string Mensaje)
         {
             #region EscribirVentanaLog
-            Console.WriteLine(Mensaje);
+            Console.WriteLine(string.Format("{0} {1}",DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Mensaje));
             Utilidades.EscribirLog(Mensaje, Utilidades.LeerAppConfig("RutaLog"));
             #endregion
         }
@@ -776,14 +777,16 @@ namespace App.Controlnsumos
                     continue;
                 string ruta = archivo;
 
-                IArchive iArchivo = ArchiveFactory.Open(ruta);
+                SC.Archives.IArchive iArchivo = SC.Archives.ArchiveFactory.Open(ruta);
 
-                ExtractionOptions opcionesDeExtraccion = new ExtractionOptions { Overwrite = true };
+                SC.Readers.ExtractionOptions opcionesDeExtraccion = new SC.Readers.ExtractionOptions { Overwrite = true };
 
-                foreach (IArchiveEntry item in iArchivo.Entries)
+                foreach (SC.Archives.IArchiveEntry item in iArchivo.Entries)
                 {
                     if (!item.IsDirectory)
                     {
+                        //SC.Writers.w
+                        //item.Archive.
                         item.WriteToFile(Path.GetDirectoryName(archivo) + "\\" + nombre.Replace(".rar", ""), opcionesDeExtraccion);
                     }
                 }
@@ -867,6 +870,7 @@ namespace App.Controlnsumos
             File.Move(rutaInsumoActual, $@"{nuevaRutaDirectorioInsumo}\{nombreInsumo}");
             #endregion
         }
+
     }
 
     public struct PosCortes

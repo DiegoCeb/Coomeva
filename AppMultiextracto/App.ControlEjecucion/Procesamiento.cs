@@ -61,19 +61,21 @@ namespace App.ControlEjecucion
         /// </summary>
         public void DesencriptarArchivos()
         {
+
             #region DesencriptarArchivos
+
+            DatosVerificacionArchivos = Insumos.CargarNombresArchivos();
+            string insumo = string.Empty;
+
             foreach (var archivo in Directory.GetFiles(Utilidades.LeerAppConfig("RutaEntrada"), "*.gpg"))
             {
-                Helpers.DesencriptarArchivos(archivo, Utilidades.LeerAppConfig("LLaveDesencripcion"), Utilidades.LeerAppConfig("RutaGnuPg"), Utilidades.LeerAppConfig("ClaveDesencriptado"));
-
-                foreach (var insumo in DatosVerificacionArchivos.Keys)
+                insumo = IdentificarArchivo(Path.GetFileName(archivo));
+                if(!string.IsNullOrEmpty(insumo))
                 {
-                    if (archivo.Contains(insumo))
-                    {
-                        GetTamañoArchivo(insumo, archivo);
-                        break;
-                    }
-                }
+                    GetTamañoArchivo(insumo, archivo);
+                }               
+
+                Helpers.DesencriptarArchivos(archivo, Utilidades.LeerAppConfig("LLaveDesencripcion"), Utilidades.LeerAppConfig("RutaGnuPg"), Utilidades.LeerAppConfig("ClaveDesencriptado"));
 
             }
 
@@ -81,11 +83,67 @@ namespace App.ControlEjecucion
 
             foreach (var archivo in Directory.GetFiles(Utilidades.LeerAppConfig("RutaEntrada"), "*.pgp"))
             {
+                insumo = IdentificarArchivo(Path.GetFileName(archivo));
+                if (!string.IsNullOrEmpty(insumo))
+                {
+                    GetTamañoArchivo(insumo, archivo);
+                }
+
                 Helpers.DesencriptarArchivos(archivo, Utilidades.LeerAppConfig("LLaveDesencripcion"), Utilidades.LeerAppConfig("RutaGnuPg"), Utilidades.LeerAppConfig("ClaveDesencriptado"));
             }
 
             Helpers.CortarMoverArchivosExtension(Utilidades.LeerAppConfig("RutaEntrada"), "*.pgp", Helpers.RutaOriginales);
 
+            #endregion
+        }
+
+        /// <summary>
+        /// Método para identificar el archivo a procesar
+        /// </summary>
+        /// <param name="pNombreArchivo">Nombre Archivo</param>
+        /// <returns>Insumo correspondiente para llenar el CheckList</returns>
+        private string IdentificarArchivo(string pNombreArchivo)
+        {
+            #region IdentificarArchivo
+            foreach (var insumo in DatosVerificacionArchivos.Keys)
+            {
+                if (pNombreArchivo.Contains(insumo))
+                {
+                    if (pNombreArchivo.Contains("EXTV"))
+                    {
+                        if (pNombreArchivo.Substring(0, 4) == "EXTV")
+                        {
+                            return insumo;
+                        }
+                        else
+                        {
+                            return "PAPEXTVIVV";
+                        }
+                    }
+                    else if (pNombreArchivo.Contains("RXX"))
+                    {
+                        if (pNombreArchivo.Substring(7, 1) == "E")
+                        {
+                            return "RXXE";
+                        }
+                        else if (pNombreArchivo.Substring(7, 1) == "I")
+                        {
+                            return "RXXI";
+                        }
+                        else
+                        {
+                            return insumo;
+                        }
+
+                    }
+                    else
+                    {
+                        return insumo;
+                    }
+                }
+            }
+
+            return null; 
             #endregion
         }
 
@@ -136,7 +194,6 @@ namespace App.ControlEjecucion
                 return false;
             }
             #endregion
-
         }
 
         /// <summary>
@@ -152,8 +209,8 @@ namespace App.ControlEjecucion
             if (CheckListProceso.DiccionarioCantidadesArchivos.ContainsKey(pInsumo))
             {
                 CantidadesArchivos cantidadesArchivos = CheckListProceso.DiccionarioCantidadesArchivos[pInsumo];
+                cantidadesArchivos.NombreArchivo = Path.GetFileName(pArchivo);
                 cantidadesArchivos.PesoArchivoMesActual = tamañoArchivo;
-                cantidadesArchivos.DiferenciaPesoArchivo = cantidadesArchivos.PesoArchivoMesActual - cantidadesArchivos.PesoArchivoMesAnterior;
             }
             #endregion
         }
@@ -453,8 +510,8 @@ namespace App.ControlEjecucion
         public void CargueDiccionarioCheckList(string pNumeroOrdenProceso)
         {
             #region CargueDiccionarioCheckList
-            NombreCorte = ValidarNumeroOrden(pNumeroOrdenProceso);
-            List<string> camposUltimoCorte = CargarHistoricoCantidades(Utilidades.LeerAppConfig("RutaLogCantidades"), NombreCorte);
+            CheckListProceso.Corte = ValidarNumeroOrden(pNumeroOrdenProceso);
+            List<string> camposUltimoCorte = CargarHistoricoCantidades(Utilidades.LeerAppConfig("RutaLogCantidades"), CheckListProceso.Corte);
             Insumos.CargarNombresArchivosChekList(camposUltimoCorte);
             Insumos.CargarCantidadesExtractos(camposUltimoCorte);
             #endregion
@@ -621,7 +678,7 @@ namespace App.ControlEjecucion
         {
             #region RegistrarDatosHistoCantidades
             string nuevaLineaCantidades =
-                $"{NombreCorte}" +
+                $"{CheckListProceso.Corte}" +
                 $"|{DateTime.Now.ToString("dd/MM/yyyy")}" +
             #region Tamaño Archivos
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["ACTIVACION-PROTECCIONES"].PesoArchivoMesActual}" +
@@ -630,7 +687,8 @@ namespace App.ControlEjecucion
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["ExtractoFundacion"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["F99TODOSXX"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["R99TODOSXX"].PesoArchivoMesActual}" +
-                $"|{CheckListProceso.DiccionarioCantidadesArchivos["RXX"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["RXXI"].PesoArchivoMesActual}" +
+                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["RXXE"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["SMS"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["SOAT"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["E0"].PesoArchivoMesActual}" +
@@ -650,24 +708,19 @@ namespace App.ControlEjecucion
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["BASE_INACTIVOS_TAC"].PesoArchivoMesActual}" +
             #endregion
             #region Cantidades Extractos
-                $"|{CheckListProceso.CantidadesExtractosNacional.Extractos.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasEstadoCuentaSimplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasEstadoCuentaDuplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasViviendaSimplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasViviendaDuplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasDespositosSimplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasDespositosDuplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosVisa.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosMaster.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.CartasSOAT.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.CartasAsocHabeasData.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.CartasCobrosHabeasData.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ActivacionProtecciones.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosPlanPagosLibranza.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosCreditoRotativo.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosMicroCredito.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.Fiducoomeva.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.CartasTAC.MesActual}";
+                $"|{CheckListProceso.CantidadesProducto.Extractos.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.EstadoCuenta.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.Despositos.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.TarjetasCredito.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.ExtractosFundacion.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.ExtractosRotativo.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.ExtractosVivienda.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.Libranza.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.Fiducoomeva.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.ActivacionProtecciones.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.CartasCobranzaHabeasData.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.HabeasData.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.CartasTAC.MesActual}";
 
             #endregion
 
