@@ -776,16 +776,14 @@ namespace App.Controlnsumos
                     continue;
                 string ruta = archivo;
 
-                SC.Archives.IArchive iArchivo = SC.Archives.ArchiveFactory.Open(ruta);
+                IArchive iArchivo = ArchiveFactory.Open(ruta);
 
-                SC.Readers.ExtractionOptions opcionesDeExtraccion = new SC.Readers.ExtractionOptions { Overwrite = true };
+                ExtractionOptions opcionesDeExtraccion = new ExtractionOptions { Overwrite = true };
 
-                foreach (SC.Archives.IArchiveEntry item in iArchivo.Entries)
+                foreach (IArchiveEntry item in iArchivo.Entries)
                 {
                     if (!item.IsDirectory)
                     {
-                        //SC.Writers.w
-                        //item.Archive.
                         item.WriteToFile(Path.GetDirectoryName(archivo) + "\\" + nombre.Replace(".rar", ""), opcionesDeExtraccion);
                     }
                 }

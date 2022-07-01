@@ -312,7 +312,7 @@
         </member>
         <member name="M:App.ControlEjecucion.ReporteCantidades.#ctor">
             <summary>
-            Constructor de la calse
+            Constructor de la clase
             </summary>
         </member>
         <member name="M:App.ControlEjecucion.ReporteCantidades.GenerarReporteGuias">
@@ -365,6 +365,17 @@
             <param name="pRegional">Nombre Regional</param>
             <param name="pProducto">Producto</param>
             <returns></returns>
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.Dispose">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>        
+        </member>
+        <member name="M:App.ControlEjecucion.ReporteCantidades.Dispose(System.Boolean)">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>
+            <param name="disposing">Bandera para limpiar variables</param>
         </member>
         <member name="T:App.ControlEjecucion.RXGeneral">
             <summary>
