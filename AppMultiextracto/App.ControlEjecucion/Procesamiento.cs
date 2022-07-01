@@ -3,17 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using DLL_Utilidades;
 using App.Controlnsumos;
 using System.IO;
 using App.Variables;
 using App.ControlWebServiceZonificacion;
 using DLL_GenradorDocOne;
-using System.Net;
 
 namespace App.ControlEjecucion
 {
+    /// <summary>
+    /// Clase de ejecucion del proceso
+    /// </summary>
     public class Procesamiento : Variables.Variables, IProcess, IDisposable
     {
         // Flag: Has Dispose already been called?
@@ -26,9 +27,10 @@ namespace App.ControlEjecucion
         /// <summary>
         /// Metodo para descaragra Archivos del FTP de Coomeva
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Bandera para ver estado proceso True = Correct / False = Error</returns>
         public bool DescargaArchivos()
         {
+            #region DescargaArchivos
             try
             {
                 ControlFTP objFtp = new ControlFTP(Utilidades.LeerAppConfig("FtpDireccionCoomeva"), Utilidades.LeerAppConfig("FtpUsuarioCoomeva"), Utilidades.LeerAppConfig("FtpClaveCoomeva"));
@@ -51,23 +53,28 @@ namespace App.ControlEjecucion
                 Helpers.EscribirLogVentana(StructError, true);
                 return false;
             }
-
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo para desencriptar Archivos
+        /// </summary>
         public void DesencriptarArchivos()
         {
+            #region DesencriptarArchivos
+
+            DatosVerificacionArchivos = Insumos.CargarNombresArchivos();
+            string insumo = string.Empty;
+
             foreach (var archivo in Directory.GetFiles(Utilidades.LeerAppConfig("RutaEntrada"), "*.gpg"))
             {
-                Helpers.DesencriptarArchivos(archivo, Utilidades.LeerAppConfig("LLaveDesencripcion"), Utilidades.LeerAppConfig("RutaGnuPg"), Utilidades.LeerAppConfig("ClaveDesencriptado"));
+                insumo = IdentificarArchivo(Path.GetFileName(archivo));
+                if(!string.IsNullOrEmpty(insumo))
+                {
+                    GetTamañoArchivo(insumo, archivo);
+                }               
 
-                //foreach (var insumo in DatosVerificacionArchivos.Keys)
-                //{
-                //    if (archivo.Contains(insumo))
-                //    {
-                //        GetTamañoArchivo(insumo, archivo);
-                //        break;
-                //    }
-                //}
+                Helpers.DesencriptarArchivos(archivo, Utilidades.LeerAppConfig("LLaveDesencripcion"), Utilidades.LeerAppConfig("RutaGnuPg"), Utilidades.LeerAppConfig("ClaveDesencriptado"));
 
             }
 
@@ -75,18 +82,77 @@ namespace App.ControlEjecucion
 
             foreach (var archivo in Directory.GetFiles(Utilidades.LeerAppConfig("RutaEntrada"), "*.pgp"))
             {
+                insumo = IdentificarArchivo(Path.GetFileName(archivo));
+                if (!string.IsNullOrEmpty(insumo))
+                {
+                    GetTamañoArchivo(insumo, archivo);
+                }
+
                 Helpers.DesencriptarArchivos(archivo, Utilidades.LeerAppConfig("LLaveDesencripcion"), Utilidades.LeerAppConfig("RutaGnuPg"), Utilidades.LeerAppConfig("ClaveDesencriptado"));
             }
 
             Helpers.CortarMoverArchivosExtension(Utilidades.LeerAppConfig("RutaEntrada"), "*.pgp", Helpers.RutaOriginales);
+
+            #endregion
+        }
+
+        /// <summary>
+        /// Método para identificar el archivo a procesar
+        /// </summary>
+        /// <param name="pNombreArchivo">Nombre Archivo</param>
+        /// <returns>Insumo correspondiente para llenar el CheckList</returns>
+        private string IdentificarArchivo(string pNombreArchivo)
+        {
+            #region IdentificarArchivo
+            foreach (var insumo in DatosVerificacionArchivos.Keys)
+            {
+                if (pNombreArchivo.Contains(insumo))
+                {
+                    if (pNombreArchivo.Contains("EXTV"))
+                    {
+                        if (pNombreArchivo.Substring(0, 4) == "EXTV")
+                        {
+                            return insumo;
+                        }
+                        else
+                        {
+                            return "PAPEXTVIVV";
+                        }
+                    }
+                    else if (pNombreArchivo.Contains("RXX"))
+                    {
+                        if (pNombreArchivo.Substring(7, 1) == "E")
+                        {
+                            return "RXXE";
+                        }
+                        else if (pNombreArchivo.Substring(7, 1) == "I")
+                        {
+                            return "RXXI";
+                        }
+                        else
+                        {
+                            return insumo;
+                        }
+
+                    }
+                    else
+                    {
+                        return insumo;
+                    }
+                }
+            }
+
+            return null; 
+            #endregion
         }
 
         /// <summary>
         /// Metodo para verificar archivos de entrada
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Bandera para ver estado proceso True = Correct / False = Error</returns>
         public bool VerificacionArchivosEntrada()
         {
+            #region VerificacionArchivosEntrada
             try
             {
                 string resultado = "1";
@@ -126,7 +192,7 @@ namespace App.ControlEjecucion
                 Helpers.EscribirLogVentana(StructError, true);
                 return false;
             }
-
+            #endregion
         }
 
         /// <summary>
@@ -136,16 +202,17 @@ namespace App.ControlEjecucion
         /// <param name="pArchivo">Ruta del Archivo</param>
         private void GetTamañoArchivo(string pInsumo, string pArchivo)
         {
+            #region GetTamañoArchivo
             Int64 tamañoArchivo = Helpers.GetTamañoArchivo(pArchivo);
 
             if (CheckListProceso.DiccionarioCantidadesArchivos.ContainsKey(pInsumo))
             {
                 CantidadesArchivos cantidadesArchivos = CheckListProceso.DiccionarioCantidadesArchivos[pInsumo];
+                cantidadesArchivos.NombreArchivo = Path.GetFileName(pArchivo);
                 cantidadesArchivos.PesoArchivoMesActual = tamañoArchivo;
-                cantidadesArchivos.DiferenciaPesoArchivo = cantidadesArchivos.PesoArchivoMesActual - cantidadesArchivos.PesoArchivoMesAnterior;
             }
+            #endregion
         }
-
 
         /// <summary>
         /// Carga los archivos de manera global y temporal.
@@ -275,6 +342,7 @@ namespace App.ControlEjecucion
         /// <returns>True o False dependiendo el resultado.</returns>
         public bool IniciarZonificacion(string tipoProceso, string nombreProceso)
         {
+            #region IniciarZonificacion
             Console.WriteLine("Entro IniciarZonificacion");
             try
             {
@@ -431,6 +499,7 @@ namespace App.ControlEjecucion
                 Helpers.EscribirLogVentana(StructError, true);
                 return false;
             }
+            #endregion
         }
 
         /// <summary>
@@ -439,15 +508,22 @@ namespace App.ControlEjecucion
         /// <param name="pNumeroOrdenProceso">Número de Orden</param>
         public void CargueDiccionarioCheckList(string pNumeroOrdenProceso)
         {
-            NombreCorte = ValidarNumeroOrden(pNumeroOrdenProceso);
-            List<string> camposUltimoCorte = CargarHistoricoCantidades(Utilidades.LeerAppConfig("RutaLogCantidades"), NombreCorte);
+            #region CargueDiccionarioCheckList
+            CheckListProceso.Corte = ValidarNumeroOrden(pNumeroOrdenProceso);
+            List<string> camposUltimoCorte = CargarHistoricoCantidades(Utilidades.LeerAppConfig("RutaLogCantidades"), CheckListProceso.Corte);
             Insumos.CargarNombresArchivosChekList(camposUltimoCorte);
             Insumos.CargarCantidadesExtractos(camposUltimoCorte);
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo para validar numero de orden
+        /// </summary>
+        /// <param name="pNumeroOrdenProceso">Número de Orden</param>
+        /// <returns>Retorna el corte</returns>
         public string ValidarNumeroOrden(string pNumeroOrdenProceso)
         {
-            #region ValidarNumeroOrden            
+            #region ValidarNumeroOrden
 
             try
             {
@@ -493,9 +569,10 @@ namespace App.ControlEjecucion
         /// </summary>
         /// <param name="pRutaHistorico">Ruta RAchivo</param>
         /// <param name="pCorte">Corte</param>
-        /// <returns></returns>
+        /// <returns>Lista del ultimo corte correspondiente.</returns>
         private List<string> CargarHistoricoCantidades(string pRutaHistorico, string pCorte)
         {
+            #region CargarHistoricoCantidades
             List<string> camposUltimoCorte = new List<string>();
 
             if (File.Exists(pRutaHistorico))
@@ -520,8 +597,8 @@ namespace App.ControlEjecucion
                 InsertarDatosHistoCantidades(pRutaHistorico, true, null);
             }
 
-
             return camposUltimoCorte;
+            #endregion
         }
 
         /// <summary>
@@ -532,6 +609,7 @@ namespace App.ControlEjecucion
         /// <param name="pLinea">Linea a registrar</param>
         private void InsertarDatosHistoCantidades(string pRutaHistorico, bool pEscribirTitulos, string pLinea)
         {
+            #region InsertarDatosHistoCantidades
             if (File.Exists(pRutaHistorico))
             {
                 using (StreamWriter streamWriter = new StreamWriter(pRutaHistorico, true, Encoding.Default))
@@ -551,6 +629,7 @@ namespace App.ControlEjecucion
 
                 escritor.Close();
             }
+            #endregion
         }
 
         /// <summary>
@@ -561,6 +640,7 @@ namespace App.ControlEjecucion
         /// <param name="pLinea">LInea a escribir</param>
         private void EscribirHistoricoCantidades(StreamWriter pStreamWriter, bool pEscribirTitulos, string pLinea)
         {
+            #region EscribirHistoricoCantidades
             if (pEscribirTitulos)
             {
                 pStreamWriter.WriteLine(RXGeneral.TitulosHistoricoCantidades);
@@ -570,23 +650,24 @@ namespace App.ControlEjecucion
             {
                 pStreamWriter.WriteLine(pLinea);
             }
+            #endregion
         }
 
         /// <summary>
-        /// Metodo que obtiene el COrte a aprtir del Número de Orden
+        /// Metodo que obtiene el Corte a aprtir del Número de Orden
         /// </summary>
         /// <param name="pNumeroOrdenProceso">Número de Orden</param>
-        /// <returns></returns>
+        /// <returns>Nombre del corte</returns>
         private string ObtenerNombreCorte(string pNumeroOrdenProceso)
         {
+            #region ObtenerNombreCorte
             if (pNumeroOrdenProceso.Length > 4)
             {
                 return $"{pNumeroOrdenProceso.Substring(pNumeroOrdenProceso.Length - 2)}";
             }
             else
             { return string.Empty; }
-
-
+            #endregion
         }
 
         /// <summary>
@@ -594,8 +675,9 @@ namespace App.ControlEjecucion
         /// </summary>
         public void RegistrarDatosHistoCantidades()
         {
+            #region RegistrarDatosHistoCantidades
             string nuevaLineaCantidades =
-                $"{NombreCorte}" +
+                $"{CheckListProceso.Corte}" +
                 $"|{DateTime.Now.ToString("dd/MM/yyyy")}" +
             #region Tamaño Archivos
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["ACTIVACION-PROTECCIONES"].PesoArchivoMesActual}" +
@@ -604,7 +686,8 @@ namespace App.ControlEjecucion
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["ExtractoFundacion"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["F99TODOSXX"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["R99TODOSXX"].PesoArchivoMesActual}" +
-                $"|{CheckListProceso.DiccionarioCantidadesArchivos["RXX"].PesoArchivoMesActual}" +
+                $"|{CheckListProceso.DiccionarioCantidadesArchivos["RXXI"].PesoArchivoMesActual}" +
+                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["RXXE"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["SMS"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["SOAT"].PesoArchivoMesActual}" +
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["E0"].PesoArchivoMesActual}" +
@@ -624,33 +707,45 @@ namespace App.ControlEjecucion
                 $"|{CheckListProceso.DiccionarioCantidadesArchivos["BASE_INACTIVOS_TAC"].PesoArchivoMesActual}" +
             #endregion
             #region Cantidades Extractos
-                $"|{CheckListProceso.CantidadesExtractosNacional.Extractos.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasEstadoCuentaSimplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasEstadoCuentaDuplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasViviendaSimplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasViviendaDuplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasDespositosSimplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.HojasDespositosDuplex.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosVisa.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosMaster.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.CartasSOAT.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.CartasAsocHabeasData.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.CartasCobrosHabeasData.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ActivacionProtecciones.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosPlanPagosLibranza.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosCreditoRotativo.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.ExtractosMicroCredito.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.Fiducoomeva.MesActual}" +
-                $"|{CheckListProceso.CantidadesExtractosNacional.CartasTAC.MesActual}";
+                $"|{CheckListProceso.CantidadesProducto.Extractos.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.EstadoCuenta.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.Despositos.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.TarjetasCredito.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.ExtractosFundacion.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.ExtractosRotativo.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.ExtractosVivienda.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.Libranza.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.Fiducoomeva.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.ActivacionProtecciones.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.CartasCobranzaHabeasData.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.HabeasData.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.CartasTAC.MesActual}";
 
             #endregion
 
             InsertarDatosHistoCantidades(Utilidades.LeerAppConfig("RutaLogCantidades"), false, nuevaLineaCantidades);
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo para el cargue del proceso digital en Delta
+        /// </summary>
+        /// <param name="nombreProceso">Nombre Proceso</param>
+        /// <param name="codigoCliente">Codigo Cliente</param>
+        /// <param name="codigoProceso">Codigo Proceso</param>
+        /// <param name="codigoCourier">Codigo Courrier</param>
+        /// <param name="parametros">Parametros</param>
+        /// <param name="pdfCliente">pdfClient</param>
+        /// <param name="basedelProceso">Base del proceso</param>
+        /// <param name="clienteDoc1">Cliente Doc1</param>
+        /// <param name="productoDoc1">Producto Doc1</param>
+        /// <param name="tipoSalidaDoc1">Tipo salida Doc1</param>
+        /// <param name="pRutaArchivoVault">Ruta Archivos vault</param>
         public void CargueProcesoDigital(string nombreProceso, string codigoCliente, string codigoProceso, string codigoCourier, string parametros, bool pdfCliente, string basedelProceso, string clienteDoc1, string productoDoc1, string tipoSalidaDoc1, string pRutaArchivoVault)
         {
-            Console.WriteLine("mire el archivo .sal antes de que se genere en DOC1");
+            #region CargueProcesoDigital
+            Console.WriteLine("mire el archivo .sal antes de que se genere");
+
             Console.WriteLine($"{clienteDoc1}|{productoDoc1}|{tipoSalidaDoc1}|{pRutaArchivoVault}");
             Console.ReadKey();
             GenerarSalidasDoc1(clienteDoc1, productoDoc1, tipoSalidaDoc1, pRutaArchivoVault);
@@ -682,8 +777,20 @@ namespace App.ControlEjecucion
             Console.WriteLine($"termino cargue a vault");
 
             IniciarSalidasZonificadas(nombreProceso, archivoJrn, codigoCliente, codigoProceso, codigoCourier, parametros, pdfCliente, basedelProceso);
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo para iniciar Salidas Zonificadas
+        /// </summary>
+        /// <param name="nombreProceso">Nombre Proceso</param>
+        /// <param name="archivoCargue">Ruta Archivo cargue</param>
+        /// <param name="codigoCliente">Codigo Cliente</param>
+        /// <param name="codigoProceso">Codigo Proceso</param>
+        /// <param name="codigoCourier">Codigo Courrier</param>
+        /// <param name="parametros">Parametros</param>
+        /// <param name="pdfCliente">pdfCliente</param>
+        /// <param name="basedelProceso">Base del proceso</param>
         public void IniciarSalidasZonificadas(string nombreProceso, string archivoCargue, string codigoCliente, string codigoProceso, string codigoCourier, string parametros, bool pdfCliente, string basedelProceso)
         {
             #region Iniciar Salidas Zonificadas
@@ -771,6 +878,13 @@ namespace App.ControlEjecucion
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para genrar salidad de Doc1
+        /// </summary>
+        /// <param name="clienteDoc1">Cliente Doc1</param>
+        /// <param name="productoDoc1">Producto Doc1</param>
+        /// <param name="tipoSalidaDoc1">Tipo Salida Doc1</param>
+        /// <param name="pArchivoSal">Ruta Archivo Sal</param>
         public void GenerarSalidasDoc1(string clienteDoc1, string productoDoc1, string tipoSalidaDoc1, string pArchivoSal)
         {
             #region Generar Salida DOC1 (PDF - PS)
@@ -799,6 +913,10 @@ namespace App.ControlEjecucion
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para llenar parametros desde el Config
+        /// </summary>
+        /// <returns></returns>
         public static string[] LLenarParametros()
         {
             #region LLenar Parametros
@@ -825,17 +943,28 @@ namespace App.ControlEjecucion
             #endregion
         }
 
+        // Protected implementation of Dispose pattern.
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>        
         public void Dispose()
         {
+            #region Dispose
             // Dispose of unmanaged resources.
             Dispose(true);
             // Suppress finalization.
             GC.SuppressFinalize(this);
+            #endregion
         }
-
+        
         // Protected implementation of Dispose pattern.
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>
+        /// <param name="disposing">Bandera para limpiar variables</param>
         protected virtual void Dispose(bool disposing)
         {
+            #region Dispose
             if (_disposed)
                 return;
 
@@ -847,8 +976,7 @@ namespace App.ControlEjecucion
 
             // Free any unmanaged objects here.
             _disposed = true;
+            #endregion
         }
-
-
     }
 }

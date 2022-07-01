@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.Variables
 {
+    /// <summary>
+    /// Clase Variables 
+    /// </summary>
     public class Variables
     {
         public string Proceso { get; set; }
@@ -28,6 +28,7 @@ namespace App.Variables
         public static Dictionary<string, DatosInsumos> InsumoEtiquetasFisico = new Dictionary<string, DatosInsumos>();
         public static SortedDictionary<int, Dictionary<string, DatosPlanoBeneficios>> EstructuraBeneficios = new SortedDictionary<int, Dictionary<string, DatosPlanoBeneficios>>();
         public static CheckList CheckListProceso = new CheckList();
+        public static Dictionary<string, Dictionary<string, int>> ReporteCantidades = new Dictionary<string, Dictionary<string, int>>();
         public static string Orden = string.Empty;
         public static string RutaBaseDelta;
         public static StreamReader Lector;
@@ -36,6 +37,9 @@ namespace App.Variables
         public static List<string> CedulasSinTipoEnvio = new List<string>();
     }
 
+    /// <summary>
+    /// Estructura de Datos extracto
+    /// </summary>
     public struct DatosExtractos
     {
         public List<string> Extracto;
@@ -43,12 +47,18 @@ namespace App.Variables
         public Type TipoClase;
     }
 
+    /// <summary>
+    /// Estructura Datos Insumo
+    /// </summary>
     public struct DatosInsumos
     {
         public List<string> InsumoLinea;
         public char Separador;
     }
 
+    /// <summary>
+    /// Clase plano beneficios
+    /// </summary>
     public class DatosPlanoBeneficios
     {
         public string Formato;

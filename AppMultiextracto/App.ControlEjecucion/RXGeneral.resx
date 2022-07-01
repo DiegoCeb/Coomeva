@@ -124,6 +124,6 @@
     <value>El tamaño de caracteres del numero de la orden es incorrecto, el número de orden debe ser de 10 caracteres, por favor verifique y vuelva a intentar procesar.</value>
   </data>
   <data name="TitulosHistoricoCantidades" xml:space="preserve">
-    <value>CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXX|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|Extractos|HojasEstadoCuentaSimplex|HojasEstadoCuentaDuplex|HojasViviendaSimplex|HojasViviendaDuplex|HojasDespositosSimplex|HojasDespositosDuplex|ExtractosVisa|ExtractosMaster|CartasSOAT|CartasAsocHabeasData|CartasCobrosHabeasData|ActivacionProtecciones|ExtractosPlanPagosLibranza|ExtractosCreditoRotativo|ExtractosMicroCredito|Fiducoomeva</value>
+    <value>CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXXI|RXXE|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|BASE_ACTIVOS_TAC|BASE_INACTIVOS_TAC|Extractos|EstadoCuenta|Despositos|TarjetasCredito|ExtractosFundacion|ExtractosRotativo|ExtractosVivienda|Libranza|Fiducoomeva|ActivacionProtecciones|CartasCobranzaHabeasData|HabeasData|CartasTAC</value>
   </data>
 </root>

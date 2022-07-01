@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.ControlProcesos</name>
+    </assembly>
+    <members>
+        <member name="T:App.ControlProcesos.RXGeneral">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:App.ControlProcesos.RXGeneral.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:App.ControlProcesos.RXGeneral.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:App.ControlProcesos.RXGeneral.RutaEntrada">
+            <summary>
+              Busca una cadena traducida similar a RutaEntrada.
+            </summary>
+        </member>
+        <member name="T:App.ControlProcesos.GestionProcesos">
+            <summary>
+            Clase GestionProcesos
+            </summary>
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.Ejecutar">
+            <summary>
+            Metodo para desencader el procesamiento
+            </summary>
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.CargueGeneralArchivos(System.String)">
+            <summary>
+            Metodo que carga los insumos por ruta de Archivos.
+            </summary>
+            <param name="pRuta">Ruta de Archivos</param>
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.CargueArchivosInsumo(System.String)">
+            <summary>
+            Metodo que carga los insumos por ruta de Archivos.
+            </summary>
+            <param name="pRuta">Ruta de Archivos</param>
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.CargarClavesInsumos">
+            <summary>
+            Metodo para cargar las llaves de los insumos
+            </summary>
+            <returns>Lista con las llaves de insumos</returns>
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.CargarClaves">
+            <summary>
+            Metodo para argar cargar las claves
+            </summary>
+            <returns>Diccionario con las llaves y tipo de cada clase</returns>
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.IdentificarArchivo(System.String)">
+            <summary>
+            Metodo para identificar los archivos a procesar
+            </summary>
+            <param name="pNombreArchivo">Nombre arhivo</param>
+            <returns>Retorna le valor del insumo cargado</returns>
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.Inicio">
+            <summary>
+            Metodo para pintar el encabezado al abrir la aplicación
+            </summary>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.Menu">
+            <summary>
+            Metodo para mostrar el menu de la aplicación
+            </summary>
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.Dispose">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>        
+        </member>
+        <member name="M:App.ControlProcesos.GestionProcesos.Dispose(System.Boolean)">
+            <summary>
+            Metodo para liberar Memoria
+            </summary>
+            <param name="disposing">Bandera para limpiar variables</param>
+        </member>
+    </members>
+</doc>

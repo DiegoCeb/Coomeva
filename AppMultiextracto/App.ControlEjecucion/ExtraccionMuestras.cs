@@ -12,7 +12,6 @@ namespace App.ControlEjecucion
     public class ExtraccionMuestras
     {
         private bool _disposed = false;
-        List<string> muestrasNoCruzadas = new List<string>();
         private string RutaSalidaProcesoMuestras = string.Empty;
         private string RutaSalidaProcesoMuestrasVirtual = string.Empty;
         private string RutaSalidaProcesoMuestrasFisica = string.Empty;
@@ -28,7 +27,6 @@ namespace App.ControlEjecucion
             RutaSalidaProcesoMuestrasVirtual = Directory.CreateDirectory($@"{RutaSalidaProcesoMuestras}\MuestrasVirtuales").FullName;
             RutaSalidaProcesoMuestrasFisica = Directory.CreateDirectory($@"{RutaSalidaProcesoMuestras}\MuestrasFisicas").FullName;
             GenerarArchivosMuestras();
-            GenerarReporteMuestrasNoCruzadas(); 
             #endregion
         }
 
@@ -43,10 +41,6 @@ namespace App.ControlEjecucion
                 if (AppVariables.DiccionarioExtractosFormateados.ContainsKey(muestras.Key))
                 {
                     AppVariables.DiccionarioExtractosMuestras.Add(muestras.Key, AppVariables.DiccionarioExtractosFormateados[muestras.Key]);
-                }
-                else
-                {
-                    muestrasNoCruzadas.Add(muestras.Key);
                 }
 
             } 
@@ -84,18 +78,8 @@ namespace App.ControlEjecucion
         }
 
         /// <summary>
-        /// Genera Archivo CSV de lista de muestras No Cruzadas
+        /// Metodo para liberar Memoria
         /// </summary>
-        private void GenerarReporteMuestrasNoCruzadas()
-        {
-            #region GenerarReporteMuestrasNoCruzadas
-            if (muestrasNoCruzadas.Count > 0)
-            {
-                Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoMuestras}\{Variables.Variables.Orden}_MuestrasNoCruzadas.csv", muestrasNoCruzadas);
-            } 
-            #endregion
-        }
-
         public void Dispose()
         {
             #region Dispose
@@ -107,6 +91,10 @@ namespace App.ControlEjecucion
         }
 
         // Protected implementation of Dispose pattern.
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>
+        /// <param name="disposing">Bandera para limpiar variables</param>
         protected virtual void Dispose(bool disposing)
         {
             #region Dispose
@@ -117,14 +105,11 @@ namespace App.ControlEjecucion
             {
                 Variables.Variables.DiccionarioExtractosMuestras.Clear();
                 Variables.Variables.InsumoMuestras.Clear();
-                muestrasNoCruzadas.Clear();
             }
 
             // Free any unmanaged objects here.
             _disposed = true; 
             #endregion
         }
-    }
-
-   
+    }   
 }

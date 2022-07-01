@@ -2,21 +2,21 @@
 using DLL_ServicioDelta.wsDelta;
 using DLL_Utilidades;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.ControlWebServiceZonificacion
 {
+    /// <summary>
+    /// Clase ControlZonificacion
+    /// </summary>
     public class ControlZonificacion
     {
         /// <summary>
         /// Metodo para crear orden de servicio Delta
         /// </summary>
-        /// <param name="cliente"></param>
-        /// <param name="proyecto"></param>
+        /// <param name="cliente">Cliente</param>
+        /// <param name="proyecto">Proyecto</param>
         /// <returns>Numero Orden Servicio</returns>
         public static string CrearOrdenServicio(string cliente, string proyecto)
         {
@@ -38,20 +38,20 @@ namespace App.ControlWebServiceZonificacion
         /// <summary>
         /// realiza la zonificacion del proceso
         /// </summary>
-        /// <param name="ordenServicio"></param>
-        /// <param name="rutaArchivo"></param>
-        /// <param name="mapeo"></param>
-        /// <param name="tipoCargue"></param>
-        /// <param name="cliente"></param>
-        /// <param name="courier"></param>
-        /// <param name="proyecto"></param>
-        /// <param name="certificadoEmail"></param>
-        /// <param name="tipoarchivo"></param>
-        /// <param name="reordenamiento"></param>
-        /// <param name="publicacion"></param>
-        /// <param name="nombreProceso"></param>
-        /// <param name="delimitador"></param>
-        /// <param name="inicioExtractoSpool"></param>
+        /// <param name="ordenServicio">Numero Orden</param>
+        /// <param name="rutaArchivo">Ruta Archivos</param>
+        /// <param name="mapeo">Identificacdor Mapeo</param>
+        /// <param name="tipoCargue">Tipo cargue</param>
+        /// <param name="cliente">Codigo Cliente</param>
+        /// <param name="courier">Codigo Courrier</param>
+        /// <param name="proyecto">Codigo Proyecto</param>
+        /// <param name="certificadoEmail">Bandera Certificdo Email</param>
+        /// <param name="tipoarchivo">Tipo Archivo</param>
+        /// <param name="reordenamiento">Bandera reordenamiento</param>
+        /// <param name="publicacion">Bandera publicación</param>
+        /// <param name="nombreProceso">Nombre del proceso</param>
+        /// <param name="delimitador">Caracter delimitador</param>
+        /// <param name="inicioExtractoSpool">Identifiacor de inicio inicio extracto</param>
         /// <returns>El estado del la zonificacion</returns>
         public static string RealizarZonificacion(string ordenServicio, string rutaArchivo, string mapeo, string tipoCargue, string cliente, string courier, string proyecto, string certificadoEmail, string tipoarchivo, string reordenamiento, string publicacion, string nombreProceso, string delimitador, string inicioExtractoSpool)
         {

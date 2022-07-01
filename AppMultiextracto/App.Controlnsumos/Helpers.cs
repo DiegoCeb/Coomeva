@@ -13,9 +13,13 @@ using DLL_ServicioDelta;
 using DLL_ServicioDelta.wsDelta;
 using SharpCompress.Archives;
 using SharpCompress.Readers;
+using SharpCompress.Common;
 
 namespace App.Controlnsumos
 {
+    /// <summary>
+    /// Clase Helpers
+    /// </summary>
     public static class Helpers
     {
         public static string RutaProceso { get; set; }
@@ -409,6 +413,12 @@ namespace App.Controlnsumos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para copiar archivo filtrando por extensión
+        /// </summary>
+        /// <param name="RutaEntrada">Ruta carpeta original</param>
+        /// <param name="Extension">Extension a filtrar</param>
+        /// <param name="RutaSalida">Ruta a copiar los archivos</param>
         public static void MoverArchivosExtension(string RutaEntrada, string Extension, string RutaSalida)
         {
             #region Mover Archivos
@@ -427,6 +437,13 @@ namespace App.Controlnsumos
             #endregion
         }
 
+
+        /// <summary>
+        /// Metodo para Mover archivos de una carpeta a otra filtrada por extensión
+        /// </summary>
+        /// <param name="RutaEntrada">Ruta carpeta original</param>
+        /// <param name="Extension">Extension a filtrar</param>
+        /// <param name="RutaSalida">Ruta a mover los archivos</param>
         public static void CortarMoverArchivosExtension(string RutaEntrada, string Extension, string RutaSalida)
         {
             #region Mover Archivos
@@ -445,7 +462,14 @@ namespace App.Controlnsumos
             #endregion
         }
 
-
+        /// <summary>
+        /// Metodo para mover archivos de una carpeta a otra bajo condicinados
+        /// </summary>
+        /// <param name="RutaEntrada">Ruta carpeta original</param>
+        /// <param name="Extension">Extension a filtrar</param>
+        /// <param name="RutaSalida">Ruta a mover los archivos</param>
+        /// <param name="CondicionNomre">Condicion nombre</param>
+        /// <param name="pNombreFinal">Nombre Final Archivo</param>
         public static void MoverArchivosCondicionados(string RutaEntrada, string Extension, string RutaSalida, string CondicionNomre, string pNombreFinal)
         {
             #region Mover Archivos
@@ -471,6 +495,11 @@ namespace App.Controlnsumos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para mover archivos de una carpeta a otra
+        /// </summary>
+        /// <param name="RutaEntrada">Ruta carpeta original</param>        
+        /// <param name="RutaSalida">Ruta a mover los archivos</param>
         public static void MoverArchivos(string RutaEntrada, string RutaSalida)
         {
             #region Mover Archivos
@@ -518,6 +547,18 @@ namespace App.Controlnsumos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para realizar la Zonificación en Delta
+        /// </summary>
+        /// <param name="ordenServicio">Numero Orden</param>
+        /// <param name="nombreProceso">Nombre Proceso</param>
+        /// <param name="courier">Numero Courrier</param>
+        /// <param name="cliente">Cliente</param>
+        /// <param name="proyecto">Proyecto</param>
+        /// <param name="codigoParametro">Parametro</param>
+        /// <param name="tipoCargue">Tipo Cargue</param>
+        /// <param name="rutaArchivo">Ruta Archivo</param>
+        /// <returns></returns>
         public static string RealizarSalidasZonificadas(string ordenServicio, string nombreProceso, string courier, string cliente, string proyecto, string codigoParametro, string tipoCargue, string rutaArchivo)
         {
             #region Salidas Zonificadas
@@ -542,6 +583,13 @@ namespace App.Controlnsumos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para desencriptar archivos
+        /// </summary>
+        /// <param name="ArchivosFordecrypt">Archivo encriptado</param>
+        /// <param name="llave">Llave de desencriptar</param>
+        /// <param name="pRutaGnuPg">Ruta GnuPg</param>
+        /// <param name="pClaveDesencripcion">Clave desencriptación</param>
         public static void DesencriptarArchivos(string ArchivosFordecrypt, string llave, string pRutaGnuPg, string pClaveDesencripcion)
         {
             #region DesencriptarArchivos
@@ -575,12 +623,19 @@ namespace App.Controlnsumos
 
                 Helpers.EscribirLogVentana(StructError, true);
             }
-
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para desencrptar Archivos.
+        /// </summary>
+        /// <param name="encryptedSourceFile">Archivo a desencriptar </param>
+        /// <param name="decryptedFile">Archivo desencriptado</param>
+        /// <param name="gpg">Llave de desencriptar</param>
+        /// <returns>Retorna un FileInfo del archivo desencriptado.</returns>
         public static FileInfo DecryptFile(string encryptedSourceFile, string decryptedFile, Gpg gpg)
         {
+            #region DecryptFile
             FileStream encryptedSourceFileStream = null;
             FileStream decryptedFileStream = null;
             try
@@ -620,9 +675,16 @@ namespace App.Controlnsumos
                 //EscribirLog(ex.Message);
                 return null;
             }
+            #endregion
         }
+        /// <summary>
+        /// Metodo para escribir en archivo plano
+        /// </summary>
+        /// <param name="ruta">Ruta del archivo</param>
+        /// <param name="listado">Lista string a escribir</param>
         public static void EscribirEnArchivo(string ruta, List<string> listado)
         {
+            #region EscribirEnArchivo
             if (File.Exists(ruta))
             {
                 using (StreamWriter streamWriter = new StreamWriter(ruta, true, Encoding.Default))
@@ -647,6 +709,7 @@ namespace App.Controlnsumos
 
                 escritor.Close();
             }
+            #endregion
         }
 
         /// <summary>
@@ -661,8 +724,8 @@ namespace App.Controlnsumos
 
             if (!string.IsNullOrEmpty(strucDatosError.Error))
             {
-                Console.WriteLine(Error);
-                Utilidades.EscribirLog(Error, Utilidades.LeerAppConfig("RutaLog"));
+                Console.WriteLine(string.Format("{0} {1}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Error));
+                Utilidades.EscribirLog(string.Format("{0} {1}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Error), Utilidades.LeerAppConfig("RutaLog"));
             }
 
             if (finalizaProceso)
@@ -682,7 +745,7 @@ namespace App.Controlnsumos
         public static void EscribirVentanaLog(string Mensaje)
         {
             #region EscribirVentanaLog
-            Console.WriteLine(Mensaje);
+            Console.WriteLine(string.Format("{0} {1}",DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Mensaje));
             Utilidades.EscribirLog(Mensaje, Utilidades.LeerAppConfig("RutaLog"));
             #endregion
         }
@@ -713,14 +776,16 @@ namespace App.Controlnsumos
                     continue;
                 string ruta = archivo;
 
-                IArchive iArchivo = ArchiveFactory.Open(ruta);
+                SC.Archives.IArchive iArchivo = SC.Archives.ArchiveFactory.Open(ruta);
 
-                ExtractionOptions opcionesDeExtraccion = new ExtractionOptions { Overwrite = true };
+                SC.Readers.ExtractionOptions opcionesDeExtraccion = new SC.Readers.ExtractionOptions { Overwrite = true };
 
-                foreach (IArchiveEntry item in iArchivo.Entries)
+                foreach (SC.Archives.IArchiveEntry item in iArchivo.Entries)
                 {
                     if (!item.IsDirectory)
                     {
+                        //SC.Writers.w
+                        //item.Archive.
                         item.WriteToFile(Path.GetDirectoryName(archivo) + "\\" + nombre.Replace(".rar", ""), opcionesDeExtraccion);
                     }
                 }
@@ -729,7 +794,7 @@ namespace App.Controlnsumos
         }
 
         /// <summary>
-        /// 
+        /// Metodo para cargar las Guias
         /// </summary>
         /// <param name="rutaGuias"></param>
         /// <param name="poscicion"></param>
@@ -804,7 +869,6 @@ namespace App.Controlnsumos
             File.Move(rutaInsumoActual, $@"{nuevaRutaDirectorioInsumo}\{nombreInsumo}");
             #endregion
         }
-
 
         public static string ObtenerNombrePaquete(string pCedula)
         {

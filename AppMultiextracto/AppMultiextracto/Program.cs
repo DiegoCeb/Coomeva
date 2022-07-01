@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using App.Controlnsumos;
 using App.ControlProcesos;
 
 namespace AppMultiextracto
 {
+    /// <summary>
+    /// Clase Program
+    /// </summary>
     public class Program
     {
         static void Main(string[] args)
         {
+            #region Main
             using (GestionProcesos objProcesos = new GestionProcesos())
             {                
                 Helpers.EscribirLogUsuario(Environment.UserName);
@@ -21,6 +19,7 @@ namespace AppMultiextracto
             }
 
             Console.ReadKey();
+            #endregion
         }
     }
 }

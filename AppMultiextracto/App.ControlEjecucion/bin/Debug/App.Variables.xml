@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.Variables</name>
+    </assembly>
+    <members>
+        <member name="T:App.Variables.CheckList">
+            <summary>
+            Clase que almacena los datos del ChekList de Archivos
+            </summary>
+        </member>
+        <member name="P:App.Variables.CheckList.FechaHoraIncio">
+            <summary>
+            Fecha y Hora de Inicio de Proceso
+            </summary>
+        </member>
+        <member name="P:App.Variables.CheckList.FechaHoraFin">
+            <summary>
+            Fecha y Hora de Fin de Proceso
+            </summary>
+        </member>
+        <member name="P:App.Variables.CheckList.UsuarioSesion">
+            <summary>
+            Usuario de Sesion que Ejecuta el Proceso
+            </summary>
+        </member>
+        <member name="P:App.Variables.CheckList.Corte">
+            <summary>
+            Nombre Corte
+            </summary>
+        </member>
+        <member name="F:App.Variables.CheckList.DiccionarioCantidadesArchivos">
+            <summary>
+            Diccionario de Cantidades por Archivo de Proceso
+            </summary>
+        </member>
+        <member name="F:App.Variables.CheckList.CantidadesProducto">
+            <summary>
+            Diccionario de Cantidades por Extractos Producto
+            </summary>
+        </member>
+        <member name="T:App.Variables.CantidadesArchivos">
+            <summary>
+            Estructura para almacenar Cantidades por Archivo
+            </summary>
+        </member>
+        <member name="T:App.Variables.CantidadesExtractos">
+            <summary>
+            Estructura para almacenar Cantidades por Extractos y Tipo de Producto
+            </summary>
+        </member>
+        <member name="T:App.Variables.Variables">
+            <summary>
+            Clase Variables 
+            </summary>
+        </member>
+        <member name="T:App.Variables.DatosExtractos">
+            <summary>
+            Estructura de Datos extracto
+            </summary>
+        </member>
+        <member name="T:App.Variables.DatosInsumos">
+            <summary>
+            Estructura Datos Insumo
+            </summary>
+        </member>
+        <member name="T:App.Variables.DatosPlanoBeneficios">
+            <summary>
+            Clase plano beneficios
+            </summary>
+        </member>
+    </members>
+</doc>

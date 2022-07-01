@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using App.ControlEjecucion;
-using App.Variables;
 using DLL_Utilidades;
 using App.ControlCargueArchivos;
 using App.Controlnsumos;
 
 namespace App.ControlProcesos
 {
+    /// <summary>
+    /// Clase GestionProcesos
+    /// </summary>
     public class GestionProcesos : Variables.Variables, IControl, IDisposable
     {
         // Flag: Has Dispose already been called?
@@ -21,14 +20,26 @@ namespace App.ControlProcesos
         public Dictionary<string, Type> InsumosCarga = new Dictionary<string, Type>();
         public List<string> InsumosActualizarCarga = new List<string>();
         private Procesamiento _objProceso = new Procesamiento();
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public GestionProcesos()
         {
+            #region GestionProcesos
             CargarClaves();
             CargarClavesInsumos();
+            #endregion
         }
+
+        /// <summary>
+        /// Metodo para desencader el procesamiento
+        /// </summary>
         public void Ejecutar()
         {
+            #region Ejecutar
             CheckListProceso.FechaHoraIncio = DateTime.Now;
+            CheckListProceso.UsuarioSesion = Environment.UserName;
             _objProceso.CargueDiccionarioCheckList(this.NumeroOrdenProceso);
 
             //if (!_objProceso.DescargaArchivos())
@@ -41,9 +52,9 @@ namespace App.ControlProcesos
             //Console.WriteLine("---Descargue Correcto de Archivos");
             //Console.ReadKey();
 
-            ////Creacion carpeta donde se almacenaran los archivos originales del proceso
-            //Helpers.RutaOriginales = Directory.CreateDirectory($"{Utilidades.LeerAppConfig("RutaOriginales")}\\{NumeroOrdenProceso}_{DateTime.Now:yyyyMMdd}").FullName;
-            //_objProceso.DesencriptarArchivos();
+            //Creacion carpeta donde se almacenaran los archivos originales del proceso
+            Helpers.RutaOriginales = Directory.CreateDirectory($"{Utilidades.LeerAppConfig("RutaOriginales")}\\{NumeroOrdenProceso}_{DateTime.Now:yyyyMMdd}").FullName;
+            _objProceso.DesencriptarArchivos();
 
             //Console.WriteLine("---Desencriptado Correcto de Archivos");
             //Console.ReadKey();
@@ -55,9 +66,9 @@ namespace App.ControlProcesos
                 Environment.Exit(1);
             }
 
-            Console.WriteLine("");
-            Console.WriteLine("---Verificacion de Archivos Correcta");
-            Console.WriteLine("");
+            Helpers.EscribirVentanaLog("");
+            Helpers.EscribirVentanaLog("Verificacion de Archivos Correcta");
+            Helpers.EscribirVentanaLog("");
 
             //Cargamos Archivos Entrada
             CargueArchivosInsumo(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
@@ -81,27 +92,39 @@ namespace App.ControlProcesos
             //    Environment.Exit(1);
             //}
 
+            Helpers.EscribirVentanaLog("Finalización de Zonificación");
+
             //Convergencia
+            Helpers.EscribirVentanaLog("Inicia Convergencia");
             _ = new Convergencia();
 
             //Generación de Muestras
 
+            Helpers.EscribirVentanaLog("Inicia Extracción Muestras");
             _ = new ExtraccionMuestras();
 
             //Parte Mail, Generar journal PS - Cargue a vault - Cargue journal delta - cargue adjuntos en linea
 
             //preguntar lo de adjuntos en linea antes de seguir par auqe generen los PDFs
 
+            Helpers.EscribirVentanaLog("Inicia Cargue de Proceso Digital");
             _objProceso.CargueProcesoDigital($"Corte{Orden}_{DateTime.Now:yyyyMMddhhmmss}", Utilidades.LeerAppConfig("CodigoCliente"), 
                 Utilidades.LeerAppConfig("CodigoProcesoVirtual"), Utilidades.LeerAppConfig("CodigoCourier"), Utilidades.LeerAppConfig("ConfiguracionMapeoVirtual"),
                 false/*llevapdfs de adjuntos en linea*/, "ruta de los archivos para cargar en adjuntos en linea", Utilidades.LeerAppConfig("ClienteDoc1"), Utilidades.LeerAppConfig("ProductoDoc1"), Utilidades.LeerAppConfig("TipoSalida"), RutaProcesoVault);
 
             //Proceso SMS
 
-            //Reportes
+            // Extraccion de Cantidades
+            CheckListProceso.FechaHoraFin = DateTime.Now;
+            Helpers.EscribirVentanaLog("Inicia Reporte de Cantidades");
+            _ = new ReporteCantidades();
 
             _objProceso.RegistrarDatosHistoCantidades();
-
+            Helpers.EscribirVentanaLog("Final Existoso del Proceso, revise la carpeta salidas !!!");
+            Helpers.EscribirVentanaLog("Presione una tecla para cerrar...");
+            Console.ReadKey();
+            Environment.Exit(1);
+            #endregion
         }
 
         /// <summary>
@@ -110,6 +133,7 @@ namespace App.ControlProcesos
         /// <param name="pRuta">Ruta de Archivos</param>
         private void CargueGeneralArchivos(string pRuta)
         {
+            #region CargueGeneralArchivos
             foreach (var archivoEntrada in Directory.GetFiles(pRuta))
             {
                 var nombreArchivo = Path.GetFileNameWithoutExtension(archivoEntrada);
@@ -117,8 +141,19 @@ namespace App.ControlProcesos
                 if (nombreArchivo == "HistoricoCantidades")
                 { continue; }
 
-                _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
+                //_objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo) ?? throw new Exception("No se identifico el archivo de entrada."));
+
+                Type tipo = IdentificarArchivo(nombreArchivo);
+                if (tipo != null)
+                {
+                    _objProceso.CargueArchivosGlobal(archivoEntrada, IdentificarArchivo(nombreArchivo));
+                }
+                else
+                {
+                    Helpers.EscribirVentanaLog($"Archivo {nombreArchivo} no identificado en la lista de insumos del proceso.");
+                }
             }
+            #endregion
         }
 
         /// <summary>
@@ -147,6 +182,10 @@ namespace App.ControlProcesos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para cargar las llaves de los insumos
+        /// </summary>
+        /// <returns>Lista con las llaves de insumos</returns>
         public List<string> CargarClavesInsumos()
         {
             #region CargarClavesInsumos
@@ -160,6 +199,10 @@ namespace App.ControlProcesos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para argar cargar las claves
+        /// </summary>
+        /// <returns>Diccionario con las llaves y tipo de cada clase</returns>
         public Dictionary<string, Type> CargarClaves()
         {
             #region Cargar Insumos
@@ -191,8 +234,14 @@ namespace App.ControlProcesos
             #endregion
         }
 
+        /// <summary>
+        /// Metodo para identificar los archivos a procesar
+        /// </summary>
+        /// <param name="pNombreArchivo">Nombre arhivo</param>
+        /// <returns>Retorna le valor del insumo cargado</returns>
         private Type IdentificarArchivo(string pNombreArchivo)
         {
+            #region IdentificarArchivo
             foreach (var insumo in InsumosCarga)
             {
                 if (pNombreArchivo.ToUpper().Contains(insumo.Key))
@@ -216,10 +265,16 @@ namespace App.ControlProcesos
             }
 
             return null;
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo para pintar el encabezado al abrir la aplicación
+        /// </summary>
+        /// <exception cref="InvalidOperationException"></exception>
         public void Inicio()
         {
+            #region Inicio
             Assembly assem = Assembly.GetEntryAssembly();
             AssemblyName assemName = assem?.GetName();
             Version ver = assemName?.Version;
@@ -243,10 +298,15 @@ namespace App.ControlProcesos
             Console.WriteLine("");
 
             Console.Title = "Procesos Coomeva " + version;
+            #endregion
         }
 
+        /// <summary>
+        /// Metodo para mostrar el menu de la aplicación
+        /// </summary>
         public void Menu()
         {
+            #region Menu
             Inicio();
             Console.WriteLine("Seleccione el proceso que desea ejecutar:");
             Console.WriteLine("");
@@ -275,19 +335,30 @@ namespace App.ControlProcesos
                     Menu();
                     break;
             }
+            #endregion
         }
-
+        
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>        
         public void Dispose()
         {
+            #region Dispose
             // Dispose of unmanaged resources.
             Dispose(true);
             // Suppress finalization.
             GC.SuppressFinalize(this);
+            #endregion
         }
 
         // Protected implementation of Dispose pattern.
+        /// <summary>
+        /// Metodo para liberar Memoria
+        /// </summary>
+        /// <param name="disposing">Bandera para limpiar variables</param>
         protected virtual void Dispose(bool disposing)
         {
+            #region Dispose
             if (_disposed)
                 return;
 
@@ -298,7 +369,7 @@ namespace App.ControlProcesos
 
             // Free any unmanaged objects here.
             _disposed = true;
+            #endregion
         }
-
     }
 }
