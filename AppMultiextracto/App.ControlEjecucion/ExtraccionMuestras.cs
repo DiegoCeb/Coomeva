@@ -60,6 +60,9 @@ namespace App.ControlEjecucion
                 {
                     if (tipoExtracto.Key == "Virtual")
                     {
+                        //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail|Correo|Boletin
+                        Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoMuestrasVirtual}\{Variables.Variables.Orden}_Muestras_{tipoExtracto.Key}.sal", new List<string> { $"1MUL| |{extractoCedula.Key}|ClaveMail|Correo|Boletin" });
+
                         foreach (var paqueteExtracto in tipoExtracto.Value)
                         {
                             Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoMuestrasVirtual}\{Variables.Variables.Orden}_Muestras_{tipoExtracto.Key}.sal", paqueteExtracto.Value);
@@ -67,6 +70,9 @@ namespace App.ControlEjecucion
                     }
                     else if (tipoExtracto.Key == "Fisico")
                     {
+                        //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail|Correo|Boletin
+                        Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoMuestrasFisica}\{Variables.Variables.Orden}_Muestras_{tipoExtracto.Key}.sal", new List<string> { $"1MUL| |{extractoCedula.Key}|ClaveMail|Correo|Boletin" });
+
                         foreach (var paqueteExtracto in tipoExtracto.Value)
                         {
                             Helpers.EscribirEnArchivo($@"{RutaSalidaProcesoMuestrasFisica}\{Variables.Variables.Orden}_Muestras_{tipoExtracto.Key}.sal", paqueteExtracto.Value);

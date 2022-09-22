@@ -41,61 +41,110 @@ namespace App.ControlEjecucion
             #region GenerarSalidaVirtualPublicacion
             List<string> publicacion = new List<string>();
 
-            
+
             foreach (var paqueteExtracto in Variables.Variables.DiccionarioExtractosFormateados)
             {
-                //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail 
+                if (paqueteExtracto.Key == "")
+                {
+                    continue;
+                }
+
+                if (paqueteExtracto.Key == "1144171818")
+                {
+
+                }
+                //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail|Correo|Boletin
                 string CanalInicio = $"1MUL| |{paqueteExtracto.Key}|{ObtenerClaveMail(paqueteExtracto.Key)}";
 
                 bool InicioEnPaquete = false;
 
                 foreach (var tipoenvio in paqueteExtracto.Value)
                 {
-                    if (tipoenvio.Key != "NA")
+                    //if (tipoenvio.Key != "NA")
+                    //{
+                    if (tipoenvio.Key == "Virtual")
                     {
-                        if (tipoenvio.Key == "Virtual")
-                        {
-                            CanalInicio += $"|{Helpers.ObtenerNombrePaquete(paqueteExtracto.Key)}|{Helpers.ObtenerEmail(paqueteExtracto.Key)}";
-                        }
-                        else
-                        {
-                            CanalInicio += $"|{Helpers.ObtenerNombrePaquete(paqueteExtracto.Key)}| ";
-                        }
-
-                        foreach (var extracto in tipoenvio.Value)
-                        {
-                            if (!InicioEnPaquete)
-                            {
-                                publicacion.Add(CanalInicio);
-                                InicioEnPaquete = true;
-                            }
-
-                            publicacion.AddRange(extracto.Value);
-                        }
+                        CanalInicio += $"|{Helpers.ObtenerNombrePaquete(paqueteExtracto.Key)}|{Helpers.ObtenerEmail(paqueteExtracto.Key)}|{ObtenerBoletin(paqueteExtracto.Key)}";
                     }
+                    else
+                    {
+                        CanalInicio += $"|{Helpers.ObtenerNombrePaquete(paqueteExtracto.Key)}| | ";
+                    }
+
+                    foreach (var extracto in tipoenvio.Value)
+                    {
+                        if (!InicioEnPaquete)
+                        {
+                            publicacion.Add(CanalInicio);
+                            InicioEnPaquete = true;
+                        }
+
+                        publicacion.AddRange(extracto.Value);
+                    }
+                    //}
                 }
             }
 
             Variables.Variables.RutaProcesoVault = $"{RutaSalidaProcesoVault}\\Unificado{DateTime.Now:yyyyMMddhhmmss}.sal";
 
-            Helpers.EscribirEnArchivo(Variables.Variables.RutaProcesoVault, publicacion); 
+            Helpers.EscribirEnArchivo(Variables.Variables.RutaProcesoVault, publicacion);
             #endregion
         }
 
+        /// <summary>
+        /// Método que obtiene el boletín que va con la persona(Virtual).
+        /// </summary>
+        /// <param name="pCedula">cedula del proceso.</param>
+        /// <returns>Nombre PDF Boletín</returns>
+        private string ObtenerBoletin(string pCedula)
+        {
+            #region ObtenerBoletin
+            string resultado = string.Empty;
+            Dictionary<string, string> boletines = new Dictionary<string, string>();
+
+            foreach (var archivos in Directory.GetFiles(DLL_Utilidades.Utilidades.LeerAppConfig("rutaInsumosBoletines"), "*.pdf"))
+            {
+                boletines.Add(Path.GetFileName(archivos).Split('_').ElementAt(1).ToLower(), archivos);
+            }
+
+            if (Variables.Variables.InsumoEtiquetasMail.ContainsKey(pCedula))
+            {
+                string segmentoCiudadDpto = Variables.Variables.InsumoEtiquetasMail[pCedula].InsumoLinea.FirstOrDefault().Substring(92, 30).Trim();
+                string ciudad = segmentoCiudadDpto.LastIndexOf('(') != -1 ? segmentoCiudadDpto.Substring(0, segmentoCiudadDpto.LastIndexOf('(')).Trim() : segmentoCiudadDpto;
+
+                if (ciudad.ToLower().Contains("bogota"))
+                {
+                    ciudad = "bogota";
+                }
+
+                if (boletines.ContainsKey(ciudad.ToLower()))
+                {
+                    if (!Variables.Variables.PdfsCargarAdjuntosEnLinea.ContainsKey(ciudad.ToLower()))
+                    {
+                        Variables.Variables.PdfsCargarAdjuntosEnLinea.Add(ciudad.ToLower(), boletines[ciudad.ToLower()]);
+                    }
+
+                    resultado = Path.GetFileName(boletines[ciudad.ToLower()]);
+                }
+            }
+
+            return resultado;
+            #endregion
+        }
 
         /// <summary>
         /// Metodo para el Ordenamiento final en base a las Guias
         /// </summary>
-        private object ObtenerClaveMail(string key)
+        private object ObtenerClaveMail(string pCedula)
         {
             #region ObtenerClaveMail
             string resultado = " ";
             List<PosCortes> listaCortes = new List<PosCortes>();
 
-            if (Variables.Variables.InsumoEtiquetasMail.ContainsKey(key))
+            if (Variables.Variables.InsumoEtiquetasMail.ContainsKey(pCedula))
             {
                 listaCortes.Add(new PosCortes(279, 30));
-                resultado = Helpers.ExtraccionCamposSpool(listaCortes, Variables.Variables.InsumoEtiquetasMail[key].InsumoLinea.FirstOrDefault());
+                resultado = Helpers.ExtraccionCamposSpool(listaCortes, Variables.Variables.InsumoEtiquetasMail[pCedula].InsumoLinea.FirstOrDefault());
             }
             return resultado;
             #endregion
@@ -107,7 +156,7 @@ namespace App.ControlEjecucion
         private void OrdenarExtractoFinal()
         {
             #region OrdenarExtractoFinal
-            Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229998";
+            //Variables.Variables.RutaBaseDelta = @"C:\ProcesoCoomeva\Salida\1320229998";
             Helpers.DescomprimirGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta));
             Helpers.CargarGuias(Directory.GetFiles(Variables.Variables.RutaBaseDelta), Convert.ToInt16(DLL_Utilidades.Utilidades.LeerAppConfig("CampoCrucePDF")), "1AAA");
 
@@ -142,14 +191,14 @@ namespace App.ControlEjecucion
                 string rutaFinalInterna = Directory.CreateDirectory($@"{RutaSalidaProcesoFisico}\{pRegional}").FullName;
 
                 var tipoExtracto = Variables.Variables.DiccionarioExtractosFormateados[pCedula];
-                //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail 
-                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}| ";
+                //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail|Correo|Boletin
+                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}| | | ";
 
                 if (tipoExtracto.Count == 1)
                 {
                     if (tipoExtracto.FirstOrDefault().Key == "Fisico")
                     {
-                        ReporteCantidades.ExraerCantidades(new KeyValuePair<string,List<string>>("Extractos", new List<string>() { CanalInicio }), pRegional);
+                        ReporteCantidades.ExraerCantidades(new KeyValuePair<string, List<string>>("Extractos", new List<string>() { CanalInicio }), pRegional);
 
                         var paqueteExtracto = tipoExtracto["Fisico"];
                         bool extractoEscrito = false;
@@ -219,8 +268,8 @@ namespace App.ControlEjecucion
 
                 var tipoExtracto = Variables.Variables.DiccionarioExtractosFormateados[pCedula];
 
-                //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail 
-                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}| ";
+                //Estructura Canal Multiextracto: 1MUL|Consecutivo|Cedula|ClaveMail|Correo|Boletin
+                string CanalInicio = $"1MUL|{pConsecutivo}|{pCedula}| | | ";
 
                 bool InicioEnPaquete = false;
 
@@ -270,10 +319,11 @@ namespace App.ControlEjecucion
             {
                 tipoEnvio = VerificarTipoEnvio(Paquete.Key);
 
-                if (tipoEnvio == "NA")
-                {
-                    continue;
-                }
+                //if (tipoEnvio == "NA")
+                //{
+                //    //
+                //    continue;
+                //}
 
                 foreach (var ElementosPaquete in Paquete.Value)
                 {
@@ -590,5 +640,4 @@ namespace App.ControlEjecucion
         [System.ComponentModel.Description("Libranza")]
         Libranza = 4
     }
-
 }

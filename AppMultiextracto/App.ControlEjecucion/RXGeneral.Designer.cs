@@ -79,7 +79,7 @@ namespace App.ControlEjecucion {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXXI|RXXE|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|BASE_ACTIVOS_TAC|BASE_INACTIVOS_TAC|Extractos|EstadoCuenta|Despositos|TarjetasCredito|ExtractosFundacion|ExtractosRotativo|ExtractosVivienda|Libranza|Fiducoomeva|Act [resto de la cadena truncado]&quot;;.
+        ///   Busca una cadena traducida similar a CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXXI|RXXE|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|BASE_ACTIVOS_TAC|BASE_INACTIVOS_TAC|nuevo|Extractos|EstadoCuenta|Despositos|TarjetasCredito|ExtractosFundacion|ExtractosRotativo|ExtractosVivienda|Libranza|Fiducoome [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string TitulosHistoricoCantidades {
             get {

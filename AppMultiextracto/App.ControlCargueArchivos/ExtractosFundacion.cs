@@ -35,7 +35,7 @@ namespace App.ControlCargueArchivos
                 };
 
                 Helpers.EscribirLogVentana(StructError, true);
-                
+
             }
             #endregion ExtractosFundacion
         }
@@ -156,14 +156,64 @@ namespace App.ControlCargueArchivos
         /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
+            #region FormatearArchivo
             List<string> resultado = new List<string>();
+            List<int> posFormateos = new List<int>()
+            {
+                21, 22, 24, 84, 96, 97, 98, 99, 101, 103, 104, 105, 106, 107
+            };
 
             foreach (var linea in datosOriginales)
             {
-                resultado.Add($"1MIC| |{Helpers.ValidarPipePipe(linea)}");
+                resultado.Add($"1MIC| |{Helpers.ValidarPipePipe(ArmarLineaFormateada(posFormateos, new List<string>(linea.Split('|'))))}");
             }
 
-            return resultado;
+            return resultado; 
+            #endregion
+        }
+
+        /// <summary>
+        /// Arma la Linea Formateada de la cadena
+        /// </summary>
+        /// <param name="pFormateos">Campos a formatear</param>
+        /// <param name="pDatosLinea">Daots de la linea</param>
+        /// <returns>Linea formateada</returns>
+        private string ArmarLineaFormateada(List<int> pFormateos, List<string> pDatosLinea)
+        {
+            #region ArmarLineaFormateada
+            string resultado = string.Empty;
+            string comodin = string.Empty;
+
+            for (int i = 0; i < pDatosLinea.Count; i++)
+            {
+                var dato = pDatosLinea[i];
+
+                if (pFormateos.Contains(i))
+                {
+                    if (string.IsNullOrEmpty(dato.Trim()))
+                    {
+                        dato = "0";
+                    }
+
+                    var transformado = Convert.ToDouble(dato.Trim()).ToString("N2");
+
+                    if (i == 97 || i == 98 || i == 99)
+                    {
+                        comodin = string.Empty;
+                    }
+                    else
+                    {
+                        comodin = "$ ";
+                    }
+
+                    dato = $"{comodin}{transformado.Substring(0, transformado.LastIndexOf('.')).Replace(",", ".")},{transformado.Substring(transformado.LastIndexOf('.') + 1)}";
+                }
+
+                resultado += $"{dato}|";
+            }
+
+            return resultado.Substring(0, resultado.Length - 1);
+            #endregion
         }
     }
 }

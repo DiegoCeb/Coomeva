@@ -10,6 +10,6 @@ namespace App.ControlProcesos
     {
         void Inicio();
         void Menu();
-        void Ejecutar();
+        void Ejecutar(bool pReproceso = false);
     }
 }

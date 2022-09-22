@@ -719,6 +719,7 @@ namespace App.ControlEjecucion
                 $"|{CheckListProceso.CantidadesProducto.ActivacionProtecciones.MesActual}" +
                 $"|{CheckListProceso.CantidadesProducto.CartasCobranzaHabeasData.MesActual}" +
                 $"|{CheckListProceso.CantidadesProducto.HabeasData.MesActual}" +
+                $"|{CheckListProceso.CantidadesProducto.CartasSOAT.MesActual}" +
                 $"|{CheckListProceso.CantidadesProducto.CartasTAC.MesActual}";
 
             #endregion
@@ -736,12 +737,12 @@ namespace App.ControlEjecucion
         /// <param name="codigoCourier">Codigo Courrier</param>
         /// <param name="parametros">Parametros</param>
         /// <param name="pdfCliente">pdfClient</param>
-        /// <param name="basedelProceso">Base del proceso</param>
+        /// <param name="pAdjuntosEnLinea">Base del proceso</param>
         /// <param name="clienteDoc1">Cliente Doc1</param>
         /// <param name="productoDoc1">Producto Doc1</param>
         /// <param name="tipoSalidaDoc1">Tipo salida Doc1</param>
         /// <param name="pRutaArchivoVault">Ruta Archivos vault</param>
-        public void CargueProcesoDigital(string nombreProceso, string codigoCliente, string codigoProceso, string codigoCourier, string parametros, bool pdfCliente, string basedelProceso, string clienteDoc1, string productoDoc1, string tipoSalidaDoc1, string pRutaArchivoVault)
+        public void CargueProcesoDigital(string nombreProceso, string codigoCliente, string codigoProceso, string codigoCourier, string parametros, bool pdfCliente, Dictionary<string, string> pAdjuntosEnLinea, string clienteDoc1, string productoDoc1, string tipoSalidaDoc1, string pRutaArchivoVault)
         {
             #region CargueProcesoDigital
             Console.WriteLine("mire el archivo .sal antes de que se genere");
@@ -775,8 +776,9 @@ namespace App.ControlEjecucion
             Helpers.MoverArchivosCondicionados(Utilidades.LeerAppConfig("RutaVaultDownload"), "*.ps", Utilidades.LeerAppConfig("RutaVaultFinal"), nombrePs, nombrePs);
 
             Console.WriteLine($"termino cargue a vault");
+            Console.WriteLine($"Inicia cargue JRN a delta");
 
-            IniciarSalidasZonificadas(nombreProceso, archivoJrn, codigoCliente, codigoProceso, codigoCourier, parametros, pdfCliente, basedelProceso);
+            IniciarSalidasZonificadas(nombreProceso, archivoJrn, codigoCliente, codigoProceso, codigoCourier, parametros, pdfCliente, pAdjuntosEnLinea);
             #endregion
         }
 
@@ -790,8 +792,8 @@ namespace App.ControlEjecucion
         /// <param name="codigoCourier">Codigo Courrier</param>
         /// <param name="parametros">Parametros</param>
         /// <param name="pdfCliente">pdfCliente</param>
-        /// <param name="basedelProceso">Base del proceso</param>
-        public void IniciarSalidasZonificadas(string nombreProceso, string archivoCargue, string codigoCliente, string codigoProceso, string codigoCourier, string parametros, bool pdfCliente, string basedelProceso)
+        /// <param name="pAdjuntosEnLinea">Base del proceso</param>
+        public void IniciarSalidasZonificadas(string nombreProceso, string archivoCargue, string codigoCliente, string codigoProceso, string codigoCourier, string parametros, bool pdfCliente, Dictionary<string, string> pAdjuntosEnLinea)
         {
             #region Iniciar Salidas Zonificadas
 
@@ -832,7 +834,7 @@ namespace App.ControlEjecucion
 
                             ClaseFtpDelta.CrearcarpetaFtpDelta(archivosMail);
 
-                            foreach (var item in Directory.GetFiles(Path.GetDirectoryName(basedelProceso) ?? throw new InvalidOperationException()))
+                            foreach (var item in pAdjuntosEnLinea.Values)
                             {
                                 if (Path.GetExtension(item).ToLower() == ".pdf")
                                 {

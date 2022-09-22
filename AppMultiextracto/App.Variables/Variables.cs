@@ -11,6 +11,8 @@ namespace App.Variables
     {
         public string Proceso { get; set; }
         public string NumeroOrdenProceso { get; set; }
+        public string NombreProceso { get; set; }
+        public static string RutaPdfsAdicionales { get; set; }
         public string MensajeError { get; set; }
         public static Dictionary<string, Dictionary<string, string>> DicGuias = new Dictionary<string, Dictionary<string, string>>();
         public static Dictionary<string, Dictionary<string, DatosExtractos>> DiccionarioExtractos = new Dictionary<string, Dictionary<string, DatosExtractos>>();
@@ -35,6 +37,7 @@ namespace App.Variables
         public string NombreCorte { get; set; }
         public static string RutaProcesoVault { get; set; }
         public static List<string> CedulasSinTipoEnvio = new List<string>();
+        public static Dictionary<string, string> PdfsCargarAdjuntosEnLinea = new Dictionary<string, string>();
     }
 
     /// <summary>

@@ -35,7 +35,7 @@
             Constructor
             </summary>
         </member>
-        <member name="M:App.ControlProcesos.GestionProcesos.Ejecutar">
+        <member name="M:App.ControlProcesos.GestionProcesos.Ejecutar(System.Boolean)">
             <summary>
             Metodo para desencader el procesamiento
             </summary>

@@ -19,6 +19,13 @@
             Metodo para generar las salidas Virtual y publicación
             </summary>
         </member>
+        <member name="M:App.ControlEjecucion.Convergencia.ObtenerBoletin(System.String)">
+            <summary>
+            Método que obtiene el boletín que va con la persona(Virtual).
+            </summary>
+            <param name="pCedula">cedula del proceso.</param>
+            <returns>Nombre PDF Boletín</returns>
+        </member>
         <member name="M:App.ControlEjecucion.Convergencia.ObtenerClaveMail(System.String)">
             <summary>
             Metodo para el Ordenamiento final en base a las Guias
@@ -250,7 +257,7 @@
             Metdodo que obtiene los datos y los ordena para registralos
             </summary>
         </member>
-        <member name="M:App.ControlEjecucion.Procesamiento.CargueProcesoDigital(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:App.ControlEjecucion.Procesamiento.CargueProcesoDigital(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String,System.String,System.String)">
             <summary>
             Metodo para el cargue del proceso digital en Delta
             </summary>
@@ -260,13 +267,13 @@
             <param name="codigoCourier">Codigo Courrier</param>
             <param name="parametros">Parametros</param>
             <param name="pdfCliente">pdfClient</param>
-            <param name="basedelProceso">Base del proceso</param>
+            <param name="pAdjuntosEnLinea">Base del proceso</param>
             <param name="clienteDoc1">Cliente Doc1</param>
             <param name="productoDoc1">Producto Doc1</param>
             <param name="tipoSalidaDoc1">Tipo salida Doc1</param>
             <param name="pRutaArchivoVault">Ruta Archivos vault</param>
         </member>
-        <member name="M:App.ControlEjecucion.Procesamiento.IniciarSalidasZonificadas(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String)">
+        <member name="M:App.ControlEjecucion.Procesamiento.IniciarSalidasZonificadas(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
             Metodo para iniciar Salidas Zonificadas
             </summary>
@@ -277,7 +284,7 @@
             <param name="codigoCourier">Codigo Courrier</param>
             <param name="parametros">Parametros</param>
             <param name="pdfCliente">pdfCliente</param>
-            <param name="basedelProceso">Base del proceso</param>
+            <param name="pAdjuntosEnLinea">Base del proceso</param>
         </member>
         <member name="M:App.ControlEjecucion.Procesamiento.GenerarSalidasDoc1(System.String,System.String,System.String,System.String)">
             <summary>
@@ -405,7 +412,7 @@
         </member>
         <member name="P:App.ControlEjecucion.RXGeneral.TitulosHistoricoCantidades">
             <summary>
-              Busca una cadena traducida similar a CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXXI|RXXE|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|BASE_ACTIVOS_TAC|BASE_INACTIVOS_TAC|Extractos|EstadoCuenta|Despositos|TarjetasCredito|ExtractosFundacion|ExtractosRotativo|ExtractosVivienda|Libranza|Fiducoomeva|Act [resto de la cadena truncado]&quot;;.
+              Busca una cadena traducida similar a CORTE|FECHA|ACTIVACION-PROTECCIONES|HABEASDATA|CARTAS_COBRANZA_HABEAS_DATA_COOMEVA_CORTE|ExtractoFundacion|F99TODOSXX|R99TODOSXX|RXXI|RXXE|SMS|SOAT|E0|Asociados_Inactivos|Extracto_rotativo|EXTV|Fiducoomeva|PAPEXTVIVV|Pinos|BaseEstadoCuentaAsociados|BaseEstadoCuentaTerceros|muestras|PlanoBeneficiosEstadoCuenta|PAPEXTSUBV|Nuevos_Asociados_Fisicos|BASE_ACTIVOS_TAC|BASE_INACTIVOS_TAC|nuevo|Extractos|EstadoCuenta|Despositos|TarjetasCredito|ExtractosFundacion|ExtractosRotativo|ExtractosVivienda|Libranza|Fiducoome [resto de la cadena truncado]&quot;;.
             </summary>
         </member>
     </members>

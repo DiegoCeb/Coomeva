@@ -154,7 +154,9 @@ namespace App.ControlCargueArchivos
         /// <returns>Lista Formateada</returns>
         public List<string> FormatearArchivo(List<string> datosOriginales)
         {
+            #region FormatearArchivo
             List<string> resultado = new List<string>();
+            List<int> posFormateos = new List<int>();
 
             List<string> campos;
             foreach (var linea in datosOriginales)
@@ -164,20 +166,88 @@ namespace App.ControlCargueArchivos
                 switch (campos[0])
                 {
                     case "1":
-                        resultado.Add($"1ROT| |{Helpers.ValidarPipePipe(linea)}");
+                        posFormateos = new List<int>()
+                        {
+                            9, 10
+                        };
+                        resultado.Add($"1ROT| |{Helpers.ValidarPipePipe(ArmarLineaFormateada(posFormateos, new List<string>(linea.Split('|'))))}");
                         break;
                     case "2":
-                        resultado.Add($"1ROB|{Helpers.ValidarPipePipe(linea)}");
+                        posFormateos = new List<int>()
+                        {
+                            4, 5, 6, 7
+                        };
+                        resultado.Add($"1ROB|{Helpers.ValidarPipePipe(ArmarLineaFormateada(posFormateos, new List<string>(linea.Split('|')), "2"))}");
                         break;
                     case "3":
-                        resultado.Add($"1ROC|{Helpers.ValidarPipePipe(linea)}");
+                        posFormateos = new List<int>()
+                        {
+                            1, 2, 3, 4, 5, 6, 7
+                        };
+                        resultado.Add($"1ROC|{Helpers.ValidarPipePipe(ArmarLineaFormateada(posFormateos, new List<string>(linea.Split('|'))))}");
                         break;
                     case "4":
-                        resultado.Add($"1ROD|{Helpers.ValidarPipePipe(linea)}");
+                        posFormateos = new List<int>()
+                        {
+                            1, 2, 3, 4, 5, 6, 7
+                        };
+                        resultado.Add($"1ROD|{Helpers.ValidarPipePipe(ArmarLineaFormateada(posFormateos, new List<string>(linea.Split('|'))))}");
                         break;
                 }
             }
-            return resultado;
+            return resultado; 
+            #endregion
         }
+
+
+        /// <summary>
+        /// Arma la Linea Formateada de la cadena
+        /// </summary>
+        /// <param name="pFormateos">Campos a formatear</param>
+        /// <param name="pDatosLinea">Daots de la linea</param>
+        /// <param name="pTipo"></param>
+        /// <returns>Linea formateada</returns>
+        private string ArmarLineaFormateada(List<int> pFormateos, List<string> pDatosLinea, string pTipo = "0")
+        {
+            #region ArmarLineaFormateada
+            string resultado = string.Empty;
+            string comodin = string.Empty;
+
+            for (int i = 0; i < pDatosLinea.Count; i++)
+            {
+                var dato = pDatosLinea[i];
+
+                if (pFormateos.Contains(i))
+                {
+                    var transformado = Convert.ToDouble(dato.Replace(",", ".")).ToString("N2");
+
+                    switch (pTipo)
+                    {
+                        case "2":
+                            if (i == 5)
+                            {
+                                comodin = string.Empty;
+                            }
+                            else
+                            {
+                                comodin = "$ ";
+                            }
+                            break;
+
+                        default:
+                            comodin = "$ ";
+                            break;
+                    }
+
+                    dato = $"{comodin}{transformado.Substring(0, transformado.LastIndexOf('.')).Replace(",", ".")},{transformado.Substring(transformado.LastIndexOf('.') + 1)}";
+                }
+
+                resultado += $"{dato}|";
+            }
+
+            return resultado.Substring(0, resultado.Length - 1);
+            #endregion
+        }
+
     }
 }

@@ -64,6 +64,7 @@ namespace App.Variables
             CantidadesProducto.CartasCobranzaHabeasData.Diferencia = calcularPorcentaje(CantidadesProducto.CartasCobranzaHabeasData);
             CantidadesProducto.HabeasData.Diferencia = calcularPorcentaje(CantidadesProducto.HabeasData);
             CantidadesProducto.CartasTAC.Diferencia = calcularPorcentaje(CantidadesProducto.CartasTAC);
+            CantidadesProducto.CartasSOAT.Diferencia = calcularPorcentaje(CantidadesProducto.CartasSOAT);
         }
 
         private decimal calcularPorcentaje(CantidadProducto pCantidadProducto)
@@ -136,6 +137,7 @@ namespace App.Variables
         public CantidadProducto CartasCobranzaHabeasData;
         public CantidadProducto HabeasData;
         public CantidadProducto CartasTAC;
+        public CantidadProducto CartasSOAT;
     }
 
     public struct CantidadProducto

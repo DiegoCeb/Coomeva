@@ -184,6 +184,58 @@
             <param name="datosOriginales">Lista orginal</param>
             <returns>Lista Formateada</returns>
         </member>
+        <member name="T:App.ControlCargueArchivos.CartasSOAT">
+            <summary>
+            Clase que se encarga de cargar el archivo de CartasSOAT
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasSOAT.#ctor(System.String)">
+            <summary>
+            Constructor de clase.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasSOAT.#ctor">
+            <summary>
+            Constructor General
+            </summary>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasSOAT.CargueArchivoDiccionario(System.String)">
+            <summary>
+            Metodo Encargado de cargar al diccionario Principal los datos PUROS, solo con limpieza.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasSOAT.Ejecutar(System.String)">
+            <summary>
+            Metodo que desencadena el cargue.
+            </summary>
+            <param name="pArchivo">ruta del archivo a cargar</param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasSOAT.FormatearArchivo(System.Collections.Generic.List{System.String})">
+            <summary>
+            Metodo que Formatea la data para el Sal.
+            </summary>
+            <param name="datosOriginales">Lista orginal</param>
+            <returns>Lista Formateada</returns>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasSOAT.Dispose">
+            <summary>
+            Imlementacion del Dispose para destrir lista del excel.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:App.ControlCargueArchivos.CartasSOAT.Dispose(System.Boolean)">
+            <summary>
+            Imlementacion del Dispose para destrir lista del excel.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:App.ControlCargueArchivos.CartasTAC">
+            <summary>
+            Clase que se encarga de cargar el archivo de CartasTAC
+            </summary>
+        </member>
         <member name="M:App.ControlCargueArchivos.CartasTAC.#ctor(System.String)">
             <summary>
             Constructor de clase.
@@ -458,6 +510,14 @@
             <param name="datosOriginales">Lista orginal</param>
             <returns>Lista Formateada</returns>
         </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosFundacion.ArmarLineaFormateada(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.String})">
+            <summary>
+            Arma la Linea Formateada de la cadena
+            </summary>
+            <param name="pFormateos">Campos a formatear</param>
+            <param name="pDatosLinea">Daots de la linea</param>
+            <returns>Linea formateada</returns>
+        </member>
         <member name="T:App.ControlCargueArchivos.ExtractosRotativo">
             <summary>
             Clase que se encarga de cargar el archivo de ExtractosRotativo
@@ -499,6 +559,15 @@
             </summary>
             <param name="datosOriginales">Lista orginal</param>
             <returns>Lista Formateada</returns>
+        </member>
+        <member name="M:App.ControlCargueArchivos.ExtractosRotativo.ArmarLineaFormateada(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Arma la Linea Formateada de la cadena
+            </summary>
+            <param name="pFormateos">Campos a formatear</param>
+            <param name="pDatosLinea">Daots de la linea</param>
+            <param name="pTipo"></param>
+            <returns>Linea formateada</returns>
         </member>
         <member name="T:App.ControlCargueArchivos.ExtractosVivienda">
             <summary>

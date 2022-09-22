@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DLL_ServicioDelta">
-      <HintPath>..\..\..\..\ARCHIVOS_COOMEVA_APPS_LIBRERIAS\Servicio_Delta\DLL_ServicioDelta.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\Trabajo\ProyectoCoomeva\FASE1\ARCHIVOS_COOMEVA_APPS_LIBRERIAS\Utilidades\Servicio_Delta\DLL_ServicioDelta.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

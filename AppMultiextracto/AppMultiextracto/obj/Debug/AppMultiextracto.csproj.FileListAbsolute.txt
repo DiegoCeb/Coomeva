@@ -111,6 +111,10 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\De
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\FluentFTP.xml
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.csproj.AssemblyReference.cache
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.csproj.CoreCompileInputs.cache
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.csproj.CopyComplete
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.exe
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.csproj.SuggestedBindingRedirects.cache
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\obj\Debug\AppMultiextracto.csproj.CopyComplete
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\DLL_ServicioDelta.dll
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\DLL_ServicioDelta.pdb
+C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\AppMultiextracto\bin\Debug\DLL_ServicioDelta.dll.config

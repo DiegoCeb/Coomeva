@@ -35,12 +35,21 @@ namespace App.ControlProcesos
         /// <summary>
         /// Metodo para desencader el procesamiento
         /// </summary>
-        public void Ejecutar()
+        public void Ejecutar(bool pReproceso = false)
         {
             #region Ejecutar
             CheckListProceso.FechaHoraIncio = DateTime.Now;
             CheckListProceso.UsuarioSesion = Environment.UserName;
             _objProceso.CargueDiccionarioCheckList(this.NumeroOrdenProceso);
+
+            if (pReproceso)
+            {
+                NombreProceso = $"Reproceso Multiextracto Corte {CheckListProceso.Corte} ";
+            }
+            else
+            {
+                NombreProceso = $"Multiextracto Corte {CheckListProceso.Corte} {DateTime.Now.Month} ";
+            }
 
             //if (!_objProceso.DescargaArchivos())
             //{
@@ -49,15 +58,15 @@ namespace App.ControlProcesos
             //    Environment.Exit(1);
             //}
 
-            //Console.WriteLine("---Descargue Correcto de Archivos");
-            //Console.ReadKey();
+            ////Console.WriteLine("---Descargue Correcto de Archivos");
+            ////Console.ReadKey();
 
-            //Creacion carpeta donde se almacenaran los archivos originales del proceso
-            Helpers.RutaOriginales = Directory.CreateDirectory($"{Utilidades.LeerAppConfig("RutaOriginales")}\\{NumeroOrdenProceso}_{DateTime.Now:yyyyMMdd}").FullName;
-            _objProceso.DesencriptarArchivos();
+            ////Creacion carpeta donde se almacenaran los archivos originales del proceso
+            //Helpers.RutaOriginales = Directory.CreateDirectory($"{Utilidades.LeerAppConfig("RutaOriginales")}\\{NumeroOrdenProceso}_{DateTime.Now:yyyyMMdd}").FullName;
+            //_objProceso.DesencriptarArchivos();
 
-            //Console.WriteLine("---Desencriptado Correcto de Archivos");
-            //Console.ReadKey();
+            ////Console.WriteLine("---Desencriptado Correcto de Archivos");
+            //////Console.ReadKey();
 
             if (!_objProceso.VerificacionArchivosEntrada())
             {
@@ -82,15 +91,15 @@ namespace App.ControlProcesos
             //Cargamos Archivos Entrada
             CargueGeneralArchivos(Utilidades.LeerAppConfig(RXGeneral.RutaEntrada));
 
-            //Console.WriteLine("Cambie los datos de la base para pruebas");
-            //Console.ReadKey();
+            Console.WriteLine("Cambie los datos de la base para pruebas");
+            Console.ReadKey();
 
-            //if (!_objProceso.IniciarZonificacion("fisico", $"MutiExtracto{DateTime.Now:yyyyMMdd}"))
-            //{
-            //    Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo (IniciarZonificacion)");
-            //    System.Threading.Thread.Sleep(2000);
-            //    Environment.Exit(1);
-            //}
+            if (!_objProceso.IniciarZonificacion("fisico", NombreProceso))
+            {
+                Console.WriteLine("Existe un problema en la ejecucion revise el log y de ser necesario comuniquelo al ingeniero a cargo (IniciarZonificacion)");
+                System.Threading.Thread.Sleep(2000);
+                Environment.Exit(1);
+            }
 
             Helpers.EscribirVentanaLog("Finalización de Zonificación");
 
@@ -105,14 +114,28 @@ namespace App.ControlProcesos
 
             //Parte Mail, Generar journal PS - Cargue a vault - Cargue journal delta - cargue adjuntos en linea
 
+            #region Pdfs Adicionales
             //preguntar lo de adjuntos en linea antes de seguir par auqe generen los PDFs
 
-            Helpers.EscribirVentanaLog("Inicia Cargue de Proceso Digital");
-            _objProceso.CargueProcesoDigital($"Corte{Orden}_{DateTime.Now:yyyyMMddhhmmss}", Utilidades.LeerAppConfig("CodigoCliente"), 
-                Utilidades.LeerAppConfig("CodigoProcesoVirtual"), Utilidades.LeerAppConfig("CodigoCourier"), Utilidades.LeerAppConfig("ConfiguracionMapeoVirtual"),
-                false/*llevapdfs de adjuntos en linea*/, "ruta de los archivos para cargar en adjuntos en linea", Utilidades.LeerAppConfig("ClienteDoc1"), Utilidades.LeerAppConfig("ProductoDoc1"), Utilidades.LeerAppConfig("TipoSalida"), RutaProcesoVault);
+            Helpers.EscribirVentanaLog("Ingrese la ruta de PDFs adicionales en caso de existir, en caso de no llevar presione 1.");
+            RutaPdfsAdicionales = Console.ReadLine();
 
-            //Proceso SMS
+            if (RutaPdfsAdicionales != "1")
+            {
+                foreach (var archivosAdicionales in Directory.GetFiles(RutaPdfsAdicionales, "*.pdf"))
+                {
+                    if (!PdfsCargarAdjuntosEnLinea.ContainsKey(Path.GetFileNameWithoutExtension(archivosAdicionales)))
+                    {
+                        PdfsCargarAdjuntosEnLinea.Add(Path.GetFileNameWithoutExtension(archivosAdicionales), archivosAdicionales);
+                    }
+                }
+            } 
+            #endregion
+
+            Helpers.EscribirVentanaLog("Inicia Cargue de Proceso Digital");
+            _objProceso.CargueProcesoDigital(NombreProceso, Utilidades.LeerAppConfig("CodigoCliente"), 
+                Utilidades.LeerAppConfig("CodigoProcesoVirtual"), Utilidades.LeerAppConfig("CodigoCourier"), Utilidades.LeerAppConfig("ConfiguracionMapeoVirtual"),
+                true, PdfsCargarAdjuntosEnLinea, Utilidades.LeerAppConfig("ClienteDoc1"), Utilidades.LeerAppConfig("ProductoDoc1"), Utilidades.LeerAppConfig("TipoSalida"), RutaProcesoVault);
 
             // Extraccion de Cantidades
             CheckListProceso.FechaHoraFin = DateTime.Now;
@@ -229,6 +252,7 @@ namespace App.ControlProcesos
             InsumosCarga.Add("EXTRACTO_ROTATIVO", typeof(ExtractosRotativo));
             InsumosCarga.Add("BASE_ACTIVOS_TAC", typeof(CartasTAC));
             InsumosCarga.Add("BASE_INACTIVOS_TAC", typeof(CartasTAC));
+            InsumosCarga.Add("SOAT", typeof(CartasSOAT));
 
             return InsumosCarga;
             #endregion
@@ -250,10 +274,12 @@ namespace App.ControlProcesos
                     {
                         if (pNombreArchivo.ToUpper().Substring(0, 4) == "EXTV")
                         {
+                            //TARJETAS
                             return InsumosCarga["EXTV"];
                         }
                         else
                         {
+                            //VIVIENDA
                             return InsumosCarga["PAPEXTVIVV"];
                         }
                     }
@@ -312,9 +338,10 @@ namespace App.ControlProcesos
             Console.WriteLine("");
             Console.WriteLine("1. Multiextracto");
             Console.WriteLine("");
+            Console.WriteLine("2. Reproceso Multiextracto");
+            Console.WriteLine("");
             Proceso = Console.ReadKey().KeyChar.ToString();
             Console.WriteLine("");
-
 
             switch (Proceso)
             {
@@ -326,6 +353,16 @@ namespace App.ControlProcesos
                     Orden = NumeroOrdenProceso;
                     Console.WriteLine("");
                     Ejecutar();
+                    break;
+
+                case "2":
+                    Console.WriteLine("");
+                    Console.WriteLine("Ingrese el numero de orden del Reproceso:");
+                    Console.WriteLine("");
+                    NumeroOrdenProceso = Console.ReadLine();
+                    Orden = NumeroOrdenProceso;
+                    Console.WriteLine("");
+                    Ejecutar(true);
                     break;
 
                 default:

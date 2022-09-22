@@ -33,12 +33,7 @@ C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\D
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Controlnsumos.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_ServicioDelta.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_Utilidades.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\Excel.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\SharpCompress.dll
-C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\starksoft.aspen.dll
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.pdb
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\App.Variables.xml
 C:\Users\adieg\Documents\GitHub\Coomeva\AppMultiextracto\App.Controlnsumos\bin\Debug\DLL_ServicioDelta.pdb

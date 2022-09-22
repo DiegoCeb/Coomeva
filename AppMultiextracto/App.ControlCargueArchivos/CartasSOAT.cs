@@ -10,11 +10,11 @@ using Helpers = App.Controlnsumos.Helpers;
 namespace App.ControlCargueArchivos
 {
     /// <summary>
-    /// Clase que se encarga de cargar el archivo de CartasTAC
+    /// Clase que se encarga de cargar el archivo de CartasSOAT
     /// </summary>
-    public class CartasTAC : App.Variables.Variables, ICargue, IDisposable
+    public class CartasSOAT : App.Variables.Variables, ICargue, IDisposable
     {
-        private const string _producto = "CartasTAC";
+        private const string _producto = "CartasSOAT";
 
         private bool _disposed = false;
 
@@ -22,9 +22,9 @@ namespace App.ControlCargueArchivos
         /// Constructor de clase.
         /// </summary>
         /// <param name="pArchivo">ruta del archivo a cargar</param>
-        public CartasTAC(string pArchivo)
+        public CartasSOAT(string pArchivo)
         {
-            #region CartasTAC
+            #region CartasSOAT
             try
             {
                 Ejecutar(pArchivo);
@@ -41,13 +41,13 @@ namespace App.ControlCargueArchivos
 
                 Helpers.EscribirLogVentana(StructError, true);
             }
-            #endregion CartasTAC
+            #endregion CartasSOAT
         }
 
         /// <summary>
         /// Constructor General
         /// </summary>
-        public CartasTAC()
+        public CartasSOAT()
         { }
 
         /// <summary>
@@ -60,57 +60,54 @@ namespace App.ControlCargueArchivos
             string linea = string.Empty;
             string llaveCruce = string.Empty;
             List<string> archivo = Helpers.ConvertirExcel(pArchivo);
+            bool encabezado = true;
 
             foreach (string lineaIteracion in archivo)
             {
+                if (encabezado)
+                {
+                    encabezado = false;
+                    continue;
+                }
+
                 linea = lineaIteracion.Replace('"', ' ').Trim();
 
-                if (linea.Split('|')[0].Trim().ToUpper() != "ESTADO")
+                llaveCruce = linea.Split('|').ElementAt(3).Trim();
+
+                if (string.IsNullOrEmpty(llaveCruce))
                 {
-                    llaveCruce = linea.Split('|')[2].Trim();
+                    continue;
+                }
 
-                    if (pArchivo.ToUpper().Contains("BASE_ACTIVOS_TAC"))
-                    {
-                        linea = $"{linea}|Activos";
-                    }
-                    else
-                    {
-                        linea = $"{linea}|Inactivos";
-                    }
-
-
-                    if (!DiccionarioExtractos.ContainsKey(llaveCruce))
-                    {
-                        DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
+                if (!DiccionarioExtractos.ContainsKey(llaveCruce))
+                {
+                    DiccionarioExtractos.Add(llaveCruce, new Dictionary<string, Variables.DatosExtractos>
                             {
                                 {_producto, new Variables.DatosExtractos
                                 {
                                     Separador = '|',
                                     Extracto = new List<string>(){ linea },
-                                    TipoClase = typeof(CartasTAC)
+                                    TipoClase = typeof(CartasSOAT)
                                 }
                                 }
                             });
+                }
+                else
+                {
+                    if (!DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
+                    {
+                        DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
+                        {
+                            Separador = '|',
+                            Extracto = new List<string>() { linea },
+                            TipoClase = typeof(CartasSOAT)
+                        });
                     }
                     else
                     {
-                        if (!DiccionarioExtractos[llaveCruce].ContainsKey(_producto))
-                        {
-                            DiccionarioExtractos[llaveCruce].Add(_producto, new Variables.DatosExtractos
-                            {
-                                Separador = '|',
-                                Extracto = new List<string>() { linea },
-                                TipoClase = typeof(CartasTAC)
-                            });
-                        }
-                        else
-                        {
-                            DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
-                        }
-
+                        DiccionarioExtractos[llaveCruce][_producto].Extracto.Add(linea);
                     }
                 }
-
             }
 
             archivo.Clear();
@@ -128,8 +125,29 @@ namespace App.ControlCargueArchivos
         }
 
         /// <summary>
-        /// Metodo que destruye la lista proveniente del excel
+        /// Metodo que Formatea la data para el Sal.
         /// </summary>
+        /// <param name="datosOriginales">Lista orginal</param>
+        /// <returns>Lista Formateada</returns>
+        public List<string> FormatearArchivo(List<string> datosOriginales)
+        {
+            #region FormatearArchivo
+            List<string> resultado = new List<string>();
+            string linea;
+
+            foreach (var lineaDatos in datosOriginales)
+            {
+                resultado.Add($"1SOA| |{Helpers.ValidarPipePipe(lineaDatos)}");
+            }
+
+            return resultado;
+            #endregion
+        }
+
+        /// <summary>
+        /// Imlementacion del Dispose para destrir lista del excel.
+        /// </summary>
+        /// <param name="disposing"></param>
         public void Dispose()
         {
             #region Dispose
@@ -140,7 +158,6 @@ namespace App.ControlCargueArchivos
             GC.SuppressFinalize(this);
 
             #endregion Dispose
-
         }
 
         /// <summary>
@@ -164,33 +181,5 @@ namespace App.ControlCargueArchivos
             #endregion Dispose
         }
 
-        /// <summary>
-        /// Metodo que Formatea la data para el Sal.
-        /// </summary>
-        /// <param name="datosOriginales">Lista orginal</param>
-        /// <returns>Lista Formateada</returns>
-        public List<string> FormatearArchivo(List<string> datosOriginales)
-        {
-            #region FormatearArchivo
-            List<string> resultado = new List<string>();
-            List<string> campos;
-            string linea;
-            foreach (var lineaDatos in datosOriginales)
-            {
-                linea = Helpers.RemplazarCaracteres(';', '|', lineaDatos);
-                linea = Helpers.TrimCamposLinea('|', linea);
-                campos = linea.Split('|').ToList();
-
-                if (campos[(campos.Count() - 1)] == "Activos")
-                {
-                    campos.Insert(8, " ");
-                }
-                linea = Helpers.ListaCamposToLinea(campos, '|');
-                resultado.Add($"1UUU| |{Helpers.ValidarPipePipe(linea)}");
-            }
-
-            return resultado;
-            #endregion
-        }
     }
 }

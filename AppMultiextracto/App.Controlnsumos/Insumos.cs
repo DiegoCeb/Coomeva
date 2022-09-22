@@ -77,7 +77,6 @@ namespace App.Controlnsumos
                     {"Nuevos_Asociados_Fisicos" , new Variables.CantidadesArchivos { NombreArchivo = "Base Asociados", PesoArchivoMesAnterior = Helpers.GetTamañoHistorico(tamañoUltimoCorte,24) } },
                     {"BASE_ACTIVOS_TAC" , new Variables.CantidadesArchivos { NombreArchivo = "Base Activos Tac", PesoArchivoMesAnterior = Helpers.GetTamañoHistorico(tamañoUltimoCorte,25) } },
                     {"BASE_INACTIVOS_TAC" , new Variables.CantidadesArchivos { NombreArchivo = "Base Inactivos Tac", PesoArchivoMesAnterior = Helpers.GetTamañoHistorico(tamañoUltimoCorte,26) } }
-
             };
         }
 
@@ -113,6 +112,8 @@ namespace App.Controlnsumos
             CheckListProceso.CantidadesProducto.HabeasData.Nombre = "HabeasData";
             CheckListProceso.CantidadesProducto.CartasTAC.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 39);
             CheckListProceso.CantidadesProducto.CartasTAC.Nombre = "CartasTAC";
+            CheckListProceso.CantidadesProducto.CartasSOAT.MesAnterior = Helpers.GetTamañoHistoricoInt(camposUltimoCorte, 40);
+            CheckListProceso.CantidadesProducto.CartasSOAT.Nombre = "CartasSOAT";
         }
     }
 }

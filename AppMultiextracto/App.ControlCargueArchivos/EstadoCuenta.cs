@@ -516,12 +516,12 @@ namespace App.ControlCargueArchivos
                         listaCortes.Add(new PosCortes(57, 0));
                         listaCortes.Add(new PosCortes(67, 0));
 
-                        resultado += $"|{fechaBancoomeva}|{Helpers.ExtraccionCamposSpool(listaCortes, pDatos.ElementAt(0))}| | ";
+                        resultado += $"|{fechaBancoomeva}|{Helpers.ExtraccionCamposSpool(listaCortes, pDatos.ElementAt(0))}|";
                         listaCortes.Clear();
                     }
                     else
                     {
-                        resultado += $"|{fechaBancoomeva} | | | | ";
+                        resultado += $"|{fechaBancoomeva}| | |{BuscarCrucePinos(CedulaProceso)}| ";
                     }
 
                     #endregion
@@ -812,6 +812,19 @@ namespace App.ControlCargueArchivos
 
             return $"{ciudad}|{dpto}";
             #endregion
+        }
+
+
+        private string BuscarCrucePinos(string pCedula)
+        {
+            string resultado = string.Empty;
+
+            if (InsumoPinos.ContainsKey(pCedula))
+            {
+                resultado = InsumoPinos[pCedula].InsumoLinea.FirstOrDefault().Split(';').ElementAt(1).Trim();
+            }
+
+            return resultado;
         }
 
         /// <summary>
